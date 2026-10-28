@@ -35,8 +35,8 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_BASE_PATH: /himal-product-and-services
-          NEXT_PUBLIC_SITE_URL: https://himal2058.github.io/himal-product-and-services
+          NEXT_PUBLIC_BASE_PATH: ""
+          NEXT_PUBLIC_SITE_URL: https://himal2058.github.io
 
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
