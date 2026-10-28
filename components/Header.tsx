@@ -20,7 +20,7 @@ import {
   ShieldCheck, 
   BookOpen 
 } from 'lucide-react';
-import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
+import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
 import { repairServices } from '@/data/repairs';
 import { blogTopics } from '@/data/blogs';
@@ -91,7 +91,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-blue-600 shadow-sm group-hover:scale-105 transition-transform bg-slate-900 flex items-center justify-center">
             <img 
-              src="/logo.jpg" 
+              src={siteAsset("/logo.jpg")} 
               alt="Himal Product and Services Logo" 
               className="w-full h-full object-cover"
             />

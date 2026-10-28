@@ -4,7 +4,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { JsonLd, getOrganizationSchema } from '@/components/JsonLd';
-import { siteConfig } from '@/data/siteConfig';
+import { siteConfig, siteAsset } from '@/data/siteConfig';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -74,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/logo.jpg" />
+        <link rel="icon" href={siteAsset("/logo.jpg")} />
       </head>
       <body className="flex flex-col min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
         <JsonLd data={getOrganizationSchema()} />

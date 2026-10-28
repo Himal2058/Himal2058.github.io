@@ -12,7 +12,7 @@ import {
   CreditCard,
   FileText
 } from 'lucide-react';
-import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
+import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 
 export function Footer() {
   return (
@@ -26,7 +26,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-blue-500 bg-slate-900 flex-shrink-0">
                 <img 
-                  src="/logo.jpg" 
+                  src={siteAsset("/logo.jpg")} 
                   alt="Himal Product and Services Emblem" 
                   className="w-full h-full object-cover"
                 />
@@ -178,7 +178,7 @@ export function Footer() {
               </li>
               <li className="pt-2">
                 <a 
-                  href="/himal-electronics-keyword-mapping.csv"
+                  href={siteAsset("/himal-electronics-keyword-mapping.csv")}
                   download
                   className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300"
                 >

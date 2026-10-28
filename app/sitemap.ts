@@ -5,6 +5,8 @@ import { repairServices } from '@/data/repairs';
 import { blogTopics } from '@/data/blogs';
 import { serviceLocations } from '@/data/locations';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.siteUrl;
 

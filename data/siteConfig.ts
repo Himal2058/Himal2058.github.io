@@ -80,8 +80,14 @@ export const siteConfig: SiteConfig = {
     repairWarranty: "Repair warranty depends on service and replacement component type. Includes pre-handover stress testing and post-repair check guarantee.",
     delivery: "Express local pickup & drop within Itahari, Dharan, Biratnagar & Sundarharaincha; reliable courier delivery service all over Nepal."
   },
-  siteUrl: "https://himalelectronics.com.np"
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://himalelectronics.com.np"
 };
+
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export function siteAsset(path: string): string {
+  return `${publicBasePath}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export function getWhatsAppLink(message: string): string {
   const encoded = encodeURIComponent(message.trim());
