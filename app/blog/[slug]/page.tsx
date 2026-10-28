@@ -21,6 +21,7 @@ import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { JsonLd, getArticleSchema } from '@/components/JsonLd';
+import { contextualInternalLinks } from '@/data/internalLinks';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -64,6 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedArticles = blogTopics
     .filter(b => b.cluster === post.cluster && b.id !== post.id)
     .slice(0, 3);
+  const contextualLink = contextualInternalLinks[post.slug];
 
   const clusterNameMap: Record<string, string> = {
     'mobile-repair': 'Mobile Phone Repair',
@@ -151,7 +153,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Article Body Content */}
         {post.content ? (
-          <article className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-12 prose prose-slate max-w-none text-xs md:text-sm leading-relaxed space-y-6">
+          <article className="bg-white rounded-3xl border border-slate-200 p-7 md:p-12 shadow-sm mb-12 prose prose-slate max-w-none text-sm md:text-base leading-8 space-y-6">
             <div dangerouslySetInnerHTML={{ 
               __html: post.content
                 .replace(/## (.*?)\n/g, '<h2 class="text-2xl font-black text-slate-900 mt-8 mb-3">$1</h2>')
@@ -187,37 +189,28 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        {/* Contextual Internal Link Banner Back to Money Page Cluster */}
-        <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-3xl p-8 mb-12 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
-              Need Professional Assistance?
-            </span>
-            <h3 className="text-xl font-bold">
-              Explore Our Related {clusterNameMap[post.cluster]} in Itahari
-            </h3>
-            <p className="text-xs text-blue-100 max-w-lg">
-              Visit our workshop or contact our team directly for genuine diagnostics and verified products.
-            </p>
-          </div>
-
-          <div className="flex-shrink-0">
-            <Link
-              href={post.parentClusterUrl}
-              className="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold px-6 py-3 rounded-xl text-xs transition shadow-md"
-            >
-              <span>Visit Main Category Hub</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-
         {/* Article-Specific FAQs */}
         {post.faqs && post.faqs.length > 0 && (
           <div className="mb-12">
             <h2 className="text-xl font-bold text-slate-900 mb-6 text-center">Frequently Asked Questions</h2>
             <FAQAccordion faqs={post.faqs} />
           </div>
+        )}
+
+        {contextualLink && (
+          <section className="mb-12 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-9" aria-labelledby="contextual-next-step">
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">A useful next step</p>
+            <h2 id="contextual-next-step" className="mb-3 text-xl font-bold tracking-tight text-slate-950 md:text-2xl">
+              {contextualLink.heading}
+            </h2>
+            <p className="max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
+              {contextualLink.before}
+              <Link href={contextualLink.href} className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900">
+                {contextualLink.anchor}
+              </Link>
+              {contextualLink.after}
+            </p>
+          </section>
         )}
 
         {/* Related Articles in Same Cluster */}

@@ -16,7 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const whatsappMessage = `Hello Himal Product & Services, I am interested in purchasing/inquiring about *${product.name}* (Price: रू ${product.price.toLocaleString('en-IN')}). Is it currently available for store pickup in Itahari or delivery?`;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden group">
+    <div className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-[0_8px_24px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_18px_38px_rgba(15,23,42,0.12)]">
       {/* Product Image Container */}
       <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
         <img 

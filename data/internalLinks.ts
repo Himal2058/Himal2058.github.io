@@ -1,0 +1,201 @@
+export interface ContextualInternalLink {
+  heading: string;
+  before: string;
+  anchor: string;
+  after: string;
+  href: string;
+}
+
+// Curated article-to-service links. Unmapped articles intentionally skip this
+// section when the source topic does not have a strong, useful next step.
+export const contextualInternalLinks: Record<string, ContextualInternalLink> = {
+  "phone-stops-charging-reasons-fixes": {
+    heading: "When phone charging checks point to the port",
+    before: "If a known-good cable and adapter still fail, or the connector only works at an angle, avoid forcing it further. A bench inspection can help distinguish a worn port from a cable or battery issue. See ",
+    anchor: "Mobile Charging Port Repair & Replacement in Itahari",
+    after: " for the symptoms the workshop checks and the repair options available.",
+    href: "/mobile-repair/charging-port-repair",
+  },
+  "phone-screen-damage-repair-guide": {
+    heading: "Choosing the right repair after screen damage",
+    before: "When the image is damaged, touch stops responding, or the frame has taken an impact, a technician can inspect the panel before recommending a replacement. The ",
+    anchor: "Mobile Screen Replacement Services in Itahari, Nepal",
+    after: " page explains the common symptoms and how display options are assessed.",
+    href: "/mobile-repair/screen-replacement",
+  },
+  "phone-battery-drains-quickly-causes-fixes": {
+    heading: "When battery troubleshooting is no longer enough",
+    before: "If app and settings checks do not improve battery life, rapid percentage drops or a swollen cell call for a careful inspection. Review ",
+    anchor: "Phone Battery Replacement in Itahari & Sunsari",
+    after: " to understand the workshop’s battery assessment and replacement process.",
+    href: "/mobile-repair/battery-replacement",
+  },
+  "what-to-check-before-giving-phone-for-repair": {
+    heading: "Know the repair and privacy process before handover",
+    before: "Before leaving a device for service, it helps to understand how diagnosis, customer data, repair approval, and warranty terms are handled. Read the ",
+    anchor: "Mobile Repair Terms & Privacy Policy",
+    after: " before arranging a visit, and keep a backup of important data as a general precaution.",
+    href: "/repair-policy",
+  },
+  "protect-data-before-phone-repair": {
+    heading: "Review privacy terms before booking a repair",
+    before: "A screen or battery repair is a hardware service, but customers should still know how a workshop handles device access and personal information. The ",
+    anchor: "Mobile Repair Terms & Privacy Policy",
+    after: " describes the shop’s stated privacy approach and service terms.",
+    href: "/repair-policy",
+  },
+  "mobile-repair-cost-factors-nepal": {
+    heading: "Get a model-specific repair estimate",
+    before: "The final price depends on the device model, part type, and the fault found during inspection. Use ",
+    anchor: "Mobile Phone Repair Costs in Itahari, Nepal",
+    after: " to review the estimate tool and the factors that can change a repair quote.",
+    href: "/repair-price",
+  },
+  "signs-phone-charging-port-damaged": {
+    heading: "What to do when the charging port shows damage",
+    before: "A loose connector, intermittent charging, or visible corrosion can point to a port problem that needs more than cable replacement. The ",
+    anchor: "Mobile Charging Port Repair & Replacement in Itahari",
+    after: " page outlines the symptoms and inspection options for this fault.",
+    href: "/mobile-repair/charging-port-repair",
+  },
+  "repair-vs-replace-smartphone-guide": {
+    heading: "Compare repair with a replacement phone",
+    before: "When a repair quote approaches the cost of replacing an older device, compare both options against your needs and budget. Browse ",
+    anchor: "Official Mobile Phones & Smartphones in Itahari, Nepal",
+    after: " alongside the repair estimate before deciding what makes sense for you.",
+    href: "/mobile-phones",
+  },
+  "choose-smartphone-everyday-use-nepal": {
+    heading: "Compare phones against your everyday needs",
+    before: "After narrowing down the features that matter most, compare available models by battery, storage, camera, and price. Explore ",
+    anchor: "Official Mobile Phones & Smartphones in Itahari, Nepal",
+    after: " for the current store range and purchase details.",
+    href: "/mobile-phones",
+  },
+  "what-to-consider-budget-smartphone-nepal": {
+    heading: "Compare budget phones before buying",
+    before: "A useful shortlist balances the specifications you need with warranty and total cost. Compare the store’s ",
+    anchor: "Official Mobile Phones & Smartphones in Itahari, Nepal",
+    after: " range before choosing a model.",
+    href: "/mobile-phones",
+  },
+  "smartphone-buying-guide-students-nepal": {
+    heading: "Find a phone that fits student life",
+    before: "For classes, travel, and daily communication, battery life and dependable storage may matter more than headline specifications. Browse ",
+    anchor: "Official Mobile Phones & Smartphones in Itahari, Nepal",
+    after: " to compare available models and ask the store about current options.",
+    href: "/mobile-phones",
+  },
+  "check-phone-warranty-mdms-authenticity-nepal": {
+    heading: "Check warranty coverage before purchase",
+    before: "After verifying a device’s IMEI and registration status, review what proof of purchase and manufacturer coverage you should receive. The ",
+    anchor: "Product Warranty and Returns Policy",
+    after: " explains the store’s stated warranty and return terms for different product categories.",
+    href: "/warranty",
+  },
+  "usbc-cable-types-fast-charging-compatibility": {
+    heading: "Choose a cable and charger that match your device",
+    before: "Once you know the power and data requirements of your phone or laptop, check that the adapter and cable support the same standard. Browse ",
+    anchor: "Fast Wall Chargers & High-Power Cables in Itahari",
+    after: " to compare the accessories available from the store.",
+    href: "/gadgets-accessories/chargers-cables",
+  },
+  "how-to-choose-earbuds-everyday-use": {
+    heading: "Compare earbuds for your listening habits",
+    before: "Fit, microphone quality, battery life, and noise control all affect everyday use. Explore ",
+    anchor: "Wireless TWS Earbuds & Audio in Itahari, Nepal",
+    after: " to see the audio category and available options.",
+    href: "/gadgets-accessories/earbuds-headphones",
+  },
+  "wired-vs-wireless-earphones-considerations": {
+    heading: "Find the right audio option for everyday use",
+    before: "If convenience and calls matter more than a wired connection, compare the fit and features of current wireless models. Browse ",
+    anchor: "Wireless TWS Earbuds & Audio in Itahari, Nepal",
+    after: " to review the store’s audio category.",
+    href: "/gadgets-accessories/earbuds-headphones",
+  },
+  "how-to-choose-bluetooth-speaker-nepal": {
+    heading: "Compare portable speakers by where you will use them",
+    before: "Room size, battery life, portability, and water resistance matter more than wattage alone. Explore ",
+    anchor: "Portable Bluetooth Speakers in Itahari, Nepal",
+    after: " to compare the portable audio options available from the store.",
+    href: "/gadgets-accessories/bluetooth-speakers",
+  },
+  "how-to-select-right-charging-adapter": {
+    heading: "Match an adapter to your phone’s charging standard",
+    before: "Before buying a faster adapter, confirm the phone’s supported protocol and the cable’s rated capacity. See ",
+    anchor: "Fast Wall Chargers & High-Power Cables in Itahari",
+    after: " for the store’s charging accessory category.",
+    href: "/gadgets-accessories/chargers-cables",
+  },
+  "what-to-consider-buying-screen-protector": {
+    heading: "Protect the screen and know your repair options",
+    before: "A protector can help reduce everyday scratches, but it cannot prevent every impact or fix a damaged display. If the screen is already cracked or touch is affected, see ",
+    anchor: "Mobile Screen Replacement Services in Itahari, Nepal",
+    after: " for the workshop’s diagnostic and replacement options.",
+    href: "/mobile-repair/screen-replacement",
+  },
+  "smart-home-guide-beginners-nepal": {
+    heading: "Plan a practical first smart-home setup",
+    before: "Start with the room and routine you want to improve, then check Wi-Fi compatibility and device requirements before buying. Explore ",
+    anchor: "Smart Home Devices & Home Automation in Nepal",
+    after: " to compare the lighting, plug, and camera categories available from the store.",
+    href: "/smart-home",
+  },
+  "smart-bulbs-vs-regular-led-bulbs": {
+    heading: "Compare smart lighting options for your home",
+    before: "If app control and scheduling suit the way you use a room, check the bulb base, Wi-Fi band, and brightness before replacing a standard LED. Browse ",
+    anchor: "Smart Wi-Fi LED Bulbs & Lighting in Itahari, Nepal",
+    after: " for the smart-lighting options available from the store.",
+    href: "/smart-home/smart-bulbs",
+  },
+  "what-to-check-before-buying-smart-plug": {
+    heading: "Check the appliance load before choosing a smart plug",
+    before: "For a heater, geyser, or other high-draw appliance, verify the device’s rated current and follow its safety instructions before connecting a smart plug. Review ",
+    anchor: "16A Heavy-Duty Smart Wi-Fi Plugs for Geysers in Nepal",
+    after: " to see the product category and its stated use.",
+    href: "/smart-home/smart-plugs-switches",
+  },
+  "smart-cameras-features-compare-before-buying": {
+    heading: "Compare camera features for your home",
+    before: "Before choosing a camera, decide where it will be installed and compare resolution, storage, night vision, and privacy controls. Browse ",
+    anchor: "360° 2K Smart Security Wi-Fi Cameras in Itahari",
+    after: " to review the store’s smart-security camera category.",
+    href: "/smart-home/smart-security",
+  },
+  "how-smart-devices-reduce-electricity-bills-nepal": {
+    heading: "Use smart plugs to schedule appliances more deliberately",
+    before: "Scheduling can make it easier to control when compatible appliances run, although actual savings depend on usage and local tariffs. See ",
+    anchor: "16A Heavy-Duty Smart Wi-Fi Plugs for Geysers in Nepal",
+    after: " for the plug category described by the store.",
+    href: "/smart-home/smart-plugs-switches",
+  },
+  "how-to-choose-power-bank-nepal": {
+    heading: "Compare power banks for your devices and travel",
+    before: "Choose capacity and output around the devices you plan to charge, then check the airline rules that apply to your trip. Browse ",
+    anchor: "Fast-Charging Power Banks in Itahari & Nepal",
+    after: " to compare the store’s portable charging options.",
+    href: "/power-banks",
+  },
+  "power-bank-capacity-mah-real-world-use": {
+    heading: "Choose capacity using real-world charging needs",
+    before: "Once you account for voltage conversion losses, compare usable output with the size and charging needs of your phone. The ",
+    anchor: "Fast-Charging Power Banks in Itahari & Nepal",
+    after: " category lists the portable options available from the store.",
+    href: "/power-banks",
+  },
+  "power-bank-vs-wall-charger-battery-health": {
+    heading: "Keep a wall charger and power bank for different situations",
+    before: "A wall charger is convenient at home, while a power bank adds flexibility away from an outlet. Compare the store’s ",
+    anchor: "Fast Wall Chargers & High-Power Cables in Itahari",
+    after: " when choosing a compatible charger for everyday use.",
+    href: "/gadgets-accessories/chargers-cables",
+  },
+  "important-safety-considerations-using-power-bank": {
+    heading: "Replace a power bank that shows signs of damage",
+    before: "Stop using a battery pack that is swollen, unusually hot, or physically damaged, and follow local battery disposal guidance. For a replacement, compare ",
+    anchor: "Fast-Charging Power Banks in Itahari & Nepal",
+    after: " and check the product’s capacity and warranty details.",
+    href: "/power-banks",
+  },
+};

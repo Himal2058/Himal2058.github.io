@@ -45,7 +45,7 @@ export function Header() {
   const hasSearchResults = filteredProducts.length > 0 || filteredRepairs.length > 0 || filteredBlogs.length > 0;
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-[0_6px_24px_rgba(15,23,42,0.04)] backdrop-blur-xl">
       {/* Top Announcement Bar */}
       <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center gap-2">
@@ -92,13 +92,13 @@ export function Header() {
           <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-blue-600 shadow-sm group-hover:scale-105 transition-transform bg-slate-900 flex items-center justify-center">
             <img 
               src={siteAsset("/logo.jpg")} 
-              alt="Himal Product and Services Logo" 
+              alt={`${siteConfig.shortName} logo`}
               className="w-full h-full object-cover"
             />
           </div>
           <div>
             <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tight block leading-tight group-hover:text-blue-600 transition">
-              Himal <span className="text-blue-600">Product & Services</span>
+              {siteConfig.shortName}
             </span>
             <span className="text-xs text-slate-500 font-medium block">
               Electronics Retail & Mobile Repair Hub • Itahari
