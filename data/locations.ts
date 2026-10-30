@@ -21,31 +21,35 @@ export const serviceLocations: ServiceLocation[] = [
     name: "Itahari",
     district: "Sunsari",
     isPrimary: true,
-    distanceFromHub: "Primary Service Hub (0 km)",
-    travelTime: "5 - 15 minutes local transit",
-    heroTitle: "Mobile Repair & Genuine Electronics in Itahari, Sunsari",
-    description: "Itahari is Eastern Nepal's vital crossroads connecting Sunsari, Morang, and Jhapa. Himal Product and Services provides Itahari residents, college students, and business owners with fast mobile repairs (screen, battery, charging ports), official smartphones, smart home automation, and accessories.",
+    distanceFromHub: "10 minutes from Itahari Chowk",
+    travelTime: "Same day delivery",
+    heroTitle: "Repairs and electronics for Itahari",
+    description:
+      "We are ten minutes east of Itahari Chowk on the highway. People come from the college area and the wards around the main junction for screen and battery work, phones, and small smart home devices.",
     localLandmarks: [
-      "Itahari Main Chowk (East-West & North-South highway intersection)",
-      "Bagar Chowk & Traffic Chowk",
-      "Koshi St. James & Itahari International College area",
-      "Gorkha Department Store vicinity"
+      "Itahari Main Chowk",
+      "Bagar Chowk",
+      "Itahari International College area",
+      "Gorkha Department Store area"
     ],
     servicesOffered: [
-      "Express 45-minute mobile screen and battery replacement",
-      "Water damage motherboard diagnostic and ultrasonic cleaning",
-      "Official MDMS-registered smartphones with brand warranties",
-      "Same-day pickup and courier drop service across Itahari municipal wards"
+      "Screen and battery replacement, usually 45 to 90 minutes",
+      "Charging port and water damage work",
+      "Phones with VAT bill and MDMS registration",
+      "Pickup and delivery across the Itahari wards"
     ],
-    deliveryCoverage: "Same-day direct delivery and doorstep repair pickup/drop available across Itahari Wards 1 to 20.",
+    deliveryCoverage:
+      "Same day delivery across Itahari wards 1 to 20. Call before 1:00 PM and it goes out the same afternoon.",
     localFaqs: [
       {
-        question: "Where can I find Himal Product and Services in the Itahari area?",
-        answer: "We are situated in the Sundarharaincha-4 corridor directly adjacent to Itahari along the main highway, easily accessible in 10 minutes from Itahari Chowk with convenient parking."
+        question: "Where exactly is the shop?",
+        answer:
+          "Sundarharaincha-4, Morang, on the main highway about ten minutes east of Itahari Chowk. There is parking in front."
       },
       {
-        question: "Can I get my phone screen repaired on the same day in Itahari?",
-        answer: "Yes! Most common screen and battery replacements for Samsung, Redmi, and iPhone are completed within 45 to 90 minutes."
+        question: "Can a screen be replaced the same day?",
+        answer:
+          "Yes for common Samsung, Redmi and iPhone models. Most take 45 to 90 minutes if the part is in stock."
       }
     ]
   },
@@ -55,26 +59,29 @@ export const serviceLocations: ServiceLocation[] = [
     name: "Sundarharaincha",
     district: "Morang",
     isPrimary: true,
-    distanceFromHub: "Registered Storefront & Workshop Location (Ward 4)",
-    travelTime: "Walk-in local access",
-    heroTitle: "Electronics Store & Repair Workshop in Sundarharaincha-4, Morang",
-    description: "Sundarharaincha is our registered physical workshop and storefront home. Established in 2022, we take pride in serving our local community with genuine electronics, transparent repair bench diagnostics, and friendly service.",
+    distanceFromHub: "Ward 4, on the highway",
+    travelTime: "Walk in",
+    heroTitle: "The shop in Sundarharaincha-4",
+    description:
+      "This is the actual storefront and workshop. Opened in 2022, it has the repair bench at the back and the product shelves at the front. Walk in during shop hours.",
     localLandmarks: [
-      "Sundarharaincha-4 Central Commercial Area",
-      "Gothgaon / Purbanchal University campus corridor",
-      "Salakpur & Biratchowk commercial market"
+      "Sundarharaincha-4 commercial area",
+      "Gothgaon and Purbanchal University road",
+      "Salakpur and Biratchowk"
     ],
     servicesOffered: [
-      "Full hardware diagnostic bench and micro-soldering repairs",
-      "Genuine accessories: GaN chargers, braided cables, earbuds, and power banks",
-      "Home automation advice and smart plug/bulb demonstration",
-      "Local community customer support with direct technician interaction"
+      "Bench diagnostics and board-level repair",
+      "Chargers, cables, earbuds and power banks",
+      "Smart plug and bulb demos at the counter",
+      "Repairs explained by the person doing the work"
     ],
-    deliveryCoverage: "Free immediate pickup and delivery within Sundarharaincha-4 and neighboring wards.",
+    deliveryCoverage:
+      "Free delivery within Sundarharaincha-4 and the neighbouring wards. Orders over रू 2,000 are free.",
     localFaqs: [
       {
-        question: "Are you open on Saturdays for repairs in Sundarharaincha?",
-        answer: "Yes, we are open Saturday from 10:00 AM to 6:00 PM for repair inspections, emergency diagnostic drops, and accessory purchases."
+        question: "Are you open on Saturday?",
+        answer:
+          "Yes, 10:00 to 18:00. Sunday to Friday we open at 9:00 and close at 20:00."
       }
     ]
   },
@@ -84,27 +91,24 @@ export const serviceLocations: ServiceLocation[] = [
     name: "Dharan",
     district: "Sunsari",
     isPrimary: false,
-    distanceFromHub: "18 km North of Itahari Hub",
-    travelTime: "25 - 35 minutes via Koshi Highway",
-    heroTitle: "Mobile Repair Support & Electronics Delivery for Dharan, Sunsari",
-    description: "Located just up the scenic Koshi Highway from Itahari, Dharan is home to BP Koirala Institute of Health Sciences (BPKIHS), engineering campuses, and active tech enthusiasts. We serve Dharan with swift next-day courier delivery, repair coordination, and premium gadget supplies.",
-    localLandmarks: [
-      "Bhanu Chowk Dharan",
-      "BPKIHS Medical Campus",
-      "Purwanchal Campus (IOE Dharan)",
-      "Chhatachowk and Putali Line"
-    ],
+    distanceFromHub: "18 km north of Itahari",
+    travelTime: "Next day delivery",
+    heroTitle: "Repairs and delivery for Dharan",
+    description:
+      "Dharan is up the Koshi Highway from Itahari. We deliver there next day, and you can send a phone in for board work through the local transport counter if you do not want to drive down.",
+    localLandmarks: ["Bhanu Chowk", "BPKIHS campus", "Purwanchal Campus", "Chhatachowk and Putali Line"],
     servicesOffered: [
-      "Drop-off courier repair intake for complex board and screen repairs",
-      "High-power laptop and phone power banks for college students and doctors",
-      "Smart security Wi-Fi cameras for homes and local clinics",
-      "Express parcel shipping to Bhanu Chowk and residential wards"
+      "Courier intake for screen and board repairs",
+      "Power banks for students and hospital staff",
+      "Wi-Fi cameras for homes and small clinics",
+      "Delivery to Bhanu Chowk and the residential wards"
     ],
-    deliveryCoverage: "Next-day fast parcel delivery to all Dharan sub-metropolitan locations.",
+    deliveryCoverage: "Next day parcel delivery to all Dharan wards. Orders before 1:00 PM go out the same afternoon.",
     localFaqs: [
       {
-        question: "How can I send my phone from Dharan for repair?",
-        answer: "You can message us on WhatsApp (+977 9807391472) to book a repair intake. You can either visit our Itahari corridor workshop (a 25-minute drive) or send it safely via local transport counter."
+        question: "How do I send a phone from Dharan?",
+        answer:
+          "Message the shop on WhatsApp. You can drive down, about 25 minutes, or send it through a local transport counter and we will confirm when it arrives."
       }
     ]
   },
@@ -114,27 +118,24 @@ export const serviceLocations: ServiceLocation[] = [
     name: "Biratnagar",
     district: "Morang",
     isPrimary: false,
-    distanceFromHub: "22 km South of Itahari Hub",
-    travelTime: "30 - 40 minutes via 6-lane Koshi Highway",
-    heroTitle: "Electronics Supply & Specialist Mobile Repairs for Biratnagar",
-    description: "Biratnagar is Koshi Province's industrial and commercial capital. Himal Product and Services provides Biratnagar businesses, offices, and residents with certified electronics, smart home automation products, and specialized motherboard repair backup.",
-    localLandmarks: [
-      "Traffic Chowk & Main Road Biratnagar",
-      "Hospital Chowk & Koshi Hospital area",
-      "Tinkuna & Rani corridor",
-      "Biratnagar Airport Road"
-    ],
+    distanceFromHub: "22 km south of Itahari",
+    travelTime: "4 to 6 hours",
+    heroTitle: "Repairs and electronics for Biratnagar",
+    description:
+      "Biratnagar is the commercial centre of Koshi. We deliver there twice a day and take in iPhone and flagship Android work that smaller counters send on to us.",
+    localLandmarks: ["Traffic Chowk", "Hospital Chowk", "Tinkuna and Rani", "Airport Road"],
     servicesOffered: [
-      "Commercial smart plug automation for high-draw appliances and pumps",
-      "Bulk accessory and cable supplies for corporate offices and institutions",
-      "Specialized iPhone and flagship Android display and battery servicing",
-      "Express local courier dispatch along the 6-lane Biratnagar-Itahari highway"
+      "16A smart plugs for pumps and heavy appliances",
+      "Bulk cables and accessories for offices",
+      "iPhone and flagship display and battery work",
+      "Courier runs along the Biratnagar to Itahari highway"
     ],
-    deliveryCoverage: "Daily morning and afternoon courier runs directly to Biratnagar city centers.",
+    deliveryCoverage: "Morning and afternoon courier runs into Biratnagar. Confirmed before 1:00 PM means delivery the same day.",
     localFaqs: [
       {
-        question: "Do you ship electronics orders to Biratnagar?",
-        answer: "Yes! Orders confirmed before 1:00 PM are delivered to Biratnagar within 4 to 6 hours or early next morning."
+        question: "Do you deliver to Biratnagar?",
+        answer:
+          "Yes. Orders confirmed before 1:00 PM reach Biratnagar within 4 to 6 hours, or first thing the next morning."
       }
     ]
   }

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Wrench, ShieldCheck, Clock, MessageSquare, CheckCircle, HelpCircle } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { getWhatsAppLink } from '@/data/siteConfig';
 
 interface BrandOption {
@@ -20,9 +20,9 @@ interface IssueOption {
 }
 
 const BRANDS: BrandOption[] = [
-  { id: 'samsung', name: 'Samsung Galaxy' },
-  { id: 'xiaomi', name: 'Xiaomi / Redmi / Poco' },
-  { id: 'apple', name: 'Apple iPhone' },
+  { id: 'samsung', name: 'Samsung' },
+  { id: 'xiaomi', name: 'Xiaomi / Redmi' },
+  { id: 'apple', name: 'iPhone' },
   { id: 'realme', name: 'Realme' },
   { id: 'vivo', name: 'Vivo' },
   { id: 'oppo', name: 'Oppo' },
@@ -32,48 +32,48 @@ const BRANDS: BrandOption[] = [
 const ISSUES: IssueOption[] = [
   {
     id: 'screen',
-    name: 'Broken Screen / Display Touch Failure',
+    name: 'Cracked screen or touch not working',
     basePriceMin: 1800,
     basePriceMax: 14500,
-    time: '45 – 90 Minutes',
-    warranty: 'Up to 90 Days Touch Warranty',
-    tip: 'If your touch works and inner display has no black ink spots, glass refurbishment may be possible at a lower cost.'
+    time: '45 to 90 minutes',
+    warranty: 'Up to 90 days on touch and display',
+    tip: 'If touch still works and there are no black spots, glass-only replacement may be cheaper.'
   },
   {
     id: 'battery',
-    name: 'Battery Draining Fast / Swollen Battery',
+    name: 'Battery drains fast or is swollen',
     basePriceMin: 1200,
     basePriceMax: 4500,
-    time: '30 – 60 Minutes',
-    warranty: '6 Months Replacement Warranty',
-    tip: 'Stop using or charging the device immediately if the back cover is bulging due to battery swelling.'
+    time: '30 to 60 minutes',
+    warranty: '6 months',
+    tip: 'Stop charging it if the back cover is bulging. A swollen cell is a fire risk.'
   },
   {
     id: 'charging-port',
-    name: 'Loose Charging Port / Mic Problem',
+    name: 'Charging port loose or mic not working',
     basePriceMin: 700,
     basePriceMax: 2500,
-    time: '30 – 45 Minutes',
-    warranty: '30 to 90 Days Warranty',
-    tip: 'We will first inspect the port for compressed pocket lint, which is often cleaned in minutes.'
+    time: '30 to 45 minutes',
+    warranty: '30 to 90 days',
+    tip: 'We check the port for packed pocket lint first. That is often the whole fault.'
   },
   {
     id: 'water-damage',
-    name: 'Water Damage / Dropped in Liquid',
+    name: 'Water damage',
     basePriceMin: 1500,
     basePriceMax: 5500,
-    time: '2 – 24 Hours',
-    warranty: 'Component testing guarantee',
-    tip: 'Do NOT charge the device or place it in rice. Bring it to our workshop for ultrasonic chemical treatment.'
+    time: '2 to 24 hours',
+    warranty: 'Tested after cleaning',
+    tip: 'Do not charge it and do not put it in rice. Bring it in so we can clean the board.'
   },
   {
     id: 'software',
-    name: 'Stuck on Logo / Bootloop / Software Crash',
+    name: 'Bootloop, stuck logo or software crash',
     basePriceMin: 500,
     basePriceMax: 1800,
-    time: '30 – 90 Minutes',
-    warranty: '15 Days Software Stability Warranty',
-    tip: 'We flash authorized stock ROMs to protect your hardware integrity and resolve boot failures.'
+    time: '30 to 90 minutes',
+    warranty: '15 days',
+    tip: 'We flash the stock ROM for your model. Data is backed up first if the phone still boots.'
   }
 ];
 
@@ -85,154 +85,140 @@ export function RepairEstimator() {
   const currentBrand = BRANDS.find(b => b.id === selectedBrand) || BRANDS[0];
   const currentIssue = ISSUES.find(i => i.id === selectedIssue) || ISSUES[0];
 
-  // Adjust estimate based on brand tier (e.g., iPhone / Flagships cost slightly more for parts)
   const brandMultiplier = selectedBrand === 'apple' ? 1.4 : selectedBrand === 'oneplus' ? 1.2 : 1.0;
   const estimatedMin = Math.round((currentIssue.basePriceMin * brandMultiplier) / 100) * 100;
   const estimatedMax = Math.round((currentIssue.basePriceMax * brandMultiplier) / 100) * 100;
 
-  const whatsappMessage = `Hello Himal Product & Services, I am looking for a repair quote from your website.
-- Brand: ${currentBrand.name}
-- Model: ${modelInput.trim() ? modelInput.trim() : 'Unspecified model'}
-- Issue: ${currentIssue.name}
-- Online Estimate: रू ${estimatedMin.toLocaleString('en-IN')} – रू ${estimatedMax.toLocaleString('en-IN')}
-When can I bring my phone to your Itahari workshop for inspection?`;
+  const whatsappMessage = `Hello Himal Product & Services, I would like a repair quote.
+Brand: ${currentBrand.name}
+Model: ${modelInput.trim() ? modelInput.trim() : 'not sure'}
+Fault: ${currentIssue.name}
+Website estimate: रू ${estimatedMin.toLocaleString('en-IN')} to रू ${estimatedMax.toLocaleString('en-IN')}
+When can I bring it in?`;
 
   return (
-    <div className="bg-white rounded-3xl border border-blue-100 shadow-xl overflow-hidden">
-      {/* Header Banner */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-6 md:p-8">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="p-2.5 bg-blue-600/30 rounded-xl border border-blue-400/30">
-            <Wrench className="w-6 h-6 text-blue-400" />
-          </div>
+    <div className="overflow-hidden rounded-card border border-line bg-surface">
+      <div className="border-b border-line px-4 py-4 sm:px-5">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-xl md:text-2xl font-black">
-              Instant Repair Cost Estimator
-            </h3>
-            <p className="text-xs text-blue-200">
-              Transparent, genuine component estimates for Itahari & Sunsari/Morang
+            <p className="text-sm font-semibold text-ink">Get a starting estimate</p>
+            <p className="mt-1 text-sm leading-6 text-muted">
+              Choose the phone brand and the symptom. This is a planning range, not a final invoice.
             </p>
           </div>
+          <span className="chip-accent shrink-0">Free check</span>
         </div>
       </div>
 
-      <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Controls: Selectors */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Brand Selection */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-              1. Select Phone Brand:
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <div className="grid lg:grid-cols-[1.45fr_1fr]">
+        <div className="space-y-6 p-4 sm:p-5">
+          <fieldset>
+            <legend className="mb-2 text-sm font-medium text-ink"><span className="mr-2 text-xs text-muted">1</span>Which brand is it?</legend>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {BRANDS.map(brand => (
-                <button
+                <label
                   key={brand.id}
-                  type="button"
-                  onClick={() => setSelectedBrand(brand.id)}
-                  className={`py-2 px-3 rounded-xl text-xs font-semibold border transition text-left ${
-                    selectedBrand === brand.id
-                      ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
-                      : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
-                  }`}
+                  className="flex min-h-10 cursor-pointer items-center rounded border border-line bg-white px-3 py-2 text-sm text-ink-soft hover:border-line-strong has-[:checked]:border-ink has-[:checked]:bg-canvas has-[:checked]:text-ink has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand-500"
                 >
-                  {brand.name}
-                </button>
+                  <input
+                    type="radio"
+                    name="repair-brand"
+                    value={brand.id}
+                    checked={selectedBrand === brand.id}
+                    onChange={() => setSelectedBrand(brand.id)}
+                    className="sr-only"
+                  />
+                  <span>{brand.name}</span>
+                </label>
               ))}
             </div>
-          </div>
+          </fieldset>
 
-          {/* Model Input (Optional) */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-              2. Exact Model (Optional):
+            <label htmlFor="repair-model" className="mb-2 block text-sm font-medium text-ink">
+              <span className="mr-2 text-xs text-muted">2</span>Model <span className="font-normal text-muted">(optional, helps us narrow the range)</span>
             </label>
-            <input 
-              type="text" 
+            <input
+              id="repair-model"
+              type="text"
               value={modelInput}
-              onChange={(e) => setModelInput(e.target.value)}
-              placeholder="e.g. Galaxy A15, Redmi Note 13, iPhone 12..."
-              className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
+              onChange={e => setModelInput(e.target.value)}
+              placeholder="Galaxy A15, Redmi Note 13, iPhone 12"
+              autoComplete="off"
+              aria-describedby="repair-model-help"
+              className="h-10 w-full rounded border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-line-strong focus:bg-white focus:outline-none"
             />
+            <p id="repair-model-help" className="mt-1 text-xs leading-5 text-muted">
+              You can find the model in Settings, on the box, or on the back of some phones.
+            </p>
           </div>
 
-          {/* Issue Selection */}
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
-              3. Select Fault / Symptom:
-            </label>
-            <div className="space-y-2">
+          <fieldset>
+            <legend className="mb-2 text-sm font-medium text-ink"><span className="mr-2 text-xs text-muted">3</span>What is happening?</legend>
+            <div className="space-y-1">
               {ISSUES.map(issue => (
-                <button
+                <label
                   key={issue.id}
-                  type="button"
-                  onClick={() => setSelectedIssue(issue.id)}
-                  className={`w-full p-3 rounded-xl text-xs font-medium border transition text-left flex items-center justify-between ${
-                    selectedIssue === issue.id
-                      ? 'bg-blue-50 text-blue-900 border-blue-500 font-bold'
-                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                  }`}
+                  className="flex min-h-10 cursor-pointer items-center justify-between gap-3 rounded border border-line bg-white px-3 py-2 text-sm text-ink-soft hover:border-line-strong has-[:checked]:border-ink has-[:checked]:bg-canvas has-[:checked]:text-ink has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-brand-500"
                 >
                   <span>{issue.name}</span>
-                  {selectedIssue === issue.id && (
-                    <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0 ml-2" />
-                  )}
-                </button>
+                  <input
+                    type="radio"
+                    name="repair-issue"
+                    value={issue.id}
+                    checked={selectedIssue === issue.id}
+                    onChange={() => setSelectedIssue(issue.id)}
+                    className="sr-only"
+                  />
+                </label>
               ))}
             </div>
-          </div>
+          </fieldset>
         </div>
 
-        {/* Right Panel: Estimated Output & Direct Booking */}
-        <div className="lg:col-span-5 bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+        <div className="flex flex-col justify-between gap-4 border-t border-line bg-canvas p-4 sm:p-5 lg:border-l lg:border-t-0">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 block mb-1">
-              Estimated Service Range
-            </span>
-            <div className="text-3xl font-black text-slate-900 mb-1">
-              रू {estimatedMin.toLocaleString('en-IN')} – रू {estimatedMax.toLocaleString('en-IN')}
-            </div>
-            <p className="text-xs text-slate-500 mb-6">
-              *Exact cost verified upon free bench inspection depending on exact model display grade.
+            <p className="text-sm text-muted">Estimated range</p>
+            <p className="mt-1 text-2xl font-semibold tabular-nums text-ink" aria-live="polite">
+              रू {estimatedMin.toLocaleString('en-IN')}
+              <span className="mx-1 text-muted">to</span>
+              रू {estimatedMax.toLocaleString('en-IN')}
+            </p>
+            <p className="mt-1 text-sm leading-6 text-muted">
+              Parts, model, and damage level can move this figure. We confirm the exact price first.
             </p>
 
-            <div className="space-y-3.5 mb-6 text-xs text-slate-700">
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>
-                  <strong>Turnaround Time:</strong> {currentIssue.time}
-                </span>
+            <dl className="mt-4 space-y-2 border-t border-line pt-3 text-sm">
+              <div className="flex items-start justify-between gap-4">
+                <dt className="text-muted">Time</dt>
+                <dd className="text-right text-ink">{currentIssue.time}</dd>
               </div>
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>
-                  <strong>Warranty:</strong> {currentIssue.warranty}
-                </span>
+              <div className="flex items-start justify-between gap-4">
+                <dt className="text-muted">Warranty</dt>
+                <dd className="text-right text-ink">{currentIssue.warranty}</dd>
               </div>
-            </div>
+            </dl>
 
-            <div className="bg-white p-3.5 rounded-xl border border-slate-200 mb-6 text-xs text-slate-600">
-              <div className="flex items-start gap-2">
-                <HelpCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                <span><strong>Technician Note:</strong> {currentIssue.tip}</span>
-              </div>
+            <p className="mt-3 text-xs leading-5 text-muted">{currentIssue.tip}</p>
+
+            <div className="mt-4 rounded border border-brand-200 bg-brand-50 p-3">
+              <p className="text-xs font-semibold text-brand-900">What happens next?</p>
+              <p className="mt-1 text-xs leading-5 text-brand-800">
+                Send the estimate, bring the phone in, and we will inspect it. We explain the final price
+                before opening the device. You are free to say no.
+              </p>
             </div>
           </div>
 
-          <div>
-            <a
-              href={getWhatsAppLink(whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-4 rounded-xl font-bold text-sm shadow-md transition"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Book Inspection on WhatsApp</span>
-            </a>
-            <p className="text-[11px] text-center text-slate-400 mt-2">
-              Free diagnosis • 100% Personal Data Privacy Guarantee
-            </p>
-          </div>
+          <a
+            href={getWhatsAppLink(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary w-full"
+          >
+            <MessageSquare className="size-4" aria-hidden="true" />
+            <span>Send this to the shop</span>
+          </a>
         </div>
       </div>
     </div>

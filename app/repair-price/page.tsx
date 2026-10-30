@@ -1,179 +1,221 @@
 import React from 'react';
 import Link from 'next/link';
-import { 
-  Wrench, 
-  ShieldCheck, 
-  Clock, 
-  HelpCircle, 
-  ArrowRight, 
-  MessageSquare, 
-  Phone,
-  Calculator,
-  CheckCircle2,
-  FileText
-} from 'lucide-react';
-import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
+import { AlertCircle } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { RepairEstimator } from '@/components/RepairEstimator';
 import { FAQAccordion } from '@/components/FAQAccordion';
+import { CtaBand } from '@/components/CtaBand';
 import { JsonLd, getServiceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Mobile Phone Repair Price List in Itahari Nepal (2026)',
-  description: 'Transparent mobile phone repair cost guide for Itahari, Sunsari & Morang. Check display replacement, battery swap, and charging port prices with warranty.'
+  title: 'Repair Prices | Phone Screen, Battery and Port Repair',
+  description:
+    'Repair price ranges for phone screens, batteries, charging ports and water damage in Itahari. Free check, price agreed before work starts.'
 };
+
+const benchmarks = [
+  {
+    service: 'Screen replacement',
+    price: 'रू 1,800 to 14,500',
+    turnaround: '45 to 90 minutes',
+    warranty: 'Up to 90 days on touch and display'
+  },
+  {
+    service: 'Battery replacement',
+    price: 'रू 1,200 to 4,500',
+    turnaround: '30 to 60 minutes',
+    warranty: '6 months'
+  },
+  {
+    service: 'Charging port repair',
+    price: 'रू 700 to 2,500',
+    turnaround: '30 to 45 minutes',
+    warranty: '30 to 90 days'
+  },
+  {
+    service: 'Water damage cleaning',
+    price: 'रू 1,500 to 5,500',
+    turnaround: '2 to 24 hours',
+    warranty: 'Tested before handover'
+  },
+  {
+    service: 'Earpiece or loudspeaker',
+    price: 'रू 600 to 2,200',
+    turnaround: '30 to 45 minutes',
+    warranty: '30 days'
+  },
+  {
+    service: 'Software flash and bootloop',
+    price: 'रू 500 to 1,800',
+    turnaround: '30 to 90 minutes',
+    warranty: '15 days'
+  }
+];
+
+const priceFactors = [
+  {
+    title: 'Which panel you choose',
+    copy: 'An original AMOLED assembly costs much more than a good LCD. We give you both prices before ordering.'
+  },
+  {
+    title: 'How new the phone is',
+    copy: 'Newer models use bonded assemblies and in-screen sensors, so the part costs more and the job takes longer.'
+  },
+  {
+    title: 'What the price covers',
+    copy: 'Part, labour, adhesive and the written warranty slip. There is no separate fitting charge.'
+  }
+];
 
 export default function RepairPricePage() {
   const priceFaqs = [
     {
-      question: "Why is an AMOLED screen replacement more expensive than an LCD?",
-      answer: "AMOLED and Super AMOLED panels use individual organic light-emitting diodes, offering deep true blacks, vibrant colors, and in-display fingerprint scanner integration. LCD displays use a thicker LED backlight layer, making them cheaper to manufacture."
+      question: 'Why does an AMOLED screen cost more than an LCD?',
+      answer:
+        'AMOLED panels are thinner, brighter and carry the in-screen fingerprint sensor, so the part costs more. An LCD is cheaper but usually not an option if your phone came with AMOLED.'
     },
     {
-      question: "Do you charge an inspection fee if my phone is not repairable?",
-      answer: "No. Initial diagnostic bench inspection is free. If your device has unfixable multi-rail motherboard damage or water corrosion that makes repair uneconomical, you pay nothing."
+      question: 'Do you charge a check fee if the phone cannot be repaired?',
+      answer:
+        'No. The first check is free. If the board damage is too deep to make the repair worthwhile, we say so and you pay nothing.'
     },
     {
-      question: "Does the quoted price include installation and labor?",
-      answer: "Yes! All prices quoted on our calculator and in our workshop include the replacement hardware part, technician labor, thermal adhesive clamping, and written warranty."
+      question: 'Is labour included in these prices?',
+      answer:
+        'Yes. The range covers the part, the labour and the warranty. The only thing that changes it is your exact model and the grade of part you pick.'
     }
   ];
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <JsonLd 
+    <div className="pb-12 md:pb-16">
+      <JsonLd
         data={getServiceSchema({
-          title: "Mobile Phone Repair Price Calculator in Itahari",
-          description: "Transparent cost estimator for smartphone screen, battery, and charging port repairs in Itahari, Nepal.",
-          url: "/repair-price",
-          priceRange: "रू 500 - रू 14500"
-        })} 
+          title: 'Mobile Phone Repair Prices in Itahari',
+          description:
+            'Price ranges for smartphone screen, battery and charging port repairs in Itahari, Nepal.',
+          url: '/repair-price',
+          priceRange: 'रू 500 - रू 14500'
+        })}
       />
 
-      <div className="container mx-auto px-4 max-w-5xl">
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[
-          { name: 'Mobile Repair', url: '/mobile-repair' },
-          { name: 'Repair Pricing Guide', url: '/repair-price' }
-        ]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs
+          items={[
+            { name: 'Mobile repair', url: '/mobile-repair' },
+            { name: 'Repair prices', url: '/repair-price' }
+          ]}
+        />
+      </div>
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-            <Calculator className="w-3.5 h-3.5" />
-            <span>2026 Transparent Pricing Guide</span>
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Mobile Phone Repair Costs in Itahari, Nepal
-          </h1>
-          <p className="text-sm md:text-base text-slate-600 mt-3 leading-relaxed">
-            No surprise invoices or arbitrary quotes. Use our interactive repair calculator below to find the estimated replacement cost and turnaround timeframe for your smartphone.
+      {/* Header */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">Repair prices</h1>
+          <p className="lede mt-3 max-w-2xl">
+            Rough ranges for the work we do most. The exact figure depends on your model and the part you
+            choose, and it is agreed with you before anything is opened.
           </p>
         </div>
+      </section>
 
-        {/* Embedded Interactive Estimator */}
-        <div className="mb-14">
+      {/* Estimator */}
+      <section className="container-page pt-8">
+        <h2 className="heading-3">Estimate a repair</h2>
+        <p className="mt-1 max-w-2xl text-sm leading-6 text-muted">
+          Pick a brand and a fault to narrow the range.
+        </p>
+        <div className="mt-4">
           <RepairEstimator />
         </div>
+      </section>
 
-        {/* Comprehensive Reference Price Table */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-xl font-bold text-slate-900">Standard Hardware Repair Benchmarks</h2>
-              <p className="text-xs text-slate-500">Representative price ranges for popular brands in Koshi Province</p>
-            </div>
-            <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              Updated October 2026
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs md:text-sm text-left">
-              <thead className="bg-slate-100 text-slate-700 font-bold uppercase text-[11px]">
-                <tr>
-                  <th className="py-3 px-4 rounded-l-lg">Repair Service</th>
-                  <th className="py-3 px-4">Estimated Range (NPR)</th>
-                  <th className="py-3 px-4">Typical Turnaround</th>
-                  <th className="py-3 px-4 rounded-r-lg">Included Warranty</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Phone Screen Replacement (Glass / Display)</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 1,800 – रू 14,500</td>
-                  <td className="py-3 px-4">45 – 90 Minutes</td>
-                  <td className="py-3 px-4">Up to 90 Days Touch Warranty</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Fresh Battery Replacement (High-Density Cell)</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 1,200 – रू 4,500</td>
-                  <td className="py-3 px-4">30 – 60 Minutes</td>
-                  <td className="py-3 px-4">6 Months Replacement Warranty</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Charging Port & Sub-Board Repair</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 700 – रू 2,500</td>
-                  <td className="py-3 px-4">30 – 45 Minutes</td>
-                  <td className="py-3 px-4">30 to 90 Days Warranty</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Water Damage Ultrasonic Treatment</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 1,500 – रू 5,500</td>
-                  <td className="py-3 px-4">2 – 24 Hours</td>
-                  <td className="py-3 px-4">Bench Testing Guarantee</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Earpiece Speaker & Loudspeaker Repair</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 600 – रू 2,200</td>
-                  <td className="py-3 px-4">30 – 45 Minutes</td>
-                  <td className="py-3 px-4">30 Days Warranty</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-semibold text-slate-900">Firmware Flashing & Bootloop Fix</td>
-                  <td className="py-3 px-4 text-blue-600 font-bold">रू 500 – रू 1,800</td>
-                  <td className="py-3 px-4">30 – 90 Minutes</td>
-                  <td className="py-3 px-4">15 Days Stability Warranty</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      {/* Benchmarks */}
+      <section className="container-page pt-10">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
+          <h2 className="heading-3">Price list</h2>
+          <p className="text-xs text-muted">Updated October 2026</p>
         </div>
 
-        {/* Price FAQs */}
-        <div className="mb-14">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-black text-slate-900">Repair Pricing FAQs</h2>
-          </div>
+        <div className="mt-4 overflow-x-auto rounded-card border border-line bg-surface">
+          <table className="w-full min-w-[36rem] text-left text-sm">
+            <caption className="sr-only">Repair price ranges in Nepali rupees</caption>
+            <thead>
+              <tr className="border-b border-line bg-canvas">
+                <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted">
+                  Repair
+                </th>
+                <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted">
+                  Range (NPR)
+                </th>
+                <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted">
+                  Time
+                </th>
+                <th scope="col" className="px-4 py-2.5 text-xs font-medium text-muted">
+                  Warranty
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-line">
+              {benchmarks.map(row => (
+                <tr key={row.service}>
+                  <th scope="row" className="px-4 py-3 text-sm font-medium text-ink">
+                    {row.service}
+                  </th>
+                  <td className="whitespace-nowrap px-4 py-3 tabular-nums text-ink">{row.price}</td>
+                  <td className="px-4 py-3 text-muted">{row.turnaround}</td>
+                  <td className="px-4 py-3 text-muted">{row.warranty}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mt-3 flex items-start gap-2 text-sm leading-6 text-muted">
+          <AlertCircle className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+          <span>
+            These are ranges, not quotes. A cracked screen on a five-year-old phone and on a new flagship
+            are very different jobs.
+          </span>
+        </p>
+      </section>
+
+      {/* What affects price */}
+      <section className="container-page pt-10">
+        <h2 className="heading-3">What changes the price</h2>
+        <div className="mt-3 divide-y divide-line border-y border-line">
+          {priceFactors.map(factor => (
+            <div key={factor.title} className="py-3">
+              <h3 className="text-sm font-medium text-ink">{factor.title}</h3>
+              <p className="mt-1 text-sm leading-6 text-muted">{factor.copy}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
+          <Link href="/repair-policy" className="text-brand-700 hover:underline hover:underline-offset-2">
+            Repair policy
+          </Link>
+          <Link href="/warranty" className="text-brand-700 hover:underline hover:underline-offset-2">
+            Warranty terms
+          </Link>
+          <span className="text-muted">Most repairs finish the same day.</span>
+        </p>
+      </section>
+
+      {/* FAQs */}
+      <section className="container-page pt-10">
+        <h2 className="heading-3">Pricing questions</h2>
+        <div className="mt-3 max-w-3xl">
           <FAQAccordion faqs={priceFaqs} />
         </div>
+      </section>
 
-        {/* CTA */}
-        <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-3xl p-8 text-center space-y-4">
-          <h2 className="text-2xl font-black">Want an Exact Quote for Your Model?</h2>
-          <p className="text-xs md:text-sm text-blue-100 max-w-xl mx-auto">
-            Send our technicians your phone model name and photo of the issue on WhatsApp for an immediate quotation.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <a
-              href={getWhatsAppLink("Hello Himal Product & Services, I would like an exact repair quote for my phone:")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl text-xs transition"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Send Model Info on WhatsApp</span>
-            </a>
-            <a
-              href={`tel:${siteConfig.phoneRaw}`}
-              className="inline-flex items-center gap-2 bg-white text-blue-900 hover:bg-blue-50 font-bold px-6 py-3 rounded-xl text-xs transition"
-            >
-              <Phone className="w-4 h-4 text-green-600" />
-              <span>Call +977 9807391472</span>
-            </a>
-          </div>
-        </div>
-
+      <div className="mt-10">
+        <CtaBand
+          title="Want a firm price for your model?"
+          description="Send the model and a photo of the problem on WhatsApp. We will reply with the part options and the final price."
+          whatsappMessage="Hello Himal Product & Services, I would like an exact repair quote. My phone model and fault are: "
+        />
       </div>
     </div>
   );

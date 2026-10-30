@@ -1,36 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { 
-  BookOpen, 
-  Clock, 
-  Calendar, 
-  ArrowLeft, 
-  ArrowRight, 
-  CheckCircle2, 
-  HelpCircle, 
-  Wrench, 
-  Smartphone, 
-  MessageSquare, 
-  Phone,
-  Share2,
-  List
+import {
+  Clock,
+  Calendar,
+  ArrowLeft,
+  MessageSquare,
+  List,
+  PenLine
 } from 'lucide-react';
 import { blogTopics, getBlogBySlug } from '@/data/blogs';
-import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FAQAccordion } from '@/components/FAQAccordion';
+import { GuideCard } from '@/components/GuideCard';
+import { CtaBand } from '@/components/CtaBand';
 import { JsonLd, getArticleSchema } from '@/components/JsonLd';
 import { contextualInternalLinks } from '@/data/internalLinks';
+import { renderMarkdownLite } from '@/lib/markdown';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
+const clusterNames: Record<string, string> = {
+  'mobile-repair': 'Mobile repair',
+  'mobile-phones': 'Smartphones',
+  'gadgets-accessories': 'Gadgets & accessories',
+  'smart-home': 'Smart home',
+  'power-banks': 'Power banks'
+};
+
 export async function generateStaticParams() {
-  return blogTopics.map(post => ({
-    slug: post.slug
-  }));
+  return blogTopics.map(post => ({ slug: post.slug }));
 }
 
 export const dynamicParams = false;
@@ -40,11 +42,11 @@ export async function generateMetadata({ params }: Props) {
   const post = getBlogBySlug(slug);
 
   if (!post) {
-    return { title: 'Article Not Found' };
+    return { title: 'Article not found' };
   }
 
   return {
-    title: `${post.title} | Himal Electronics Guides`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -63,199 +65,242 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const relatedArticles = blogTopics
-    .filter(b => b.cluster === post.cluster && b.id !== post.id)
+    .filter(item => item.cluster === post.cluster && item.id !== post.id)
     .slice(0, 3);
   const contextualLink = contextualInternalLinks[post.slug];
+  const clusterLabel = clusterNames[post.cluster] ?? post.cluster;
 
-  const clusterNameMap: Record<string, string> = {
-    'mobile-repair': 'Mobile Phone Repair',
-    'mobile-phones': 'Smartphones',
-    'gadgets-accessories': 'Gadgets & Accessories',
-    'smart-home': 'Smart Home Automation',
-    'power-banks': 'Power Banks & Charging'
-  };
+  const outline = (
+    <ol className="space-y-2.5">
+      {post.outline.map((item, index) => (
+        <li key={item} className="flex gap-2.5 text-sm leading-6 text-muted">
+          <span className="mt-0.5 font-display text-[11px] font-semibold tabular-nums text-brand-700">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ol>
+  );
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <JsonLd 
+    <div className="pb-12 md:pb-16">
+      <JsonLd
         data={getArticleSchema({
           title: post.title,
           description: post.excerpt,
           slug: post.slug,
           publishedDate: post.publishedDate,
           image: post.image
-        })} 
+        })}
       />
 
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[
-          { name: 'Guides & Blog', url: '/blog' },
-          { name: post.title, url: `/blog/${post.slug}` }
-        ]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs
+          items={[
+            { name: 'Guides & blog', url: '/blog' },
+            { name: post.title, url: `/blog/${post.slug}` }
+          ]}
+        />
+      </div>
 
-        {/* Article Header Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-10">
-          <div className="flex flex-wrap items-center gap-3 text-xs mb-4">
-            <span className="font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
-              {clusterNameMap[post.cluster] || post.cluster}
-            </span>
-            <span className="text-slate-400">•</span>
-            <span className="text-slate-500 flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{post.publishedDate}</span>
-            </span>
-            <span className="text-slate-400">•</span>
-            <span className="text-slate-500 flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" />
-              <span>{post.readTime}</span>
-            </span>
-          </div>
-
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
-            {post.h1}
-          </h1>
-
-          <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-6">
-            {post.excerpt}
+      <div className="container-page pt-6">
+        {/* Article header */}
+        <header className="max-w-3xl">
+          <p className="text-sm text-muted">
+            <Link href={post.parentClusterUrl} className="hover:text-brand-700 hover:underline hover:underline-offset-2">
+              {clusterLabel}
+            </Link>
           </p>
 
-          <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-            <span>Author: <strong>Himal Product & Services Technical Desk</strong></span>
-            <span>Target Audience: {post.targetAudience}</span>
-          </div>
-        </div>
+          <h1 className="display-1 mt-2 text-balance">{post.h1}</h1>
+          <p className="lede mt-3">{post.excerpt}</p>
 
-        {/* Main Article Image */}
-        <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-md mb-10 aspect-video bg-slate-100">
-          <img 
-            src={post.image} 
-            alt={post.title} 
-            className="w-full h-full object-cover"
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 border-y border-line py-2.5 text-xs text-muted">
+            <span className="inline-flex items-center gap-1.5">
+              <PenLine className="size-3.5" aria-hidden="true" />
+              Himal technical desk
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Calendar className="size-3.5" aria-hidden="true" />
+              {post.publishedDate}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="size-3.5" aria-hidden="true" />
+              {post.readTime}
+            </span>
+          </div>
+        </header>
+
+        {/* Hero image */}
+        <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-card border border-line bg-white">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            priority
+            sizes="(min-width: 1024px) 70vw, 100vw"
+            className="object-cover"
           />
         </div>
 
-        {/* Table of Contents / Outline Card */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm mb-10">
-          <h2 className="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
-            <List className="w-4 h-4 text-blue-600" />
-            <span>Table of Contents & Core Topics</span>
-          </h2>
-          <ul className="space-y-2 text-xs md:text-sm text-slate-600">
-            {post.outline.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-blue-500 font-bold">{idx + 1}.</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Mobile outline */}
+        <details className="mt-5 rounded-card border border-line bg-surface p-4 lg:hidden">
+          <summary className="flex cursor-pointer items-center gap-2 text-sm font-medium text-ink">
+            <List className="size-4 text-muted" aria-hidden="true" />
+            <span>Guide outline ({post.outline.length} sections)</span>
+          </summary>
+          <div className="mt-3 border-t border-line pt-3">{outline}</div>
+        </details>
 
-        {/* Article Body Content */}
-        {post.content ? (
-          <article className="bg-white rounded-3xl border border-slate-200 p-7 md:p-12 shadow-sm mb-12 prose prose-slate max-w-none text-sm md:text-base leading-8 space-y-6">
-            <div dangerouslySetInnerHTML={{ 
-              __html: post.content
-                .replace(/## (.*?)\n/g, '<h2 class="text-2xl font-black text-slate-900 mt-8 mb-3">$1</h2>')
-                .replace(/### (.*?)\n/g, '<h3 class="text-xl font-bold text-slate-900 mt-6 mb-2">$1</h3>')
-                .replace(/#### (.*?)\n/g, '<h4 class="text-lg font-bold text-slate-800 mt-4 mb-2">$1</h4>')
-                .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="font-bold text-blue-600 hover:text-blue-800 underline decoration-blue-300 underline-offset-2">$1</a>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-900">$1</strong>')
-                .replace(/\n\n/g, '<br/><br/>')
-            }} />
-          </article>
-        ) : (
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-12 space-y-6 text-xs md:text-sm text-slate-700 leading-relaxed">
-            <div className="p-4 bg-blue-50 border border-blue-200 rounded-2xl">
-              <p className="font-bold text-blue-900 text-sm mb-1">Key Diagnostic Summary:</p>
-              <p className="text-blue-800">{post.problemSolved}</p>
-            </div>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          {/* Main column */}
+          <div className="min-w-0">
+            {post.content ? (
+              <div
+                className="prose-page"
+                dangerouslySetInnerHTML={{ __html: renderMarkdownLite(post.content) }}
+              />
+            ) : (
+              <div className="space-y-6">
+                <div className="rounded-card border border-line bg-surface p-4">
+                  <p className="text-sm font-semibold text-ink">The short answer</p>
+                  <p className="mt-1 text-sm leading-6 text-ink-soft">{post.problemSolved}</p>
+                </div>
 
-            <h2 className="text-xl font-bold text-slate-900">Comprehensive Topic Breakdown</h2>
-            <p>
-              This technical guide provides verified procedures and advice formulated by the certified technicians at <strong>Himal Product and Services in Itahari</strong>. Follow the outlined sections below when testing hardware or selecting equipment in Nepal.
-            </p>
-
-            <div className="space-y-4">
-              {post.outline.map((step, idx) => (
-                <div key={idx} className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                  <h3 className="font-bold text-slate-900 text-sm mb-1">{idx + 1}. {step}</h3>
-                  <p className="text-slate-600 text-xs">
-                    Detailed technical guidance reflecting local electrical and network conditions across Sunsari and Morang.
+                <div className="prose-page">
+                  <h2>What to know before you decide</h2>
+                  <p>
+                    The notes below are the same questions we use at the counter. Start with the simple
+                    checks, write down the device model, and avoid forcing a connector or opening a sealed
+                    battery if the problem is getting worse.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
 
-        {/* Article-Specific FAQs */}
-        {post.faqs && post.faqs.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-6 text-center">Frequently Asked Questions</h2>
-            <FAQAccordion faqs={post.faqs} />
-          </div>
-        )}
+                <ol className="space-y-3">
+                  {post.outline.map((item, index) => (
+                    <li key={item} className="flex gap-3 border-b border-line pb-3">
+                      <span className="text-sm font-semibold tabular-nums text-muted">{index + 1}.</span>
+                      <div>
+                        <p className="text-sm font-semibold text-ink">{item}</p>
+                        <p className="mt-1 text-sm leading-6 text-muted">
+                          We check this early because it separates a quick adjustment from a part that needs
+                          testing. Bring the model number or a clear photo if you are unsure what you are seeing.
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
 
-        {contextualLink && (
-          <section className="mb-12 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm md:p-9" aria-labelledby="contextual-next-step">
-            <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-700">A useful next step</p>
-            <h2 id="contextual-next-step" className="mb-3 text-xl font-bold tracking-tight text-slate-950 md:text-2xl">
-              {contextualLink.heading}
-            </h2>
-            <p className="max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
-              {contextualLink.before}
-              <Link href={contextualLink.href} className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-900">
-                {contextualLink.anchor}
-              </Link>
-              {contextualLink.after}
-            </p>
-          </section>
-        )}
-
-        {/* Related Articles in Same Cluster */}
-        {relatedArticles.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-6">Related Articles in this Topic Cluster</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedArticles.map(rel => (
-                <div key={rel.id} className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                  <div>
-                    <span className="text-[10px] text-blue-600 font-bold uppercase tracking-wider block mb-1">
-                      {rel.intent}
-                    </span>
-                    <Link href={`/blog/${rel.slug}`}>
-                      <h4 className="font-bold text-slate-900 text-sm hover:text-blue-600 transition line-clamp-2 mb-2">
-                        {rel.title}
-                      </h4>
-                    </Link>
-                    <p className="text-xs text-slate-600 line-clamp-2">
-                      {rel.excerpt}
-                    </p>
-                  </div>
-                  <div className="pt-3 border-t border-slate-100 mt-3">
-                    <Link href={`/blog/${rel.slug}`} className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
-                      <span>Read Guide</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
+                <div className="prose-page">
+                  <h2>How we handle it in the workshop</h2>
+                  <p>
+                    We begin with a visual check and a short diagnostic. You get the likely cause, the repair
+                    option, and an estimate before any paid work starts. If a part has to be ordered, we tell
+                    you the expected arrival time instead of keeping the phone without an update.
+                  </p>
+                  <p>
+                    After the repair, we test the original symptom and the nearby functions that could be
+                    affected, such as touch, charging, microphone, camera, or wireless connection. The exact
+                    warranty depends on the part and service, and it is written on your receipt.
+                  </p>
                 </div>
-              ))}
+              </div>
+            )}
+
+            {/* FAQs */}
+            {post.faqs && post.faqs.length > 0 && (
+              <section className="mt-10">
+                <h2 className="heading-3">Common questions</h2>
+                <div className="mt-3">
+                  <FAQAccordion faqs={post.faqs} />
+                </div>
+              </section>
+            )}
+
+            {/* Contextual service link */}
+            {contextualLink && (
+              <section className="mt-10 rounded-card border border-line bg-surface p-5" aria-labelledby="contextual-next-step">
+                <h2 id="contextual-next-step" className="text-base font-semibold text-ink">
+                  {contextualLink.heading}
+                </h2>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  {contextualLink.before}
+                  <Link href={contextualLink.href}>{contextualLink.anchor}</Link>
+                  {contextualLink.after}
+                </p>
+                <Link
+                  href={contextualLink.href}
+                  className="mt-3 inline-block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+                >
+                  Open the service page
+                </Link>
+              </section>
+            )}
+
+            <div className="mt-8 border-t border-line pt-5">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-sm text-muted hover:text-brand-700 hover:underline hover:underline-offset-2"
+              >
+                <ArrowLeft className="size-4" aria-hidden="true" />
+                <span>All guides</span>
+              </Link>
             </div>
           </div>
-        )}
 
-        {/* Back Link */}
-        <div className="text-center pt-4">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-blue-600 transition"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to All Guides & Blog Hub</span>
-          </Link>
+          {/* Sidebar */}
+          <aside className="hidden lg:block">
+            <div className="sticky top-24 space-y-4">
+              <div className="rounded-card border border-line bg-surface p-4">
+                <p className="text-sm font-medium text-ink">In this guide</p>
+                <div className="mt-2 max-h-[26rem] overflow-y-auto pr-1">{outline}</div>
+              </div>
+
+              <div className="rounded-card border border-line bg-surface p-5">
+                <MessageSquare className="size-4 text-muted" aria-hidden="true" />
+                <p className="mt-2 text-sm font-semibold text-ink">Still not sure about your device?</p>
+                <p className="mt-1 text-sm leading-6 text-muted">
+                  The first bench check is free. Nothing starts until you agree to the price.
+                </p>
+                <Link href="/contact" className="btn-primary mt-3 w-full">
+                  <span>Talk to a technician</span>
+                </Link>
+                <Link
+                  href="/repair-price"
+                  className="mt-2 inline-block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+                >
+                  Check repair prices
+                </Link>
+              </div>
+            </div>
+          </aside>
         </div>
+      </div>
 
+      {/* Related guides */}
+      {relatedArticles.length > 0 && (
+        <section className="container-page pt-10">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
+            <h2 className="heading-3">More {clusterLabel.toLowerCase()} guides</h2>
+            <Link href="/blog" className="text-sm text-brand-700 hover:underline hover:underline-offset-2">
+              All guides
+            </Link>
+          </div>
+          <div className="grid gap-x-8 sm:grid-cols-2">
+            {relatedArticles.map(article => (
+              <GuideCard key={article.id} post={article} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div className="mt-6">
+        <CtaBand
+          title="Need this checked on the bench?"
+          description="Bring the device to the workshop or send a WhatsApp message with the model and the symptom. Diagnosis is free."
+          whatsappMessage={`Hello Himal Product & Services, I read your guide "${post.title}" and would like help with: `}
+        />
       </div>
     </div>
   );

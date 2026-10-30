@@ -1,60 +1,57 @@
 import React from 'react';
-import Link from 'next/link';
+import { LegalPage } from '@/components/LegalPage';
 import { siteConfig } from '@/data/siteConfig';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata = {
-  title: 'Terms and Conditions | Himal Product and Services Nepal',
-  description: 'Terms of service, sales conditions, repair disclaimers, and warranty policies for Himal Product and Services, Itahari Nepal.'
+  title: 'Terms and Conditions',
+  description:
+    'Terms for sales, repairs and delivery at Himal Product and Services in Sundarharaincha, Morang.'
 };
 
 export default function TermsAndConditionsPage() {
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <Breadcrumbs items={[{ name: 'Terms & Conditions', url: '/terms-and-conditions' }]} />
+    <LegalPage
+      title="Terms and conditions"
+      intro="The plain terms that apply to a purchase or a repair at the shop."
+      updated="October 2026"
+      breadcrumb={{ name: 'Terms and conditions', url: '/terms-and-conditions' }}
+      actions={[
+        { href: '/warranty', label: 'Warranty and returns' },
+        { href: '/delivery-pickup', label: 'Delivery and pickup' },
+        { href: '/privacy-policy', label: 'Privacy policy' }
+      ]}
+    >
+      <h2>Prices</h2>
+      <p>
+        Prices on this site are in Nepalese rupees and include VAT unless stated otherwise. Imported
+        electronics and replacement screens move in price, so the figure is confirmed at the counter or in
+        the order message.
+      </p>
 
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-12 space-y-8">
-          <div>
-            <h1 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-              Terms and Conditions
-            </h1>
-            <p className="text-xs md:text-sm text-slate-600 mt-2">
-              Governing commercial transactions and services in accordance with Nepali consumer law.
-            </p>
-          </div>
+      <h2>Phones and registration</h2>
+      <p>
+        Every new handset sold by {siteConfig.name} is registered on the Nepal Telecommunications Authority
+        MDMS portal and comes with a VAT bill.
+      </p>
 
-          <div className="space-y-6 text-xs md:text-sm text-slate-700 leading-relaxed">
-            <section className="space-y-2">
-              <h2 className="text-base font-bold text-slate-900">1. Product Pricing & Currency</h2>
-              <p>
-                All prices listed on this website are denominated in <strong>Nepalese Rupees (NPR / रू)</strong>. While we endeavor to maintain real-time inventory and pricing accuracy, prevailing market prices for imported electronics and replacement screens are confirmed upon order quotation or in-store inspection.
-              </p>
-            </section>
+      <h2>Repair estimates</h2>
+      <p>
+        The online calculator gives a range based on the model and the fault. The binding price comes after
+        the bench check. No repair starts until you agree to that figure.
+      </p>
 
-            <section className="space-y-2">
-              <h2 className="text-base font-bold text-slate-900">2. MDMS and Regulatory Compliance</h2>
-              <p>
-                All new smartphones retailed by {siteConfig.name} are officially registered on the Nepal Telecommunications Authority (NTA) MDMS portal and sold with genuine tax invoices.
-              </p>
-            </section>
+      <h2>Back up your data</h2>
+      <p>
+        We take care with every device, but back up your photos and files before leaving a phone with us. A
+        failing storage chip or old liquid damage can cause data loss that has nothing to do with the repair
+        itself.
+      </p>
 
-            <section className="space-y-2">
-              <h2 className="text-base font-bold text-slate-900">3. Repair Estimates and Authorizations</h2>
-              <p>
-                Estimates generated via our online calculator are indicative guidelines based on standard model averages. Final binding quotes are confirmed following in-person bench diagnostics. No repair is initiated without customer consent.
-              </p>
-            </section>
-
-            <section className="space-y-2">
-              <h2 className="text-base font-bold text-slate-900">4. Limitation of Liability</h2>
-              <p>
-                We exercise maximum professional care during all repair operations. However, customers are strongly encouraged to back up critical personal files before servicing, as existing board shorts or prior liquid exposure can occasionally cause unexpected storage controller failure.
-              </p>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
+      <h2>Holding a device</h2>
+      <p>
+        Repaired devices are held for 60 days after we tell you they are ready. After that we may sell the
+        parts to recover the bench cost, and we will tell you before that happens.
+      </p>
+    </LegalPage>
   );
 }

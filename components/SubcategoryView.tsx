@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, ShieldCheck, Truck } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Truck } from 'lucide-react';
 import { Product } from '@/data/products';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ProductCard } from '@/components/ProductCard';
@@ -30,77 +30,79 @@ export function SubcategoryView({
   faqs
 }: SubcategoryViewProps) {
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <div className="container mx-auto px-4">
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[
-          { name: parentName, url: parentUrl },
-          { name: title, url: currentUrl }
-        ]} />
+    <div className="pb-12 md:pb-16">
+      <div className="container-page pt-6">
+        <Breadcrumbs
+          items={[
+            { name: parentName, url: parentUrl },
+            { name: title, url: currentUrl }
+          ]}
+        />
+      </div>
 
-        {/* Hero Section */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-10">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block">
-              {parentName} Subcategory
-            </span>
-            <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-              {h1}
-            </h1>
-            <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-              {description}
+      {/* Intro */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">{h1}</h1>
+          <p className="lede mt-3 max-w-2xl">{description}</p>
+
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">
+            {highlights.map(highlight => (
+              <li key={highlight} className="inline-flex items-center gap-1.5">
+                <CheckCircle2 className="size-4 text-brand-600" aria-hidden="true" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section className="container-page pt-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
+          <h2 className="heading-3">{title}</h2>
+          <p className="text-sm text-muted">
+            {items.length} {items.length === 1 ? 'model' : 'models'}
+          </p>
+        </div>
+
+        {items.length === 0 ? (
+          <div className="mt-4 rounded-card border border-line bg-surface p-5">
+            <p className="text-sm text-muted">
+              Nothing in this category right now. Message us and we will tell you when stock arrives.
             </p>
-
-            <div className="pt-2 flex flex-wrap gap-3">
-              {highlights.map((h, i) => (
-                <span key={i} className="inline-flex items-center gap-1.5 text-xs font-semibold bg-slate-100 text-slate-700 px-3 py-1 rounded-full">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
-                  <span>{h}</span>
-                </span>
-              ))}
-            </div>
+            <Link href="/contact" className="btn-outline mt-3">
+              Ask about stock
+            </Link>
           </div>
-        </div>
-
-        {/* Product Cards Grid */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-bold text-slate-900">Available Products & Models</h2>
-            <span className="text-xs text-slate-500">{items.length} models verified in stock</span>
-          </div>
-
-          {items.length === 0 ? (
-            <div className="bg-white rounded-2xl p-8 text-center text-slate-500 border border-slate-200">
-              <p className="text-sm">New inventory arriving shortly. Contact us on WhatsApp for custom orders!</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {items.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* FAQs */}
-        {faqs && faqs.length > 0 && (
-          <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-6 text-center">Frequently Asked Questions</h2>
-            <FAQAccordion faqs={faqs} />
+        ) : (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         )}
+      </section>
 
-        {/* Back Link */}
-        <div className="text-center pt-4">
-          <Link
-            href={parentUrl}
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-blue-600 transition"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to All {parentName}</span>
-          </Link>
-        </div>
+      {/* FAQs */}
+      {faqs && faqs.length > 0 && (
+        <section className="container-page pt-10">
+          <h2 className="heading-3">Questions</h2>
+          <div className="mt-3 max-w-3xl">
+            <FAQAccordion faqs={faqs} />
+          </div>
+        </section>
+      )}
 
+      <div className="container-page flex flex-col gap-3 pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <Link href={parentUrl} className="inline-flex items-center gap-1.5 text-muted hover:text-brand-700 hover:underline">
+          <ArrowLeft className="size-4" aria-hidden="true" />
+          <span>Back to {parentName.toLowerCase()}</span>
+        </Link>
+        <p className="inline-flex items-center gap-1.5 text-muted">
+          <Truck className="size-4" aria-hidden="true" />
+          Delivery in Itahari, Dharan and Biratnagar
+        </p>
       </div>
     </div>
   );

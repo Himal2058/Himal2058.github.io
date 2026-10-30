@@ -1,148 +1,178 @@
 import React from 'react';
 import Link from 'next/link';
-import { 
-  MapPin, 
-  Clock, 
-  Phone, 
-  ExternalLink, 
-  Navigation, 
-  CheckCircle2,
-  Compass,
-  Building
-} from 'lucide-react';
+import { MapPin, Phone, Navigation, ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { CtaBand } from '@/components/CtaBand';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Himal Product and Services Store Location & Map | Itahari Corridor',
-  description: 'Visit Himal Product and Services in Sundarharaincha-4, Morang, serving Itahari, Dharan, and Biratnagar. Landmark directions, opening hours, and parking.'
+  title: 'Store Location | Sundarharaincha, Morang',
+  description:
+    'Find the shop at Sundarharaincha-4, Morang, ten minutes east of Itahari Chowk on the highway. Directions, hours and parking.'
 };
+
+const directions = [
+  {
+    title: 'From Itahari Chowk',
+    copy: 'Take the highway east towards Sundarharaincha and Gothgaon. About ten minutes on, we are on the main road in ward 4. Parking is in front of the shop.'
+  },
+  {
+    title: 'From Biratnagar or Dharan',
+    copy: 'From Biratnagar, head north on the Koshi Highway to Itahari Chowk (about 25 minutes), then ten minutes east. From Dharan, drive south past Itahari. Either way, stay on the highway and skip the inner market lanes.'
+  }
+];
+
+const nearby = ['Itahari', 'Sundarharaincha', 'Dharan', 'Biratnagar', 'Inaruwa', 'Belbari'];
 
 export default function StoreLocationPage() {
   const storeSchema = {
-    "@context": "https://schema.org",
-    "@type": "ElectronicsStore",
-    "name": siteConfig.name,
-    "hasMap": siteConfig.googleMapsUrl,
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": siteConfig.geo.latitude,
-      "longitude": siteConfig.geo.longitude
+    '@context': 'https://schema.org',
+    '@type': 'ElectronicsStore',
+    name: siteConfig.name,
+    hasMap: siteConfig.googleMapsUrl,
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude
     },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": siteConfig.address.street,
-      "addressLocality": siteConfig.address.city,
-      "addressRegion": siteConfig.address.province,
-      "postalCode": siteConfig.address.postalCode,
-      "addressCountry": "NP"
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.province,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: 'NP'
     },
-    "telephone": siteConfig.phone
+    telephone: siteConfig.phone
   };
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
+    <div className="pb-12 md:pb-16">
       <JsonLd data={storeSchema} />
 
-      <div className="container mx-auto px-4 max-w-5xl">
-        <Breadcrumbs items={[{ name: 'Store Location', url: '/store-location' }]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs items={[{ name: 'Store location', url: '/store-location' }]} />
+      </div>
 
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-2">
-            Physical Workshop & Storefront
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Our Store Location & Directions
-          </h1>
-          <p className="text-xs md:text-sm text-slate-600 mt-3 leading-relaxed">
-            Conveniently situated in Sundarharaincha-4, Morang along the primary highway corridor directly connecting Itahari, Biratnagar, and Dharan.
+      {/* Header */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">Store location</h1>
+          <p className="lede mt-3 max-w-2xl">
+            {siteConfig.address.street}, {siteConfig.address.city}. On the highway between Itahari and
+            Biratnagar.
           </p>
+          <p className="mt-2 text-sm text-muted">{siteConfig.address.landmark}</p>
         </div>
+      </section>
 
-        {/* Map Frame Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm mb-12">
-          <div className="w-full h-96 bg-slate-100">
-            <iframe
-              title="Himal Product and Services Workshop Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.123456789!2d87.2781325!3d26.687414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d33be82599b%3A0xb67ac2eefb668b5f!2sHimal%20product%20and%20service!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+      {/* Map */}
+      <section className="container-page pt-6">
+        <div className="overflow-hidden rounded-card border border-line bg-surface">
+          <iframe
+            title="Himal Product and Services workshop location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.123456789!2d87.2781325!3d26.687414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d33be82599b%3A0xb67ac2eefb668b5f!2sHimal%20product%20and%20service!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-72 w-full sm:h-96"
+          />
 
-          <div className="p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50 border-t border-slate-200">
-            <div>
-              <p className="text-xs text-slate-500 font-semibold uppercase">Exact GPS Coordinates</p>
-              <p className="text-sm font-bold text-slate-900">
-                Latitude: {siteConfig.geo.latitude} • Longitude: {siteConfig.geo.longitude}
-              </p>
-            </div>
+          <div className="flex flex-col gap-3 border-t border-line p-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-muted">
+              {siteConfig.geo.latitude}, {siteConfig.geo.longitude}
+            </p>
             <a
               href={siteConfig.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition shadow-md"
+              className="btn-outline"
             >
-              <Navigation className="w-4 h-4" />
-              <span>Open in Google Maps App</span>
+              <Navigation className="size-4" aria-hidden="true" />
+              <span>Open in Google Maps</span>
             </a>
           </div>
         </div>
+      </section>
 
-        {/* Driving & Landmark Directions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
-              <Compass className="w-5 h-5 text-blue-600" />
-              <span>How to Reach Us from Itahari Chowk</span>
+      {/* Directions + details */}
+      <section className="container-page pt-8">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+          <div>
+            <h2 className="heading-3">Getting here</h2>
+
+            <div className="mt-2 divide-y divide-line border-y border-line">
+              {directions.map(item => (
+                <div key={item.title} className="py-3">
+                  <h3 className="text-sm font-medium text-ink">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-muted">{item.copy}</p>
+                </div>
+              ))}
             </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              From Itahari Main Chowk, take the highway heading East towards Sundarharaincha / Gothgaon. Our store and workshop are located just a 10-minute drive away along the main roadside in Ward 4, featuring easy two-wheeler and four-wheeler parking right in front.
+
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Most customers come from {nearby.join(', ')}.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
-              <Building className="w-5 h-5 text-emerald-600" />
-              <span>How to Reach Us from Biratnagar or Dharan</span>
+          <div className="space-y-4">
+            <div className="rounded-card border border-line bg-surface p-4">
+              <h2 className="text-sm font-semibold text-ink">Address</h2>
+              <address className="mt-2 text-sm not-italic leading-6 text-ink-soft">
+                {siteConfig.address.street}
+                <br />
+                {siteConfig.address.city}
+                <br />
+                {siteConfig.address.district}, {siteConfig.address.province}, Nepal
+              </address>
+
+              <div className="mt-3 border-t border-line pt-3">
+                <p className="text-xs text-muted">Opening hours</p>
+                <p className="mt-0.5 text-sm text-ink-soft">{siteConfig.openingHours.days}</p>
+                <p className="text-sm text-ink-soft">{siteConfig.openingHours.hours}</p>
+              </div>
             </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              From Biratnagar, head North along the 6-lane Koshi Highway to Itahari Chowk (25 mins), then 10 minutes East. From Dharan, drive South down the Koshi Highway past Itahari. We are conveniently situated for drop-offs without navigating congested inner market lanes.
-            </p>
-          </div>
-        </div>
 
-        {/* Opening Hours & Contact Strip */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1">
-            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Store Hours</p>
-            <p className="text-base font-bold text-slate-900">{siteConfig.openingHours.days}</p>
-            <p className="text-sm text-emerald-600 font-semibold">{siteConfig.openingHours.hours}</p>
-          </div>
+            <div className="rounded-card border border-line bg-surface p-4">
+              <h2 className="text-sm font-semibold text-ink">Cannot come to the shop?</h2>
+              <p className="mt-1 text-sm leading-6 text-muted">
+                Same-day delivery in Itahari, Dharan, Biratnagar and Sundarharaincha. Courier to the rest of
+                Nepal.
+              </p>
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline flex-1">
+                  <Phone className="size-4" aria-hidden="true" />
+                  <span>Call</span>
+                </a>
+                <Link href="/delivery-pickup" className="btn-outline flex-1">
+                  <span>Delivery</span>
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${siteConfig.phoneRaw}`}
-              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl text-xs transition"
-            >
-              <Phone className="w-4 h-4 text-green-400" />
-              <span>Call Hotline</span>
-            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-xl text-xs transition"
+              className="flex items-center gap-3 rounded-card border border-line bg-surface p-4 hover:border-line-strong"
             >
-              <span>Contact Page</span>
+              <MapPin className="size-4 shrink-0 text-muted" aria-hidden="true" />
+              <span className="text-sm text-ink">Send a message instead</span>
+              <ArrowRight className="ml-auto size-4 shrink-0 text-muted" aria-hidden="true" />
             </Link>
           </div>
         </div>
+      </section>
 
+      <div className="mt-10">
+        <CtaBand
+          title="Planning to drop a device off?"
+          description="Message first with the model and fault. We will say whether the part is in stock and how long the bench needs it."
+          whatsappMessage="Hello Himal Product & Services, I am planning to visit the store. My device and fault are: "
+        />
       </div>
     </div>
   );

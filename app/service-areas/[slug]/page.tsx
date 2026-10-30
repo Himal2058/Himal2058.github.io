@@ -1,22 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { 
-  MapPin, 
-  Truck, 
-  Wrench, 
-  ShieldCheck, 
-  Clock, 
-  Phone, 
-  MessageSquare, 
-  ArrowLeft,
-  CheckCircle2,
-  Navigation
-} from 'lucide-react';
+import { MessageSquare, Phone, ArrowRight, ArrowLeft, MapPin } from 'lucide-react';
 import { serviceLocations, getLocationBySlug } from '@/data/locations';
 import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FAQAccordion } from '@/components/FAQAccordion';
+import { CtaBand } from '@/components/CtaBand';
 import { JsonLd } from '@/components/JsonLd';
 
 interface Props {
@@ -24,9 +14,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return serviceLocations.map(loc => ({
-    slug: loc.slug
-  }));
+  return serviceLocations.map(location => ({ slug: location.slug }));
 }
 
 export const dynamicParams = false;
@@ -36,11 +24,11 @@ export async function generateMetadata({ params }: Props) {
   const location = getLocationBySlug(slug);
 
   if (!location) {
-    return { title: 'Location Not Found' };
+    return { title: 'Location not found' };
   }
 
   return {
-    title: `${location.heroTitle} | Himal Product and Services`,
+    title: location.heroTitle,
     description: location.description
   };
 }
@@ -54,147 +42,174 @@ export default async function ServiceLocationDetailPage({ params }: Props) {
   }
 
   const localSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `${siteConfig.name} - ${location.name} Service Hub`,
-    "description": location.description,
-    "telephone": siteConfig.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": location.name,
-      "addressRegion": location.district,
-      "addressCountry": "NP"
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `${siteConfig.name} - ${location.name}`,
+    description: location.description,
+    telephone: siteConfig.phone,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: location.name,
+      addressRegion: location.district,
+      addressCountry: 'NP'
     },
-    "areaServed": {
-      "@type": "City",
-      "name": location.name
+    areaServed: {
+      '@type': 'City',
+      name: location.name
     }
   };
 
-  const whatsappMessage = `Hello Himal Product & Services! I am reaching out from ${location.name} regarding your mobile repair and electronics services.`;
+  const whatsappMessage = `Hello Himal Product & Services, I am in ${location.name} and would like to ask about a repair or an order.`;
+  const otherLocations = serviceLocations.filter(item => item.slug !== location.slug).slice(0, 2);
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
+    <div className="pb-12 md:pb-16">
       <JsonLd data={localSchema} />
 
-      <div className="container mx-auto px-4 max-w-5xl">
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[
-          { name: 'Service Areas', url: '/service-areas' },
-          { name: location.name, url: `/service-areas/${location.slug}` }
-        ]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs
+          items={[
+            { name: 'Service areas', url: '/service-areas' },
+            { name: location.name, url: `/service-areas/${location.slug}` }
+          ]}
+        />
+      </div>
 
-        {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 md:p-12 shadow-xl mb-10">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider bg-blue-600/30 text-blue-300 border border-blue-400/30 px-3 py-1 rounded-full inline-block">
-              {location.district} District • {location.distanceFromHub}
-            </span>
+      {/* Intro */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <p className="inline-flex items-center gap-1.5 text-sm text-muted">
+            <MapPin className="size-4" aria-hidden="true" />
+            {location.district} district · {location.distanceFromHub}
+          </p>
 
-            <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-              {location.heroTitle}
-            </h1>
+          <h1 className="display-1 mt-2">{location.heroTitle}</h1>
+          <p className="lede mt-3 max-w-2xl">{location.description}</p>
 
-            <p className="text-sm md:text-base text-slate-300 leading-relaxed">
-              {location.description}
-            </p>
+          <p className="mt-3 text-sm text-muted">
+            {location.travelTime} · {location.distanceFromHub}
+          </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs">
-              <span className="flex items-center gap-1.5 text-emerald-400">
-                <Truck className="w-4 h-4" />
-                <span>{location.travelTime}</span>
-              </span>
-              <span className="flex items-center gap-1.5 text-cyan-300">
-                <ShieldCheck className="w-4 h-4" />
-                <span>Genuine Warranties on All Repairs & Devices</span>
-              </span>
-            </div>
-
-            <div className="pt-4 flex flex-wrap gap-4">
-              <a
-                href={getWhatsAppLink(whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl transition text-sm shadow-md"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Inquire on WhatsApp</span>
-              </a>
-
-              <a
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="inline-flex items-center gap-2 bg-white text-slate-900 hover:bg-slate-100 font-bold px-6 py-3.5 rounded-xl transition text-sm shadow-sm"
-              >
-                <Phone className="w-4 h-4 text-green-600" />
-                <span>Call {siteConfig.phone}</span>
-              </a>
-            </div>
+          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+            <a
+              href={getWhatsAppLink(whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              <MessageSquare className="size-4" aria-hidden="true" />
+              <span>Ask from {location.name}</span>
+            </a>
+            <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline">
+              <Phone className="size-4" aria-hidden="true" />
+              <span>{siteConfig.phone}</span>
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Services & Local Logistics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          
-          {/* Services Available */}
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-4">
-            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-              <Wrench className="w-5 h-5 text-blue-600" />
-              <span>Available Services for {location.name}</span>
-            </h2>
-            <ul className="space-y-2.5 text-xs text-slate-700">
-              {location.servicesOffered.map((srv, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span>{srv}</span>
+      {/* Services + delivery */}
+      <section className="container-page pt-8">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-10">
+          <div>
+            <h2 className="heading-3">What we can do for {location.name}</h2>
+            <ul className="mt-2 border-t border-line">
+              {location.servicesOffered.map(service => (
+                <li key={service} className="border-b border-line py-2 text-sm leading-6 text-ink-soft">
+                  {service}
                 </li>
               ))}
             </ul>
+            <Link
+              href="/mobile-repair"
+              className="mt-3 inline-block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+            >
+              Full repair list
+            </Link>
           </div>
 
-          {/* Delivery & Landmarks */}
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-4">
-            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-              <Truck className="w-5 h-5 text-emerald-600" />
-              <span>Delivery Coverage & Landmarks</span>
-            </h2>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              {location.deliveryCoverage}
-            </p>
-            <div className="pt-2 border-t border-slate-100">
-              <p className="text-xs font-bold text-slate-800 mb-2">Key Areas & Landmarks Covered:</p>
-              <div className="flex flex-wrap gap-1.5">
-                {location.localLandmarks.map((lm, i) => (
-                  <span key={i} className="text-[11px] bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
-                    {lm}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          <div>
+            <h2 className="heading-3">Delivery and landmarks</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">{location.deliveryCoverage}</p>
 
+            <p className="mt-4 text-sm text-ink">Areas we cover</p>
+            <p className="mt-1 text-sm leading-6 text-muted">{location.localLandmarks.join(', ')}.</p>
+
+            <Link
+              href="/delivery-pickup"
+              className="mt-3 inline-block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+            >
+              Delivery and pickup details
+            </Link>
+          </div>
         </div>
+      </section>
 
-        {/* Local FAQs */}
-        {location.localFaqs && location.localFaqs.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-xl font-bold text-slate-900 mb-6 text-center">
-              Frequently Asked Questions for {location.name}
-            </h2>
+      {/* Quick paths */}
+      <section className="container-page pt-10">
+        <div className="divide-y divide-line border-y border-line">
+          {[
+            { href: '/repair-price', title: 'Repair prices', copy: 'Screen, battery and port ranges.' },
+            { href: '/mobile-phones', title: 'Buy a phone', copy: 'Handsets with VAT bill and MDMS registration.' },
+            { href: '/contact', title: 'Talk to us', copy: 'Phone, WhatsApp or the message form.' }
+          ].map(item => (
+            <Link key={item.href} href={item.href} className="flex items-center gap-4 py-3 hover:bg-white">
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium text-ink">{item.title}</span>
+                <span className="mt-0.5 block text-sm text-muted">{item.copy}</span>
+              </span>
+              <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQs */}
+      {location.localFaqs.length > 0 && (
+        <section className="container-page pt-10">
+          <h2 className="heading-3">{location.name} questions</h2>
+          <div className="mt-3 max-w-3xl">
             <FAQAccordion faqs={location.localFaqs} />
           </div>
-        )}
+        </section>
+      )}
 
-        {/* Back Link */}
-        <div className="text-center pt-4">
+      {/* Other locations */}
+      {otherLocations.length > 0 && (
+        <section className="container-page pt-10">
+          <h2 className="heading-3">Other areas</h2>
+          <div className="mt-2 divide-y divide-line border-y border-line">
+            {otherLocations.map(item => (
+              <Link
+                key={item.id}
+                href={`/service-areas/${item.slug}`}
+                className="flex items-center gap-4 py-3 hover:bg-white"
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-medium text-ink">{item.heroTitle}</span>
+                  <span className="mt-0.5 line-clamp-2 block text-sm text-muted">{item.description}</span>
+                </span>
+                <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
+
           <Link
             href="/service-areas"
-            className="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-blue-600 transition"
+            className="mt-3 inline-flex items-center gap-1.5 text-sm text-muted hover:text-brand-700 hover:underline hover:underline-offset-2"
           >
-            <ArrowLeft className="w-4 h-4" />
-            <span>View All Service Area Hubs</span>
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            <span>All service areas</span>
           </Link>
-        </div>
+        </section>
+      )}
 
+      <div className="mt-10">
+        <CtaBand
+          title={`Need a repair in ${location.name}?`}
+          description="Send the model and the fault. We will confirm the part, the price and whether pickup is available in your ward."
+          whatsappMessage={whatsappMessage}
+        />
       </div>
     </div>
   );

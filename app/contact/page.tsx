@@ -1,154 +1,167 @@
 import React from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  MessageSquare, 
-  ExternalLink,
-  ShieldCheck,
-  Send
-} from 'lucide-react';
+import Link from 'next/link';
+import { Phone, Mail, MapPin, Clock, MessageSquare, ExternalLink } from 'lucide-react';
 import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ContactForm } from '@/components/ContactForm';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Contact Himal Product and Services | Itahari & Morang',
-  description: 'Contact Himal Product and Services for mobile phone repair bookings, smartphone inquiries, or gadget orders. Call +977 9807391472 or WhatsApp.'
+  title: 'Contact Us',
+  description:
+    'Call the shop, send a WhatsApp message or use the contact form for repairs, products and delivery questions in Itahari and Morang.'
 };
+
+const quickPaths = [
+  {
+    href: '/mobile-repair',
+    title: 'Book a repair',
+    copy: 'Free first check, price agreed before we open the phone.'
+  },
+  {
+    href: '/warranty',
+    title: 'Warranty and delivery',
+    copy: 'Coverage terms and delivery options across Nepal.'
+  }
+];
 
 export default function ContactPage() {
   const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": `Contact ${siteConfig.name}`,
-    "url": `${siteConfig.siteUrl}/contact`,
-    "mainEntity": {
-      "@type": "LocalBusiness",
-      "name": siteConfig.name,
-      "telephone": siteConfig.phone,
-      "email": siteConfig.email,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": siteConfig.address.street,
-        "addressLocality": siteConfig.address.city,
-        "addressRegion": siteConfig.address.province,
-        "addressCountry": "NP"
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Contact ${siteConfig.name}`,
+    url: `${siteConfig.siteUrl}/contact`,
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      name: siteConfig.name,
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.city,
+        addressRegion: siteConfig.address.province,
+        addressCountry: 'NP'
       }
     }
   };
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
+    <div className="pb-12 md:pb-16">
       <JsonLd data={contactSchema} />
 
-      <div className="container mx-auto px-4 max-w-6xl">
-        <Breadcrumbs items={[{ name: 'Contact Us', url: '/contact' }]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs items={[{ name: 'Contact us', url: '/contact' }]} />
+      </div>
 
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-2">
-            Get in Touch
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Contact Our Technicians & Sales Team
-          </h1>
-          <p className="text-xs md:text-sm text-slate-600 mt-3 leading-relaxed">
-            Have a question about a cracked screen, battery swap, smartphone availability, or delivery? Reach out directly via phone, WhatsApp, or the form below.
+      {/* Header */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">Contact the shop</h1>
+          <p className="lede mt-3 max-w-2xl">
+            For a repair, a product question or a delivery address, call the counter or send a message.
+            We answer the phone during shop hours.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
-          
-          {/* Left: Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-4">
-            
-            {/* Phone & WhatsApp Card */}
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-              <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <Phone className="w-5 h-5 text-green-600" />
-                <span>Call or Message Us</span>
-              </h2>
+      <div className="container-page mt-8 grid items-start gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        {/* Contact details */}
+        <div className="space-y-4">
+          <section className="rounded-card border border-line bg-surface p-4">
+            <h2 className="text-sm font-semibold text-ink">Phone and email</h2>
 
-              <div className="space-y-3 text-xs">
-                <div>
-                  <p className="text-slate-500">Direct Hotline:</p>
-                  <a href={`tel:${siteConfig.phoneRaw}`} className="text-lg font-bold text-blue-600 hover:underline">
+            <dl className="mt-3 space-y-3">
+              <div>
+                <dt className="text-xs text-muted">Shop line</dt>
+                <dd className="mt-0.5">
+                  <a
+                    href={`tel:${siteConfig.phoneRaw}`}
+                    className="inline-flex items-center gap-1.5 text-base font-medium tabular-nums text-ink hover:underline hover:underline-offset-2"
+                  >
+                    <Phone className="size-4 shrink-0 text-muted" aria-hidden="true" />
                     {siteConfig.phone}
                   </a>
-                </div>
+                </dd>
+              </div>
 
-                <div>
-                  <p className="text-slate-500">Official WhatsApp:</p>
-                  <a 
-                    href={getWhatsAppLink("Hello Himal Product & Services, I am reaching out from your website.")}
+              <div>
+                <dt className="text-xs text-muted">WhatsApp</dt>
+                <dd className="mt-1">
+                  <a
+                    href={getWhatsAppLink('Hello Himal Product & Services, I am reaching out from your website.')}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl transition mt-1"
+                    className="btn-outline w-full"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Open WhatsApp Chat</span>
+                    <MessageSquare className="size-4" aria-hidden="true" />
+                    <span>Send a message</span>
                   </a>
-                </div>
+                </dd>
+              </div>
 
-                <div>
-                  <p className="text-slate-500">Email Address:</p>
-                  <a href={`mailto:${siteConfig.email}`} className="text-xs font-bold text-slate-800 hover:underline">
+              <div>
+                <dt className="text-xs text-muted">Email</dt>
+                <dd className="mt-0.5">
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="inline-flex items-center gap-1.5 break-all text-sm text-ink hover:underline hover:underline-offset-2"
+                  >
+                    <Mail className="size-4 shrink-0 text-muted" aria-hidden="true" />
                     {siteConfig.email}
                   </a>
-                </div>
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <section className="rounded-card border border-line bg-surface p-4">
+            <h2 className="text-sm font-semibold text-ink">Address and hours</h2>
+
+            <address className="mt-2 text-sm not-italic leading-6 text-ink-soft">
+              {siteConfig.address.street}
+              <br />
+              {siteConfig.address.city}
+              <br />
+              {siteConfig.address.district}, {siteConfig.address.province}, Nepal
+              <span className="mt-1 block text-xs leading-5 text-muted">
+                {siteConfig.address.landmark}
+              </span>
+            </address>
+
+            <div className="mt-3 flex items-start gap-2 border-t border-line pt-3">
+              <Clock className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
+              <div>
+                <p className="text-xs text-muted">Opening hours</p>
+                <p className="mt-0.5 text-sm leading-6 text-ink-soft">{siteConfig.openingHours.days}</p>
+                <p className="text-sm text-ink-soft">{siteConfig.openingHours.hours}</p>
               </div>
             </div>
 
-            {/* Location & Hours Card */}
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-              <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-blue-600" />
-                <span>Storefront & Workshop Address</span>
-              </h2>
+            <a
+              href={siteConfig.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline mt-3 w-full"
+            >
+              <MapPin className="size-4" aria-hidden="true" />
+              <span>Open in Google Maps</span>
+              <ExternalLink className="size-3.5" aria-hidden="true" />
+            </a>
+          </section>
 
-              <div className="space-y-3 text-xs text-slate-700">
-                <div>
-                  <p className="font-bold text-slate-900">{siteConfig.address.street}</p>
-                  <p>{siteConfig.address.city}, {siteConfig.address.district}</p>
-                  <p>{siteConfig.address.province}, Nepal</p>
-                  <p className="text-slate-500 mt-1 italic">Landmark: {siteConfig.address.landmark}</p>
-                </div>
-
-                <div className="pt-2 border-t border-slate-100 flex items-start gap-2">
-                  <Clock className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold text-slate-900">Working Hours:</p>
-                    <p>{siteConfig.openingHours.days}</p>
-                    <p className="text-emerald-700 font-semibold">{siteConfig.openingHours.hours}</p>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={siteConfig.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:underline"
-                  >
-                    <span>View Exact Location on Google Maps</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
+          <div className="divide-y divide-line border-y border-line">
+            {quickPaths.map(item => (
+              <Link key={item.href} href={item.href} className="block py-3 hover:bg-white">
+                <span className="block text-sm font-medium text-ink">{item.title}</span>
+                <span className="mt-0.5 block text-sm text-muted">{item.copy}</span>
+              </Link>
+            ))}
           </div>
-
-          {/* Right: Interactive Contact & Enquiry Form */}
-          <div className="lg:col-span-7">
-            <ContactForm />
-          </div>
-
         </div>
 
+        {/* Form */}
+        <ContactForm />
       </div>
     </div>
   );

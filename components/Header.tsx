@@ -1,441 +1,649 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  Phone, 
-  MessageSquare, 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Search, 
-  Wrench, 
-  Smartphone, 
-  Headphones, 
-  Lightbulb, 
-  BatteryCharging, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  BookOpen 
+import {
+  Phone,
+  MessageSquare,
+  Menu,
+  X,
+  ChevronDown,
+  Search,
+  Wrench,
+  Smartphone,
+  Headphones,
+  Lightbulb,
+  BatteryCharging,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  BookOpen,
+  ArrowRight,
+  Info
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
 import { repairServices } from '@/data/repairs';
 import { blogTopics } from '@/data/blogs';
 
+const primaryNav = [
+  { href: '/mobile-phones', label: 'Smartphones', icon: Smartphone },
+  { href: '/gadgets-accessories', label: 'Accessories', icon: Headphones },
+  { href: '/smart-home', label: 'Smart home', icon: Lightbulb },
+  { href: '/power-banks', label: 'Power banks', icon: BatteryCharging },
+  { href: '/blog', label: 'Guides', icon: BookOpen },
+  { href: '/service-areas', label: 'Service areas', icon: MapPin }
+];
+
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [repairsDropdown, setRepairsDropdown] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [repairsOpen, setRepairsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchFocused, setSearchFocused] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
-  // Search filtering across products, repairs, and blogs
-  const filteredProducts = searchQuery.trim() 
-    ? products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.brand.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 3)
-    : [];
-  const filteredRepairs = searchQuery.trim()
-    ? repairServices.filter(r => r.title.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 3)
-    : [];
-  const filteredBlogs = searchQuery.trim()
-    ? blogTopics.filter(b => b.title.toLowerCase().includes(searchQuery.toLowerCase())).slice(0, 2)
-    : [];
+  const repairsRef = useRef<HTMLDivElement>(null);
+  const repairsButtonRef = useRef<HTMLButtonElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const mobilePanelRef = useRef<HTMLDivElement>(null);
+  const mobileCloseRef = useRef<HTMLButtonElement>(null);
 
-  const hasSearchResults = filteredProducts.length > 0 || filteredRepairs.length > 0 || filteredBlogs.length > 0;
+  const query = searchQuery.trim().toLowerCase();
+  const filteredProducts = query
+    ? products.filter(p => p.name.toLowerCase().includes(query) || p.brand.toLowerCase().includes(query)).slice(0, 3)
+    : [];
+  const filteredRepairs = query
+    ? repairServices.filter(r => r.title.toLowerCase().includes(query)).slice(0, 3)
+    : [];
+  const filteredBlogs = query
+    ? blogTopics.filter(b => b.title.toLowerCase().includes(query)).slice(0, 2)
+    : [];
+  const hasSearchResults = filteredProducts.length + filteredRepairs.length + filteredBlogs.length > 0;
+
+  /* Close the repairs menu and search on outside click or Escape. */
+  useEffect(() => {
+    function onPointerDown(event: MouseEvent) {
+      const target = event.target as Node;
+      if (repairsRef.current && !repairsRef.current.contains(target)) setRepairsOpen(false);
+      if (searchRef.current && !searchRef.current.contains(target)) setSearchOpen(false);
+    }
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      if (repairsOpen) {
+        setRepairsOpen(false);
+        repairsButtonRef.current?.focus();
+      }
+      setSearchOpen(false);
+    }
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [repairsOpen]);
+
+  /* Mobile drawer: lock scroll, move focus, trap tab, close on Escape. */
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = 'hidden';
+    mobileCloseRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        return;
+      }
+      if (event.key !== 'Tab' || !mobilePanelRef.current) return;
+      const focusables = mobilePanelRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [mobileOpen]);
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-[0_6px_24px_rgba(15,23,42,0.04)] backdrop-blur-xl">
-      {/* Top Announcement Bar */}
-      <div className="bg-slate-900 text-slate-200 text-xs py-2 px-4">
-        <div className="container mx-auto flex flex-wrap justify-between items-center gap-2">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-amber-400 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Estd. 2022 • Certified Workshop</span>
+    <>
+      {/* Utility bar. Scrolls away; the sticky header below stays compact. */}
+      <div className="border-b border-line bg-canvas text-muted">
+        <div className="container-page flex min-h-9 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-1.5 text-xs">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="size-3.5" aria-hidden="true" />
+              <span>Sundarharaincha-4, Morang</span>
             </span>
-            <span className="hidden md:flex items-center gap-1 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-blue-400" />
-              <span>Serving Itahari, Sunsari & Morang Corridor</span>
-            </span>
-            <span className="hidden lg:flex items-center gap-1 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-green-400" />
-              <span>{siteConfig.openingHours.hours}</span>
+            <span className="hidden items-center gap-1.5 sm:inline-flex">
+              <Clock className="size-3.5" aria-hidden="true" />
+              <span>Sun to Fri 9:00 to 20:00</span>
             </span>
           </div>
-
-          <div className="flex items-center gap-4 ml-auto">
-            <a 
-              href={`tel:${siteConfig.phoneRaw}`} 
-              className="flex items-center gap-1.5 font-semibold text-white hover:text-blue-300 transition"
+          <div className="flex items-center gap-4">
+            <a
+              href={`tel:${siteConfig.phoneRaw}`}
+              className="inline-flex items-center gap-1.5 text-ink hover:text-brand-700"
             >
-              <Phone className="w-3.5 h-3.5 text-green-400" />
+              <Phone className="size-3.5" aria-hidden="true" />
               <span>{siteConfig.phone}</span>
             </a>
             <a
-              href={getWhatsAppLink("Hello Himal Product & Services, I would like to inquire about your services.")}
+              href={getWhatsAppLink('Hello Himal Product & Services, I would like to ask about your services.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-2.5 py-0.5 rounded-full transition"
+              className="hidden items-center gap-1.5 hover:text-ink sm:inline-flex"
             >
-              <MessageSquare className="w-3 h-3" />
-              <span>WhatsApp Chat</span>
+              <MessageSquare className="size-3.5" aria-hidden="true" />
+              <span>WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Bar with Logo, Search, and Primary Actions */}
-      <div className="container mx-auto px-4 py-3.5 flex items-center justify-between gap-4">
-        {/* Brand Logo and Name */}
-        <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-blue-600 shadow-sm group-hover:scale-105 transition-transform bg-slate-900 flex items-center justify-center">
-            <img 
-              src={siteAsset("/logo.jpg")} 
-              alt={`${siteConfig.shortName} logo`}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tight block leading-tight group-hover:text-blue-600 transition">
-              {siteConfig.shortName}
+      <header className="sticky top-0 z-50 border-b border-line bg-white">
+        <div className="container-page flex h-[4.5rem] items-center justify-between gap-4">
+          {/* Brand */}
+          <Link href="/" className="flex shrink-0 items-center gap-3" aria-label={`${siteConfig.shortName} home`}>
+            <span className="relative size-10 overflow-hidden rounded border border-line">
+              <Image
+                src={siteAsset('/logo.jpg')}
+                alt=""
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
             </span>
-            <span className="text-xs text-slate-500 font-medium block">
-              Electronics Retail & Mobile Repair Hub • Itahari
+            <span className="flex flex-col leading-none">
+              <span className="text-base font-semibold text-ink">{siteConfig.shortName}</span>
+              <span className="mt-1 hidden text-xs text-muted sm:block">
+                Mobile repair and electronics, Itahari
+              </span>
             </span>
-          </div>
-        </Link>
-
-        {/* Search Bar with Autocomplete Dropdown */}
-        <div className="hidden lg:block relative flex-1 max-w-md mx-6">
-          <div className="relative">
-            <input 
-              type="text" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setSearchFocused(true)}
-              placeholder="Search phones, repairs (screen/battery), power banks..."
-              className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
-            />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
-          </div>
-
-          {/* Autocomplete Results Modal */}
-          {searchFocused && searchQuery.trim().length > 1 && (
-            <div 
-              className="absolute left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-100 p-3 z-50 max-h-96 overflow-y-auto"
-              onMouseLeave={() => setSearchFocused(false)}
-            >
-              {!hasSearchResults ? (
-                <p className="text-xs text-slate-500 p-2 text-center">No matching products or repairs found. Contact us on WhatsApp for custom inquiries!</p>
-              ) : (
-                <div className="space-y-3">
-                  {filteredRepairs.length > 0 && (
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600 px-2 mb-1">Repair Services</p>
-                      {filteredRepairs.map(repair => (
-                        <Link 
-                          key={repair.id} 
-                          href={`/mobile-repair/${repair.slug}`}
-                          onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 text-sm text-slate-800 transition"
-                        >
-                          <span className="font-medium">{repair.title}</span>
-                          <span className="text-xs text-slate-500">{repair.turnaroundTime}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {filteredProducts.length > 0 && (
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-600 px-2 mb-1">Products & Gadgets</p>
-                      {filteredProducts.map(product => (
-                        <Link 
-                          key={product.id} 
-                          href={`/products/${product.slug}`}
-                          onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-50 text-sm text-slate-800 transition"
-                        >
-                          <span>{product.name}</span>
-                          <span className="font-bold text-slate-900">रू {product.price.toLocaleString('en-IN')}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {filteredBlogs.length > 0 && (
-                    <div>
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-purple-600 px-2 mb-1">Guides & Articles</p>
-                      {filteredBlogs.map(blog => (
-                        <Link 
-                          key={blog.id} 
-                          href={`/blog/${blog.slug}`}
-                          onClick={() => setSearchFocused(false)}
-                          className="block p-2 rounded-lg hover:bg-slate-50 text-xs text-slate-700 transition"
-                        >
-                          {blog.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* Right CTA Actions */}
-        <div className="hidden md:flex items-center gap-3">
-          <Link 
-            href="/repair-price" 
-            className="flex items-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 px-3.5 py-2 rounded-lg text-sm font-semibold border border-blue-200 transition"
-          >
-            <Wrench className="w-4 h-4 text-blue-600" />
-            <span>Repair Estimator</span>
           </Link>
-          <a
-            href={getWhatsAppLink("Hello Himal Product & Services, I need assistance with a repair or product inquiry.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-sm transition"
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>WhatsApp Enquiry</span>
-          </a>
-        </div>
 
-        {/* Mobile Menu Hamburger Toggle */}
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-          className="lg:hidden p-2 text-slate-700 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Main Desktop Navigation Menu */}
-      <nav className="hidden lg:block bg-slate-900 text-white">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center space-x-1 font-medium text-sm">
-            {/* Cluster 1: Mobile Repair with Mega Submenu */}
-            <div 
-              className="relative group py-3"
-              onMouseEnter={() => setRepairsDropdown(true)}
-              onMouseLeave={() => setRepairsDropdown(false)}
-            >
-              <Link 
-                href="/mobile-repair" 
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-              >
-                <Wrench className="w-4 h-4 text-blue-400" />
-                <span>Mobile Repair</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </Link>
-
-              {repairsDropdown && (
-                <div className="absolute left-0 top-full w-80 bg-white text-slate-900 rounded-b-xl shadow-2xl border border-slate-100 py-3 z-50">
-                  <div className="px-4 py-2 border-b border-slate-100">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Mobile Services in Itahari</span>
-                  </div>
-                  <div className="py-1">
-                    <Link href="/mobile-repair/screen-replacement" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Screen Replacement</span>
-                      <span className="text-xs text-blue-600 font-semibold">From रू 1,800</span>
-                    </Link>
-                    <Link href="/mobile-repair/battery-replacement" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Battery Replacement</span>
-                      <span className="text-xs text-blue-600 font-semibold">From रू 1,200</span>
-                    </Link>
-                    <Link href="/mobile-repair/charging-port-repair" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Charging Port Repair</span>
-                      <span className="text-xs text-blue-600 font-semibold">From रू 700</span>
-                    </Link>
-                    <Link href="/mobile-repair/water-damage" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Water Damage Diagnostics</span>
-                      <span className="text-xs text-amber-600 font-semibold">Express Clean</span>
-                    </Link>
-                    <Link href="/mobile-repair/iphone-repair" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Apple iPhone Specialist</span>
-                      <span className="text-xs text-slate-500">True Tone/FaceID</span>
-                    </Link>
-                    <Link href="/mobile-repair/android-repair" className="flex items-center justify-between px-4 py-2 hover:bg-slate-50 text-sm">
-                      <span>Android Repair (Samsung, Redmi)</span>
-                      <span className="text-xs text-slate-500">All Brands</span>
-                    </Link>
-                    <div className="pt-2 mt-1 border-t border-slate-100 px-4">
-                      <Link href="/repair-price" className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
-                        View Complete Repair Price Calculator →
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+          {/* Desktop search */}
+          <div ref={searchRef} className="relative hidden w-full max-w-md lg:block">
+            <label htmlFor="site-search" className="sr-only">
+              Search products, repairs and guides
+            </label>
+            <div className="relative">
+              <Search
+                className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted"
+                aria-hidden="true"
+              />
+              <input
+                id="site-search"
+                type="search"
+                value={searchQuery}
+                onChange={e => {
+                  setSearchQuery(e.target.value);
+                  setSearchOpen(true);
+                }}
+                onFocus={() => setSearchOpen(true)}
+                placeholder="Search phones, repairs, accessories"
+                autoComplete="off"
+                aria-expanded={searchOpen && query.length > 1}
+                aria-controls="site-search-results"
+                className="h-10 w-full rounded border border-line bg-canvas pl-10 pr-10 text-sm text-ink placeholder:text-muted focus:border-line-strong focus:bg-white focus:outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSearchOpen(false);
+                  }}
+                  aria-label="Clear search"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1.5 text-muted hover:bg-line/60 hover:text-ink"
+                >
+                  <X className="size-3.5" aria-hidden="true" />
+                </button>
               )}
             </div>
 
-            {/* Cluster 2: Mobile Phones */}
-            <Link 
-              href="/mobile-phones" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <Smartphone className="w-4 h-4 text-emerald-400" />
-              <span>Smartphones</span>
-            </Link>
-
-            {/* Cluster 3: Gadgets & Accessories */}
-            <Link 
-              href="/gadgets-accessories" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <Headphones className="w-4 h-4 text-purple-400" />
-              <span>Gadgets & Accessories</span>
-            </Link>
-
-            {/* Cluster 4: Smart Home */}
-            <Link 
-              href="/smart-home" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <Lightbulb className="w-4 h-4 text-amber-400" />
-              <span>Smart Home</span>
-            </Link>
-
-            {/* Cluster 5: Power Banks */}
-            <Link 
-              href="/power-banks" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <BatteryCharging className="w-4 h-4 text-cyan-400" />
-              <span>Power Banks</span>
-            </Link>
-
-            {/* Blog & Educational Guides */}
-            <Link 
-              href="/blog" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <BookOpen className="w-4 h-4 text-rose-400" />
-              <span>Guides & Blog</span>
-            </Link>
-
-            {/* Service Areas */}
-            <Link 
-              href="/service-areas" 
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md hover:bg-slate-800 hover:text-blue-400 transition"
-            >
-              <MapPin className="w-4 h-4 text-amber-300" />
-              <span>Service Areas</span>
-            </Link>
-          </div>
-
-          {/* Right Trust Links */}
-          <div className="flex items-center space-x-3 text-xs font-medium text-slate-300">
-            <Link href="/about-us" className="hover:text-white transition">About Us</Link>
-            <span>•</span>
-            <Link href="/store-location" className="hover:text-white transition">Store Location</Link>
-            <span>•</span>
-            <Link href="/contact" className="hover:text-white transition">Contact</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-xl">
-          {/* Mobile Search */}
-          <div className="relative">
-            <input 
-              type="text" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search phones, repairs, gadgets..."
-              className="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
-          </div>
-
-          <div className="divide-y divide-slate-100 text-sm font-medium text-slate-800">
-            <div className="py-2">
-              <Link 
-                href="/mobile-repair" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2 text-blue-700 font-bold"
+            {searchOpen && query.length > 1 && (
+              <div
+                id="site-search-results"
+                className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 max-h-[26rem] overflow-y-auto rounded-card border border-line bg-white p-2"
               >
-                <span className="flex items-center gap-2">
-                  <Wrench className="w-4 h-4 text-blue-600" />
-                  Mobile Phone Repairs
-                </span>
-                <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Itahari Hub</span>
-              </Link>
-              <div className="pl-6 space-y-1.5 text-xs text-slate-600">
-                <Link href="/mobile-repair/screen-replacement" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-blue-600">Screen Replacement (Glass/OLED)</Link>
-                <Link href="/mobile-repair/battery-replacement" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-blue-600">Battery Replacement</Link>
-                <Link href="/mobile-repair/charging-port-repair" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-blue-600">Charging Port & Mic</Link>
-                <Link href="/mobile-repair/water-damage" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-blue-600">Water Damage Diagnostics</Link>
-                <Link href="/mobile-repair/iphone-repair" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-blue-600">Apple iPhone Specialist</Link>
-                <Link href="/repair-price" onClick={() => setMobileMenuOpen(false)} className="block py-1 font-bold text-blue-600">Repair Cost Calculator →</Link>
+                {!hasSearchResults ? (
+                  <div className="flex items-start gap-2 p-3 text-sm text-muted">
+                    <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                    <p>
+                      No matches for &ldquo;{searchQuery}&rdquo;. Try a brand, model or repair name, or{' '}
+                      <a
+                        href={getWhatsAppLink(`Hello Himal Product & Services, I am looking for: ${searchQuery}`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-700 underline underline-offset-2"
+                      >
+                        ask us on WhatsApp
+                      </a>
+                      .
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-1">
+                    <SearchGroup label="Repairs">
+                      {filteredRepairs.map(repair => (
+                        <SearchResult
+                          key={repair.id}
+                          href={`/mobile-repair/${repair.slug}`}
+                          onSelect={() => setSearchOpen(false)}
+                          title={repair.title}
+                          meta={repair.turnaroundTime}
+                        />
+                      ))}
+                    </SearchGroup>
+                    <SearchGroup label="Products">
+                      {filteredProducts.map(product => (
+                        <SearchResult
+                          key={product.id}
+                          href={`/products/${product.slug}`}
+                          onSelect={() => setSearchOpen(false)}
+                          title={product.name}
+                          meta={`रू ${product.price.toLocaleString('en-IN')}`}
+                        />
+                      ))}
+                    </SearchGroup>
+                    <SearchGroup label="Guides">
+                      {filteredBlogs.map(blog => (
+                        <SearchResult
+                          key={blog.id}
+                          href={`/blog/${blog.slug}`}
+                          onSelect={() => setSearchOpen(false)}
+                          title={blog.title}
+                          meta={blog.readTime}
+                        />
+                      ))}
+                    </SearchGroup>
+                  </div>
+                )}
               </div>
-            </div>
-
-            <Link href="/mobile-phones" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <Smartphone className="w-4 h-4 text-emerald-600" />
-              Smartphones & Phones
-            </Link>
-
-            <Link href="/gadgets-accessories" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <Headphones className="w-4 h-4 text-purple-600" />
-              Gadgets & Accessories (Earbuds, Chargers)
-            </Link>
-
-            <Link href="/smart-home" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <Lightbulb className="w-4 h-4 text-amber-600" />
-              Smart Home & Automation
-            </Link>
-
-            <Link href="/power-banks" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <BatteryCharging className="w-4 h-4 text-cyan-600" />
-              Power Banks & Fast Charging
-            </Link>
-
-            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <BookOpen className="w-4 h-4 text-rose-600" />
-              Guides & Educational Blog
-            </Link>
-
-            <Link href="/service-areas" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 py-3">
-              <MapPin className="w-4 h-4 text-amber-600" />
-              Service Areas (Itahari, Morang, Sunsari)
-            </Link>
-
-            <div className="pt-3 pb-1 grid grid-cols-2 gap-2 text-xs text-slate-600">
-              <Link href="/about-us" onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-50 rounded text-center">About Us</Link>
-              <Link href="/store-location" onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-50 rounded text-center">Store Location</Link>
-              <Link href="/warranty" onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-50 rounded text-center">Warranty Terms</Link>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-50 rounded text-center">Contact</Link>
-            </div>
+            )}
           </div>
 
-          <div className="pt-2 flex flex-col gap-2">
-            <a 
-              href={`tel:${siteConfig.phoneRaw}`} 
-              className="flex items-center justify-center gap-2 bg-slate-900 text-white py-2.5 rounded-lg font-bold text-sm"
-            >
-              <Phone className="w-4 h-4 text-green-400" />
-              Call {siteConfig.phone}
+          {/* Desktop actions */}
+          <div className="hidden items-center gap-3 lg:flex">
+            <a href={`tel:${siteConfig.phoneRaw}`} className="flex flex-col text-right">
+              <span className="text-xs text-muted">Call us</span>
+              <span className="text-sm font-medium text-ink hover:text-brand-700">{siteConfig.phone}</span>
             </a>
-            <a 
-              href={getWhatsAppLink("Hello Himal Product & Services, I am calling from your website.")}
+            <a
+              href={getWhatsAppLink(
+                'Hello Himal Product & Services, I would like to book a phone repair. My device model is: '
+              )}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-emerald-600 text-white py-2.5 rounded-lg font-bold text-sm"
+              className="btn-primary"
             >
-              <MessageSquare className="w-4 h-4" />
-              Chat on WhatsApp
+              <MessageSquare className="size-4" aria-hidden="true" />
+              <span>Book a repair</span>
             </a>
+          </div>
+
+          {/* Mobile trigger */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            className="rounded border border-line p-2.5 text-ink hover:bg-canvas lg:hidden"
+          >
+            <Menu className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+
+        {/* Desktop navigation */}
+        <nav aria-label="Primary" className="hidden border-t border-line lg:block">
+          <div className="container-page flex h-12 items-center justify-between">
+            <div className="flex items-center gap-1">
+              <div
+                ref={repairsRef}
+                className="relative"
+                onMouseEnter={() => setRepairsOpen(true)}
+                onMouseLeave={() => setRepairsOpen(false)}
+              >
+                <button
+                  ref={repairsButtonRef}
+                  type="button"
+                  onClick={() => setRepairsOpen(open => !open)}
+                  aria-expanded={repairsOpen}
+                  aria-controls="repairs-menu"
+                  className={`inline-flex h-12 items-center gap-1.5 border-b-2 px-3 text-sm font-medium ${
+                    repairsOpen
+                      ? 'border-ink text-ink'
+                      : 'border-transparent text-ink-soft hover:text-ink'
+                  }`}
+                >
+                  <Wrench className="size-4 text-muted" aria-hidden="true" />
+                  <span>Repair services</span>
+                  <ChevronDown
+                    className={`size-3.5 transition-transform ${repairsOpen ? 'rotate-180' : ''}`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {repairsOpen && (
+                  <div
+                    id="repairs-menu"
+                    className="absolute left-0 top-full z-50 w-[36rem] overflow-hidden rounded-b-card border border-t-0 border-line bg-white"
+                  >
+                    <div className="grid grid-cols-[1.35fr_1fr]">
+                      <div className="p-4">
+                        <p className="px-2 pb-2 text-xs text-muted">Repairs in Itahari</p>
+                        <ul>
+                          {repairServices.map(service => (
+                            <li key={service.id}>
+                              <Link
+                                href={`/mobile-repair/${service.slug}`}
+                                onClick={() => setRepairsOpen(false)}
+                                className="flex items-center justify-between gap-3 rounded px-2 py-2 text-sm text-ink-soft hover:bg-canvas hover:text-ink"
+                              >
+                                <span>{service.title}</span>
+                                <span className="shrink-0 text-xs text-muted">
+                                  {service.turnaroundTime}
+                                </span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="flex flex-col justify-between gap-4 border-l border-line bg-canvas p-4">
+                        <div>
+                          <ShieldCheck className="size-5 text-muted" aria-hidden="true" />
+                          <p className="mt-2 text-sm font-medium text-ink">Not sure what is wrong?</p>
+                          <p className="mt-1 text-xs leading-5 text-muted">
+                            Walk in for a free bench check. You get a written estimate before any work
+                            starts.
+                          </p>
+                        </div>
+                        <div className="space-y-2">
+                          <Link
+                            href="/repair-price"
+                            onClick={() => setRepairsOpen(false)}
+                            className="btn-outline w-full"
+                          >
+                            <span>See repair prices</span>
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                          </Link>
+                          <Link
+                            href="/mobile-repair"
+                            onClick={() => setRepairsOpen(false)}
+                            className="block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+                          >
+                            All repair services
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {primaryNav.map(item => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex h-12 items-center gap-1.5 border-b-2 border-transparent px-3 text-sm font-medium text-ink-soft hover:text-ink"
+                >
+                  <item.icon className="size-4 text-muted" aria-hidden="true" />
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-4 text-sm text-ink-soft">
+              <Link href="/about-us" className="hover:text-ink hover:underline hover:underline-offset-2">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-ink hover:underline hover:underline-offset-2">
+                Contact
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <button
+            type="button"
+            aria-label="Close navigation menu"
+            onClick={closeMobile}
+            className="absolute inset-0 bg-ink/40"
+          />
+          <div
+            id="mobile-navigation"
+            ref={mobilePanelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
+            className="absolute right-0 top-0 flex h-[100dvh] w-[min(88vw,23rem)] flex-col overflow-y-auto border-l border-line bg-white"
+          >
+            <div className="flex items-center justify-between border-b border-line px-4 py-3">
+              <span className="text-base font-semibold text-ink">Menu</span>
+              <button
+                ref={mobileCloseRef}
+                type="button"
+                onClick={closeMobile}
+                aria-label="Close navigation menu"
+                className="rounded border border-line p-2 text-ink hover:bg-canvas"
+              >
+                <X className="size-5" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="flex-1 space-y-5 px-4 py-4">
+              <div className="relative">
+                <label htmlFor="mobile-search" className="sr-only">
+                  Search products, repairs and guides
+                </label>
+                <Search
+                  className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted"
+                  aria-hidden="true"
+                />
+                <input
+                  id="mobile-search"
+                  type="search"
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  placeholder="Search phones, repairs, accessories"
+                  className="h-10 w-full rounded border border-line bg-canvas pl-10 pr-3 text-sm focus:border-line-strong focus:bg-white focus:outline-none"
+                />
+              </div>
+
+              {query.length > 1 && (
+                <div className="rounded-card border border-line bg-white p-2">
+                  {hasSearchResults ? (
+                    <div className="space-y-1">
+                      {filteredRepairs.map(repair => (
+                        <SearchResult
+                          key={repair.id}
+                          href={`/mobile-repair/${repair.slug}`}
+                          onSelect={closeMobile}
+                          title={repair.title}
+                          meta={repair.turnaroundTime}
+                        />
+                      ))}
+                      {filteredProducts.map(product => (
+                        <SearchResult
+                          key={product.id}
+                          href={`/products/${product.slug}`}
+                          onSelect={closeMobile}
+                          title={product.name}
+                          meta={`रू ${product.price.toLocaleString('en-IN')}`}
+                        />
+                      ))}
+                      {filteredBlogs.map(blog => (
+                        <SearchResult
+                          key={blog.id}
+                          href={`/blog/${blog.slug}`}
+                          onSelect={closeMobile}
+                          title={blog.title}
+                          meta={blog.readTime}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="p-2 text-sm text-muted">No matches. Message us on WhatsApp for a custom search.</p>
+                  )}
+                </div>
+              )}
+
+              <div>
+                <p className="mb-2 text-xs text-muted">Repair services</p>
+                <Link
+                  href="/mobile-repair"
+                  onClick={closeMobile}
+                  className="flex min-h-11 items-center justify-between rounded border border-line bg-canvas px-3 text-sm font-medium text-ink"
+                >
+                  <span className="inline-flex items-center gap-2">
+                    <Wrench className="size-4 text-muted" aria-hidden="true" />
+                    All mobile repairs
+                  </span>
+                  <ArrowRight className="size-4 text-muted" aria-hidden="true" />
+                </Link>
+                <ul className="mt-1 divide-y divide-line">
+                  {repairServices.slice(0, 4).map(service => (
+                    <li key={service.id}>
+                      <Link
+                        href={`/mobile-repair/${service.slug}`}
+                        onClick={closeMobile}
+                        className="flex min-h-11 items-center justify-between gap-3 py-2 text-sm text-ink-soft"
+                      >
+                        <span>{service.title}</span>
+                        <span className="shrink-0 text-xs text-muted">{service.turnaroundTime}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/repair-price"
+                  onClick={closeMobile}
+                  className="mt-2 inline-block text-sm text-brand-700 hover:underline hover:underline-offset-2"
+                >
+                  Repair price list
+                </Link>
+              </div>
+
+              <nav aria-label="Mobile" className="border-t border-line pt-3">
+                <ul className="divide-y divide-line">
+                  {primaryNav.map(item => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={closeMobile}
+                        className="flex min-h-12 items-center gap-3 text-sm text-ink"
+                      >
+                        <item.icon className="size-4 text-muted" aria-hidden="true" />
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link
+                      href="/about-us"
+                      onClick={closeMobile}
+                      className="flex min-h-12 items-center gap-3 text-sm text-ink"
+                    >
+                      <Info className="size-4 text-muted" aria-hidden="true" />
+                      <span>About us</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      onClick={closeMobile}
+                      className="flex min-h-12 items-center gap-3 text-sm text-ink"
+                    >
+                      <MapPin className="size-4 text-muted" aria-hidden="true" />
+                      <span>Contact and store location</span>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div className="space-y-2 border-t border-line bg-canvas p-4">
+              <a
+                href={getWhatsAppLink(
+                  'Hello Himal Product & Services, I would like to book a phone repair. My device model is: '
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobile}
+                className="btn-primary w-full"
+              >
+                <MessageSquare className="size-4" aria-hidden="true" />
+                <span>Book a repair</span>
+              </a>
+              <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline w-full bg-white">
+                <Phone className="size-4" aria-hidden="true" />
+                <span>{siteConfig.phone}</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
-    </header>
+    </>
+  );
+}
+
+function SearchGroup({ label, children }: { label: string; children: React.ReactNode }) {
+  const items = React.Children.toArray(children);
+  if (items.length === 0) return null;
+  return (
+    <div role="group" aria-label={label}>
+      <p className="px-2 py-1 text-xs text-muted">{label}</p>
+      <ul>{items}</ul>
+    </div>
+  );
+}
+
+function SearchResult({
+  href,
+  title,
+  meta,
+  onSelect
+}: {
+  href: string;
+  title: string;
+  meta: string;
+  onSelect: () => void;
+}) {
+  return (
+    <li>
+      <Link
+        href={href}
+        onClick={onSelect}
+        className="flex min-h-11 items-center justify-between gap-3 rounded px-2 py-2 text-sm text-ink-soft hover:bg-canvas hover:text-ink"
+      >
+        <span className="line-clamp-1">{title}</span>
+        <span className="shrink-0 text-xs font-medium text-muted">{meta}</span>
+      </Link>
+    </li>
   );
 }

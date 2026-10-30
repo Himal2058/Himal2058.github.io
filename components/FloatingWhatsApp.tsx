@@ -5,23 +5,25 @@ import { MessageSquare } from 'lucide-react';
 import { getWhatsAppLink } from '@/data/siteConfig';
 
 export function FloatingWhatsApp() {
-  const message = "Hello Himal Product & Services! I am browsing your website and would like to ask a question.";
+  const message =
+    'Hello Himal Product & Services! I am browsing your website and would like to ask a question.';
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center group">
-      <div className="hidden md:block mr-3 bg-white text-slate-800 text-xs font-semibold py-2 px-3.5 rounded-full shadow-lg border border-slate-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        Need quick repair help? Chat on WhatsApp
-      </div>
+    <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-40 flex items-center gap-2 sm:right-6">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none hidden rounded border border-line bg-white px-2.5 py-1.5 text-xs text-ink md:block"
+      >
+        WhatsApp us
+      </span>
       <a
         href={getWhatsAppLink(message)}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Direct WhatsApp Chat with Himal Electronics"
-        className="relative w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all duration-300"
+        aria-label="Chat with Himal Electronics on WhatsApp"
+        className="flex size-12 items-center justify-center rounded-full bg-whatsapp text-white hover:brightness-110"
       >
-        <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 border-2 border-white rounded-full animate-ping"></span>
-        <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 border-2 border-white rounded-full"></span>
-        <MessageSquare className="w-7 h-7" />
+        <MessageSquare className="size-5" aria-hidden="true" />
       </a>
     </div>
   );

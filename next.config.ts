@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
     : {}),
   images: {
     unoptimized: process.env.GITHUB_PAGES === "true",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
 };
 

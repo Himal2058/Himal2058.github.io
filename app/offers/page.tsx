@@ -1,92 +1,139 @@
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, Tag, ShieldCheck, Wrench, ArrowRight, MessageSquare } from 'lucide-react';
-import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
+import { ArrowRight, MessageSquare } from 'lucide-react';
+import { getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { CtaBand } from '@/components/CtaBand';
 
 export const metadata = {
-  title: 'Current Offers & Bundles | Himal Product and Services Itahari',
-  description: 'Verified savings and seasonal bundles on smartphone repairs, 65W GaN chargers, and smart home automation in Itahari, Sunsari.'
+  title: 'Offers',
+  description:
+    'Current bundles on screen repairs, chargers and power banks at the Itahari shop. Prices include VAT and warranty.'
 };
 
+const offers = [
+  {
+    title: 'Free tempered glass with a screen replacement',
+    label: 'Repair bundle',
+    description:
+      'Book a screen replacement at the workshop and we fit a 9H tempered glass protector before you leave. No code needed.',
+    cta: 'Book a screen repair',
+    whatsapp:
+      'Hello Himal Product & Services, I would like to book a screen replacement with the free protector offer.'
+  },
+  {
+    title: '65W charger and 100W cable combo',
+    label: 'Save रू 450',
+    description:
+      'The 65W dual-port GaN adapter with a 2 metre 100W braided USB-C cable for रू 3,299. The pair is normally रू 3,749.',
+    cta: 'Ask about the combo',
+    whatsapp:
+      'Hello Himal Product & Services, I want to order the 65W GaN charger and 100W cable combo.'
+  },
+  {
+    title: 'Student discount on power banks',
+    label: 'Student price',
+    description:
+      '10% off 10,000mAh and 20,000mAh power banks with a valid college ID. Applies at the counter in Sundarharaincha.',
+    cta: 'Check the student price',
+    whatsapp:
+      'Hello Himal Product & Services, I am a student asking about the 10% power bank discount.'
+  }
+];
+
+const steps = [
+  'Pick the offer and send the message.',
+  'We confirm stock and the final price.',
+  'Collect at the counter, or have it delivered.'
+];
+
 export default function OffersPage() {
-  const offers = [
-    {
-      title: "Free 9H Screen Protector with Any Display Replacement",
-      badge: "Repair Value Bundle",
-      description: "Get your cracked phone screen replaced at our Itahari workshop and receive a complimentary 9H tempered glass protector professionally installed bubble-free.",
-      cta: "Claim on WhatsApp",
-      code: "FREE-GLASS",
-      whatsapp: "Hello Himal Product & Services, I would like to book a screen replacement with the Free Screen Protector offer."
-    },
-    {
-      title: "GaN Fast Charger + 100W Braided Cable Combo",
-      badge: "Save रू 450",
-      description: "Buy our 65W dual-port GaN wall adapter together with a 2-meter 100W rugged braided USB-C cable for just रू 3,299 (Regular रू 3,749).",
-      cta: "Order Combo",
-      code: "GAN-COMBO",
-      whatsapp: "Hello Himal Product & Services, I want to order the 65W GaN Charger + 100W Cable combo deal."
-    },
-    {
-      title: "Student Discount on Power Banks (With College ID)",
-      badge: "Student Special",
-      description: "College and university students in Itahari, Dharan, and Biratnagar receive a special 10% discount on all 10,000mAh and 20,000mAh fast-charging power banks upon showing a valid campus ID.",
-      cta: "Inquire Student Deal",
-      code: "STUDENT-10",
-      whatsapp: "Hello Himal Product & Services, I am a student inquiring about the 10% power bank discount."
-    }
-  ];
-
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <Breadcrumbs items={[{ name: 'Offers & Bundles', url: '/offers' }]} />
+    <div className="pb-12 md:pb-16">
+      <div className="container-page pt-6">
+        <Breadcrumbs items={[{ name: 'Offers', url: '/offers' }]} />
+      </div>
 
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-1.5 bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Verified Genuine Deals</span>
-          </span>
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Special Deals & Tech Bundles
-          </h1>
-          <p className="text-xs md:text-sm text-slate-600 mt-3 leading-relaxed">
-            No deceptive countdown timers or fake discounts. Genuine added-value bundles for our customers in Itahari, Sunsari, and Morang.
+      {/* Header */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">Current offers</h1>
+          <p className="lede mt-3 max-w-2xl">
+            A few bundles we are running at the counter. They change with stock, so ask before you make
+            the trip.
           </p>
         </div>
+      </section>
 
-        {/* Offers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {offers.map((offer, idx) => (
-            <div key={idx} className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+      {/* Offers */}
+      <section className="container-page pt-8">
+        <div className="divide-y divide-line border-y border-line">
+          {offers.map(offer => (
+            <article key={offer.title} className="grid gap-3 py-5 sm:grid-cols-[1fr_auto] sm:items-start">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider bg-rose-600 text-white px-3 py-1 rounded-full inline-block mb-4">
-                  {offer.badge}
-                </span>
-                <h3 className="font-bold text-slate-900 text-base mb-2">
-                  {offer.title}
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed mb-6">
-                  {offer.description}
-                </p>
+                <p className="text-xs text-muted">{offer.label}</p>
+                <h2 className="mt-1 text-base font-semibold text-ink">{offer.title}</h2>
+                <p className="mt-1 text-sm leading-6 text-muted">{offer.description}</p>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <a
-                  href={getWhatsAppLink(offer.whatsapp)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white py-3 px-4 rounded-xl text-xs font-bold transition shadow-sm"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{offer.cta}</span>
-                </a>
-              </div>
-            </div>
+              <a
+                href={getWhatsAppLink(offer.whatsapp)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline shrink-0"
+              >
+                <MessageSquare className="size-4" aria-hidden="true" />
+                <span>{offer.cta}</span>
+              </a>
+            </article>
           ))}
         </div>
+      </section>
 
+      {/* How to claim */}
+      <section className="container-page pt-10">
+        <h2 className="heading-3">How to claim one</h2>
+        <ol className="mt-3 max-w-2xl space-y-2">
+          {steps.map((step, index) => (
+            <li key={step} className="flex gap-3 text-sm leading-6 text-ink-soft">
+              <span className="font-semibold tabular-nums text-muted">{index + 1}.</span>
+              <span>{step}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* Related links */}
+      <section className="container-page pt-10">
+        <div className="divide-y divide-line border-y border-line">
+          <Link href="/repair-price" className="flex items-center gap-4 py-3 hover:bg-white">
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-medium text-ink">Repair price list</span>
+              <span className="mt-0.5 block text-sm text-muted">
+                Check the screen, battery and port ranges before you book.
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
+          </Link>
+
+          <Link href="/warranty" className="flex items-center gap-4 py-3 hover:bg-white">
+            <span className="min-w-0 flex-1">
+              <span className="block text-sm font-medium text-ink">Warranty terms</span>
+              <span className="mt-0.5 block text-sm text-muted">
+                An offer never reduces the warranty on a product or repair.
+              </span>
+            </span>
+            <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <div className="mt-10">
+        <CtaBand
+          title="Ask what is running this week"
+          description="Offers follow stock. Send a message and we will tell you what is on before you travel."
+          whatsappMessage="Hello Himal Product & Services, which offers are running this week?"
+        />
       </div>
     </div>
   );

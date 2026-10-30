@@ -1,122 +1,147 @@
 import React from 'react';
 import Link from 'next/link';
-import { 
-  ShieldCheck, 
-  Wrench, 
-  Award, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  CheckCircle2, 
-  Users, 
-  ArrowRight 
-} from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { CtaBand } from '@/components/CtaBand';
 
 export const metadata = {
-  title: 'About Himal Product and Services | Estd. 2022 Morang & Sunsari',
-  description: 'Learn about Himal Product and Services, our certified technician team, workshop philosophy, and dedication to genuine electronics in Itahari and Eastern Nepal.'
+  title: 'About Us | Himal Product and Services, Itahari',
+  description:
+    'A repair workshop and electronics shop in Sundarharaincha, Morang. Open since 2022, serving Itahari, Dharan and Biratnagar.'
 };
+
+const credentials = [
+  { label: 'Registered name', value: siteConfig.name },
+  { label: 'Open since', value: '2022' },
+  {
+    label: 'Shop and workshop',
+    value: `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.province}`
+  },
+  { label: 'We serve', value: 'Itahari, Sunsari, Morang and the rest of Koshi' },
+  { label: 'Phone', value: siteConfig.phone },
+  { label: 'Email', value: siteConfig.email }
+];
+
+const policies = [
+  {
+    href: '/warranty',
+    title: 'Warranty',
+    copy: 'How long parts and products are covered, and what the slip covers.'
+  },
+  {
+    href: '/repair-policy',
+    title: 'Repair policy',
+    copy: 'What we do with your device, and what we will not do.'
+  },
+  {
+    href: '/store-location',
+    title: 'Find the shop',
+    copy: 'Map, landmarks and directions from Itahari and Dharan.'
+  }
+];
 
 export default function AboutUsPage() {
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <Breadcrumbs items={[{ name: 'About Us', url: '/about-us' }]} />
+    <div className="pb-12 md:pb-16">
+      <div className="container-page pt-6">
+        <Breadcrumbs items={[{ name: 'About us', url: '/about-us' }]} />
+      </div>
 
-        {/* Hero */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-14 shadow-sm mb-12">
-          <div className="max-w-3xl space-y-4">
-            <span className="inline-flex items-center gap-1.5 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              <Award className="w-3.5 h-3.5" />
-              <span>Established 2022 • Registered in Nepal</span>
-            </span>
-
-            <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              About Himal Product and Services
-            </h1>
-
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-              Founded in 2022, <strong>Himal Product and Services</strong> was established with a singular mission: to provide the communities of Itahari, Sunsari, Morang, and greater Eastern Nepal with dependable, honest mobile phone repairs and 100% genuine electronics.
-            </p>
-          </div>
-        </div>
-
-        {/* Core Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-              <Wrench className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">Certified Bench Diagnostics</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              We never perform guesswork on your expensive smartphones. Our workbench is equipped with digital USB power meters, precision thermal imaging, and calibrated torque tools.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">100% Genuine Inventory</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Every smartphone we sell carries an official VAT bill and is registered with the Nepal Telecommunications Authority MDMS system. Zero gray-market risk.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
-              <Users className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">Customer Data Privacy Code</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Hardware repairs (screen/battery) never touch your private photos, WhatsApp chats, or banking apps. We advocate for Android Maintenance Mode and total privacy.
-            </p>
-          </div>
-        </div>
-
-        {/* Story Section */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm mb-12 space-y-6 text-xs md:text-sm text-slate-700 leading-relaxed">
-          <h2 className="text-2xl font-black text-slate-900">Our Founding Story & Workshop Hub</h2>
-          
-          <p>
-            When we launched our physical workshop in <strong>Sundarharaincha-4, Morang</strong> along the busy highway corridor serving Itahari and Biratnagar, we observed a widespread challenge: customers with cracked screens or failing batteries were frequently told to leave their phones for days, with unpredictable pricing and uncertain component origins.
+      {/* Header */}
+      <section className="border-b border-line bg-surface">
+        <div className="container-page py-8 md:py-10">
+          <h1 className="display-1">About the shop</h1>
+          <p className="lede mt-3 max-w-2xl">
+            Himal Product and Services opened in 2022 at Sundarharaincha, on the highway between Itahari
+            and Biratnagar. There is a repair bench at the back and a shop at the front.
           </p>
+        </div>
+      </section>
 
-          <p>
-            We set out to change that standard. By stocking genuine and OEM-grade display panels, fresh-cycle lithium batteries, GaN charging components, and IoT automation products directly, we reduced routine repair turnarounds to just <strong>45 to 90 minutes</strong> while customers wait comfortably.
-          </p>
+      {/* Story */}
+      <section className="container-page pt-8">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12">
+          <div>
+            <h2 className="heading-3">Why the shop exists</h2>
 
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-2">
-            <p className="font-bold text-slate-900 text-sm">Key Business Credentials:</p>
-            <ul className="space-y-1.5 text-xs text-slate-600">
-              <li>• Registered Entity Name: <strong>{siteConfig.name}</strong></li>
-              <li>• Year of Establishment: <strong>2022</strong></li>
-              <li>• Store & Workshop Address: <strong>{siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province}, Nepal</strong></li>
-              <li>• Primary Service Region: <strong>Itahari, Sunsari, Morang, and all Koshi Province districts</strong></li>
-              <li>• Direct Hotline: <strong>{siteConfig.phone}</strong></li>
-              <li>• Official Email: <strong>{siteConfig.email}</strong></li>
+            <div className="prose-page mt-3">
+              <p>
+                People were being asked to leave a phone for three days to change a screen, and the price
+                they were quoted at the counter was not the price they paid. That was the situation we
+                opened into, and it is the thing we decided to do differently.
+              </p>
+              <p>
+                We keep common parts in stock, so most screen and battery jobs are finished while you
+                wait. If a part has to be ordered, you get the date before you leave the phone behind.
+              </p>
+              <p>
+                The shop sells the same brands it repairs: Samsung, Redmi, Apple, Vivo, Realme and the
+                accessories that go with them. Every handset comes with a VAT bill and MDMS registration.
+              </p>
+            </div>
+
+            <h2 className="heading-3 mt-8">What you can expect</h2>
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-ink-soft">
+              <li>Free first check, with a price before anything is opened.</li>
+              <li>A written slip for every repair, with the warranty printed on it.</li>
+              <li>Your passcode is not needed for screen, battery or port work.</li>
+              <li>Delivery in Itahari, Dharan, Biratnagar and Sundarharaincha the same day.</li>
             </ul>
           </div>
-        </div>
 
-        {/* Links to Other Trust Pages */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-          <Link href="/warranty" className="p-4 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 transition text-center">
-            <p className="font-bold text-sm text-slate-900 mb-1">Product Warranty Policy</p>
-            <p className="text-xs text-slate-500">6 Months to 2 Years coverage →</p>
-          </Link>
-          <Link href="/repair-policy" className="p-4 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 transition text-center">
-            <p className="font-bold text-sm text-slate-900 mb-1">Repair Terms & Privacy</p>
-            <p className="text-xs text-slate-500">Read our ethical repair promise →</p>
-          </Link>
-          <Link href="/store-location" className="p-4 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 transition text-center">
-            <p className="font-bold text-sm text-slate-900 mb-1">Visit Store Location</p>
-            <p className="text-xs text-slate-500">Google Maps & Directions →</p>
-          </Link>
-        </div>
+          <div className="space-y-4">
+            <div className="rounded-card border border-line bg-surface p-4">
+              <h2 className="text-sm font-semibold text-ink">Shop details</h2>
+              <dl className="mt-3 divide-y divide-line">
+                {credentials.map((item, index) => (
+                  <div key={item.label} className={`py-2 ${index === 0 ? 'pt-0' : ''}`}>
+                    <dt className="text-xs text-muted">{item.label}</dt>
+                    <dd className="mt-0.5 break-words text-sm text-ink">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
 
+            <Link
+              href="/store-location"
+              className="flex items-start gap-3 rounded-card border border-line bg-surface p-4 hover:border-line-strong"
+            >
+              <MapPin className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
+              <span>
+                <span className="block text-sm font-medium text-ink">Getting here</span>
+                <span className="mt-0.5 block text-xs leading-5 text-muted">
+                  {siteConfig.address.landmark}
+                </span>
+              </span>
+              <ArrowRight className="ml-auto mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Policies */}
+      <section className="container-page pt-10">
+        <h2 className="heading-3">Policies and practical details</h2>
+        <div className="mt-3 divide-y divide-line border-y border-line">
+          {policies.map(link => (
+            <Link key={link.href} href={link.href} className="flex items-center gap-4 py-3 hover:bg-white">
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-medium text-ink">{link.title}</span>
+                <span className="mt-0.5 block text-sm text-muted">{link.copy}</span>
+              </span>
+              <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="mt-10">
+        <CtaBand
+          title="Questions about the shop?"
+          description="Call the counter or send a message. You will reach the person who does the repairs."
+          whatsappMessage="Hello Himal Product & Services, I would like to know more about your store and services."
+        />
       </div>
     </div>
   );

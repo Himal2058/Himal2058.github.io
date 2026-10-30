@@ -1,32 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { 
-  Star, 
-  ShieldCheck, 
-  Truck, 
-  CheckCircle2, 
-  MessageSquare, 
-  Phone, 
-  ArrowLeft,
-  Share2,
-  Cpu,
-  Package
-} from 'lucide-react';
+import { MessageSquare, Phone, ArrowRight } from 'lucide-react';
 import { products, getProductBySlug } from '@/data/products';
 import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ProductCard } from '@/components/ProductCard';
+import { CtaBand } from '@/components/CtaBand';
 import { JsonLd, getProductSchema } from '@/components/JsonLd';
 
 interface Props {
   params: Promise<{ 'brand-model': string }>;
 }
 
+const categories: Record<string, { name: string; url: string }> = {
+  'mobile-phones': { name: 'Smartphones', url: '/mobile-phones' },
+  'gadgets-accessories': { name: 'Gadgets and accessories', url: '/gadgets-accessories' },
+  'smart-home': { name: 'Smart home', url: '/smart-home' },
+  'power-banks': { name: 'Power banks', url: '/power-banks' }
+};
+
 export async function generateStaticParams() {
-  return products.map(product => ({
-    'brand-model': product.slug
-  }));
+  return products.map(product => ({ 'brand-model': product.slug }));
 }
 
 export const dynamicParams = false;
@@ -36,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
   const product = getProductBySlug(slug);
 
   if (!product) {
-    return { title: 'Product Not Found' };
+    return { title: 'Product not found' };
   }
 
   return {
@@ -58,32 +54,20 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
-  const categoryNameMap: Record<string, { name: string; url: string }> = {
-    'mobile-phones': { name: 'Smartphones', url: '/mobile-phones' },
-    'gadgets-accessories': { name: 'Gadgets & Accessories', url: '/gadgets-accessories' },
-    'smart-home': { name: 'Smart Home', url: '/smart-home' },
-    'power-banks': { name: 'Power Banks', url: '/power-banks' }
-  };
-
-  const parentCat = categoryNameMap[product.category] || { name: 'Products', url: '/products' };
+  const parentCategory = categories[product.category] ?? { name: 'Products', url: '/products' };
 
   const relatedProducts = products
-    .filter(p => p.category === product.category && p.id !== product.id)
+    .filter(item => item.category === product.category && item.id !== product.id)
     .slice(0, 3);
 
-  const discountPercent = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
-    : 0;
-
-  const whatsappOrderMessage = `Hello Himal Product & Services! I would like to order/inquire about:
-- Product: *${product.name}*
-- Price: रू ${product.price.toLocaleString('en-IN')}
-- Warranty: ${product.warranty}
-Can I collect this at your Itahari store, or do you offer delivery?`;
+  const whatsappOrderMessage = `Hello Himal Product & Services, I would like to ask about this product.
+Product: ${product.name}
+Price on site: रू ${product.price.toLocaleString('en-IN')}
+Is it in stock at the shop?`;
 
   return (
-    <div className="py-8 bg-slate-50 min-h-screen">
-      <JsonLd 
+    <div className="pb-12 md:pb-16">
+      <JsonLd
         data={getProductSchema({
           name: product.name,
           description: product.description,
@@ -93,189 +77,146 @@ Can I collect this at your Itahari store, or do you offer delivery?`;
           brand: product.brand,
           inStock: product.inStock,
           warranty: product.warranty
-        })} 
+        })}
       />
 
-      <div className="container mx-auto px-4 max-w-6xl">
-        {/* Breadcrumbs */}
-        <Breadcrumbs items={[
-          { name: parentCat.name, url: parentCat.url },
-          { name: product.name, url: `/products/${product.slug}` }
-        ]} />
+      <div className="container-page pt-6">
+        <Breadcrumbs
+          items={[
+            { name: parentCategory.name, url: parentCategory.url },
+            { name: product.name, url: `/products/${product.slug}` }
+          ]}
+        />
+      </div>
 
-        {/* Product Hero Section */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-10 mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            
-            {/* Left Image View */}
-            <div className="lg:col-span-5">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
-                <img 
-                  src={product.image} 
-                  alt={product.name} 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 flex flex-col gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider bg-slate-900 text-white px-3 py-1 rounded-full">
-                    {product.brand}
-                  </span>
-                  {discountPercent > 0 && (
-                    <span className="text-xs font-bold bg-rose-600 text-white px-2.5 py-1 rounded-full">
-                      Save {discountPercent}%
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Delivery Assurance */}
-              <div className="mt-6 p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2 text-xs text-slate-600">
-                <div className="flex items-center gap-2 text-slate-800 font-semibold">
-                  <Truck className="w-4 h-4 text-blue-600" />
-                  <span>Delivery Coverage</span>
-                </div>
-                <p>
-                  Same-day delivery across Itahari, Dharan, Biratnagar, and Sundarharaincha. Express secure courier service throughout all districts of Nepal.
-                </p>
-              </div>
+      <div className="container-page pt-6">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
+          {/* Image */}
+          <div>
+            <div className="relative aspect-square overflow-hidden rounded-card border border-line bg-white">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                priority
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
+              />
             </div>
 
-            {/* Right Information & CTAs */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              <div>
-                {/* Rating */}
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="flex text-amber-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : 'text-slate-300'}`} 
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs font-bold text-slate-700">{product.rating}</span>
-                  <span className="text-xs text-slate-400">({product.reviewsCount} verified customer ratings)</span>
-                </div>
+            <div className="mt-3 flex items-start gap-2 text-sm text-muted">
+              <span>
+                Same-day delivery in Itahari, Dharan, Biratnagar and Sundarharaincha. Courier to other
+                districts.
+              </span>
+            </div>
+          </div>
 
-                {/* Title */}
-                <h1 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
-                  {product.name}
-                </h1>
+          {/* Info */}
+          <div>
+            <p className="text-sm text-muted">
+              <Link href={parentCategory.url} className="hover:text-brand-700 hover:underline hover:underline-offset-2">
+                {parentCategory.name}
+              </Link>
+              {' · '}
+              {product.brand}
+            </p>
 
-                {/* Pricing Display */}
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="text-3xl font-black text-blue-600">
-                    रू {product.price.toLocaleString('en-IN')}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-slate-400 line-through">
-                      रू {product.originalPrice.toLocaleString('en-IN')}
-                    </span>
-                  )}
-                  <span className="text-xs text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full font-semibold border border-emerald-200">
-                    VAT Inclusive
-                  </span>
-                </div>
+            <h1 className="display-1 mt-1">{product.name}</h1>
 
-                {/* Stock & Warranty Badge */}
-                <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>In Stock for Immediate Pickup</span>
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200">
-                    <ShieldCheck className="w-4 h-4 text-blue-600" />
-                    <span>{product.warranty}</span>
-                  </span>
-                </div>
+            <p className="mt-3 text-xl font-semibold tabular-nums text-ink">
+              रू {product.price.toLocaleString('en-IN')}
+              {product.originalPrice && (
+                <span className="ml-2 text-sm font-normal text-muted line-through">
+                  रू {product.originalPrice.toLocaleString('en-IN')}
+                </span>
+              )}
+            </p>
+            <p className="mt-1 text-xs text-muted">
+              Price includes VAT. {product.warranty}.
+            </p>
 
-                {/* Description */}
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed mb-6">
-                  {product.description}
-                </p>
+            <p className="mt-4 text-sm leading-6 text-ink-soft">{product.description}</p>
 
-                {/* Highlights */}
-                <div className="mb-6">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">
-                    Key Features:
-                  </h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
-                    {product.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <p className="mt-3 text-sm">
+              {product.inStock ? (
+                <span className="text-whatsapp">In stock at the counter</span>
+              ) : (
+                <span className="text-muted">Not on the shelf. Ask and we can order it.</span>
+              )}
+            </p>
 
-                {/* Compatibility */}
-                {product.compatibility && (
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 mb-6 text-xs text-slate-600">
-                    <strong>Compatibility:</strong> {product.compatibility}
-                  </div>
-                )}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-4">
-                <a
-                  href={getWhatsAppLink(whatsappOrderMessage)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl transition text-sm shadow-md"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Order / Inquire on WhatsApp</span>
-                </a>
-
-                <a
-                  href={`tel:${siteConfig.phoneRaw}`}
-                  className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-6 rounded-xl transition text-sm shadow-sm"
-                >
-                  <Phone className="w-4 h-4 text-green-400" />
-                  <span>Call to Reserve</span>
-                </a>
-              </div>
-
+            <div className="mt-5">
+              <h2 className="text-sm font-semibold text-ink">What you get</h2>
+              <ul className="mt-2 space-y-1.5 text-sm leading-6 text-ink-soft">
+                {product.highlights.map(highlight => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
             </div>
 
+            {product.compatibility && (
+              <p className="mt-4 border-t border-line pt-3 text-sm leading-6 text-muted">
+                <span className="text-ink">Works with: </span>
+                {product.compatibility}
+              </p>
+            )}
+
+            <div className="mt-5 flex flex-col gap-2 border-t border-line pt-5 sm:flex-row">
+              <a
+                href={getWhatsAppLink(whatsappOrderMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary flex-1"
+              >
+                <MessageSquare className="size-4" aria-hidden="true" />
+                <span>Ask about this product</span>
+              </a>
+              <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline">
+                <Phone className="size-4" aria-hidden="true" />
+                <span>{siteConfig.phone}</span>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Detailed Technical Specifications Table */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-10 mb-12">
-          <h2 className="text-xl md:text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
-            <Cpu className="w-5 h-5 text-blue-600" />
-            <span>Verified Technical Specifications</span>
-          </h2>
+      {/* Specifications */}
+      <section className="container-page pt-10">
+        <h2 className="heading-3">Specifications</h2>
+        <dl className="mt-3 divide-y divide-line border-y border-line">
+          {Object.entries(product.specs).map(([key, value]) => (
+            <div key={key} className="grid gap-1 py-2.5 sm:grid-cols-[14rem_1fr] sm:gap-4">
+              <dt className="text-sm text-muted">{key}</dt>
+              <dd className="text-sm leading-6 text-ink">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
-          <div className="divide-y divide-slate-100 text-xs md:text-sm">
-            {Object.entries(product.specs).map(([key, val]) => (
-              <div key={key} className="py-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
-                <span className="font-bold text-slate-700">{key}</span>
-                <span className="sm:col-span-2 text-slate-600">{val}</span>
-              </div>
+      {/* Related */}
+      {relatedProducts.length > 0 && (
+        <section className="container-page pt-10">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
+            <h2 className="heading-3">More in {parentCategory.name.toLowerCase()}</h2>
+            <Link href={parentCategory.url} className="text-sm text-brand-700 hover:underline hover:underline-offset-2">
+              View all
+            </Link>
+          </div>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedProducts.map(related => (
+              <ProductCard key={related.id} product={related} />
             ))}
           </div>
-        </div>
+        </section>
+      )}
 
-        {/* Related Products Carousel/Grid */}
-        {relatedProducts.length > 0 && (
-          <div className="mb-12">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-slate-900">Related in {parentCat.name}</h2>
-              <Link href={parentCat.url} className="text-xs font-bold text-blue-600 hover:underline">
-                View All {parentCat.name} →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {relatedProducts.map(rel => (
-                <ProductCard key={rel.id} product={rel} />
-              ))}
-            </div>
-          </div>
-        )}
-
+      <div className="mt-10">
+        <CtaBand
+          title="Want to see it in person first?"
+          description="Come to the counter and handle it, or message us for current stock and price."
+          whatsappMessage={`Hello Himal Product & Services, I am interested in the ${product.name}. Is it in stock?`}
+        />
       </div>
     </div>
   );

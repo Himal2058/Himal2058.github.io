@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | Mobile Repair & Electronics Store Itahari`,
     template: `%s | ${siteConfig.name}`
   },
-  description: 'Eastern Nepal’s trusted electronics retail and certified mobile repair center in Itahari and Sunsari/Morang. Screen replacement, battery repair, genuine smartphones, smart home devices, and power banks.',
+  description: 'Electronics shop and mobile repair workshop in Itahari, Sunsari. Screen and battery repairs, smartphones, accessories, smart home devices and power banks.',
   keywords: [
     'mobile repair Itahari',
     'electronics shop Itahari',
@@ -76,10 +76,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href={siteAsset("/logo.jpg")} />
       </head>
-      <body className="flex flex-col min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+      <body className="flex min-h-screen flex-col bg-canvas text-ink antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <JsonLd data={getOrganizationSchema()} />
         <Header />
-        <main className="flex-grow">
+        <main id="main-content" className="flex-grow">
           {children}
         </main>
         <Footer />

@@ -25,8 +25,8 @@ export const blogTopics: BlogPost[] = [
   // CLUSTER 1: Mobile Phone Repair (10 Topics)
   {
     id: "repair-topic-1",
-    title: "Common Reasons a Phone Stops Charging and What to Check First",
-    h1: "Why Has Your Phone Stopped Charging? Causes and Safe Troubleshooting",
+    title: "Phone Not Charging? Check These Three Things First",
+    h1: "Phone not charging? What to check first",
     slug: "phone-stops-charging-reasons-fixes",
     cluster: "mobile-repair",
     primaryQuery: "phone stops charging reasons",
@@ -37,69 +37,40 @@ export const blogTopics: BlogPost[] = [
     parentClusterUrl: "/mobile-repair",
     relatedClusterSlugs: ["charging-port-repair", "battery-replacement"],
     outline: [
-      "Introduction: The frustration of plugging in your phone with zero response",
-      "Check 1: Inspecting the Wall Adapter and Cable on another device",
-      "Check 2: Pocket Lint and Debris trapped in Type-C / Lightning ports",
-      "Check 3: Safe method to inspect and remove dry lint without bending contact pins",
-      "Check 4: Thermal throttling and 'Moisture Detected' software triggers",
-      "When to Stop DIY: Signs of burnt contacts or loose micro-soldering",
-      "How Himal Product and Services diagnoses charging problems in Itahari",
-      "Summary and Prevention Tips"
+      "Start with the cable and the adapter",
+      "Check the port for lint",
+      "Moisture warnings",
+      "When it is a bench job"
     ],
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-15",
     image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Plugging in your smartphone only to see no charging icon is stressful. Before assuming your battery is dead, run through these safe, step-by-step diagnostic checks.",
+    excerpt: "Before assuming the battery or the board is gone, test the cable, the adapter and the port. Most charging faults turn out to be one of those.",
     content: `
-When you plug your smartphone into a wall charger and nothing happens, your first instinct might be panic—especially if your phone battery is at 1%. However, our workshop experience in Itahari reveals that over 60% of charging failures are caused by easily fixable issues rather than expensive motherboard damage.
+A phone that will not charge is one of the most common things we see at the counter. In most cases it is not the board. It is the cable, the lint in the port, or the adapter. Here is the order we check things in, and you can do the first two steps at home.
 
-In this practical guide, we outline safe troubleshooting steps you can perform at home before bringing your device to a professional repair bench.
+### Start with the cable and the adapter
 
----
+Borrow a cable you know works and try it with your phone. Then try your cable with another phone or a power bank. That tells you in two minutes whether the fault is in the cable, the adapter or the phone.
 
-### Step 1: Test with a Known Working Cable and Adapter
+Cables fail near the plug, where they bend every day. A cable that charges only when you hold it at an angle is on its way out. Cheap unbranded cables also fail to negotiate fast charging, so the phone drops to a slow trickle and looks like it is not charging properly.
 
-Cables experience repetitive daily bending, particularly near the connector collars. Before assuming your phone's port is damaged:
-- Test your charging brick with a different phone or power bank.
-- Swap the cable for an original or certified high-grade replacement.
-- Avoid low-quality unbranded cables purchased from street stalls, as they frequently lack proper gauge copper and fail to handshake with fast-charging controllers.
+### Check the port for lint
 
----
+Pockets and bags pack cloth fibre into the port until it forms a hard pad at the bottom. The plug then does not seat fully, and the phone charges only when the cable is tilted.
 
-### Step 2: Inspect the Port for Compressed Pocket Lint
+Switch the phone off. Use a wooden toothpick or a plastic dental pick under good light, and sweep gently along the bottom of the port. Do not use a pin, a needle or a paperclip. Metal can bend the contact pins or short the battery pins.
 
-Smartphones spend hours inside pockets and bags. Over time, microscopic cloth fibers, dust, and lint migrate into the Type-C or Lightning cavity. When you insert your charger, you compact this lint into a hard felt-like pad at the bottom of the port.
+### Moisture warnings
 
-**Common symptoms of lint buildup:**
-- The cable plug doesn't make a solid "click" when inserted.
-- The plug feels loose and easily wiggles out.
-- Charging only occurs if you tilt the cable at a specific upward or downward angle.
+If the phone has been in rain or a steamy bathroom, Android and iPhone will refuse to charge and show a moisture warning. Leave it upright in a ventilated room for a couple of hours. Do not use a hair dryer, and do not put it in rice. Heat pushes water further in, and rice dust makes it worse.
 
-#### How to Safely Clean Lint:
-1. Power down your smartphone completely.
-2. Use a wooden toothpick or a non-conductive plastic dental pick under bright illumination.
-3. Gently sweep along the bottom edge of the port. **Never use metal needles, safety pins, or paperclips**, as conductive metal can short-circuit active battery pins or bend delicate micro-gold contact leaves!
+### When it is a bench job
 
----
+If a known good cable and adapter still do nothing, and the port is clean, the fault is usually one of three things: corroded pins, a cracked solder joint where the port meets the board, or a battery that has dropped below its minimum voltage and will not accept a charge.
 
-### Step 3: Check for Moisture Warnings or Temperature Lockouts
-
-Modern Android phones and iPhones feature automated liquid detection sensors. If your phone was exposed to rain or steam during humid summer days in Sunsari, the operating system may display a *'Moisture detected in charging port'* alert.
-- Do not force-charge the device while wet.
-- Prop the phone upright in a well-ventilated room with gentle air circulation for 1–2 hours.
-- Avoid using hot air dryers, which can warp plastic internal gaskets and push water deeper into the housing.
-
----
-
-### When to Seek Professional Repair in Itahari
-
-If you have verified that your cable and wall charger work on other devices, your port is clean of lint, and the phone still refuses to draw power, the issue usually points to:
-1. **Burnt or Corroded Pins:** Caused by microscopic arcing or liquid exposure.
-2. **Fractured Solder Joints:** Caused by tripping over cables or heavy drops while plugged in.
-3. **Exhausted Lithium-Ion Cell:** A battery that has dropped below critical voltage and cannot accept current.
-
-At **Himal Product and Services**, our bench technicians in Itahari test your phone on a digital USB power meter to measure exact voltage and current draw in real-time. If port replacement is needed, we install original sub-boards within 30 to 45 minutes, backed by our repair warranty.
+We test the phone on a USB power meter to see the actual voltage and current. A port replacement for most models takes 30 to 45 minutes.
     `,
     faqs: [
       {
@@ -114,8 +85,8 @@ At **Himal Product and Services**, our bench technicians in Itahari test your ph
   },
   {
     id: "repair-topic-2",
-    title: "Phone Screen Damage: Repair Options, Costs, and Important Considerations",
-    h1: "Smartphone Screen Damage Guide: Glass vs Display Replacement Explained",
+    title: "Cracked Phone Screen: Glass or Full Display Replacement",
+    h1: "Cracked phone screen: what needs replacing",
     slug: "phone-screen-damage-repair-guide",
     cluster: "mobile-repair",
     primaryQuery: "phone screen repair guide Nepal",
@@ -126,77 +97,69 @@ At **Himal Product and Services**, our bench technicians in Itahari test your ph
     parentClusterUrl: "/mobile-repair",
     relatedClusterSlugs: ["screen-replacement", "android-repair", "iphone-repair"],
     outline: [
-      "Glass vs Digitizer vs OLED: Anatomy of a modern phone display",
-      "How to tell if only the outer glass is broken",
-      "Warning signs of deeper OLED / LCD panel failure",
-      "Why continuing to use a cracked screen is risky for your fingers and phone",
-      "Original vs OEM Aftermarket displays: What are the differences?",
-      "Screen repair process and warranty considerations at Himal Product and Services"
+      "What a phone screen is made of",
+      "Telling a glass crack from a dead panel",
+      "Why a cracked screen should not wait",
+      "Original and aftermarket panels",
+      "How long a replacement takes"
     ],
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-12",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Dropped your phone on concrete? Learn how to distinguish a simple glass crack from complete display damage, and understand replacement options in Itahari.",
+    excerpt: "A cracked screen is not always a full replacement. Here is how to tell whether it is the glass or the panel, and what each repair costs in Itahari.",
     content: `
-A cracked smartphone screen is one of the most common accidents in Nepal. Whether your phone slipped from your hand onto the pavement or got crushed in a crowded vehicle, understanding how modern screens are constructed helps you make an informed repair decision.
+A cracked screen is the most common repair we do. What matters for the price is not how big the crack looks, but which layer broke.
 
----
+### What the screen is made of
 
-### The Three Layers of a Modern Smartphone Screen
+A modern phone screen is three layers glued together. The top is the glass you touch. Under it is the touch layer, a fine grid that reads your finger. At the bottom is the panel itself, LCD or OLED, where the picture comes from.
 
-Today's smartphones do not use simple glass windows. They consist of three tightly bonded optical layers:
-1. **Outer Gorilla Glass / Shield:** The hardened transparent glass layer you touch.
-2. **Touch Digitizer Layer:** The electrostatic grid that translates your finger movements into coordinates.
-3. **Display Panel (OLED / AMOLED / IPS LCD):** The active pixel panel that produces vibrant colors and images.
+The three layers are bonded as one piece on most phones. That is why a small crack in the glass can mean replacing the whole assembly.
 
----
+### Glass crack or dead panel?
 
-### How to Tell What Needs Replacement
+Glass-only damage looks like this:
 
-#### Scenario A: Glass-Only Damage
-- The outer glass has cracks or hairline fractures.
-- The display image underneath is 100% normal—no black ink blotches, green vertical lines, or blank areas.
-- Touch responds accurately across every corner of the display.
-*In this case, specialized glass refurbishment can sometimes be done depending on the phone model.*
+- Cracks or hairlines in the surface, but the picture underneath is normal.
+- No black patches, no green or pink lines.
+- Touch works everywhere, including the corners.
 
-#### Scenario B: Internal Display Panel Failure
-- You see dark black ink spots ("bleeding") spreading across the screen.
-- Vertical bright green, pink, or white lines appear on the panel.
-- Certain areas of the touch screen have stopped responding ("dead zones").
-- The screen remains black even though the phone vibrates when receiving incoming calls.
-*In this scenario, a full display assembly replacement is required.*
+Dead panel damage looks like this:
 
----
+- Black or purple ink spots that spread over a few days.
+- Bright green, pink or white vertical lines.
+- Patches of the screen that no longer respond to touch.
+- A black screen while the phone still vibrates for calls.
 
-### Why You Shouldn't Ignore a Cracked Screen
+If the picture and touch are still fine, some models can take new glass only, which is cheaper. If the panel is damaged, the whole assembly has to be replaced.
 
-Many users continue using a cracked screen for months with transparent tape. While tempting, this creates several secondary risks:
-- **Moisture & Humidity Ingress:** Cracks compromise the water resistance seal. Sweat from your ear or high humidity in Sunsari during monsoon can penetrate directly onto the motherboard.
-- **Glass Splinters:** Microscopic glass shards can flake off and puncture your fingertips.
-- **Progressive AMOLED Deterioration:** Tiny micro-cracks in organic OLED layers oxidize rapidly when exposed to air, causing the entire display to turn black within days.
+### Why a cracked screen should not wait
 
----
+Taped-over glass keeps working for a while, but the crack lets dust and moisture into the phone. In the monsoon here that is a real problem, because sweat and humidity reach the board. Small glass splinters also come off onto your fingers, and an OLED panel that is exposed to air can darken within days.
 
-### Screen Replacement Quality Tiers in Nepal
+### What we fit
 
-When replacing a screen at **Himal Product and Services in Itahari**, we maintain transparency about component grades:
-1. **Service Center Original:** 100% original factory specification panel with factory color gamut, high refresh rate (90Hz/120Hz), and in-display fingerprint responsiveness.
-2. **High-Grade OEM / OLED Aftermarket:** Cost-effective replacement panel offering vibrant colors and reliable touch performance at a budget-friendly price point.
+We give you the options for your model before ordering, usually two:
 
-We test touch sensitivity, display brightness, and sensor alignment right in front of you before final frame sealing.
+- An original service-centre panel, with the factory colour, refresh rate and in-screen fingerprint.
+- A good aftermarket OLED or LCD, which costs less and is fine for most people.
+
+We fit the part in front of you and test touch, brightness and the fingerprint sensor before you take the phone.
+
+A screen for most common models takes 45 to 90 minutes if the part is in stock.
     `,
     faqs: [
       {
-        question: "Does an in-display fingerprint sensor work after screen replacement?",
-        answer: "With our premium-grade and original AMOLED replacements, optical and ultrasonic fingerprint sensors are calibrated to ensure full functionality."
+        question: "Does the fingerprint sensor work after a screen replacement?",
+        answer: "On original and good aftermarket AMOLED panels, yes. We test it before you collect the phone. Cheap LCD panels for an AMOLED phone usually lose the in-screen sensor."
       }
     ]
   },
   {
     id: "repair-topic-3",
-    title: "Why a Phone Battery Drains Quickly: Causes and Troubleshooting",
-    h1: "Phone Battery Draining Fast? Root Causes and Practical Fixes",
+    title: "Why a Phone Battery Drains Fast",
+    h1: "Why your phone battery drains fast",
     slug: "phone-battery-drains-quickly-causes-fixes",
     cluster: "mobile-repair",
     primaryQuery: "phone battery draining quickly",
@@ -217,7 +180,26 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "5 min read",
     publishedDate: "2026-03-10",
     image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "If your smartphone drains 30% while idle overnight or dies before 4:00 PM, learn how to audit your software and when it is time to install a fresh cell."
+    excerpt: "If your smartphone drains 30% while idle overnight or dies before 4:00 PM, learn how to audit your software and when it is time to install a fresh cell.",
+    content: `
+A battery that dies by evening is usually doing one of two things: running apps you forgot about, or wearing out chemically. Here is how to tell the difference.
+
+### Start with the apps
+
+Open your battery settings and see which apps use the most power. Social media, video streaming, and navigation apps are the usual suspects. If an app you barely touch is near the top, restrict its background data or uninstall it.
+
+Location services, Bluetooth, and Wi-Fi scanning also drain power when left on all the time. Turn them off when you are not using them.
+
+### Network signal matters
+
+In areas with weak mobile signal — common on the outskirts of Itahari, Dharan, and Biratnagar — your phone keeps boosting its radio to stay connected. That burns battery fast. Switch to Wi-Fi when you can, and avoid using the phone in low-signal spots.
+
+### Check battery health
+
+On iPhone, go to Settings > Battery > Battery Health. On Android, the path varies by brand, but most have a battery or device care section. If maximum capacity is below 80 percent, the cell is worn out and a replacement will help more than any setting change.
+
+A new battery costs रू 1,200 to 4,500 depending on the model. It is worth it if the rest of the phone is in good shape.
+    `,
   },
   {
     id: "repair-topic-4",
@@ -243,12 +225,35 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "5 min read",
     publishedDate: "2026-03-08",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Excessive heat damages battery health and processor performance. Discover how to identify whether your phone heat is software-related or a hardware fault."
+    excerpt: "Excessive heat damages battery health and processor performance. Discover how to identify whether your phone heat is software-related or a hardware fault.",
+    content: `
+Some warmth is normal when charging or gaming. Real overheating — the phone becomes too hot to hold, or shuts down to protect itself — is a problem. Here is how to tell them apart and what to do.
+
+### Normal warmth vs overheating
+
+It is normal for the back of the phone to feel warm while fast charging, recording video, or gaming for twenty minutes. It is not normal if the phone feels hot when sitting idle, or if a corner stays hot after you stop using it.
+
+### Fast charging in summer
+
+Fast charging pushes more current into the battery and generates heat. In Sunsari's summer temperatures, charge your phone on a hard, flat surface — not under a pillow, on a bed, or inside a case. Remove thick cases while fast charging.
+
+### Gaming and processor load
+
+Heavy games make the processor work hard and generate heat. If the phone gets hot while gaming, lower the graphics settings, take breaks every thirty minutes, and do not play while fast charging at the same time.
+
+### Thick cases trap heat
+
+Silicone and leather cases act like thermal blankets. If your phone runs hot, try using it without the case while charging or gaming.
+
+### Hardware short-circuits
+
+A localized hotspot — one corner of the phone that is always hotter than the rest — often points to a shorted component or a failing battery. This is a safety risk. Stop using the phone and bring it to the bench.
+    `,
   },
   {
     id: "repair-topic-5",
-    title: "What to Check Before Giving Your Phone for Repair in Nepal",
-    h1: "Pre-Repair Checklist: How to Prepare Your Mobile Phone for Servicing",
+    title: "Before You Leave Your Phone for Repair",
+    h1: "What to check before giving your phone for repair",
     slug: "what-to-check-before-giving-phone-for-repair",
     cluster: "mobile-repair",
     primaryQuery: "mobile repair preparation checklist",
@@ -269,7 +274,30 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "4 min read",
     publishedDate: "2026-03-05",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Follow this 5-point checklist before handing your phone to any repair workshop to safeguard your private data, photos, and physical accessories."
+    excerpt: "Follow this 5-point checklist before handing your phone to any repair workshop to safeguard your private data, photos, and physical accessories.",
+    content: `
+Before you hand your phone over for repair, take five minutes to protect your data and avoid surprises.
+
+### Back up your data
+
+Copy your photos, contacts, and messages to Google Drive, iCloud, or a computer. A repair should never delete your data, but accidents happen — a dropped phone during testing or a failed software flash can cause data loss.
+
+### Remove SIM and memory cards
+
+Take out your SIM card and MicroSD card. The repair does not need them, and keeping them with you means you stay reachable and do not lose stored contacts or photos.
+
+### Lock or sign out of sensitive apps
+
+Enable Android Maintenance Mode or Samsung Repair Mode if your phone has it. This limits what a technician can access. At minimum, sign out of banking apps and note your lock screen pattern so you can unlock the phone for testing.
+
+### Record your IMEI
+
+Dial *#06# to get your 15-digit IMEI number. Write it down or screenshot it. If there is ever a dispute about which device you handed over, the IMEI is your proof.
+
+### Note the existing condition
+
+Take a quick photo of any scratches, dents, or cracks before you leave the phone. This prevents disputes about pre-existing cosmetic damage later.
+    `,
   },
   {
     id: "repair-topic-6",
@@ -294,7 +322,26 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "4 min read",
     publishedDate: "2026-03-02",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Learn how to use Android Maintenance Mode and password isolation so your personal media and banking apps remain 100% inaccessible to technicians."
+    excerpt: "Learn how to use Android Maintenance Mode and password isolation so your personal media and banking apps remain 100% inaccessible to technicians.",
+    content: `
+You do not need to hand over an unlocked phone for most repairs. Screen, battery, and charging port work can all be done without the technician seeing your photos, messages, or banking apps.
+
+### Use Maintenance Mode
+
+Android phones have a Maintenance Mode (Samsung calls it Repair Mode). It creates a clean user profile with no access to your gallery, messages, or apps. The technician can test the screen, touch, and cameras without entering your main profile.
+
+### Sign out before you leave the phone
+
+Sign out of banking apps, email, and social media. Remove fingerprint and face unlock if you are comfortable doing so — you can re-add them when you collect the phone.
+
+### What we do not touch
+
+At Himal Product and Services, the bench rule is simple: we do not open your gallery, chats, email, or banking apps. Touch testing is done from the emergency dialler or with Maintenance Mode switched on. If a repair needs the phone unlocked, we ask you to unlock it in front of us and stay present.
+
+### You do not need to give your passcode
+
+For screen, battery, and port replacements, your passcode is not needed. If a workshop insists on it for a screen replacement, ask why.
+    `,
   },
   {
     id: "repair-topic-7",
@@ -319,7 +366,30 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "5 min read",
     publishedDate: "2026-02-28",
     image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Understand the true cost drivers behind smartphone repairs in Nepal, from display panel engineering to certified warranty coverage."
+    excerpt: "Understand the true cost drivers behind smartphone repairs in Nepal, from display panel engineering to certified warranty coverage.",
+    content: `
+Repair prices vary because the parts and the labour vary. Here is what drives the cost.
+
+### The screen type matters most
+
+A flat LCD panel is the cheapest to replace. A curved AMOLED panel with an in-screen fingerprint sensor costs much more because the part itself is expensive and the job takes longer. An iPhone OLED screen can cost several times more than an LCD screen for a budget Android phone.
+
+### Original vs aftermarket parts
+
+You usually have two choices:
+- An original service-centre panel: matches factory colour, brightness, and fingerprint response. Costs more.
+- A good aftermarket OLED or LCD: looks fine and works well, but may not match the original exactly. Costs less.
+
+We quote both options so you can decide.
+
+### Labour and bench time
+
+A straightforward screen swap takes 45 to 90 minutes. Micro-soldering a charging port or fixing water damage can take several hours across multiple days. Labour is priced by the time and skill involved.
+
+### Warranty is part of the price
+
+A cheap repair with no warranty often costs more long-term when the part fails and you pay again. Our repairs carry a written warranty, and that is built into the quote.
+    `,
   },
   {
     id: "repair-topic-8",
@@ -345,7 +415,30 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "4 min read",
     publishedDate: "2026-02-25",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Don't let a faulty charging port ruin your motherboard. Learn the 5 unmistakable signs that your charging flex needs bench inspection."
+    excerpt: "Don't let a faulty charging port ruin your motherboard. Learn the 5 unmistakable signs that your charging flex needs bench inspection.",
+    content: `
+A damaged charging port does not always stop charging completely. Catching it early can prevent a short circuit that kills the motherboard. Here are the warning signs.
+
+### The cable wobbles or falls out
+
+If the plug does not click in firmly, or it falls out with the slightest movement, the port is worn or loose. This is often just compressed pocket lint — we can clean it in ten minutes. If cleaning does not help, the port needs replacement.
+
+### Burning smell or scorch marks
+
+A burning electrical smell, or black marks on the plug pins, means the port is shorting. Stop charging immediately and bring the phone in. Continuing to charge can damage the charging circuit on the motherboard.
+
+### Moisture alert that will not clear
+
+If your phone keeps saying moisture is detected even after 48 hours in dry conditions, the port may have corrosion or a bent pin. Do not keep plugging in to test it.
+
+### Microphone failure during calls
+
+The lower microphone is on the charging board. If callers cannot hear you but the port still charges, the port assembly may be faulty.
+
+### Fast charging drops to a slow trickle
+
+If your phone used to fast charge and now only trickle-charges, the port or its charging IC may be damaged. A USB power meter test at the bench confirms it.
+    `,
   },
   {
     id: "repair-topic-9",
@@ -370,7 +463,26 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "5 min read",
     publishedDate: "2026-02-20",
     image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Can barely hear callers on your smartphone? Discover why earpieces get clogged and how professional sonic cleaning restores full volume."
+    excerpt: "Can barely hear callers on your smartphone? Discover why earpieces get clogged and how professional sonic cleaning restores full volume.",
+    content: `
+If people sound muffled on calls, or your speaker crackles, the issue is usually dirt or a blown component — both fixable.
+
+### Earpiece grill clogging
+
+Sweat, oil, and dust pack into the earpiece mesh over months. The sound gets quieter and muffled. We clean the mesh with sonic cleaning or a soft brush, and volume usually returns fully.
+
+### Blown speaker voice coils
+
+Playing music at maximum volume for long periods, or moisture getting into the speaker, can blow the voice coil. The speaker then crackles or produces no sound at all. The fix is a speaker replacement, which takes about 30 to 45 minutes.
+
+### Audio IC on the motherboard
+
+If both the earpiece and loudspeaker are dead, the problem may be the audio amplifier chip on the motherboard. We test with a known-good speaker first to confirm before opening the phone.
+
+### Quick check you can do
+
+Plug in earphones. If callers sound clear through earphones but not through the phone's speaker, the fault is in the speaker hardware, not the audio chip.
+    `,
   },
   {
     id: "repair-topic-10",
@@ -395,14 +507,37 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     readTime: "5 min read",
     publishedDate: "2026-02-15",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Is fixing your phone a smart investment or throwing good money after bad? Here is how to make the right financial decision in Nepal."
+    excerpt: "Is fixing your phone a smart investment or throwing good money after bad? Here is how to make the right financial decision in Nepal.",
+    content: `
+Repairing is usually cheaper than replacing — but not always. Here is how to decide.
+
+### The 50 percent rule
+
+If the repair costs more than half of what a similar used phone sells for, replace the phone instead of repairing it. A रू 8,000 screen repair on a रू 12,000 phone does not make sense.
+
+### Age of the phone
+
+Phones older than three or four years are harder to repair. Parts are scarce, batteries are worn, and software support is ending. A repair buys you six months, not three years.
+
+### What kind of damage
+
+A cracked screen or dead battery is worth fixing — these are standard parts. A damaged motherboard or water-corroded board often costs more than the phone is worth. Get a written quote before deciding.
+
+### Software support
+
+Check whether the phone still gets security updates. If it does not, a repair only delays the inevitable replacement.
+
+### Quick decision
+
+Screen or battery repair on a phone under three years old: repair it. Motherboard or water damage, or a phone over four years old: replace it.
+    `,
   },
 
   // CLUSTER 2: Mobile Phones and Smartphones (10 Topics)
   {
     id: "phone-topic-1",
-    title: "Smartphone RAM and Storage Guide: How Much Do You Really Need?",
-    h1: "How Much RAM & Storage Do You Need in a Smartphone in Nepal?",
+    title: "How Much RAM and Storage a Phone Actually Needs",
+    h1: "How much RAM and storage do you need?",
     slug: "smartphone-ram-storage-guide",
     cluster: "mobile-phones",
     primaryQuery: "how much RAM storage needed in smartphone",
@@ -413,66 +548,49 @@ We test touch sensitivity, display brightness, and sensor alignment right in fro
     parentClusterUrl: "/mobile-phones",
     relatedClusterSlugs: ["android", "iphone"],
     outline: [
-      "What RAM does vs what internal storage does",
-      "Why 4GB RAM struggles with modern banking, social, and messaging apps",
-      "The sweet spot for everyday users in Nepal: 6GB vs 8GB",
-      "The truth about 'Virtual RAM' and storage memory paging",
-      "Why 128GB is the minimum realistic internal storage in 2026",
-      "Storage types: UFS 2.2 vs UFS 3.1 vs eMMC 5.1 explained"
+      "RAM and storage, and what each one does",
+      "How much RAM is enough",
+      "What virtual RAM really is",
+      "How much storage to buy",
+      "UFS and eMMC storage speeds"
     ],
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-14",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Don't let smartphone marketing mislead you. Learn why 8GB RAM and 128GB UFS storage is the recommended baseline for smooth performance in Nepal.",
+    excerpt: "Phones are sold on memory numbers, but most of the confusion is between RAM and storage. Here is how much of each you actually need.",
     content: `
-When shopping for a new smartphone in Itahari, the spec sheet can feel overwhelming. Manufacturers constantly tout "16GB RAM (8GB + 8GB Extended)" and massive storage numbers. But what do these figures actually mean for your daily experience, and how much should you pay for?
+Phones are advertised with big numbers for memory, and most of the confusion is between two different things. RAM and storage do different jobs, and only one of them is worth paying extra for.
 
-In this buyer's guide, we analyze real-world memory demands in Nepal to help you choose the right configuration without overspending.
+### RAM and storage
 
----
+RAM is the working space. It holds the apps you have open right now, so you can switch between Facebook, eSewa and WhatsApp without them reloading. Storage is where everything lives when the phone is off: the system, photos, videos, downloaded music and apps.
 
-### Understanding the Difference: RAM vs. Storage
+When RAM runs out, the phone closes background apps to make room. That is why a cheap phone reloads every app when you switch back to it.
 
-- **RAM (Random Access Memory):** Your phone's short-term working memory. It holds currently running apps (Facebook, eSewa, WhatsApp, YouTube) so you can switch between them instantly without reloading.
-- **Storage (ROM):** Your permanent digital closet. It stores your operating system, downloaded apps, captured 4K videos, high-resolution photos, and offline music.
+### How much RAM is enough
 
----
+For most people in 2026:
 
-### The Realistic RAM Breakdown for Nepal in 2026
+- 4GB is tight. It works for calls and one app at a time, but banking apps and Messenger will reload constantly.
+- 6GB is fine for everyday use: messages, browser tabs, a few apps at once.
+- 8GB is the safe choice if you keep many apps open, play games, or want the phone to still feel quick in three years.
 
-#### 4GB RAM: Entry-Level / Basic Calling
-- Suitable only for elderly users or basic backup phones.
-- As popular apps like Messenger, Instagram, and TikTok grow in size, 4GB phones frequently reload background apps and feel sluggish after 6–9 months.
+12GB and above matters only if you edit video on the phone.
 
-#### 6GB RAM: Solid Everyday Reliability
-- Handles smooth multitasking between banking apps, web browsers with multiple tabs, and messaging.
-- Great balance for budget smartphones priced under रू 25,000 in Nepal.
+### About virtual RAM
 
-#### 8GB RAM: The Ideal Sweet Spot (Recommended)
-- Ensures smooth 120Hz refresh rate operation and rapid app switching.
-- Allows gaming (PUBG, Free Fire, eFootball) without stuttering or force-closing background chats.
-- Future-proof for at least 3–4 years of operating system updates.
+Budget phones advertise things like "8GB + 8GB virtual RAM". The extra part is not real memory. It borrows space from storage, which is much slower than RAM. It helps a little with app reloading, but it is not the same as having more memory chips. Count only the real figure.
 
-#### 12GB+ RAM: Heavy Enthusiasts & Power Users
-- Beneficial for intense video editing on phone (CapCut 4K rendering) and extreme multitasking.
+### Storage
 
----
+The system itself takes 15 to 22GB before you install anything. A 50MP photo is 5 to 15MB, and a minute of 4K video can be 300MB.
 
-### What About "Virtual RAM" / "RAM Expansion"?
+- 64GB fills up in about six months if you take photos and videos.
+- 128GB is the practical minimum for most people.
+- 256GB is worth it if you record video or keep films offline.
 
-Many budget phones advertise *"+8GB Virtual RAM"*. Be aware that Virtual RAM uses a slice of your internal storage as temporary cache (swap memory). Because flash storage is significantly slower than physical LPDDR4X or LPDDR5 RAM chips, virtual RAM cannot match genuine physical RAM speed. Always prioritize actual physical RAM.
-
----
-
-### Internal Storage: Why 128GB is the Modern Minimum
-
-High-resolution 50MP and 108MP cameras create large file sizes (5MB–15MB per photo, and up to 300MB per minute of 4K video). Furthermore, the Android system itself occupies 15GB–22GB out of the box.
-- **64GB:** Fills up rapidly within 6 months, forcing you to delete media constantly.
-- **128GB:** The practical sweet spot for most students, families, and professionals.
-- **256GB:** Highly recommended if you record high-resolution videos, download offline movie series, or don't want to rely on cloud storage subscriptions.
-
-Explore our verified smartphones in Itahari with genuine brand warranties and verified specs at **Himal Product and Services**.
+The type of storage matters too. UFS 3.1 is noticeably faster than UFS 2.2, and eMMC is the slowest of the three. A phone with 8GB RAM and slow eMMC storage can still feel sluggish.
     `,
     faqs: [
       {
@@ -504,7 +622,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-03-09",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Discover the 4 core hardware features that truly define a great daily smartphone in Nepal, rather than falling for marketing gimmicks."
+    excerpt: "Discover the 4 core hardware features that truly define a great daily smartphone in Nepal, rather than falling for marketing gimmicks.",
+    content: `
+For everyday use — calls, messages, social media, photos — you do not need a flagship. Here is what actually matters.
+
+### Screen quality beats megapixels
+
+An AMOLED screen looks better than an LCD, and it matters more than how many megapixels the camera has. You look at the screen every time you use the phone. A good screen makes cheap phones feel premium.
+
+### Battery and charging
+
+Look for at least 5000mAh and 18W or faster charging. In Nepali homes with occasional power cuts, a big battery that charges quickly is more useful than extra camera lenses.
+
+### Software support
+
+Buy a brand that still gives security updates for your model. A phone that stops getting updates in a year becomes a security risk and loses resale value.
+
+### Build quality
+
+A phone with a metal or sturdy plastic frame survives drops better than a thin glass-backed one. If you are rough with your phone, prioritize build over looks.
+    `,
   },
   {
     id: "phone-topic-3",
@@ -529,7 +666,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-03-06",
     image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Buying a budget phone doesn't mean settling for bad performance. Learn what specs to demand and what compromises to avoid."
+    excerpt: "Buying a budget phone doesn't mean settling for bad performance. Learn what specs to demand and what compromises to avoid.",
+    content: `
+Under रू 25,000, every phone makes compromises. Here is which ones to accept and which to avoid.
+
+### Avoid slow storage
+
+Cheap phones often use eMMC storage, which is noticeably slower than UFS. Apps take longer to open and the phone feels sluggish within months. Ask what storage type the phone uses before buying.
+
+### Prioritize battery and screen
+
+A 5000mAh battery and a 90Hz screen matter more than an extra camera lens. You use the battery and screen every day; you use the macro camera almost never.
+
+### Watch for outdated processors
+
+Avoid processors that are two or three generations old. They struggle with newer apps and stop getting security updates sooner.
+
+### What is fine to compromise on
+
+Wireless charging, IP water resistance, and ultra-wide cameras are nice-to-haves. Skip them to get a better processor, more RAM, or a bigger battery instead.
+    `,
   },
   {
     id: "phone-topic-4",
@@ -554,7 +710,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-03-03",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "A tailored guide for students balancing online lectures, PDF reading, light gaming, and budget limitations."
+    excerpt: "A tailored guide for students balancing online lectures, PDF reading, light gaming, and budget limitations.",
+    content: `
+Students need a phone that lasts all day, handles PDFs and study apps, and does not cost too much. Here is what to prioritize.
+
+### Battery first
+
+You will be on campus all day without easy access to a charger. Get at least 5000mAh. A phone that dies by 4:00 PM is useless for evening classes.
+
+### Split-screen for studying
+
+6GB RAM is the minimum; 8GB is better if you keep PDFs, notes, and a browser open at the same time. Split-screen lets you read a lecture slide while taking notes.
+
+### Camera for blackboards
+
+You will photograph blackboards, notes, and printed handouts. A decent main camera with autofocus matters more than a fancy selfie camera.
+
+### Price bracket
+
+Under रू 20,000 you get a reliable student phone. Over रू 30,000 you are paying for features — gaming performance, premium cameras — you probably do not need.
+    `,
   },
   {
     id: "phone-topic-5",
@@ -579,7 +754,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "6 min read",
     publishedDate: "2026-02-27",
     image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Learn how to read past marketing jargon and spot the real hardware differences between competing smartphone models."
+    excerpt: "Learn how to read past marketing jargon and spot the real hardware differences between competing smartphone models.",
+    content: `
+Spec sheets are designed to confuse. Here is what the numbers actually mean.
+
+### Processor (SoC)
+
+The processor is the phone's brain. Newer models are faster and more power-efficient. A Snapdragon 6-series or MediaTek Dimensity 6000/7000 series is plenty for everyday use. You do not need a flagship 8-series chip unless you game heavily.
+
+### Display brightness
+
+Look for brightness in nits. Above 500 nits is comfortable outdoors in Nepal's sun. Below 400 nits, the screen washes out in daylight.
+
+### Sensors
+
+NFC matters if you use tap-to-pay. A gyroscope matters for gaming and AR apps. Most budget phones skip these — check if you need them.
+
+### Audio
+
+Stereo speakers are nice for videos and calls on speakerphone. A single bottom-firing speaker is fine for most people but gets muffled if you hold the phone the wrong way.
+    `,
   },
   {
     id: "phone-topic-6",
@@ -604,7 +798,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-02-24",
     image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Crucial checks for anyone buying a pre-owned smartphone in Nepal, including MDMS verification and hidden hardware diagnostics."
+    excerpt: "Crucial checks for anyone buying a pre-owned smartphone in Nepal, including MDMS verification and hidden hardware diagnostics.",
+    content: `
+A used phone can save money, but only if you check it properly first. Here is the checklist.
+
+### MDMS registration
+
+Dial *#06# to get the IMEI, then check it on the Nepal Telecommunications Authority MDMS portal. An unregistered phone can be blocked from mobile networks at any time. Do not buy it.
+
+### Liquid damage
+
+Look inside the SIM tray for liquid contact indicators. If they are pink or red instead of white, the phone has been exposed to liquid. Walk away.
+
+### Battery health
+
+Ask the seller for battery health percentage. On iPhone, check Settings > Battery. On Android, use a dialer code or app. Below 85 percent means the battery will need replacement soon.
+
+### Test everything
+
+Make a call, connect to Wi-Fi, test the camera, charge the phone, and check the fingerprint sensor before handing over cash. A twenty-minute inspection saves you from a bad purchase.
+    `,
   },
   {
     id: "phone-topic-7",
@@ -629,7 +842,29 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "4 min read",
     publishedDate: "2026-02-18",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Why does a 5000mAh phone sometimes run out of juice by evening? Discover the real factors that control smartphone endurance."
+    excerpt: "Why does a 5000mAh phone sometimes run out of juice by evening? Discover the real factors that control smartphone endurance.",
+    content: `
+Battery size (mAh) is only half the story. How long a phone actually lasts depends on efficiency.
+
+### Bigger is not always better
+
+A 5000mAh phone with an inefficient processor and bright screen can die faster than a 4500mAh phone with an efficient chip. Processor size (4nm vs 6nm vs 8nm) matters more than the mAh number.
+
+### What drains battery fastest
+
+- 120Hz screens use more power than 60Hz screens
+- 5G searching in weak-signal areas drains quickly
+- Gaming and video streaming are the biggest drains
+- Weak mobile signal forces the radio to work harder
+
+### Fast charging trade-offs
+
+Fast charging generates heat, and heat wears out batteries over time. If you charge overnight, use a slower charger or enable optimized charging to preserve long-term battery health.
+
+### Real-world expectation
+
+A modern 5000mAh phone should get most people through a day of normal use. If it does not, the battery may be worn out or an app is running in the background.
+    `,
   },
   {
     id: "phone-topic-8",
@@ -654,7 +889,26 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-02-14",
     image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Why does a 48MP camera often beat a 108MP camera? Understand sensor size, OIS, and low-light optics before you buy."
+    excerpt: "Why does a 48MP camera often beat a 108MP camera? Understand sensor size, OIS, and low-light optics before you buy.",
+    content: `
+Megapixels are the most misunderstood camera spec. Here is what actually affects photo quality.
+
+### Sensor size matters more
+
+A large 48MP sensor usually takes better photos than a small 108MP sensor. Bigger sensors capture more light, which means better low-light photos and more detail.
+
+### OIS vs EIS
+
+Optical Image Stabilization (OIS) physically moves the lens to counteract hand shake. Electronic stabilization (EIS) crops the image. OIS gives sharper photos and smoother video, especially in low light.
+
+### Aperture
+
+A lower f-number (like f/1.8) lets in more light than f/2.2. This matters for night photography and indoor shots.
+
+### Megapixels are for cropping
+
+More megapixels let you crop into a photo without losing detail. For everyday social media photos, 48MP is already plenty.
+    `,
   },
   {
     id: "phone-topic-9",
@@ -679,7 +933,50 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "5 min read",
     publishedDate: "2026-02-10",
     image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "A handy 10-point questionnaire to take into any mobile shop in Nepal to guarantee you get a legitimate, warranted phone."
+    excerpt: "A handy 10-point questionnaire to take into any mobile shop in Nepal to guarantee you get a legitimate, warranted phone.",
+    content: `
+Ask these questions before you pay at any mobile shop in Nepal.
+
+### Is it MDMS registered?
+
+Dial *#06# for the IMEI and check on the NTA MDMS portal. An unregistered phone can lose network access.
+
+### What warranty does it carry?
+
+Brand warranty means service at official centres. Seller warranty means the shop fixes it. Know which one you are getting.
+
+### Is the charger and cable in the box?
+
+Some phones ship without a charger. Confirm what is included so you are not surprised later.
+
+### What is the return policy?
+
+Ask about dead-on-arrival replacement, screen pixel defects, and how many days you have to return the phone.
+
+### What is the total price?
+
+Ask for the out-the-door price including VAT. Some shops quote a lower price and add charges at the counter.
+
+### Can I inspect before paying?
+
+Turn the phone on, test the camera, make a call, and check the charging port before you hand over cash.
+
+### Is the IMEI on the box the same as the phone?
+
+Compare the IMEI on the box sticker with *#06# on the phone. Mismatched IMEIs are a red flag.
+
+### How old is the stock?
+
+Ask when the phone was imported. Older stock may have degraded batteries.
+
+### Are accessories original?
+
+Check that the charger and cable match the phone brand. Third-party accessories charge slower and can damage the battery.
+
+### Do you issue a VAT bill?
+
+A VAT bill is proof of purchase and required for warranty claims.
+    `,
   },
   {
     id: "phone-topic-10",
@@ -704,14 +1001,39 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     readTime: "4 min read",
     publishedDate: "2026-02-05",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Avoid having your mobile network signal blocked. Learn how to verify any phone's IMEI on the official Nepal MDMS portal in under 2 minutes."
+    excerpt: "Avoid having your mobile network signal blocked. Learn how to verify any phone's IMEI on the official Nepal MDMS portal in under 2 minutes.",
+    content: `
+MDMS registration is what keeps your phone connected to Nepali mobile networks. Here is how to check it.
+
+### Get the IMEI
+
+Dial *#06# on the phone. You will see a 15-digit IMEI number. Write it down or screenshot it.
+
+### Check on the NTA portal
+
+Go to the Nepal Telecommunications Authority MDMS verification portal and enter the IMEI. It will tell you if the device is registered, blocked, or not found.
+
+### What the results mean
+
+- Registered: The phone is approved for use on Nepali networks.
+- Blocked: The phone has been reported lost, stolen, or non-compliant. It may lose signal.
+- Not found: The IMEI is not in the database. Do not buy the phone.
+
+### Check brand warranty too
+
+For Samsung, Apple, and Xiaomi, you can also check warranty status on the brand's official website using the serial number or IMEI.
+
+### Keep the bill
+
+The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill is your proof of purchase.
+    `,
   },
 
   // CLUSTER 3: Electronic Gadgets and Accessories (10 Topics)
   {
     id: "gadget-topic-1",
-    title: "USB-C Cable Types and Fast Charging Compatibility Explained",
-    h1: "USB-C Cables Decoded: Wattage, Data Speeds, and Fast Charging Standards",
+    title: "USB-C Cables: Why Some Charge Slowly",
+    h1: "USB-C cables: why some charge slowly",
     slug: "usbc-cable-types-fast-charging-compatibility",
     cluster: "gadgets-accessories",
     primaryQuery: "usb c cable types fast charging compatibility",
@@ -722,51 +1044,51 @@ Explore our verified smartphones in Itahari with genuine brand warranties and ve
     parentClusterUrl: "/gadgets-accessories",
     relatedClusterSlugs: ["chargers-cables", "power-banks"],
     outline: [
-      "All USB-C cables look alike: Why that is dangerous",
-      "Current carrying capacity: 3A (60W max) vs 5A (100W/240W)",
-      "The role of E-Marker microchips in high-wattage power delivery",
-      "Data transfer speeds: USB 2.0 (480Mbps) vs USB 3.2 vs USB4",
-      "Why cheap thin cables overheat and damage phone battery health",
-      "Recommended cable checklist for laptop and phone owners in Nepal"
+      "The current rating: 60W and 100W cables",
+      "Why fast charging is not one standard",
+      "What the cable is made of",
+      "Which cable to buy for your device"
     ],
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-11",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Not all USB-C cables are created equal. Discover why a 60W cable cannot charge your laptop at full speed and why an E-Marker chip is essential.",
+    excerpt: "Every USB-C cable looks the same, but a 60W cable will not charge a laptop properly and a generic cable slows down a Xiaomi or Oppo phone. Here is what to check.",
     content: `
-Because the physical oval USB-C plug looks identical on every cable, many buyers assume any USB-C cable can charge any device at full speed. In reality, what lies beneath the outer jacket determines whether your device charges in 35 minutes or takes 4 agonizing hours.
+Every USB-C plug looks the same, so people assume every USB-C cable does the same job. It does not. The wire inside decides whether your phone charges in half an hour or takes most of the afternoon.
 
-At **Himal Product and Services**, we regularly assist customers whose expensive fast chargers are bottlenecked by low-grade cables. Here is what you must understand about USB-C standards.
+### The current rating
 
----
+A USB-C cable is built for one of two current levels:
 
-### 1. Amperage Ratings: 3A (Standard) vs 5A (High-Power)
+- 3A cables carry up to 60W. This is the cable in most phone boxes and it is fine for a phone or earbuds. It is not enough for a laptop that wants 65W or more, so the laptop charges slowly or not at all.
+- 5A cables carry 100W to 240W. They use thicker copper and have a small chip in the connector, called an E-marker, that tells the charger it is safe to send the higher current.
 
-Every USB-C cable has a certified electrical current rating:
-- **3-Ampere Cables (Up to 60W):** The standard cable bundled with most phones. It delivers a maximum of 20V at 3A (60 Watts). While ideal for smartphones and earbuds, it cannot deliver full charging speeds to laptops requiring 65W, 87W, or 100W.
-- **5-Ampere Cables (100W to 240W):** Engineered with thicker copper conductors and an **E-Marker (Electronic Marker) chip** embedded inside the connector collar. This chip communicates digitally with your charger to authorize safe 5A high-current flow.
+If a laptop charger feels warm and the battery barely moves, the cable is usually the reason.
 
----
+### Fast charging is not one standard
 
-### 2. Proprietary Fast Charging Protocols in Nepal
+Brands use different fast-charging systems:
 
-Different smartphone brands use distinct proprietary fast-charging protocols:
-- **USB Power Delivery (USB-PD / PPS):** The open universal standard used by Apple (iPhones, MacBooks), Samsung (25W/45W Super Fast Charging), Google Pixel, and modern laptops.
-- **Xiaomi / Redmi Turbo Charge:** Requires cables with an additional proprietary pin to handshake at 33W, 67W, or 120W.
-- **VOOC / SuperVOOC (OnePlus, Realme, Oppo):** Transmits high amperage (up to 6.5A or 10A) and requires brand-certified high-current cables.
+- USB Power Delivery, used by iPhone, Samsung, Pixel and most laptops. This is the common standard, and it also covers PPS for Samsung's 25W and 45W charging.
+- Xiaomi and Redmi Turbo Charge, which needs a cable with an extra pin to reach 33W, 67W or 120W.
+- VOOC and SuperVOOC on OnePlus, Realme and Oppo, which need the brand's own high-current cable.
 
-Using a generic low-gauge cable forces your phone into slow 5W or 10W standard charging mode to prevent the wire from melting.
+Plug a generic cable into a phone that expects one of these, and the phone falls back to slow 5W or 10W charging. It is protecting the wire from overheating.
 
----
+### What the cable is made of
 
-### 3. Build Quality: TPE vs. High-Density Nylon Braiding
+A plain rubber cable hardens and splits near the plug after six to eight months of daily use in a bag. A braided cable with metal collars lasts much longer and handles the heat from a 65W adapter better.
 
-The physical lifespan of a cable in Nepal is tested by dust, twisting, and daily backpack storage:
-- **Standard TPE (Rubber-style):** Prone to hardening and splitting near the connector collar after 4–8 months.
-- **Reinforced Nylon Braided with Zinc-Alloy Collars:** Resists over 20,000 bends, protects against pinching, and provides heat dissipation for high-wattage GaN adapters.
+### What to buy
 
-Check out verified 65W and 100W braided cables tested for safety and fast charging at **Himal Product and Services** in Itahari.
+Match the cable to the device:
+
+- For a phone, a 3A cable is enough unless the phone charges above 45W.
+- For a laptop or a 65W power bank, buy a 5A cable rated for 100W.
+- For a Xiaomi, Realme, Oppo or OnePlus phone, buy the cable that matches the brand's charger.
+
+A higher-rated cable will not damage a phone that charges slowly. The phone asks for what it needs, and the cable simply does not get in the way.
     `,
     faqs: [
       {
@@ -798,7 +1120,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-03-07",
     image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Tired of callers saying they can't hear your voice over traffic? Learn what specs matter most in budget and mid-range wireless earbuds."
+    excerpt: "Tired of callers saying they can't hear your voice over traffic? Learn what specs matter most in budget and mid-range wireless earbuds.",
+    content: `
+Wireless earbuds are everywhere now. Here is what to look for if you buy them for daily use.
+
+### Fit comes first
+
+Earbuds with silicone tips seal better in your ear and block outside noise. Half-in-ear designs are more comfortable for some people but let in more sound. Try them before buying if you can.
+
+### ANC vs ENC
+
+ANC (Active Noise Cancellation) blocks outside noise for your ears. ENC (Environmental Noise Cancellation) cleans up your voice for the person you are calling. If you take calls on busy streets, ENC matters more.
+
+### Battery life
+
+Look at total playtime with the charging case, not just a single charge. 24 to 36 hours total is good for daily commuting.
+
+### Water resistance
+
+IPX4 handles sweat and light rain. IPX5 handles stronger splashes. If you exercise or get caught in rain, get at least IPX4.
+
+### Call quality
+
+Budget earbuds often sound fine for music but terrible for calls. Read reviews specifically about call microphone quality.
+    `,
   },
   {
     id: "gadget-topic-3",
@@ -823,7 +1168,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-03-04",
     image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Should you stay wireless or carry a wired backup? We compare latency, audio depth, and battery life to help you decide."
+    excerpt: "Should you stay wireless or carry a wired backup? We compare latency, audio depth, and battery life to help you decide.",
+    content: `
+Wired and wireless earphones each have a place. Here is how to choose.
+
+### Audio quality
+
+Wired earphones connect directly to the phone's audio chip. There is no compression, so the sound is fuller. Wireless earphones compress audio over Bluetooth, which most people cannot hear the difference on — but audiophiles notice.
+
+### Latency
+
+Wired has zero lag, which matters for gaming and watching videos. Wireless has a slight delay. If you play competitive games, wired is better.
+
+### Convenience
+
+Wireless earbuds are better for gym, cycling, and commuting — no cable to tangle or snag. Wired earphones never need charging and work as soon as you plug them in.
+
+### Longevity
+
+Wired earphones have no battery to degrade. A good cable can last years. Wireless earbuds have lithium batteries that wear out after two to three years.
+
+### Practical advice
+
+Buy wired earphones for home and gaming. Buy wireless earbuds for travel and exercise. Many people keep both.
+    `,
   },
   {
     id: "gadget-topic-4",
@@ -848,7 +1216,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-26",
     image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Don't fall for fake wattage claims. Here is how to evaluate real acoustic wattage, bass radiators, and battery capacity in Bluetooth speakers."
+    excerpt: "Don't fall for fake wattage claims. Here is how to evaluate real acoustic wattage, bass radiators, and battery capacity in Bluetooth speakers.",
+    content: `
+Bluetooth speaker specs are often exaggerated. Here is what actually matters.
+
+### Real wattage vs PMPO
+
+PMPO (Peak Music Power Output) is a marketing number that is often 5 to 10 times higher than real power. Look for RMS wattage instead. 10W to 20W RMS is good for a room or small outdoor gathering.
+
+### Bass
+
+Passive radiators create real bass in small speakers. Some speakers advertise "bass boost" that is just software EQ — it makes the sound boomy, not deep.
+
+### Waterproofing
+
+IPX7 means the speaker can be dropped in water briefly. IPX5 handles rain and splashes. For picnics and poolside, get IPX7.
+
+### Battery life
+
+Look for 10+ hours of actual playback. A speaker that claims 20 hours may only manage 10 at moderate volume.
+
+### Stereo pairing
+
+Some speakers let you pair two units for left-right stereo. This is worth it if you want better sound for parties.
+    `,
   },
   {
     id: "gadget-topic-5",
@@ -873,7 +1264,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-22",
     image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Phone shipped without a charger? Learn how to choose a certified GaN adapter that charges your phone at maximum speed safely."
+    excerpt: "Phone shipped without a charger? Learn how to choose a certified GaN adapter that charges your phone at maximum speed safely.",
+    content: `
+Many phones no longer ship with a charger in the box. Here is how to pick the right one.
+
+### Why GaN
+
+GaN (Gallium Nitride) chargers are smaller, lighter, and run cooler than older silicon chargers. They cost a bit more but are worth it.
+
+### Match the wattage
+
+- iPhone: 20W is enough for fast charging
+- Samsung: 25W or 45W depending on the model
+- Laptops: 65W or more for USB-C charging
+
+Buying a 65W charger for a phone that only takes 20W is fine — the phone only draws what it needs.
+
+### Multi-port
+
+If you charge two devices at once, get a multi-port charger. But check the total output — charging two phones may split the power and slow each one down.
+
+### Safety
+
+Buy from a known brand with over-voltage and short-circuit protection. Avoid unbranded chargers from street stalls — they can damage your phone or be a fire risk.
+    `,
   },
   {
     id: "gadget-topic-6",
@@ -898,7 +1312,26 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "4 min read",
     publishedDate: "2026-02-17",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Not all phone covers protect against drops. Learn the 3 physical engineering features that shield screens from concrete impacts."
+    excerpt: "Not all phone covers protect against drops. Learn the 3 physical engineering features that shield screens from concrete impacts.",
+    content: `
+A phone case is cheap insurance against a cracked screen. Here is what actually protects your phone.
+
+### Raised corners
+
+The most important feature is raised edges around the screen and camera. When the phone falls face-down, the raised edge hits the ground first, not the screen or lens.
+
+### TPU vs silicone vs hard plastic
+
+TPU (thermoplastic polyurethane) absorbs shock well and does not yellow quickly. Silicone is grippy but tears easily. Hard polycarbonate looks nice but cracks on impact.
+
+### Camera protection
+
+A raised ring around the camera keeps lenses off table surfaces when you lay the phone down. Without it, the lenses get scratched within weeks.
+
+### Heat
+
+Thick, rugged cases trap heat. If you game or fast-charge while using the phone, a thinner case lets heat escape better.
+    `,
   },
   {
     id: "gadget-topic-7",
@@ -923,7 +1356,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-12",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Tired of rebuying cables and chargers every season? Learn the daily habits that destroy accessories and how to preserve them."
+    excerpt: "Tired of rebuying cables and chargers every season? Learn the daily habits that destroy accessories and how to preserve them.",
+    content: `
+Accessories break because of how we use them, not just because they are cheap. Here is what kills them and how to make them last.
+
+### Pull the plug, not the cable
+
+Most charging cables fail near the connector because people pull the cord to unplug them. Always grip the plug housing itself. The strain relief near the plug is the weakest point.
+
+### Voltage fluctuations
+
+Eastern Nepal's grid has voltage spikes. A cheap charger without surge protection can die in one spike. Use a charger with over-voltage protection, or plug through a surge protector.
+
+### Sweat and humidity
+
+Earbuds fail when sweat gets into the charging contacts. Wipe them dry after exercise and keep them in the case when not in use.
+
+### Don't leave cables plugged in
+
+A cable plugged into a charger but not a phone still draws a small current and can degrade over time. Unplug when not in use.
+
+### Certified accessories save money
+
+A रू 800 certified cable lasts two years. A रू 200 street cable lasts two months. Buy certified and replace less often.
+    `,
   },
   {
     id: "gadget-topic-8",
@@ -948,7 +1404,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-08",
     image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Avoid compatibility surprises. Here is how to verify OS requirements, charging protocols, and Bluetooth audio codecs before clicking order."
+    excerpt: "Avoid compatibility surprises. Here is how to verify OS requirements, charging protocols, and Bluetooth audio codecs before clicking order.",
+    content: `
+Accessories do not always work with every phone. Check before you buy.
+
+### Companion app requirements
+
+Smartwatches and smart home devices need a companion app. Check that the app supports your phone's operating system version. Some smartwatch features only work on certain Android versions or iPhone models.
+
+### Bluetooth codecs
+
+For high-quality wireless audio, your phone and earbuds need to support the same codec — AAC, aptX, or LDAC. If they don't, both fall back to SBC, which sounds fine but not great.
+
+### Type-C audio
+
+Some Type-C headphones need a built-in DAC chip. Others use analog pass-through. Check that your phone supports the type you are buying.
+
+### Wireless charging
+
+Qi wireless charging is standard, but alignment matters. Some phones need the coil positioned precisely. Magnetic cases or thick cases can prevent charging.
+
+### Check the specs page
+
+The product listing usually says which models it works with. If your phone model is not listed, ask before buying.
+    `,
   },
   {
     id: "gadget-topic-9",
@@ -973,7 +1452,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-04",
     image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Should you get 9H tempered glass, flexible hydrogel, or matte anti-glare? We compare protection, clarity, and fingerprint scanner compatibility."
+    excerpt: "Should you get 9H tempered glass, flexible hydrogel, or matte anti-glare? We compare protection, clarity, and fingerprint scanner compatibility.",
+    content: `
+Three main types of screen protectors. Here is how to choose.
+
+### 9H tempered glass
+
+Hardest and most scratch-resistant. Protects against drops and keys in your pocket. On phones with in-display fingerprint sensors, make sure the glass is fingerprint-compatible — some cheap ones block the sensor.
+
+### Hydrogel film
+
+Flexible and self-heals minor scratches. Better for curved screens because it wraps around edges. Less drop protection than glass.
+
+### UV glue protectors
+
+A liquid glue is spread under the glass and cured with UV light. Avoid these — the glue can leak into the earpiece, buttons, and charging port, causing permanent damage.
+
+### Matte anti-glare
+
+Reduces reflections but makes the screen look grainy and reduces clarity. Only get this if you use your phone outdoors in bright sun all day.
+
+### Bottom line
+
+For most phones, a good 9H tempered glass from a known brand is the best balance of protection and clarity.
+    `,
   },
   {
     id: "gadget-topic-10",
@@ -1000,7 +1502,50 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-01",
     image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
-    excerpt: "From certified GaN chargers to high-capacity power banks, here are the 10 daily accessories that maximize your smartphone experience."
+    excerpt: "From certified GaN chargers to high-capacity power banks, here are the 10 daily accessories that maximize your smartphone experience.",
+    content: `
+You do not need dozens of accessories. Here are the ones that genuinely help day to day.
+
+### GaN multi-port charger
+
+One charger for your phone, earbuds, and power bank. Saves space and charges everything at top speed.
+
+### Two-meter braided cable
+
+Long enough to use your phone while it charges, and braided cables last much longer than thin rubber ones.
+
+### 20,000mAh power bank
+
+Enough for two to three phone charges. Flight-safe and useful during power cuts.
+
+### Shockproof case with raised camera bevel
+
+Protects the screen and camera lenses from drops and table scratches.
+
+### 9H screen protector
+
+Prevents scratches and helps absorb impact from drops.
+
+### Clear-mic TWS earbuds
+
+For calls on busy streets and music while commuting.
+
+### Car or bike mount
+
+Keeps your phone visible for navigation without holding it.
+
+### Cleaning kit
+
+A microfiber cloth and soft brush keep the screen and charging port clean.
+
+### USB-C OTG adapter
+
+Lets you plug a flash drive into your phone to move files without a computer.
+
+### Surge protector
+
+Protects your charger and phone from voltage spikes common on local grids.
+    `,
   },
 
   // CLUSTER 4: Smart-Home Devices and Automation (10 Topics)
@@ -1030,7 +1575,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "7 min read",
     publishedDate: "2026-03-13",
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
-    excerpt: "You don't need expensive wall rewiring or imported control hubs to automate your house in Nepal. Learn how to get started affordably under रू 10,000."
+    excerpt: "You don't need expensive wall rewiring or imported control hubs to automate your house in Nepal. Learn how to get started affordably under रू 10,000.",
+    content: `
+Smart home automation is simpler than it sounds. You do not need rewiring or expensive hubs — just 2.4GHz Wi-Fi and a smartphone app.
+
+### Start with lighting
+
+A smart Wi-Fi bulb screws into your existing bulb holder and connects to your router. Control it from an app or by voice. No electrician needed.
+
+### Automate heavy appliances
+
+A 16A smart plug can turn your water geyser, room heater, or water pump on and off on a schedule. This is where you save the most on electricity bills.
+
+### Add security
+
+A 360-degree Wi-Fi camera lets you check your home or shop from your phone. It records to a memory card — no monthly subscription.
+
+### Use one app
+
+Buy devices that work with the same app (Tuya / Smart Life is common in Nepal). Mixing too many apps makes the setup confusing.
+
+### Surge protection
+
+Nepal's grid has voltage spikes. Use a surge protector for your smart devices, especially the ones connected to high-wattage appliances.
+    `,
   },
   {
     id: "smart-topic-2",
@@ -1055,7 +1623,29 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-03-08",
     image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Should you spend रू 1,150 on a smart Wi-Fi bulb or stick to a standard रू 150 LED? We break down energy efficiency and real lifestyle value."
+    excerpt: "Should you spend रू 1,150 on a smart Wi-Fi bulb or stick to a standard रू 150 LED? We break down energy efficiency and real lifestyle value.",
+    content: `
+A smart bulb costs about 7 to 8 times more than a regular LED. Here is whether it is worth it.
+
+### What you get for the extra money
+
+- App control: turn lights on and off from your phone
+- Scheduling: lights turn on at sunset, off at bedtime
+- Colour and brightness: warm white for evenings, cool white for reading
+- Voice control: works with Google Assistant or Alexa
+
+### What stays the same
+
+The bulb still uses roughly the same electricity as a regular LED of the same brightness. The "smart" part uses a tiny amount of standby power — a few rupees per month.
+
+### When it makes sense
+
+Smart bulbs are worth it for hard-to-reach lights, security simulation when you are away, and convenience. For a simple ceiling light you only turn on and off, a regular LED is fine.
+
+### Cost payback
+
+A smart bulb saves money only if it prevents lights being left on all day. Otherwise, you are paying for convenience, not energy savings.
+    `,
   },
   {
     id: "smart-topic-3",
@@ -1080,7 +1670,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-03-04",
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Planning to automate your water geyser or room heater? Don't make the mistake of using a 10A plug. Learn why 16A capacity is mandatory."
+    excerpt: "Planning to automate your water geyser or room heater? Don't make the mistake of using a 10A plug. Learn why 16A capacity is mandatory.",
+    content: `
+A 10A smart plug is fine for a lamp or a fan. It is not safe for a water geyser, room heater, or water pump. Here is why.
+
+### Amperage matters
+
+A 10A plug handles up to about 2200 watts. A water geyser or room heater often draws 2000 to 3000 watts. Running a heavy appliance on a 10A plug can overheat the plug, melt the socket, or start a fire.
+
+### Use 16A for thermal loads
+
+A 16A smart plug handles up to about 3500 watts. Use it for geysers, ACs, room heaters, and water pumps. Look for a flame-retardant (V0) casing and a child-safety shutter.
+
+### Energy monitoring
+
+A plug with energy monitoring shows you how many kilowatt-hours the appliance uses. You can see exactly how much your geyser costs per month and adjust the timer.
+
+### Offline memory
+
+After load-shedding or a power cut, some plugs forget their state. Choose a plug with offline memory so it restores the last setting when power returns.
+
+### Bottom line
+
+Never put a geyser or heater on a 10A plug. The extra रू 300–500 for a 16A plug is cheaper than a fire.
+    `,
   },
   {
     id: "smart-topic-4",
@@ -1105,7 +1718,26 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-28",
     image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Can't get your smart bulb or security camera to pair with your Wi-Fi router? Here is the exact 2.4GHz router tweak that solves it."
+    excerpt: "Can't get your smart bulb or security camera to pair with your Wi-Fi router? Here is the exact 2.4GHz router tweak that solves it.",
+    content: `
+Most smart bulbs, cameras, and plugs only work on 2.4GHz Wi-Fi. If your router uses a single network name for both 2.4GHz and 5GHz, pairing often fails. Here is the fix.
+
+### Why 2.4GHz
+
+Smart home devices use 2.4GHz because it travels further and passes through walls better than 5GHz. They cannot connect to 5GHz at all.
+
+### Split your router bands
+
+Log into your router settings and give the 2.4GHz and 5GHz networks different names — for example, "Home-2.4G" and "Home-5G". Connect your smart devices to the 2.4G network. Your phone can stay on either band.
+
+### Pair close to the router
+
+During setup, keep the smart device in the same room as the router. Thick concrete walls in Nepali homes weaken the signal. Move the device to its final spot after pairing.
+
+### Check the app
+
+Use the Tuya Smart or Smart Life app for most budget devices. Make sure your phone is on the 2.4GHz network while you pair.
+    `,
   },
   {
     id: "smart-topic-5",
@@ -1130,7 +1762,26 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-23",
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Understand how Google Assistant and Amazon Alexa integrate with smart devices, and why Tuya-compatible gadgets are easiest to maintain in Nepal."
+    excerpt: "Understand how Google Assistant and Amazon Alexa integrate with smart devices, and why Tuya-compatible gadgets are easiest to maintain in Nepal.",
+    content: `
+You do not need to pick one ecosystem and stick with it. Here is how the main options compare in Nepal.
+
+### Google Home and Alexa
+
+Both work as voice assistants and app hubs. You can say "Hey Google, turn off the lights" or "Alexa, goodnight" if your devices support them. You do not need to buy a smart speaker — your phone runs the assistant.
+
+### Apple HomeKit
+
+Fewer devices support HomeKit in Nepal, and the compatible devices cost more. Only choose it if you already use iPhones and Apple products throughout the home.
+
+### Tuya / Smart Life
+
+Most budget smart bulbs, plugs, and cameras in Nepal use Tuya or Smart Life. They work with Google Assistant and Alexa, and you control everything from one app. This is the easiest starting point.
+
+### One app is enough
+
+Do not buy devices from five different brands with five different apps. Start with Tuya-compatible devices, add voice control if you want it, and expand gradually.
+    `,
   },
   {
     id: "smart-topic-6",
@@ -1155,7 +1806,27 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-19",
     image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Confused between smart wall switches and smart bulbs? We compare installation complexity, tenant-friendliness, and everyday family habits."
+    excerpt: "Confused between smart wall switches and smart bulbs? We compare installation complexity, tenant-friendliness, and everyday family habits.",
+    content: `
+Smart bulbs and smart switches both control your lights, but they solve different problems.
+
+### Smart bulbs
+
+Screw into your existing holder, no wiring needed. You can change colours and brightness. But if someone turns off the wall switch, the bulb goes offline and cannot be controlled by app or voice. Best for renters and bedrooms.
+
+### Smart switches
+
+Replace the wall switch itself. The light stays powered even when the switch is off, so app and voice control always work. But they need a neutral wire in the wall, which many older Nepali homes do not have. You need an electrician to install them. Best for homeowners doing renovations.
+
+### Renters vs homeowners
+
+Renters: smart bulbs. You can take them when you move. No wiring.
+Homeowners: smart switches for main rooms if you have neutral wiring. Smart bulbs for lamps and hard-to-reach fittings.
+
+### Cost
+
+A smart bulb costs रू 1,000–1,500. A smart switch costs रू 2,000–3,500 plus electrician labour.
+    `,
   },
   {
     id: "smart-topic-7",
@@ -1180,7 +1851,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-13",
     image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80",
-    excerpt: "A practical 3-step blueprint to modernizing your home lighting, appliance scheduling, and security for under रू 15,000."
+    excerpt: "A practical 3-step blueprint to modernizing your home lighting, appliance scheduling, and security for under रू 15,000.",
+    content: `
+A complete smart-home setup does not have to cost a fortune. Here is a three-phase plan under रू 15,000.
+
+### Phase 1 (रू 3,000): Bedroom lighting
+
+One smart Wi-Fi bulb (रू 1,150) for the bedside lamp, controlled by app and voice. Set it to dim at bedtime and turn on gradually in the morning.
+
+### Phase 2 (रू 5,000): Water heater automation
+
+A 16A smart plug with energy monitoring (रू 1,750) on your geyser. Schedule it to turn on 25 minutes before your morning shower and off after. Track how much power the geyser uses.
+
+### Phase 3 (रू 5,000): Security
+
+A 360-degree 2K Wi-Fi camera (रू 4,299) for the front door or living room. Records to a microSD card — no monthly fee. View live footage from your phone.
+
+### Remaining budget (रू 3,000)
+
+Extra bulbs for other rooms, or a second smart plug for the room heater.
+
+### How it pays for itself
+
+Timing your geyser to run only when needed can save रू 500–1,200 per month in winter. The setup pays for itself within a year.
+    `,
   },
   {
     id: "smart-topic-8",
@@ -1206,7 +1900,34 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "6 min read",
     publishedDate: "2026-02-09",
     image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Keep an eye on your home or storefront in Itahari. Learn how to compare 2K resolution, human motion alerts, and offline memory card recording."
+    excerpt: "Keep an eye on your home or storefront in Itahari. Learn how to compare 2K resolution, human motion alerts, and offline memory card recording.",
+    content: `
+Security cameras range from simple to complex. Here is what to compare before buying.
+
+### Resolution
+
+1080p is enough to see who is at the door. 2K gives sharper detail — useful for reading faces or license plates. More resolution means bigger video files and more storage.
+
+### Coverage
+
+A 360-degree pan-tilt camera covers a whole room from one position. Fixed cameras need one per angle. For a shop or living room, pan-tilt is better.
+
+### Night vision
+
+Infrared night vision gives black-and-white footage in the dark. Full-colour night vision uses a spotlight and gives colour footage but needs some ambient light.
+
+### Storage
+
+MicroSD cards store video locally — no monthly fee, but the card can be stolen with the camera. Cloud storage costs a monthly subscription but keeps footage safe offsite.
+
+### Two-way audio
+
+Lets you speak to someone at the door through the camera. Useful for delivery persons and visitors.
+
+### Privacy
+
+Point cameras away from bedrooms and bathrooms. Use a physical shutter or turn the camera off when you are home if you are concerned about being watched.
+    `,
   },
   {
     id: "smart-topic-9",
@@ -1231,7 +1952,30 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "5 min read",
     publishedDate: "2026-02-06",
     image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Device showing 'Device Offline' in Smart Life or Tuya? Follow this quick troubleshooting checklist to restore instant connection."
+    excerpt: "Device showing 'Device Offline' in Smart Life or Tuya? Follow this quick troubleshooting checklist to restore instant connection.",
+    content: `
+Smart devices go offline for a few common reasons. Here is how to fix them.
+
+### Weak Wi-Fi signal
+
+Thick concrete walls in Nepali homes block Wi-Fi. Move the router closer to the device, or use a Wi-Fi extender. During setup, keep the device in the same room as the router.
+
+### Router overload
+
+Too many devices on one network can crowd it. Restart your router and try again. If your router assigns dynamic IP addresses, set a static IP reservation for your smart devices.
+
+### Power cuts
+
+After load-shedding, some devices take a few minutes to reconnect. Wait before assuming they are broken.
+
+### Soft reset vs hard reset
+
+Most bulbs and plugs have a soft reset (turn off and on three times) and a hard reset (hold the button for 10 seconds). Try soft reset first. Hard reset wipes your settings and you will need to pair again.
+
+### Check the app
+
+Make sure your phone is on the same 2.4GHz Wi-Fi network as the device during pairing. Smart devices do not work on 5GHz.
+    `,
   },
   {
     id: "smart-topic-10",
@@ -1256,14 +2000,37 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     readTime: "4 min read",
     publishedDate: "2026-02-02",
     image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Leaving water geysers and heaters running wastes thousands of rupees every winter. Discover how automated 16A smart plugs pay for themselves."
+    excerpt: "Leaving water geysers and heaters running wastes thousands of rupees every winter. Discover how automated 16A smart plugs pay for themselves.",
+    content: `
+Water geysers and room heaters are the biggest electricity users in Nepali homes. Here is how a smart plug cuts the bill.
+
+### The problem
+
+A geyser left on all morning or evening draws 2000–3000 watts continuously. That can add रू 2,000–4,000 to your monthly bill in winter.
+
+### The fix
+
+A 16A smart plug with scheduling turns the geyser on 25 minutes before you need it and off after. You get hot water without running the element all day.
+
+### What you save
+
+A geyser running four hours a day at 2500W uses 10 kWh per day, or 300 kWh per month. At average Nepali rates, that is roughly रू 4,500–6,000 per month. Cutting that to one hour a day saves रू 3,000–4,500 monthly.
+
+### What to buy
+
+A 16A smart plug with energy monitoring (रू 1,750) shows you exactly how much the geyser uses. The plug pays for itself in a few weeks.
+
+### Safety
+
+Never put a geyser on a 10A plug. Use a 16A fire-retardant plug for heavy thermal loads.
+    `,
   },
 
   // CLUSTER 5: Power Banks and Charging Solutions (10 Topics)
   {
     id: "power-topic-1",
-    title: "How to Choose the Right Power Bank for Your Smartphone in Nepal",
-    h1: "Power Bank Buying Guide: Capacity, Fast Charging, and Real-World Output",
+    title: "Choosing a Power Bank That Actually Works",
+    h1: "Choosing a power bank",
     slug: "how-to-choose-power-bank-nepal",
     cluster: "power-banks",
     primaryQuery: "how to choose power bank Nepal",
@@ -1274,66 +2041,49 @@ Check out verified 65W and 100W braided cables tested for safety and fast chargi
     parentClusterUrl: "/power-banks",
     relatedClusterSlugs: ["high-capacity", "slim-portable", "laptop-charging"],
     outline: [
-      "Why your phone runs out of power during daily travels in Eastern Nepal",
-      "The Rated Capacity Trap: Why 20,000mAh does not equal 20,000mAh delivered",
-      "Understanding Voltage Conversion: 3.7V internal cells to 5V / 9V output",
-      "Fast charging standards: 20W PD for iPhones, 22.5W QC for Android",
-      "Laptop charging: When you need high-power 65W Power Delivery",
-      "Lithium-Polymer safety and airline travel limits (100Wh rule)",
-      "Our verified power bank inventory at Himal Product and Services"
+      "Why 10,000mAh does not give you 10,000mAh",
+      "How fast it charges",
+      "What is inside matters",
+      "Taking a power bank on a flight"
     ],
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-10",
     image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Don't get tricked by cheap street power banks with fake capacities. Learn how to calculate real-world phone charges, fast charging speeds, and safety features.",
+    excerpt: "A 10,000mAh power bank does not give you 10,000mAh. Here is how much you really get, which wattage to look for, and what to avoid.",
     content: `
-Whether you are commuting along the East-West Highway, traveling between Itahari, Dharan, and Biratnagar, or facing occasional power maintenance, a dependable power bank is an essential companion in Nepal.
+A power bank is one of those things people buy in a hurry, usually at a bus park or from a street stall, and then find out it does not do what the box said. The label is not a lie exactly, but it does need explaining.
 
-However, the local market is flooded with counterfeit power banks claiming "50,000mAh" for रू 1,000 that barely charge a phone once. In this guide, we reveal the science of portable charging so you can choose a safe, high-performance battery backup.
+### Why 10,000mAh does not give you 10,000mAh
 
----
+The cells inside run at about 3.7V. A phone charges at 5V, 9V or higher, so the power bank boosts the voltage up. That conversion loses energy as heat, usually 15 to 25 percent.
 
-### 1. Rated Capacity vs. Real-World Output: The Math Explained
+So a genuine 10,000mAh bank gives you roughly 6,200 to 6,600mAh at 5V. That is about one and a bit charges for a modern phone with a 5,000mAh battery. A genuine 20,000mAh bank gives about 12,500 to 13,200mAh, or two and a half to three charges.
 
-Many buyers assume a 10,000mAh power bank will recharge a 5,000mAh phone exactly twice. When it only delivers around 1.3 to 1.5 full charges, they think the power bank is broken.
+If a box claims 50,000mAh for a thousand rupees, the number is invented. The bank will be heavy, and it will charge one phone slowly.
 
-Here is why:
-- Internal lithium-polymer cells operate at an average nominal voltage of **3.7 Volts**.
-- A 10,000mAh battery holds **37 Watt-hours (Wh)** of total stored energy (10,000mAh × 3.7V / 1000 = 37Wh).
-- To transmit power through USB, the internal boost converter must elevate voltage to **5V, 9V, or 12V**.
-- During this voltage conversion and energy transfer, heat loss causes a typical **15% to 25% efficiency loss**.
+### How fast it charges
 
-**The Real Output Formula:**
-$$\\text{Usable Capacity at 5V} = \\frac{10000\\text{ mAh} \\times 3.7\\text{V}}{5\\text{V}} \\times 0.85 \\approx 6290\\text{ mAh}$$
+A cheap 10W bank takes three to four hours to fill a phone. Look for the wattage on the box:
 
-Therefore, a genuine 10,000mAh power bank delivers approximately **6,200mAh to 6,600mAh** of real usable juice—enough to fully recharge a modern smartphone 1.2 to 1.4 times. A genuine 20,000mAh unit delivers around **12,500mAh to 13,200mAh**, giving you 2.5 to 3 full recharges.
+- 20W USB Power Delivery covers iPhone and most newer Android phones.
+- 22.5W Quick Charge suits Samsung, Xiaomi and Realme models.
+- 65W Power Delivery is what you need for a USB-C laptop.
 
----
+### What is inside matters
 
-### 2. Fast Charging Protocols: What Wattage Do You Need?
+Cheap banks use recycled cells and controllers with no temperature sensor. A proper one from Baseus, Remax or Joyroom has over-voltage and over-current cut-off, short-circuit protection, and a temperature limit that stops charging if the battery gets hot in summer.
 
-A slow 10W power bank takes 3 to 4 hours to recharge your phone. Modern power banks incorporate rapid charging protocols:
-- **20W USB Power Delivery (PD):** Charges iPhones (iPhone 8 through 16) up to 50% in just 30 minutes.
-- **22.5W Huawei FCP / Quick Charge 3.0:** Ideal for Samsung, Xiaomi, and Realme Android smartphones.
-- **65W Power Delivery:** Essential for recharging USB-C laptops (MacBook, Dell XPS, ThinkPad) or rapidly topping up iPads.
+The casing should be ABS or aluminium, not thin plastic that softens.
 
----
+### Taking it on a flight
 
-### 3. Safety First: 9-Layer Circuit Protection
-
-Cheap counterfeit power banks use recycled 18650 cylindrical cells with low-grade controllers that lack temperature sensors. A certified power bank from reputable brands (Baseus, Remax, Joyroom) incorporates:
-- **Over-voltage & Over-current Protection**
-- **Short-Circuit Auto-Cutoff**
-- **Temperature Throttling:** Halts charging if the battery exceeds safe thermal levels in summer.
-- **Flame-Retardant Casing:** High-grade ABS or aluminum alloy body.
-
-Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backed by a 1-year warranty at **Himal Product and Services** in Itahari.
+Nepal domestic airlines and international carriers allow power banks under 100Wh in cabin baggage. A 20,000mAh bank is about 74Wh, so it is within the limit. Keep it in your hand luggage, not the checked bag.
     `,
     faqs: [
       {
-        question: "Can I take a 20,000mAh power bank on domestic and international flights?",
-        answer: "Yes! International aviation guidelines (ICAO/IATA) and Nepal domestic airlines permit power banks under 100 Watt-hours (Wh) in your cabin carry-on luggage. A 20,000mAh battery equals approximately 74Wh, well within the legal limit."
+        question: "Can I take a 20,000mAh power bank on a flight?",
+        answer: "Yes. A 20,000mAh bank is about 74Wh, and the limit for cabin baggage is 100Wh. Keep it in your hand luggage, not the checked bag."
       }
     ]
   },
@@ -1360,7 +2110,26 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-03-05",
     image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Understand the physics behind power bank energy transfer and learn how to calculate true usable battery capacity."
+    excerpt: "Understand the physics behind power bank energy transfer and learn how to calculate true usable battery capacity.",
+    content: `
+Power bank labels use mAh, but that is not what your phone actually receives. Here is the math.
+
+### 3.7V vs 5V
+
+The cells inside a power bank run at 3.7V. Your phone charges at 5V (or 9V, 12V for fast charging). The power bank boosts the voltage up, and that conversion loses energy as heat.
+
+### Efficiency loss
+
+Expect 15 to 25 percent energy loss during conversion. So a 10,000mAh power bank actually gives you about 6,200 to 6,600mAh at 5V — enough for about one and a half charges on a 5,000mAh phone.
+
+### A 20,000mAh bank
+
+Gives about 12,500 to 13,200mAh at 5V. That is two and a half to three full charges for a modern phone.
+
+### Fake claims
+
+If a box says 50,000mAh for रू 1,000, the number is made up. The bank will be heavy and charge slowly. Stick to known brands and realistic capacity claims.
+    `,
   },
   {
     id: "power-topic-3",
@@ -1385,7 +2154,26 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-03-01",
     image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Make sure your next power bank has two-way USB-C Power Delivery. Learn why input recharging speed is just as important as output speed."
+    excerpt: "Make sure your next power bank has two-way USB-C Power Delivery. Learn why input recharging speed is just as important as output speed.",
+    content: `
+Not all USB-C ports on a power bank work the same way. Here is what to check.
+
+### Input-only vs two-way
+
+Some power banks have a USB-C port that is input-only — you can recharge the bank through it, but cannot charge your phone from it. Two-way USB-C PD lets you both recharge the bank and charge devices from the same port.
+
+### Recharging speed
+
+A power bank with Micro-USB input takes 10 or more hours to refill. A Type-C PD input refills a 20,000mAh bank in about 3 to 4 hours. If you use the power bank daily, fast input matters.
+
+### Pass-through charging
+
+Some banks let you charge the bank and your phone at the same time. This is convenient but generates extra heat. Use it only when necessary.
+
+### Digital display
+
+A power bank with a digital percentage display is much more useful than one with four blinking LED dots. You know exactly how much charge is left.
+    `,
   },
   {
     id: "power-topic-4",
@@ -1410,7 +2198,30 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-02-25",
     image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Will your phone trigger fast charging with a new power bank? Here is how to cross-reference protocols before purchasing."
+    excerpt: "Will your phone trigger fast charging with a new power bank? Here is how to cross-reference protocols before purchasing.",
+    content: `
+Fast charging only works when both the power bank and the phone speak the same language. Here is how to match them.
+
+### USB Power Delivery (PD)
+
+The most common standard. Works with iPhones, Samsung, Google Pixel, and most laptops. Look for PD 20W for phones and PD 65W for laptops.
+
+### Qualcomm Quick Charge
+
+Used by many Samsung, Xiaomi, and Realme phones. QC 3.0 and QC 4.0+ are common. A QC power bank will fast-charge these phones.
+
+### Proprietary standards
+
+Xiaomi Turbo Charge, OnePlus VOOC, Oppo SuperVOOC, and Huawei SuperCharge need brand-specific cables and chargers. A generic PD power bank will charge these phones, but only at slow standard speed — not their advertised fast speed.
+
+### Multi-protocol chips
+
+If your household has different brands, get a power bank with a multi-protocol chip. It detects the connected device and uses the right protocol automatically.
+
+### Bottom line
+
+Check your phone's fast-charging standard before buying. A 65W PD bank will not fast-charge a phone that only supports Quick Charge.
+    `,
   },
   {
     id: "power-topic-5",
@@ -1435,7 +2246,30 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-02-21",
     image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Learn how to read the tiny electrical specifications printed on power banks to calculate true charging speed."
+    excerpt: "Learn how to read the tiny electrical specifications printed on power banks to calculate true charging speed.",
+    content: `
+The spec label on a power bank uses volts, amps, and watts. Here is how to read them.
+
+### The formula
+
+Watts = Volts × Amps. Common combinations:
+
+- 5V × 2.4A = 12W (standard phone charging)
+- 9V × 2.22A = 20W (fast phone charging)
+- 20V × 3.25A = 65W (laptop charging)
+
+### Multi-port sharing
+
+When you plug two phones into a 22.5W power bank, the wattage splits. Each port may get only 10W, so both charge slowly. For simultaneous fast charging, look for independent dual-circuit banks.
+
+### What the numbers mean for you
+
+- 10W: slow overnight charging
+- 18W to 22.5W: fast charging for most phones
+- 45W to 65W: laptop charging
+
+Match the power bank's output to what your device needs. Buying 65W for a phone that takes 20W is wasted money.
+    `,
   },
   {
     id: "power-topic-6",
@@ -1460,7 +2294,26 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "4 min read",
     publishedDate: "2026-02-16",
     image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Will a fast power bank fry your earbuds? Learn how intelligent current handshake works and how to activate trickle-charging mode."
+    excerpt: "Will a fast power bank fry your earbuds? Learn how intelligent current handshake works and how to activate trickle-charging mode.",
+    content: `
+A powerful power bank will not damage small devices — they only draw what they need. Here is how it works.
+
+### Auto-negotiation
+
+The phone and power bank communicate to agree on voltage and current. A 65W bank connected to earbuds that need 5W will only send 5W. It will not fry them.
+
+### Auto-shutoff problem
+
+Some power banks turn off when they detect very low current draw. Earbuds and fitness bands draw so little power that the bank shuts off after a minute, stopping the charge.
+
+### Trickle-charge mode
+
+Many modern power banks have a low-current or trickle-charge mode. Press the power button twice (or hold it) to activate it, then connect your earbuds. The bank stays on and charges them slowly.
+
+### Cable compatibility
+
+Use the right cable — Lightning for iPhone, Type-C for most Android phones, Micro-USB for older devices and earbud cases. A mismatched cable will not charge at all.
+    `,
   },
   {
     id: "power-topic-7",
@@ -1485,7 +2338,26 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-02-11",
     image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Does charging your phone from a power bank damage its battery health? We examine the electrical facts and safe charging practices."
+    excerpt: "Does charging your phone from a power bank damage its battery health? We examine the electrical facts and safe charging practices.",
+    content: `
+A good power bank is safe for daily use. The real enemy of your battery is heat, not the power bank itself.
+
+### Power bank vs wall charger
+
+A wall charger converts AC mains to DC. A power bank converts DC from its cells to DC for your phone. A quality power bank actually delivers cleaner, ripple-free current than a cheap wall charger.
+
+### Heat is the real problem
+
+Using your phone while charging — gaming, video calls — generates heat in both the phone and the power bank. Heat degrades battery health over time. Charge without heavy use when you can.
+
+### Best practice
+
+Use a wall charger at home overnight or when you have time. Use a power bank when you are out or during power cuts. Both are fine; just avoid heat.
+
+### Buy quality
+
+Cheap power banks with no temperature control can overheat. Stick to known brands with proper protection circuits.
+    `,
   },
   {
     id: "power-topic-8",
@@ -1510,7 +2382,30 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "4 min read",
     publishedDate: "2026-02-07",
     image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Lithium batteries store significant chemical energy. Follow these crucial safety rules to prevent overheating, swelling, and fire hazards."
+    excerpt: "Lithium batteries store significant chemical energy. Follow these crucial safety rules to prevent overheating, swelling, and fire hazards.",
+    content: `
+Power banks contain lithium cells that store a lot of energy. Handle them safely.
+
+### Never leave in a hot car
+
+Sunsari's summer heat inside a parked car can push a power bank past its safe temperature. Do not leave it in the glove box or on the dashboard.
+
+### Check for damage
+
+Inspect for dented corners, bulging seams, or a casing that is coming apart. A swollen power bank is dangerous — stop using it immediately.
+
+### If it starts swelling
+
+Move it away from flammable materials, do not charge it, and take it to an electronics recycling point. Do not puncture or crush it.
+
+### Water exposure
+
+If a power bank gets wet, do not charge it. Dry it thoroughly and test it carefully. Water inside can short the cells.
+
+### Disposal
+
+Do not throw a depleted power bank in the trash. Take it to an electronics waste collection point.
+    `,
   },
   {
     id: "power-topic-9",
@@ -1535,7 +2430,30 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "5 min read",
     publishedDate: "2026-02-03",
     image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Thinking of buying a massive 20,000mAh or 30,000mAh power bank? Make sure you check recharging times and physical weight first."
+    excerpt: "Thinking of buying a massive 20,000mAh or 30,000mAh power bank? Make sure you check recharging times and physical weight first.",
+    content: `
+High-capacity power banks sound useful, but they come with trade-offs. Here is what to check.
+
+### Weight
+
+A 20,000mAh bank weighs 400 to 600 grams. A 30,000mAh bank is heavier still. That is a lot to carry in a pocket every day.
+
+### Recharging time
+
+A big battery takes a long time to refill. Without fast input (30W to 65W), a 20,000mAh bank can take 10 or more hours to recharge. Get one with fast USB-C input if you use it daily.
+
+### Port selection
+
+Look for at least two USB-A ports and one USB-C fast output. This lets you charge your phone, earbuds, and power bank simultaneously.
+
+### Airline restrictions
+
+Batteries over 27,000mAh (100Wh) are restricted on flights. A 20,000mAh bank is about 74Wh and is allowed in cabin baggage. Check before you travel.
+
+### Do you need it?
+
+If you only charge one phone once a day, a 10,000mAh slim bank is enough. Get 20,000mAh or more only for multi-day travel or if you charge multiple devices.
+    `,
   },
   {
     id: "power-topic-10",
@@ -1560,7 +2478,30 @@ Explore tested, authentic 10,000mAh, 20,000mAh, and 65W laptop power banks backe
     readTime: "4 min read",
     publishedDate: "2026-01-30",
     image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
-    excerpt: "Left your power bank in a drawer for six months and now it won't turn on? Learn how to store lithium cells properly to ensure years of service."
+    excerpt: "Left your power bank in a drawer for six months and now it won't turn on? Learn how to store lithium cells properly to ensure years of service.",
+    content: `
+A power bank left unused will die if you do not store it correctly. Here is how to make it last years.
+
+### Do not store at zero percent
+
+Lithium cells slowly discharge on their own. If a power bank sits at zero percent for months, the cells can drop below the minimum voltage and become permanently dead — a brick.
+
+### Ideal storage level
+
+Charge it to 50 to 60 percent before putting it away. Check it every three months and top it up if it has dropped.
+
+### Avoid continuous 100 percent
+
+Leaving a power bank plugged in at 100 percent all the time also stresses the cells. Unplug it once it is full.
+
+### Temperature
+
+Store in a cool, dry place away from direct sunlight and dampness. Heat ages lithium cells faster.
+
+### Use it occasionally
+
+A power bank used and recharged every few months stays healthier than one left in a drawer for a year.
+    `,
   }
 ];
 
