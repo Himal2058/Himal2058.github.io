@@ -60,10 +60,12 @@ export default async function ProductDetailPage({ params }: Props) {
     .filter(item => item.category === product.category && item.id !== product.id)
     .slice(0, 3);
 
-  const whatsappOrderMessage = `Hello Himal Product & Services, I would like to ask about this product.
+  const whatsappOrderMessage = `Hello Himal Product & Services, I would like to order or reserve this product.
 Product: ${product.name}
-Price on site: रू ${product.price.toLocaleString('en-IN')}
-Is it in stock at the shop?`;
+Price shown: रू ${product.price.toLocaleString('en-IN')}
+Availability shown: ${product.inStock ? 'in stock' : 'please check availability'}
+Preferred option: store pickup or delivery
+Please confirm the final price, warranty, and next step.`;
 
   return (
     <div className="pb-12 md:pb-16">
@@ -170,7 +172,7 @@ Is it in stock at the shop?`;
                 className="btn-primary flex-1"
               >
                 <MessageSquare className="size-4" aria-hidden="true" />
-                <span>Ask about this product</span>
+                <span>{product.inStock ? 'Order or reserve on WhatsApp' : 'Check availability on WhatsApp'}</span>
               </a>
               <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline">
                 <Phone className="size-4" aria-hidden="true" />
