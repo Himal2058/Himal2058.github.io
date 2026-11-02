@@ -135,7 +135,7 @@ export default function Home() {
         <div className="container-page py-10 md:py-14">
           <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div className="hero-content">
-              <p className="eyebrow">Himal Product and Services · Sundarharaincha / Itahari corridor</p>
+              <p className="eyebrow">HIMAL PRODUCT & SERVICES · SUNDARHARAINCHA / ITAHARI</p>
               <h1 className="display-1 mt-2">A careful repair starts with a clear explanation.</h1>
               <p className="lede mt-4 max-w-xl">
                 We repair phones and electronics at our counter in Sundarharaincha, explain what failed,
@@ -161,6 +161,11 @@ export default function Home() {
                 <span className="chip-brand">Free first check</span>
                 <span className="chip-brand">Written estimate</span>
                 <span className="chip-brand">Repair warranty</span>
+              </div>
+              <div className="mt-7 grid max-w-lg grid-cols-3 gap-2 text-white">
+                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Same day</p><p className="mt-1 text-[11px] text-white/65">common repairs</p></div>
+                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Clear price</p><p className="mt-1 text-[11px] text-white/65">before work</p></div>
+                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Local care</p><p className="mt-1 text-[11px] text-white/65">Itahari corridor</p></div>
               </div>
             </div>
 
