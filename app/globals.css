@@ -106,6 +106,57 @@ svg {
   display: block;
 }
 
+@keyframes himal-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes himal-gloss {
+  0%, 35% { transform: translateX(-120%) rotate(18deg); opacity: 0; }
+  48% { opacity: 0.55; }
+  62%, 100% { transform: translateX(220%) rotate(18deg); opacity: 0; }
+}
+
+@keyframes himal-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.premium-hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 82% 20%, rgba(199, 217, 241, 0.5), transparent 34%), linear-gradient(135deg, #ffffff 0%, #f7f7f6 55%, #edf3fb 100%);
+}
+
+.premium-hero::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: 8%;
+  width: 16%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  filter: blur(10px);
+  animation: himal-gloss 9s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: himal-fade-up 650ms ease-out both;
+}
+
+.hero-media {
+  animation: himal-fade-up 800ms 100ms ease-out both, himal-float 7s 1s ease-in-out infinite;
+  box-shadow: 0 24px 60px -28px rgba(20, 47, 79, 0.45);
+}
+
+.premium-card {
+  background: linear-gradient(145deg, #ffffff, #f6f9fd);
+  box-shadow: 0 16px 40px -28px rgba(20, 47, 79, 0.45);
+}
+
 @layer components {
   .container-page {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
@@ -277,5 +328,11 @@ svg {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .hero-content,
+  .hero-media,
+  .premium-hero::after {
+    animation: none !important;
   }
 }

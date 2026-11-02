@@ -131,10 +131,10 @@ export default function Home() {
   return (
     <div>
       {/* Intro */}
-      <section className="border-b border-line bg-surface">
+      <section className="premium-hero border-b border-line">
         <div className="container-page py-10 md:py-14">
           <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-            <div>
+            <div className="hero-content">
               <p className="eyebrow">Himal Product and Services · Sundarharaincha / Itahari corridor</p>
               <h1 className="display-1 mt-2">A careful repair starts with a clear explanation.</h1>
               <p className="lede mt-4 max-w-xl">
@@ -164,7 +164,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] overflow-hidden rounded-card border border-line bg-canvas">
+            <div className="hero-media relative aspect-[4/3] overflow-hidden rounded-card border border-white/70 bg-canvas">
               <Image
                 src={siteAsset('/repair-studio.webp')}
                 alt="Phone repair bench at Himal Product and Services"
@@ -188,7 +188,7 @@ export default function Home() {
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {commonFaults.map(fault => (
-              <Link key={fault.href} href={fault.href} className="card card-hover group p-4">
+              <Link key={fault.href} href={fault.href} className="card premium-card card-hover group p-4">
                 <fault.icon className="size-5 text-brand-700" aria-hidden="true" />
                 <h3 className="mt-3 text-sm font-semibold text-ink group-hover:text-brand-700">{fault.title}</h3>
                 <p className="mt-1 text-sm leading-6 text-muted">{fault.copy}</p>
