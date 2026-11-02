@@ -174,6 +174,9 @@ Please confirm the final price, warranty, and next step.`;
                 <MessageSquare className="size-4" aria-hidden="true" />
                 <span>{product.inStock ? 'Order or reserve on WhatsApp' : 'Check availability on WhatsApp'}</span>
               </a>
+              <Link href={`/checkout?product=${product.slug}`} className="btn-outline flex-1">
+                <span>Cash on delivery</span>
+              </Link>
               <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline">
                 <Phone className="size-4" aria-hidden="true" />
                 <span>{siteConfig.phone}</span>

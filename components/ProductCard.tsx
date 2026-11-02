@@ -68,6 +68,9 @@ Please confirm the final price, warranty, and next step.`;
           <MessageSquare className="size-4" aria-hidden="true" />
           <span>{product.inStock ? 'Order on WhatsApp' : 'Check availability'}</span>
         </a>
+        <Link href={`/checkout?product=${product.slug}`} className="btn-outline mt-2 w-full">
+          Cash on delivery
+        </Link>
       </div>
     </article>
   );
