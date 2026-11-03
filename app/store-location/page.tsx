@@ -72,7 +72,7 @@ export default function StoreLocationPage() {
         <div className="overflow-hidden rounded-card border border-line bg-surface">
           <iframe
             title="Himal Product and Services workshop location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.123456789!2d87.2781325!3d26.687414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d33be82599b%3A0xb67ac2eefb668b5f!2sHimal%20product%20and%20service!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+            src={`https://maps.google.com/maps?q=${siteConfig.geo.latitude}%2C${siteConfig.geo.longitude}&ll=${siteConfig.geo.latitude}%2C${siteConfig.geo.longitude}&z=20&output=embed`}
             width="100%"
             height="100%"
             style={{ border: 0 }}

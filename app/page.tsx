@@ -9,8 +9,6 @@ import {
   BatteryCharging,
   Clock,
   MapPin,
-  Phone,
-  MessageSquare,
   ArrowRight,
   AlertTriangle,
   ShieldCheck,
@@ -207,21 +205,34 @@ export default function Home() {
       {/* What the shop does */}
       <section className="section">
         <div className="container-page">
-          <h2 className="heading-3">What we do</h2>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow">One local shop, help for everyday tech</p>
+              <h2 className="display-2 mt-1">Repair, shop, and set up with confidence</h2>
+            </div>
+            <Link href="/contact" className="link-arrow">
+              <span>Talk to our team</span>
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
 
-          <div className="mt-5 divide-y divide-line border-y border-line">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(item => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-start gap-4 py-4 hover:bg-white"
+                className="card card-hover group flex min-h-36 items-start gap-4 p-5"
               >
-                <item.icon className="mt-0.5 size-5 shrink-0 text-brand-600" aria-hidden="true" />
-                <span className="min-w-0 flex-1">
-                  <span className="block text-base font-semibold text-ink">{item.title}</span>
-                  <span className="mt-0.5 block text-sm leading-6 text-muted">{item.copy}</span>
+                <span className="icon-tile size-11 shrink-0 rounded-xl group-hover:bg-brand-100">
+                  <item.icon className="size-5" aria-hidden="true" />
                 </span>
-                <ArrowRight className="mt-1 size-4 shrink-0 text-muted" aria-hidden="true" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-base font-semibold text-ink group-hover:text-brand-700">{item.title}</span>
+                  <span className="mt-1 block text-sm leading-6 text-muted">{item.copy}</span>
+                  <span className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-brand-700">
+                    Explore <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </span>
               </Link>
             ))}
           </div>
@@ -292,62 +303,54 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="rounded-card border border-brand-200 bg-white p-5 shadow-[var(--shadow-soft)] sm:p-6">
+            <p className="eyebrow">Clear, careful, and on your terms</p>
+            <h2 className="display-2 mt-1">You stay in control of the repair</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              We explain what we find, the likely cost, and the time needed before work starts. You can ask questions, take the estimate home, or say no.
+            </p>
+            <ul className="mt-4 space-y-3 text-sm text-ink-soft">
+              <li className="flex gap-3"><ShieldCheck className="mt-0.5 size-4 shrink-0 text-brand-700" aria-hidden="true" /><span>No repair begins without your approval.</span></li>
+              <li className="flex gap-3"><Clock className="mt-0.5 size-4 shrink-0 text-brand-700" aria-hidden="true" /><span>We share a realistic turnaround before you leave the phone.</span></li>
+              <li className="flex gap-3"><Wrench className="mt-0.5 size-4 shrink-0 text-brand-700" aria-hidden="true" /><span>After repair, we test the affected feature with you.</span></li>
+            </ul>
+            <Link href="/repair-policy" className="btn-outline mt-5">
+              <span>Read our repair policy</span>
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Find the workshop */}
+      <section className="section border-y border-line bg-surface">
+        <div className="container-page grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
-            <h2 className="display-2">Visit the shop</h2>
-
-            <dl className="mt-4 space-y-4 text-sm">
-              <div className="flex gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
-                <div>
-                  <dt className="font-semibold text-ink">Address</dt>
-                  <dd className="mt-0.5 leading-6 text-muted">
-                    {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province}
-                    <span className="block text-xs">{siteConfig.address.landmark}</span>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <Clock className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
-                <div>
-                  <dt className="font-semibold text-ink">Hours</dt>
-                  <dd className="mt-0.5 leading-6 text-muted">
-                    {siteConfig.openingHours.days}
-                    <span className="block text-xs">{siteConfig.openingHours.hours}</span>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <Phone className="mt-0.5 size-4 shrink-0 text-muted" aria-hidden="true" />
-                <div>
-                  <dt className="font-semibold text-ink">Phone</dt>
-                  <dd className="mt-0.5">
-                    <a
-                      href={`tel:${siteConfig.phoneRaw}`}
-                      className="text-brand-700 underline underline-offset-2"
-                    >
-                      {siteConfig.phone}
-                    </a>
-                  </dd>
-                </div>
-              </div>
-            </dl>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              <a
-                href={siteConfig.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline"
-              >
+            <p className="eyebrow">Visit us in person</p>
+            <h2 className="display-2 mt-1">Find our workshop</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province}. {siteConfig.address.landmark}
+            </p>
+            <p className="mt-2 text-sm text-muted">{siteConfig.openingHours.days} · {siteConfig.openingHours.hours}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a href={siteConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <MapPin className="size-4" aria-hidden="true" />
-                <span>Directions</span>
+                <span>Get directions</span>
               </a>
-              <Link href="/store-location" className="btn-outline">
-                <span>Landmarks</span>
-              </Link>
+              <Link href="/store-location" className="btn-outline">More visit details</Link>
             </div>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-line shadow-[var(--shadow-soft)]">
+            <iframe
+              title="Map showing Himal Product and Services in Sundarharaichha"
+              src={`https://maps.google.com/maps?q=${siteConfig.geo.latitude}%2C${siteConfig.geo.longitude}&ll=${siteConfig.geo.latitude}%2C${siteConfig.geo.longitude}&z=20&output=embed`}
+              width="100%"
+              height="360"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-72 w-full sm:h-80"
+            />
           </div>
         </div>
       </section>
