@@ -130,52 +130,55 @@ export default function Home() {
     <div>
       {/* Intro */}
       <section className="premium-hero border-b border-line">
-        <div className="container-page py-10 md:py-14">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+        <div className="container-page py-12 md:py-20">
+          <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
             <div className="hero-content">
-              <p className="eyebrow">HIMAL PRODUCT & SERVICES · SUNDARHARAINCHA / ITAHARI</p>
-              <h1 className="display-1 mt-2">A careful repair starts with a clear explanation.</h1>
-              <p className="lede mt-4 max-w-xl">
+              <p className="hero-kicker"><span className="hero-kicker-dot" /> HIMAL PRODUCT & SERVICES <span className="hero-kicker-divider">/</span> SUNDARHARAINCHA</p>
+              <h1 className="display-1 mt-4 max-w-2xl">Your tech, back to its best.</h1>
+              <p className="lede mt-5 max-w-xl">
                 We repair phones and electronics at our counter in Sundarharaincha, explain what failed,
                 and give you a price before work starts. Most common screen, battery, and charging jobs are
                 finished the same day.
               </p>
 
-              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/mobile-repair" className="btn-primary">
                   <Wrench className="size-4" aria-hidden="true" />
-                  <span>Book a repair</span>
+                  <span>Explore phone repair</span>
                 </Link>
                 <Link href="/products" className="btn-outline">
-                  <span>See what is in stock</span>
+                  <span>Shop products</span>
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               </div>
 
-              <p className="mt-6 text-sm text-muted">
-                {siteConfig.address.street}, {siteConfig.address.city} · {siteConfig.openingHours.hours}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted">
-                <span className="chip-brand">Free first check</span>
-                <span className="chip-brand">Written estimate</span>
-                <span className="chip-brand">Repair warranty</span>
+              <div className="hero-proof-row mt-8">
+                <div className="hero-proof-item"><ShieldCheck className="size-4" aria-hidden="true" /><span>Estimate before work</span></div>
+                <span className="hero-proof-separator" aria-hidden="true" />
+                <div className="hero-proof-item"><Clock className="size-4" aria-hidden="true" /><span>Same-day common repairs</span></div>
               </div>
-              <div className="mt-7 grid max-w-lg grid-cols-3 gap-2 text-white">
-                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Same day</p><p className="mt-1 text-[11px] text-white/65">common repairs</p></div>
-                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Clear price</p><p className="mt-1 text-[11px] text-white/65">before work</p></div>
-                <div className="glass-card rounded-xl p-3"><p className="text-lg font-semibold">Local care</p><p className="mt-1 text-[11px] text-white/65">Itahari corridor</p></div>
+              <div className="mt-7 flex items-center gap-2 text-sm text-muted">
+                <MapPin className="size-4 text-brand-700" aria-hidden="true" />
+                <span>{siteConfig.address.street}, {siteConfig.address.city}</span>
+                <span className="text-line-strong" aria-hidden="true">·</span>
+                <a href={siteConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 underline-offset-4 hover:underline">Get directions</a>
               </div>
             </div>
 
-            <div className="hero-media relative aspect-[4/3] overflow-hidden rounded-card border border-white/70 bg-canvas">
+            <div className="hero-media relative aspect-[5/4] overflow-hidden rounded-[1.75rem] border border-white/80 bg-canvas">
               <Image
                 src={siteAsset('/repair-studio.webp')}
                 alt="Phone repair bench at Himal Product and Services"
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
+                className="hero-photo object-cover"
               />
+              <div className="hero-image-caption">
+                <span className="hero-image-caption-mark"><Wrench className="size-4" aria-hidden="true" /></span>
+                <span><strong>Careful work. Clear answers.</strong><small>Phone repair in Sundarharaincha, Morang</small></span>
+              </div>
+              <span className="hero-image-tag"><span className="hero-image-tag-dot" /> REPAIR STUDIO</span>
             </div>
           </div>
         </div>
