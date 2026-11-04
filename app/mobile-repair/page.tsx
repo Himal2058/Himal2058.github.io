@@ -17,9 +17,9 @@ import { CtaBand } from '@/components/CtaBand';
 import { JsonLd, getServiceSchema } from '@/components/JsonLd';
 
 export const metadata = {
-  title: 'Mobile Phone Repair in Itahari | Screen, Battery & Port',
+  title: 'Phone Repair in Itahari & Morang | Himal Electronics',
   description:
-    'Phone repair shop in Itahari and Sundarharaincha. Screen replacement, battery swap, charging port repair and water damage work, usually finished the same day.'
+    'Phone repair in Sundarharaincha, Morang near Itahari. Screen, battery, charging and water-damage diagnostics. Ask first about courier-in from elsewhere in Nepal.'
 };
 
 const process = [
@@ -82,7 +82,8 @@ export default function MobileRepairPage() {
           <h1 className="display-1">Mobile phone repair in Itahari</h1>
           <p className="lede mt-3 max-w-2xl">
             Cracked screen, dying battery, loose charging port, or a phone that got wet. Bring it to the
-            counter and we will tell you what it needs. Most jobs are done the same day.
+            counter in Sundarharaincha, Morang, or send us the model and symptoms first. For customers
+            outside eastern Nepal, ask before couriering the phone so we can confirm intake and return arrangements.
           </p>
 
           <div className="mt-5 flex flex-col gap-2 sm:flex-row">
@@ -113,6 +114,12 @@ export default function MobileRepairPage() {
           </p>
         </div>
       </section>
+
+      <div className="container-page pt-6">
+        <Link href="/electronics-repair" className="inline-flex min-h-11 items-center gap-2 rounded border border-line bg-surface px-3 text-sm font-medium text-brand-700 hover:bg-canvas">
+          Looking for speaker, toy, TV, laptop or other electronics repair? See all repair enquiries <span aria-hidden="true">→</span>
+        </Link>
+      </div>
 
       {/* How it works */}
       <section className="container-page pt-8">

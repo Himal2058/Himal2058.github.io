@@ -13,8 +13,9 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    inquiryType: 'Mobile repair',
+    inquiryType: 'Electronics repair',
     deviceModel: '',
+    location: '',
     message: ''
   });
 
@@ -25,6 +26,7 @@ Name: ${formData.name}
 Phone: ${formData.phone}
 About: ${formData.inquiryType}
 Device: ${formData.deviceModel || 'not given'}
+My town/district: ${formData.location || 'not given'}
 Message: ${formData.message}`;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -38,8 +40,9 @@ Message: ${formData.message}`;
     setFormData({
       name: '',
       phone: '',
-      inquiryType: 'Mobile repair',
+      inquiryType: 'Electronics repair',
       deviceModel: '',
+      location: '',
       message: ''
     });
   };
@@ -122,7 +125,13 @@ Message: ${formData.message}`;
               onChange={e => setFormData({ ...formData, inquiryType: e.target.value })}
               className={fieldClass}
             >
+              <option value="Electronics repair">Electronics repair</option>
               <option value="Mobile repair">Mobile repair</option>
+              <option value="Speaker or audio repair">Speaker or audio repair</option>
+              <option value="Toy or gadget repair">Toy or gadget repair</option>
+              <option value="TV or home electronics repair">TV or home electronics repair</option>
+              <option value="Laptop or computer accessory repair">Laptop or computer accessory repair</option>
+              <option value="Appliance repair enquiry">Appliance repair enquiry</option>
               <option value="Phone purchase">Phone purchase</option>
               <option value="Accessories">Accessories</option>
               <option value="Smart home">Smart home</option>
@@ -144,7 +153,22 @@ Message: ${formData.message}`;
             type="text"
             value={formData.deviceModel}
             onChange={e => setFormData({ ...formData, deviceModel: e.target.value })}
-            placeholder="Galaxy A15, iPhone 13, Redmi Note 12"
+            placeholder="Samsung TV, JBL speaker, toy model, laptop model"
+            className={fieldClass}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-location" className={labelClass}>
+            Your town or district <span className="text-muted">(helps us advise visit or courier options)</span>
+          </label>
+          <input
+            id="contact-location"
+            type="text"
+            autoComplete="address-level2"
+            value={formData.location}
+            onChange={e => setFormData({ ...formData, location: e.target.value })}
+            placeholder="Itahari, Sunsari"
             className={fieldClass}
           />
         </div>
@@ -159,7 +183,7 @@ Message: ${formData.message}`;
             rows={4}
             value={formData.message}
             onChange={e => setFormData({ ...formData, message: e.target.value })}
-            placeholder="For example: screen cracked, touch still works, Samsung A15."
+            placeholder="What happened? When did it start? Include any sound, light or error you noticed."
             className="w-full rounded border border-line bg-canvas px-3 py-2 text-sm leading-6 text-ink placeholder:text-muted focus:border-line-strong focus:bg-white focus:outline-none"
           />
         </div>

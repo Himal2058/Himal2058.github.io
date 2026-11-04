@@ -29,6 +29,7 @@ import { repairServices } from '@/data/repairs';
 import { blogTopics } from '@/data/blogs';
 
 const primaryNav = [
+  { href: '/electronics-repair', label: 'Electronics repair', icon: Wrench },
   { href: '/mobile-phones', label: 'Smartphones', icon: Smartphone },
   { href: '/gadgets-accessories', label: 'Accessories', icon: Headphones },
   { href: '/smart-home', label: 'Smart home', icon: Lightbulb },
@@ -293,14 +294,14 @@ export function Header() {
             </a>
             <a
               href={getWhatsAppLink(
-                'Hello Himal Product & Services, I would like to book a phone repair. My device model is: '
+                'Namaste Himal Product and Services. I need an electronics repair. Device type: __. Brand/model: __. Fault: __. My town/district: __. Please confirm availability.'
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
             >
               <MessageSquare className="size-4" aria-hidden="true" />
-              <span>Book a repair</span>
+                <span>Ask about a repair</span>
             </a>
           </div>
 
@@ -517,17 +518,18 @@ export function Header() {
 
               <div>
                 <p className="mb-2 text-xs text-muted">Repair services</p>
-                <Link
-                  href="/mobile-repair"
+                            <Link
+                  href="/electronics-repair"
                   onClick={closeMobile}
                   className="flex min-h-11 items-center justify-between rounded border border-line bg-canvas px-3 text-sm font-medium text-ink"
                 >
                   <span className="inline-flex items-center gap-2">
                     <Wrench className="size-4 text-muted" aria-hidden="true" />
-                    All mobile repairs
+                    Repairs for all electronics
                   </span>
                   <ArrowRight className="size-4 text-muted" aria-hidden="true" />
                 </Link>
+                <Link href="/mobile-repair" onClick={closeMobile} className="mt-2 block text-sm text-brand-700">Phone repair details and price estimate</Link>
                 <ul className="mt-1 divide-y divide-line">
                   {repairServices.slice(0, 4).map(service => (
                     <li key={service.id}>
@@ -592,7 +594,7 @@ export function Header() {
             <div className="space-y-2 border-t border-line bg-canvas p-4">
               <a
                 href={getWhatsAppLink(
-                  'Hello Himal Product & Services, I would like to book a phone repair. My device model is: '
+                  'Namaste Himal Product and Services. I need an electronics repair. Device type: __. Brand/model: __. Fault: __. My town/district: __. Please confirm availability.'
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -600,7 +602,7 @@ export function Header() {
                 className="btn-primary w-full"
               >
                 <MessageSquare className="size-4" aria-hidden="true" />
-                <span>Book a repair</span>
+              <span>Ask about a repair</span>
               </a>
               <a href={`tel:${siteConfig.phoneRaw}`} className="btn-outline w-full bg-white">
                 <Phone className="size-4" aria-hidden="true" />

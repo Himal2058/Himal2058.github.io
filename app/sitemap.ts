@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/mobile-repair',
+    '/electronics-repair',
     '/mobile-phones',
     '/gadgets-accessories',
     '/smart-home',
@@ -34,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : route.startsWith('/mobile-') || route.startsWith('/gadgets') || route.startsWith('/smart-home') || route.startsWith('/power-banks') ? 0.9 : 0.7
+    priority: route === '' ? 1.0 : route === '/electronics-repair' || route.startsWith('/mobile-') || route.startsWith('/gadgets') || route.startsWith('/smart-home') || route.startsWith('/power-banks') ? 0.9 : 0.7
   }));
 
   // 2. Repair Service Sub-Pages

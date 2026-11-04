@@ -25,10 +25,19 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { CtaBand } from '@/components/CtaBand';
 
 export const metadata = {
-  title: 'Mobile Repair & Electronics in Itahari',
+  title: 'Electronics Repair & Products in Eastern Nepal | Himal',
   description:
-    'Phone screen, battery and charging repairs in Itahari. Smartphones, accessories, smart home devices and power banks with warranty and delivery across Sunsari and Morang.'
+    'Phone and electronics repair in Sundarharaincha, Morang. Ask about speakers, toys, gadgets, TVs and home electronics, with product delivery and repair enquiries from across Nepal.'
 };
+
+const repairCategories = [
+  { title: 'Phones & tablets', detail: 'Screens, batteries, charging, audio, software and board diagnosis.', icon: Smartphone },
+  { title: 'Audio & speakers', detail: 'Bluetooth speakers, wired audio, earbuds and sound systems: power, charging, pairing or sound faults.', icon: Headphones },
+  { title: 'Toys & small gadgets', detail: 'Battery-powered toys, handheld gadgets, controllers and small electronic devices.', icon: Cpu },
+  { title: 'TV & home entertainment', detail: 'TVs, set-top boxes and related devices. Message the brand, model and fault first.', icon: Lightbulb },
+  { title: 'Home & household electronics', detail: 'Small appliances and household electronics assessed by device and parts availability.', icon: Wrench },
+  { title: 'Laptops & computer accessories', detail: 'Power, charging, connection and accessory problems. Send the model and symptoms to check availability.', icon: BatteryCharging }
+];
 
 const services = [
   {
@@ -134,17 +143,16 @@ export default function Home() {
           <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
             <div className="hero-content">
               <p className="hero-kicker"><span className="hero-kicker-dot" /> HIMAL PRODUCT & SERVICES <span className="hero-kicker-divider">/</span> SUNDARHARAINCHA</p>
-              <h1 className="display-1 mt-4 max-w-2xl">Your tech, back to its best.</h1>
+              <h1 className="display-1 mt-4 max-w-2xl">Repair help for the tech your family uses every day.</h1>
               <p className="lede mt-5 max-w-xl">
-                We repair phones and electronics at our counter in Sundarharaincha, explain what failed,
-                and give you a price before work starts. Most common screen, battery, and charging jobs are
-                finished the same day.
+                From a phone or Bluetooth speaker to a toy, gadget or household electronic, tell us what stopped working.
+                Our workshop is in Sundarharaincha, Morang. We check the device, explain the options, and confirm the price before work starts.
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/mobile-repair" className="btn-primary">
+                <Link href="/electronics-repair" className="btn-primary">
                   <Wrench className="size-4" aria-hidden="true" />
-                  <span>Explore phone repair</span>
+                  <span>Explore repair services</span>
                 </Link>
                 <Link href="/products" className="btn-outline">
                   <span>Shop products</span>
@@ -155,7 +163,7 @@ export default function Home() {
               <div className="hero-proof-row mt-8">
                 <div className="hero-proof-item"><ShieldCheck className="size-4" aria-hidden="true" /><span>Estimate before work</span></div>
                 <span className="hero-proof-separator" aria-hidden="true" />
-                <div className="hero-proof-item"><Clock className="size-4" aria-hidden="true" /><span>Same-day common repairs</span></div>
+                <div className="hero-proof-item"><Clock className="size-4" aria-hidden="true" /><span>Time confirmed after diagnosis</span></div>
               </div>
               <div className="mt-7 flex items-center gap-2 text-sm text-muted">
                 <MapPin className="size-4 text-brand-700" aria-hidden="true" />
@@ -181,6 +189,27 @@ export default function Home() {
               <span className="hero-image-tag"><span className="hero-image-tag-dot" /> REPAIR STUDIO</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section border-b border-line bg-surface">
+        <div className="container-page">
+          <div className="max-w-2xl">
+            <p className="eyebrow">More than mobile repair</p>
+            <h2 className="display-2 mt-1">One place to ask about your electronics</h2>
+            <p className="lede mt-2">We assess a wide range of everyday electronics. For larger devices or less common models, message us first with a photo, brand, model and fault so we can confirm whether it is practical to bring or send in.</p>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {repairCategories.map(({ title, detail, icon: Icon }) => (
+              <Link key={title} href="/electronics-repair" className="card premium-card card-hover group p-5">
+                <Icon className="size-5 text-brand-700" aria-hidden="true" />
+                <h3 className="mt-3 text-base font-semibold text-ink group-hover:text-brand-700">{title}</h3>
+                <p className="mt-1 text-sm leading-6 text-muted">{detail}</p>
+                <span className="mt-3 inline-flex min-h-11 items-center gap-1 text-sm font-semibold text-brand-700">See repair options <ArrowRight className="size-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-5 text-muted">Repair depends on the fault, parts, device condition and whether the model can be serviced. We confirm availability and any diagnostic charge before work begins.</p>
         </div>
       </section>
 

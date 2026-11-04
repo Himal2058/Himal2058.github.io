@@ -14,6 +14,7 @@ const shopLinks = [
 ];
 
 const repairLinks = [
+  { href: '/electronics-repair', label: 'Electronics repair' },
   { href: '/mobile-repair', label: 'All repairs' },
   { href: '/mobile-repair/screen-replacement', label: 'Screen replacement' },
   { href: '/mobile-repair/battery-replacement', label: 'Battery replacement' },
@@ -162,7 +163,7 @@ export function Footer() {
         </div>
 
         <p className="mt-4 text-xs text-muted">
-          Fonepay QR, eSewa, Khalti, mobile banking and cash on delivery. Courier delivery across Nepal.
+          Payment and cash-on-delivery options are confirmed for each order. Product courier availability and repair courier-in arrangements depend on the item and destination; contact us first.
         </p>
       </div>
     </footer>

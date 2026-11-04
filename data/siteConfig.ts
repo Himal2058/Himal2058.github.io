@@ -42,7 +42,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "Himal Product and Services",
   shortName: "Himal Electronics",
-  tagline: "Eastern Nepal's Trusted Hub for Certified Mobile Repairs & Genuine Smart Tech",
+  tagline: "Everyday electronics repair and products in Eastern Nepal",
   establishedYear: 2022,
   phone: "+977 9807391472",
   phoneRaw: "+9779807391472",
@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
     country: "Nepal",
     postalCode: "56600",
     landmark: "Direct corridor access between Itahari Chowk & Biratnagar Road",
-    serviceHub: "Primary service coverage across Itahari, Dharan, Biratnagar, and all Sunsari-Morang towns"
+    serviceHub: "Workshop in Sundarharaincha, Morang; repair enquiries from Itahari, Dharan, Biratnagar, Sunsari and Morang. Contact us first about service from elsewhere in Nepal."
   },
   geo: {
     latitude: 26.6585252,
@@ -78,7 +78,7 @@ export const siteConfig: SiteConfig = {
   policies: {
     productWarranty: "According to product category, varying from 6 months up to 2 years official warranty.",
     repairWarranty: "Repair warranty depends on service and replacement component type. Includes pre-handover stress testing and post-repair check guarantee.",
-    delivery: "Express local pickup & drop within Itahari, Dharan, Biratnagar & Sundarharaincha; reliable courier delivery service all over Nepal."
+    delivery: "Product delivery and courier-in repair arrangements depend on destination, item size, courier availability and prior confirmation. Contact the shop before travelling or sending a device."
   },
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://himalelectronics.vercel.app"
 };
