@@ -73,7 +73,7 @@ export const siteConfig: SiteConfig = {
     ]
   },
   social: {
-    facebook: "https://www.facebook.com/people/Himal-Products-Services/61559803791585/"
+    facebook: "https://www.facebook.com/profile.php?id=61559803791585"
   },
   policies: {
     productWarranty: "According to product category, varying from 6 months up to 2 years official warranty.",
