@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/service-areas',
     '/about-us',
     '/contact',
+    '/feedback',
     '/store-location',
     '/warranty',
     '/repair-policy',

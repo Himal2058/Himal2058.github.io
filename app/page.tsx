@@ -72,26 +72,18 @@ const services = [
   }
 ];
 
+const productCategories = [
+  { title: 'Mobile phones', href: '/mobile-phones', image: '/images/phone-lineup.jpg', alt: 'Selection of smartphones', note: 'Find a phone that fits your budget' },
+  { title: 'Audio & accessories', href: '/gadgets-accessories', image: '/images/headphones-product.webp', alt: 'Headphones from the electronics range', note: 'Earbuds, audio and everyday add-ons' },
+  { title: 'Smart home', href: '/smart-home', image: '/images/smart-wifi-switch.jpg', alt: 'Wi-Fi smart switch for home control', note: 'Simple connected home devices' },
+  { title: 'Power banks', href: '/power-banks', image: '/images/my-power-20000mah.jpg', alt: 'MY POWER 20,000mAh fast charging power bank', note: 'Portable power for busy days' }
+];
+
 const steps = [
   'Bring the phone to the counter or send a photo on WhatsApp.',
   'We check it and tell you the price and how long it takes.',
   'You decide. Nothing is opened before you agree.',
   'We repair it, test it, and give you the warranty slip.'
-];
-
-const reviews = [
-  {
-    quote:
-      'The screen on my A52 had green lines. Another shop wanted to keep it for three days. Himal replaced it in under an hour while I waited.',
-    name: 'Bikash Shrestha',
-    location: 'Itahari'
-  },
-  {
-    quote:
-      'Bought a smart plug for the geyser. They explained the 16A rating and set it up on my phone before I left the shop.',
-    name: 'Sunita Adhikari',
-    location: 'Sundarharaincha'
-  }
 ];
 
 const homeFaqs = [
@@ -299,6 +291,23 @@ export default function Home() {
       {/* Products */}
       <section className="section">
         <div className="container-page">
+          <div className="mb-8">
+            <p className="eyebrow">Shop by what you need</p>
+            <h2 className="display-2 mt-1">Useful tech for work, study and home</h2>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {productCategories.map(category => (
+                <Link key={category.title} href={category.href} className="group overflow-hidden rounded-card border border-line bg-white transition-shadow hover:shadow-[var(--shadow-soft)]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-canvas">
+                    <Image src={category.image} alt={category.alt} fill sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                  </div>
+                  <div className="flex items-center justify-between gap-3 p-4">
+                    <span><span className="block text-sm font-semibold text-ink">{category.title}</span><span className="mt-1 block text-xs leading-5 text-muted">{category.note}</span></span>
+                    <ArrowRight className="size-4 shrink-0 text-brand-700 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h2 className="display-2">In stock now</h2>
             <Link href="/products" className="link-arrow">
@@ -390,19 +399,13 @@ export default function Home() {
       {/* Reviews */}
       <section className="section">
         <div className="container-page">
-          <h2 className="display-2">What customers say</h2>
-
-          <div className="mt-5 grid gap-5 md:grid-cols-2">
-            {reviews.map(review => (
-              <figure key={review.name} className="border-l-2 border-line pl-4">
-                <blockquote className="text-sm leading-6 text-ink-soft">
-                  &ldquo;{review.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-2 text-xs text-muted">
-                  {review.name}, {review.location}
-                </figcaption>
-              </figure>
-            ))}
+          <div className="flex flex-col gap-5 rounded-card border border-brand-200 bg-brand-50 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Customer feedback</p>
+              <h2 className="display-2 mt-1">Had a repair or bought from us?</h2>
+              <p className="mt-2 text-sm leading-6 text-ink-soft">Post a service review or send private feedback to the shop through WhatsApp. Tell us what went well and what we could improve.</p>
+            </div>
+            <Link href="/feedback" className="btn-primary shrink-0">Leave feedback <ArrowRight className="size-4" aria-hidden="true" /></Link>
           </div>
         </div>
       </section>

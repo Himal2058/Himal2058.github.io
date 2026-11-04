@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Headphones,
   Zap,
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 import { products } from '@/data/products';
 import { blogTopics } from '@/data/blogs';
+import { getWhatsAppLink } from '@/data/siteConfig';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ProductCard } from '@/components/ProductCard';
 import { FAQAccordion } from '@/components/FAQAccordion';
@@ -50,6 +52,15 @@ const categories = [
     icon: Volume2,
     copy: 'Rugged IPX7 waterproof sound with punchy bass.'
   }
+];
+
+const counterHighlights = [
+  { title: 'Neckband earphones', image: '/images/neckband-product.webp', alt: 'Neckband-style wireless earphones' },
+  { title: 'Smart watches', image: '/images/smartwatch-product.webp', alt: 'Smartwatch with a digital display' },
+  { title: 'Headphones', image: '/images/headphones-product.webp', alt: 'Over-ear headphones' },
+  { title: 'Keyboards', image: '/images/keyboard-product.webp', alt: 'Computer keyboard' },
+  { title: 'Computer mice', image: '/images/mouse-product.webp', alt: 'Computer mouse' },
+  { title: 'Arduino & learning kits', image: '/images/arduino-learning-board.webp', alt: 'Arduino-style electronics learning board' }
 ];
 
 export default function GadgetsAccessoriesPage() {
@@ -157,6 +168,21 @@ export default function GadgetsAccessoriesPage() {
               </span>
               <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden="true" />
             </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="container-page pt-10">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div><p className="eyebrow">More to explore</p><h2 className="heading-3 mt-1">Accessories and learning gear</h2></div>
+          <p className="max-w-lg text-sm leading-6 text-muted">These are examples from our product range. Ask us to confirm current stock, price, compatibility and warranty before travelling or ordering.</p>
+        </div>
+        <div className="mt-4 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+          {counterHighlights.map(item => (
+            <a key={item.title} href={getWhatsAppLink(`Namaste Himal Product and Services. Do you currently have ${item.title.toLowerCase()} available? Please share the current price, brand/model, warranty and delivery options.`)} target="_blank" rel="noopener noreferrer" className="group overflow-hidden rounded-card border border-line bg-white hover:shadow-[var(--shadow-soft)]">
+              <div className="relative aspect-square overflow-hidden bg-canvas"><Image src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 16vw, (min-width: 640px) 30vw, 45vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" /></div>
+              <div className="p-3"><h3 className="text-sm font-semibold text-ink">{item.title}</h3><span className="mt-1 block text-xs font-medium text-brand-700">Ask about availability →</span></div>
+            </a>
           ))}
         </div>
       </section>

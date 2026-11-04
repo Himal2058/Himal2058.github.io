@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BatteryCharging, Headphones, Lightbulb, MapPin, MessageSquare, PackageCheck, Smartphone, Wrench, Cpu } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CtaBand } from '@/components/CtaBand';
@@ -10,12 +11,12 @@ export const metadata = {
 };
 
 const groups = [
-  { title: 'Mobile phones & tablets', icon: Smartphone, examples: 'Broken display, battery, charging port, microphone, speaker, water exposure, software and board faults.', note: 'Phone repair details and common service information are available online.' },
-  { title: 'Speakers, audio & earbuds', icon: Headphones, examples: 'Bluetooth pairing, no sound, distorted sound, battery or charging problems, loose ports and damaged cables.', note: 'For speaker systems, include a photo of the label and tell us if the device is portable or mains-powered.' },
-  { title: 'Toys, controllers & small gadgets', icon: Cpu, examples: 'Battery contacts, charging, buttons, switches, motors, wiring and power faults in electronic toys and handheld devices.', note: 'Please include the age/model label and say whether the device uses replaceable cells or a rechargeable battery.' },
-  { title: 'TV & home entertainment', icon: Lightbulb, examples: 'Power, display, sound, remote, set-top box and connection problems.', note: 'Large screens need transport planning. Contact us with screen size, brand, model and symptoms before bringing one in.' },
-  { title: 'Laptops & computer accessories', icon: BatteryCharging, examples: 'Charging and power symptoms, ports, cables, adapters, keyboards and accessory connection faults.', note: 'Share the exact model and charger details. Data recovery and board-level work are assessed case by case.' },
-  { title: 'Household electronics & appliances', icon: Wrench, examples: 'Small appliances, power supplies, switches, fans, kitchen gadgets, smart devices and other electronic equipment.', note: 'For heavy or installed equipment such as refrigerators, washing machines or air conditioners, ask first. We confirm whether workshop or arranged service is available.' }
+  { title: 'Mobile phones & tablets', icon: Smartphone, image: '/images/phone-lineup.jpg', alt: 'Selection of smartphones', examples: 'Broken display, battery, charging port, microphone, speaker, water exposure, software and board faults.', note: 'Phone repair details and common service information are available online.' },
+  { title: 'Speakers, audio & earbuds', icon: Headphones, image: '/images/headphones-product.webp', alt: 'Over-ear headphones', examples: 'Bluetooth pairing, no sound, distorted sound, battery or charging problems, loose ports and damaged cables.', note: 'For speaker systems, include a photo of the label and tell us if the device is portable or mains-powered.' },
+  { title: 'Toys, controllers & small gadgets', icon: Cpu, image: '/images/electronics-learning-kit.webp', alt: 'Electronic learning kit with small components', examples: 'Battery contacts, charging, buttons, switches, motors, wiring and power faults in electronic toys and handheld devices.', note: 'Please include the age/model label and say whether the device uses replaceable cells or a rechargeable battery.' },
+  { title: 'TV & home entertainment', icon: Lightbulb, image: '/images/oscilloscope-board-testing.jpg', alt: 'Electronic circuit testing with an oscilloscope', examples: 'Power, display, sound, remote, set-top box and connection problems.', note: 'Large screens need transport planning. Contact us with screen size, brand, model and symptoms before bringing one in.' },
+  { title: 'Laptops & computer accessories', icon: BatteryCharging, image: '/images/keyboard-product.webp', alt: 'Computer keyboard from the product collection', examples: 'Charging and power symptoms, ports, cables, adapters, keyboards and accessory connection faults.', note: 'Share the exact model and charger details. Data recovery and board-level work are assessed case by case.' },
+  { title: 'Household electronics & appliances', icon: Wrench, image: '/images/electronics-board-diagnostics.jpg', alt: 'Electronics board diagnostic work', examples: 'Small appliances, power supplies, switches, fans, kitchen gadgets, smart devices and other electronic equipment.', note: 'For heavy or installed equipment such as refrigerators, washing machines or air conditioners, ask first. We confirm whether workshop or arranged service is available.' }
 ];
 
 const steps = [
@@ -50,11 +51,16 @@ export default function ElectronicsRepairPage() {
         <div className="container-page">
           <div className="max-w-2xl"><p className="eyebrow">What can we check?</p><h2 className="display-2 mt-1">Tell us what stopped working</h2><p className="lede mt-2">We start with a diagnosis. A listed device is an invitation to ask, not a promise that every fault or model can be repaired. Parts, safety, age and damage affect availability.</p></div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {groups.map(({ title, icon: Icon, examples, note }) => <article key={title} className="card premium-card p-5">
-              <Icon className="size-5 text-brand-700" aria-hidden="true" />
-              <h3 className="mt-3 text-lg font-semibold text-ink">{title}</h3>
-              <p className="mt-2 text-sm leading-6 text-ink-soft">{examples}</p>
-              <p className="mt-3 border-t border-line pt-3 text-xs leading-5 text-muted">{note}</p>
+            {groups.map(({ title, icon: Icon, image, alt, examples, note }) => <article key={title} className="card premium-card overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden bg-canvas">
+                <Image src={image} alt={alt} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw" className="object-cover transition-transform duration-500 hover:scale-[1.03]" />
+              </div>
+              <div className="p-5">
+                <Icon className="size-5 text-brand-700" aria-hidden="true" />
+                <h3 className="mt-3 text-lg font-semibold text-ink">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink-soft">{examples}</p>
+                <p className="mt-3 border-t border-line pt-3 text-xs leading-5 text-muted">{note}</p>
+              </div>
             </article>)}
           </div>
         </div>
@@ -74,6 +80,7 @@ export default function ElectronicsRepairPage() {
         </div>
       </section>
 
+      <div className="container-page -mb-4 flex justify-center"><Link href="/feedback" className="btn-outline">Already received a service? Leave feedback <ArrowRight className="size-4" aria-hidden="true" /></Link></div>
       <CtaBand title="Not sure where to start?" description="Send the device type, model, what happened, and your town. A photo of the label or fault can help us guide you." whatsappMessage="Namaste Himal Product and Services. I need help with an electronics repair. Device: __. Brand/model: __. Problem: __. Town/district: __. Please advise availability." />
     </div>
   );

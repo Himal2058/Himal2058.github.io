@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, BadgeCheck, CreditCard, PackageCheck, RotateCcw, Truck, Wrench } from 'lucide-react';
+import { ArrowRight, BadgeCheck, CreditCard, PackageCheck, RotateCcw, Truck, Wrench, Star } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ContactForm } from '@/components/ContactForm';
 import { siteConfig } from '@/data/siteConfig';
@@ -14,6 +14,7 @@ const helpTopics = [
   { icon: Truck, title: 'Delivery and pickup', copy: 'Check local delivery, courier, and store pickup options.', href: '/delivery-pickup' },
   { icon: CreditCard, title: 'Payments and COD', copy: 'Ask which payment and cash-on-delivery options are available for your order.', href: '/terms-and-conditions' },
   { icon: Wrench, title: 'Repair support', copy: 'Describe a device fault and get guidance on the next step.', href: '/mobile-repair' },
+  { icon: Star, title: 'Feedback and reviews', copy: 'Rate a service and tell us what we can improve.', href: '/feedback' },
   { icon: BadgeCheck, title: 'Warranty', copy: 'Find warranty coverage and what to bring when you visit.', href: '/warranty' },
   { icon: RotateCcw, title: 'Returns and repair policy', copy: 'Read the policies before arranging a return or repair follow-up.', href: '/repair-policy' }
 ];

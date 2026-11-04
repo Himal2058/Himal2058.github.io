@@ -119,6 +119,7 @@ export default function MobileRepairPage() {
         <Link href="/electronics-repair" className="inline-flex min-h-11 items-center gap-2 rounded border border-line bg-surface px-3 text-sm font-medium text-brand-700 hover:bg-canvas">
           Looking for speaker, toy, TV, laptop or other electronics repair? See all repair enquiries <span aria-hidden="true">→</span>
         </Link>
+        <Link href="/feedback" className="ml-2 inline-flex min-h-11 items-center gap-2 rounded border border-line bg-surface px-3 text-sm font-medium text-brand-700 hover:bg-canvas">Leave service feedback</Link>
       </div>
 
       {/* How it works */}
