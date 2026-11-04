@@ -11,6 +11,21 @@ export async function GET() {
   return Response.json({ configured: true, reviews: await response.json() }, { headers: { 'Cache-Control': 'no-store' } });
 }
 
+export async function PATCH(request: Request) {
+  const adminKey = process.env.SHOP_ADMIN_KEY;
+  if (!adminKey || request.headers.get('x-shop-admin-key') !== adminKey) {
+    return Response.json({ error: 'Shop approval access denied.' }, { status: 401 });
+  }
+  if (!getReviewDatabase()) return Response.json({ error: 'Online review storage has not been configured.' }, { status: 503 });
+  const body = await request.json().catch(() => null) as { id?: string; action?: string } | null;
+  if (!body?.id || !['approve', 'reject', 'delete'].includes(body.action || '')) return Response.json({ error: 'Choose a valid review action.' }, { status: 400 });
+  const response = body.action === 'delete'
+    ? await databaseRequest(`?id=eq.${encodeURIComponent(body.id)}`, { method: 'DELETE' })
+    : await databaseRequest(`?id=eq.${encodeURIComponent(body.id)}`, { method: 'PATCH', headers: { prefer: 'return=representation' }, body: JSON.stringify({ is_published: body.action === 'approve' }) });
+  if (!response?.ok) return databaseError(response);
+  return Response.json({ ok: true });
+}
+
 export async function POST(request: Request) {
   if (!getReviewDatabase()) return Response.json({ error: 'Online review storage has not been configured yet.' }, { status: 503 });
   let body: unknown;
