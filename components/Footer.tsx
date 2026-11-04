@@ -26,6 +26,7 @@ const companyLinks = [
   { href: '/about-us', label: 'About us' },
   { href: '/store-location', label: 'Store location' },
   { href: '/contact', label: 'Contact' },
+  { href: '/customer-service', label: 'Customer service' },
   { href: '/delivery-pickup', label: 'Delivery and pickup' },
   { href: '/repair-policy', label: 'Repair policy' },
   { href: '/blog', label: 'Guides' }

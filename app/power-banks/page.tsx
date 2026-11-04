@@ -2,14 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   BatteryCharging,
   Zap,
   Laptop,
-  ShieldCheck,
-  SlidersHorizontal,
-  ArrowRight,
-  Plane
 } from 'lucide-react';
 import { products } from '@/data/products';
 import { blogTopics } from '@/data/blogs';
@@ -88,12 +85,17 @@ export default function PowerBanksPage() {
 
       {/* Intro */}
       <section className="border-b border-line bg-surface">
-        <div className="container-page py-8 md:py-10">
-          <h1 className="display-1">Power banks in Itahari</h1>
-          <p className="lede mt-3 max-w-2xl">
-            Pocket 10,000mAh packs, 20,000mAh fast chargers and 65W banks that will run a laptop. All
-            under 100Wh, so they are allowed in hand luggage.
-          </p>
+        <div className="container-page grid items-center gap-7 py-8 md:grid-cols-[1.1fr_0.9fr] md:py-10">
+          <div>
+            <h1 className="display-1">Power banks in Itahari</h1>
+            <p className="lede mt-3 max-w-2xl">
+              Pocket 10,000mAh packs, 20,000mAh fast chargers and 65W banks that will run a laptop. All
+              under 100Wh, so they are allowed in hand luggage.
+            </p>
+          </div>
+          <div className="relative aspect-square max-h-80 overflow-hidden rounded-2xl border border-line bg-white shadow-[var(--shadow-soft)]">
+            <Image src="/images/my-power-20000mah.jpg" alt="MY POWER Nano C21 20,000mAh fast-charging power bank" fill sizes="(min-width: 768px) 36vw, 100vw" className="object-contain transition-transform duration-700 hover:scale-105" />
+          </div>
         </div>
       </section>
 

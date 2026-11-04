@@ -19,6 +19,7 @@ export default function SmartPlugsSwitchesPage() {
       parentUrl="/smart-home"
       currentUrl="/smart-home/smart-plugs-switches"
       products={items}
+      heroImage={{ src: '/images/smart-wifi-switch.jpg', alt: 'Mini Wi-Fi smart switch shown beside its mobile app control screen' }}
       highlights={[
         "16A Heavy-Duty (Up to 3500W Safe Load)",
         "Live Kilowatt-Hour Electricity Cost Tracker",

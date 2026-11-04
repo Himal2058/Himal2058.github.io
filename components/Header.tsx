@@ -20,7 +20,8 @@ import {
   ShieldCheck,
   BookOpen,
   ArrowRight,
-  Info
+  Info,
+  LifeBuoy
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
@@ -33,7 +34,8 @@ const primaryNav = [
   { href: '/smart-home', label: 'Smart home', icon: Lightbulb },
   { href: '/power-banks', label: 'Power banks', icon: BatteryCharging },
   { href: '/blog', label: 'Guides', icon: BookOpen },
-  { href: '/service-areas', label: 'Service areas', icon: MapPin }
+  { href: '/service-areas', label: 'Service areas', icon: MapPin },
+  { href: '/customer-service', label: 'Help Center', icon: LifeBuoy }
 ];
 
 export function Header() {

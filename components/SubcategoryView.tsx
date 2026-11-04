@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, CheckCircle2, Truck } from 'lucide-react';
 import { Product } from '@/data/products';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -16,6 +17,7 @@ interface SubcategoryViewProps {
   products: Product[];
   highlights: string[];
   faqs?: FAQItem[];
+  heroImage?: { src: string; alt: string };
 }
 
 export function SubcategoryView({
@@ -27,7 +29,8 @@ export function SubcategoryView({
   currentUrl,
   products: items,
   highlights,
-  faqs
+  faqs,
+  heroImage
 }: SubcategoryViewProps) {
   return (
     <div className="pb-12 md:pb-16">
@@ -42,18 +45,21 @@ export function SubcategoryView({
 
       {/* Intro */}
       <section className="border-b border-line bg-surface">
-        <div className="container-page py-8 md:py-10">
-          <h1 className="display-1">{h1}</h1>
-          <p className="lede mt-3 max-w-2xl">{description}</p>
+        <div className={`container-page grid items-center gap-7 py-8 md:py-10 ${heroImage ? 'md:grid-cols-[1.1fr_0.9fr]' : ''}`}>
+          <div>
+            <h1 className="display-1">{h1}</h1>
+            <p className="lede mt-3 max-w-2xl">{description}</p>
 
-          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">
-            {highlights.map(highlight => (
-              <li key={highlight} className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="size-4 text-brand-600" aria-hidden="true" />
-                <span>{highlight}</span>
-              </li>
-            ))}
-          </ul>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">
+              {highlights.map(highlight => (
+                <li key={highlight} className="inline-flex items-center gap-1.5">
+                  <CheckCircle2 className="size-4 text-brand-600" aria-hidden="true" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {heroImage && <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-canvas shadow-[var(--shadow-soft)]"><Image src={heroImage.src} alt={heroImage.alt} fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover transition-transform duration-700 hover:scale-105" /></div>}
         </div>
       </section>
 

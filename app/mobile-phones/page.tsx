@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 import { products } from '@/data/products';
@@ -61,12 +62,17 @@ export default function MobilePhonesPage() {
 
       {/* Intro */}
       <section className="border-b border-line bg-surface">
-        <div className="container-page py-8 md:py-10">
-          <h1 className="display-1">Smartphones in Itahari</h1>
-          <p className="lede mt-3 max-w-2xl">
-            Samsung, Redmi, Apple and Vivo handsets with a proper bill, MDMS registration and the brand
-            warranty. We set the phone up and move your data before you leave.
-          </p>
+        <div className="container-page grid items-center gap-7 py-8 md:grid-cols-[1.1fr_0.9fr] md:py-10">
+          <div>
+            <h1 className="display-1">Smartphones in Itahari</h1>
+            <p className="lede mt-3 max-w-2xl">
+              Samsung, Redmi, Apple and Vivo handsets with a proper bill, MDMS registration and the brand
+              warranty. We set the phone up and move your data before you leave.
+            </p>
+          </div>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-line bg-canvas shadow-[var(--shadow-soft)]">
+            <Image src="/images/phone-lineup.jpg" alt="A selection of smartphones showing different screen sizes and interfaces" fill sizes="(min-width: 768px) 42vw, 100vw" className="object-cover transition-transform duration-700 hover:scale-105" />
+          </div>
         </div>
       </section>
 

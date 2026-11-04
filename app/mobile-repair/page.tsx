@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
-  ArrowRight,
   MessageSquare,
   Phone,
   Clock
@@ -125,6 +125,27 @@ export default function MobileRepairPage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* Diagnostic imagery */}
+      <section className="container-page pt-10">
+        <div className="grid gap-6 rounded-2xl border border-line bg-surface p-4 sm:p-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div>
+            <p className="eyebrow">Diagnosis before parts</p>
+            <h2 className="display-2 mt-1">Find the cause before choosing a repair</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">Charging, power, and board faults can look alike from the outside. A careful inspection and electrical checks help narrow down the cause before we quote a part.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <figure className="overflow-hidden rounded-xl border border-line bg-canvas">
+              <div className="relative aspect-[4/3]"><Image src="/images/electronics-board-diagnostics.jpg" alt="Technician checking electronic circuit points with test probes" fill sizes="(min-width: 1024px) 26vw, 48vw" className="object-cover" /></div>
+              <figcaption className="p-2 text-xs leading-5 text-muted">Circuit checks help distinguish power and connection faults.</figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-xl border border-line bg-canvas">
+              <div className="relative aspect-[4/3]"><Image src="/images/oscilloscope-board-testing.jpg" alt="Circuit board being tested with an oscilloscope" fill sizes="(min-width: 1024px) 26vw, 48vw" className="object-cover" /></div>
+              <figcaption className="p-2 text-xs leading-5 text-muted">Measurements guide the next step before a repair is approved.</figcaption>
+            </figure>
+          </div>
+        </div>
       </section>
 
       {/* Services */}

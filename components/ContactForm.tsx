@@ -127,6 +127,9 @@ Message: ${formData.message}`;
               <option value="Accessories">Accessories</option>
               <option value="Smart home">Smart home</option>
               <option value="Power bank">Power bank</option>
+              <option value="Order or delivery">Order or delivery</option>
+              <option value="Payment or cash on delivery">Payment or cash on delivery</option>
+              <option value="Warranty or return">Warranty or return</option>
               <option value="Something else">Something else</option>
             </select>
           </div>
