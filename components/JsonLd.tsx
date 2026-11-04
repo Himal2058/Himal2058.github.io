@@ -26,6 +26,13 @@ export function getOrganizationSchema() {
     "image": `${siteConfig.siteUrl}/logo.jpg`,
     "telephone": siteConfig.phone,
     "email": siteConfig.email,
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": siteConfig.phone,
+      "contactType": "customer service",
+      "availableLanguage": ["en", "ne"],
+      "areaServed": "NP"
+    }],
     "foundingDate": "2022",
     "address": {
       "@type": "PostalAddress",

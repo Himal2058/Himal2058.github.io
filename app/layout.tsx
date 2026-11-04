@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`
   },
   description: 'Electronics shop and mobile repair workshop in Itahari, Sunsari. Screen and battery repairs, smartphones, accessories, smart home devices and power banks.',
+  alternates: { canonical: siteConfig.siteUrl },
   keywords: [
     'mobile repair Itahari',
     'electronics shop Itahari',
@@ -36,8 +37,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | Mobile Repair & Electronics Hub Itahari`,
-    description: 'Expert mobile repairs, original smartphones, smart home automation, and accessories in Itahari, Sunsari, Nepal.',
+    title: `${siteConfig.name} | Trusted Mobile Repair in Itahari`,
+    description: 'Trusted phone repair, screen replacement and electronics products in Itahari, Sunsari. Get a quick quote on WhatsApp or visit our workshop.',
     images: [
       {
         url: `${siteConfig.siteUrl}/logo.jpg`,
@@ -49,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name} | Mobile Repair & Electronics Hub`,
-    description: 'Certified phone repair and genuine electronics store in Itahari, Nepal.',
+    title: `${siteConfig.name} | Trusted Mobile Repair in Itahari`,
+    description: 'Screen, battery and charging repairs plus genuine electronics products for Itahari, Sunsari and eastern Nepal.',
     images: [`${siteConfig.siteUrl}/logo.jpg`]
   },
   robots: {
