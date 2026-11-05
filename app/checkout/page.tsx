@@ -26,8 +26,12 @@ Order method: ${method === 'delivery' ? 'Delivery' : 'Store pickup'}
 Address: ${method === 'delivery' ? address || 'Please confirm' : 'Pickup at Sundarharaincha shop'}
 Please confirm availability, delivery charge, final total, and expected time.`, [product, name, phone, address, method]);
 
-  function submit(event: React.FormEvent) {
+  async function submit(event: React.FormEvent) {
     event.preventDefault();
+    await fetch('/api/orders', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+      customer_name: name, phone, delivery_address: method === 'delivery' ? address : 'Store pickup at Himal Product & Services',
+      payment_method: 'cod', subtotal: product.price, item: { slug: product.slug, name: product.name, quantity: 1, price: product.price }
+    }) }).catch(() => undefined);
     setSent(true);
     window.open(getWhatsAppLink(message), '_blank', 'noopener,noreferrer');
   }

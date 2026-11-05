@@ -27,10 +27,10 @@ export function isValidReview(value: unknown): value is ReviewInput {
     && typeof item.comment === 'string' && item.comment.trim().length >= 8 && item.comment.trim().length <= 1000;
 }
 
-export async function databaseRequest(path: string, init: RequestInit = {}) {
+export async function databaseRequest(path: string, init: RequestInit = {}, table = TABLE) {
   const db = getReviewDatabase();
   if (!db) return null;
-  return fetch(`${db.url}/rest/v1/${TABLE}${path}`, {
+  return fetch(`${db.url}/rest/v1/${table}${path}`, {
     ...init,
     cache: 'no-store',
     headers: {

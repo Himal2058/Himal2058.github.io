@@ -29,8 +29,12 @@ Device: ${formData.deviceModel || 'not given'}
 My town/district: ${formData.location || 'not given'}
 Message: ${formData.message}`;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await fetch('/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+      name: formData.name, phone: formData.phone, subject: formData.inquiryType,
+      message: `${formData.deviceModel ? `Device: ${formData.deviceModel}\n` : ''}${formData.location ? `Location: ${formData.location}\n` : ''}${formData.message}`
+    }) }).catch(() => undefined);
     setSent(true);
     window.open(getWhatsAppLink(whatsappText), '_blank', 'noopener,noreferrer');
   };
@@ -78,7 +82,7 @@ Message: ${formData.message}`;
     <form onSubmit={handleSubmit} className="rounded-card border border-line bg-surface p-4 sm:p-5">
       <h2 className="text-base font-semibold text-ink">Send a message</h2>
       <p className="mt-1 text-sm leading-6 text-muted">
-        Fill this in and it will open in WhatsApp, ready to send to the shop counter.
+          We save your enquiry securely and open WhatsApp with the same details so the shop can reply quickly.
       </p>
 
       <div className="mt-4 space-y-3">
@@ -195,7 +199,7 @@ Message: ${formData.message}`;
       </button>
 
       <p className="mt-2 text-xs leading-5 text-muted">
-        Your details go straight to the shop. Nothing is stored on this website.
+        Your enquiry is stored securely for the shop team and is never shown publicly.
       </p>
     </form>
   );
