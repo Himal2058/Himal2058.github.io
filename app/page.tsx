@@ -184,6 +184,15 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-y border-line bg-ink text-white">
+        <div className="container-page grid gap-4 py-5 sm:grid-cols-4">
+          <div><p className="text-2xl font-semibold">Before repair</p><p className="mt-1 text-xs text-white/60">Estimate explained first</p></div>
+          <div><p className="text-2xl font-semibold">8 AM–7 PM</p><p className="mt-1 text-xs text-white/60">Open every day</p></div>
+          <div><p className="text-2xl font-semibold">Itahari area</p><p className="mt-1 text-xs text-white/60">Local workshop support</p></div>
+          <div><p className="text-2xl font-semibold">WhatsApp ready</p><p className="mt-1 text-xs text-white/60">Send a photo and model</p></div>
+        </div>
+      </section>
+
       <section className="section border-b border-line bg-surface">
         <div className="container-page">
           <div className="max-w-2xl">
