@@ -31,7 +31,7 @@ export const products: Product[] = [
     originalPrice: 28999,
     inStock: true,
     warranty: "1 Year Official Brand Warranty (MDMS Registered)",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=600&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     specs: {
       "Display": "6.67\" FHD+ AMOLED, 120Hz Refresh Rate",
       "Processor": "MediaTek Dimensity 6080 / Snapdragon 685",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     originalPrice: 29999,
     inStock: true,
     warranty: "1 Year Official Samsung Nepal Warranty + 1 Time Screen Care Option",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     specs: {
       "Display": "6.5\" Super AMOLED, 90Hz",
       "Processor": "MediaTek Dimensity 6100+",
@@ -92,7 +92,7 @@ export const products: Product[] = [
     originalPrice: 147000,
     inStock: true,
     warranty: "1 Year Apple International & Nepal Authorized Warranty",
-    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     specs: {
       "Display": "6.1\" Super Retina XDR with Dynamic Island",
       "Chipset": "A16 Bionic with 5-core GPU",
@@ -124,7 +124,7 @@ export const products: Product[] = [
     originalPrice: 4299,
     inStock: true,
     warranty: "6 Months Brand Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80",
+    image: "/images/neckband-product.webp",
     specs: {
       "Bluetooth": "v5.3 with Instant Auto-Pairing",
       "ANC": "Up to 30dB Active Noise Cancellation + ENC",
@@ -154,7 +154,7 @@ export const products: Product[] = [
     originalPrice: 3500,
     inStock: true,
     warranty: "1 Year Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     specs: {
       "Technology": "Gallium Nitride (GaN)",
       "Total Output": "65W Max (PD 3.0, QC 4.0+, PPS)",
@@ -184,7 +184,7 @@ export const products: Product[] = [
     originalPrice: 1200,
     inStock: true,
     warranty: "6 Months Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80",
+    image: "/images/images (1).jfif",
     specs: {
       "Wattage": "100W Power Delivery (20V / 5A) E-Marker Smart Chip",
       "Length": "2.0 Meters",
@@ -214,7 +214,7 @@ export const products: Product[] = [
     originalPrice: 5999,
     inStock: true,
     warranty: "1 Year Brand Warranty",
-    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600&auto=format&fit=crop&q=80",
+    image: "/images/smartwatch-product.webp",
     specs: {
       "Display": "1.43\" Ultra AMOLED, 466x466, Always-On Display",
       "Calling": "Bluetooth Calling with speaker and mic",
@@ -245,7 +245,7 @@ export const products: Product[] = [
     originalPrice: 4800,
     inStock: true,
     warranty: "1 Year Official Warranty",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+    image: "/images/images (2).jfif",
     specs: {
       "Audio Output": "16W Dual Drivers with BassBoost",
       "Battery Life": "Up to 20 Hours Continuous Playback",
@@ -277,7 +277,7 @@ export const products: Product[] = [
     originalPrice: 1500,
     inStock: true,
     warranty: "1 Year Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=600&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     specs: {
       "Wattage & Lumens": "9W (800 Lumens, equal to 60W incandescent)",
       "Colors": "16 Million Colors + Warm White to Cool White",
@@ -308,7 +308,7 @@ export const products: Product[] = [
     originalPrice: 2200,
     inStock: true,
     warranty: "1 Year Official Warranty",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     specs: {
       "Max Load": "16A Heavy Duty (Up to 3500W Max)",
       "Energy Monitoring": "Live Voltage, Current, and Monthly kWh Tracking",
@@ -338,7 +338,7 @@ export const products: Product[] = [
     originalPrice: 5200,
     inStock: true,
     warranty: "1 Year Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&auto=format&fit=crop&q=80",
+    image: "/images/electronics-board-diagnostics.jpg",
     specs: {
       "Resolution": "2K Ultra HD (2304 x 1296)",
       "Field of View": "360° Horizontal Pan & 114° Vertical Tilt",
@@ -371,7 +371,7 @@ export const products: Product[] = [
     originalPrice: 3600,
     inStock: true,
     warranty: "1 Year Official Warranty",
-    image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=600&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     specs: {
       "Battery Capacity": "20,000mAh (74Wh) Lithium-Polymer Cells",
       "Fast Charging Standards": "22.5W Super Charge, PD 20W, QC 3.0, FCP/AFC",
@@ -401,7 +401,7 @@ export const products: Product[] = [
     originalPrice: 2500,
     inStock: true,
     warranty: "1 Year Official Warranty",
-    image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=600&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     specs: {
       "Battery Capacity": "10,000mAh (37Wh)",
       "Output Wattage": "20W Type-C Power Delivery + 18W USB-A QC 3.0",
@@ -431,7 +431,7 @@ export const products: Product[] = [
     originalPrice: 6500,
     inStock: true,
     warranty: "1 Year Official Replacement Warranty",
-    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=600&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     specs: {
       "Capacity": "20,000mAh (74Wh)",
       "Max Power Output": "65W Type-C Power Delivery 3.0 (Powers USB-C Laptops)",
