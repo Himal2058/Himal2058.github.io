@@ -25,7 +25,7 @@ import { FAQAccordion } from '@/components/FAQAccordion';
 import { CtaBand } from '@/components/CtaBand';
 
 export const metadata = {
-  title: 'Electronics Repair & Products in Eastern Nepal | Himal',
+  title: 'Electronic Device Repair Service in Itahari | Himal Electronics',
   description:
     'Phone and electronics repair in Sundarharaincha, Morang. Ask about speakers, toys, gadgets, TVs and home electronics, with product delivery and repair enquiries from across Nepal.'
 };
@@ -135,7 +135,7 @@ export default function Home() {
           <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
             <div className="hero-content">
               <p className="hero-kicker"><span className="hero-kicker-dot" /> HIMAL PRODUCT & SERVICES <span className="hero-kicker-divider">/</span> SUNDARHARAINCHA</p>
-              <h1 className="display-1 mt-4 max-w-2xl">Repair help for the tech your family uses every day.</h1>
+              <h1 className="display-1 mt-4 max-w-2xl">Electronic device repair service in Itahari.</h1>
               <p className="lede mt-5 max-w-xl">
                 From a phone or Bluetooth speaker to a toy, gadget or household electronic, tell us what stopped working.
                 Our workshop is in Sundarharaincha, Morang. We check the device, explain the options, and confirm the price before work starts.
