@@ -31,7 +31,7 @@ export const products: Product[] = [
     originalPrice: 28999,
     inStock: true,
     warranty: "1 Year Official Brand Warranty (MDMS Registered)",
-    image: "/images/phone-lineup.jpg",
+    image: "/images/redmi-note-13.jfif",
     specs: {
       "Display": "6.67\" FHD+ AMOLED, 120Hz Refresh Rate",
       "Processor": "MediaTek Dimensity 6080 / Snapdragon 685",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     originalPrice: 29999,
     inStock: true,
     warranty: "1 Year Official Samsung Nepal Warranty + 1 Time Screen Care Option",
-    image: "/images/images.jfif",
+    image: "/images/samsung-galaxy-a15.jfif",
     specs: {
       "Display": "6.5\" Super AMOLED, 90Hz",
       "Processor": "MediaTek Dimensity 6100+",
@@ -92,7 +92,7 @@ export const products: Product[] = [
     originalPrice: 147000,
     inStock: true,
     warranty: "1 Year Apple International & Nepal Authorized Warranty",
-    image: "/images/phone-lineup.jpg",
+    image: "/images/iphone-15.jfif",
     specs: {
       "Display": "6.1\" Super Retina XDR with Dynamic Island",
       "Chipset": "A16 Bionic with 5-core GPU",
