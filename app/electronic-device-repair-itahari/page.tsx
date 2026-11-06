@@ -1,0 +1,44 @@
+import Link from 'next/link';
+import { ArrowRight, CheckCircle2, Clock3, MapPin, MessageSquare, ShieldCheck, Smartphone, Speaker, Tv, Wrench, Zap } from 'lucide-react';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { FAQAccordion } from '@/components/FAQAccordion';
+import { JsonLd } from '@/components/JsonLd';
+import { siteConfig, getWhatsAppLink } from '@/data/siteConfig';
+
+export const metadata = {
+  title: 'Electronic Device Repair Service in Itahari | Himal Electronics',
+  description: 'Reliable electronic device repair service near Itahari for mobile phones, speakers, TVs, toys, gadgets and household electronics. Get a clear estimate before repair.',
+  alternates: { canonical: `${siteConfig.siteUrl}/electronic-device-repair-itahari` }
+};
+
+const deviceCards = [
+  { icon: Smartphone, title: 'Mobile phones and tablets', copy: 'Screen, battery, charging port, speaker, microphone, software and power faults.' },
+  { icon: Speaker, title: 'Speakers and audio devices', copy: 'Bluetooth pairing, no power, weak sound, charging and loose connection diagnosis.' },
+  { icon: Tv, title: 'TV and home electronics', copy: 'TV power, display, remote, set-top box and small home electronics assessment.' },
+  { icon: Zap, title: 'Toys, gadgets and accessories', copy: 'Battery toys, smartwatches, earbuds, chargers, cables, controllers and small gadgets.' }
+];
+
+const steps = [
+  ['01', 'Tell us the symptom', 'Send the brand, model, fault and a clear photo through WhatsApp or the enquiry form.'],
+  ['02', 'Get a practical diagnosis', 'We check the device and explain whether it needs a part, cleaning, software work or board repair.'],
+  ['03', 'Approve the estimate', 'No repair starts until you understand the expected price, parts availability and time.'],
+  ['04', 'Collect a tested device', 'We test the repaired function and explain the warranty or care instructions before handover.']
+];
+
+const faqs = [
+  { question: 'Where is your electronic repair shop near Itahari?', answer: 'Himal Product & Services is at Sundarharaincha-4, Morang, serving Itahari, Sunsari, Morang, Dharan and Biratnagar. Open the map link for exact directions.' },
+  { question: 'What electronic devices do you repair?', answer: 'We assess mobile phones, tablets, Bluetooth speakers, earbuds, headphones, TVs, toys, smartwatches, chargers, power banks, gadgets and other small household electronics.' },
+  { question: 'Can I get a repair price before visiting?', answer: 'Yes. Send the device brand, model, fault and a photo. We can give an initial range, then confirm the final price after inspection.' },
+  { question: 'Do you provide service outside Itahari?', answer: 'We accept enquiries across Nepal. Local customers can visit the workshop; courier and delivery options are confirmed by phone or WhatsApp.' }
+];
+
+export default function ElectronicDeviceRepairItahariPage() {
+  const schema = { '@context': 'https://schema.org', '@type': 'Service', name: 'Electronic device repair service in Itahari', provider: { '@type': 'LocalBusiness', name: siteConfig.name, telephone: siteConfig.phone, address: { '@type': 'PostalAddress', streetAddress: siteConfig.address.street, addressLocality: siteConfig.address.city, addressRegion: siteConfig.address.province, addressCountry: 'NP' } }, areaServed: ['Itahari', 'Sundarharaincha', 'Sunsari', 'Morang', 'Dharan', 'Biratnagar'], url: `${siteConfig.siteUrl}/electronic-device-repair-itahari` };
+  return <div className="pb-16"><JsonLd data={schema} /><div className="container-page pt-6"><Breadcrumbs items={[{ name: 'Electronic device repair service in Itahari', url: '/electronic-device-repair-itahari' }]} /></div>
+    <section className="premium-hero mt-4 border-y border-line"><div className="container-page py-12 md:py-20"><div className="max-w-4xl"><p className="hero-kicker"><span className="hero-kicker-dot" /> ITAHARI · SUNSARI · MORANG</p><h1 className="display-1 mt-4 max-w-4xl">Electronic device repair service in Itahari, with clear answers before you pay.</h1><p className="lede mt-5 max-w-2xl">Phone, speaker, TV, toy or everyday gadget stopped working? Himal Product & Services checks the fault, explains the sensible repair option and confirms the estimate before work begins.</p><div className="mt-7 flex flex-col gap-3 sm:flex-row"><a href={getWhatsAppLink('Namaste, I need an electronic device repair quote in Itahari.')} target="_blank" rel="noopener noreferrer" className="btn-primary"><MessageSquare className="size-4" /> Get a WhatsApp estimate</a><Link href="/contact" className="btn-outline">Send repair enquiry <ArrowRight className="size-4" /></Link></div><div className="mt-8 grid gap-3 text-sm text-ink-soft sm:grid-cols-3"><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-brand-700" /> Price before repair</span><span className="flex items-center gap-2"><Clock3 className="size-4 text-brand-700" /> Time confirmed after check</span><span className="flex items-center gap-2"><MapPin className="size-4 text-brand-700" /> Near Itahari</span></div></div></div></section>
+    <section className="section"><div className="container-page"><div className="max-w-2xl"><p className="eyebrow">What we can assess</p><h2 className="display-2 mt-1">Repair help for the devices people use every day</h2><p className="lede mt-2">A symptom is enough to start. Share the model and fault so we can check parts, practicality and the best next step.</p></div><div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{deviceCards.map(({icon:Icon,title,copy})=><article key={title} className="card premium-card p-5"><span className="icon-tile size-11 rounded-xl"><Icon className="size-5" /></span><h3 className="mt-4 text-base font-semibold text-ink">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{copy}</p></article>)}</div></div></section>
+    <section className="section border-y border-line bg-surface"><div className="container-page"><div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"><div><p className="eyebrow">A simple repair process</p><h2 className="display-2 mt-1">Know what happens next</h2><p className="mt-3 text-sm leading-6 text-muted">Good repair service starts with communication. These four steps keep the decision in your hands.</p></div><div className="grid gap-3 sm:grid-cols-2">{steps.map(([number,title,copy])=><article key={number} className="rounded-card border border-line bg-canvas p-5"><span className="text-xs font-bold tracking-[0.18em] text-brand-700">{number}</span><h3 className="mt-3 text-base font-semibold text-ink">{title}</h3><p className="mt-2 text-sm leading-6 text-muted">{copy}</p></article>)}</div></div></div></section>
+    <section className="section"><div className="container-page"><div className="rounded-card border border-line bg-ink p-6 text-white sm:p-8"><div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Start with the fault</p><h2 className="mt-2 max-w-2xl text-2xl font-semibold tracking-tight sm:text-3xl">Bring the device or send a photo from Itahari.</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-white/70">We serve Sundarharaincha, Itahari, Dharan, Biratnagar and customers across Nepal. Call {siteConfig.phone} during {siteConfig.openingHours.hours}.</p></div><a href={getWhatsAppLink('Hello, I need help with an electronic device repair.')} target="_blank" rel="noopener noreferrer" className="btn-primary bg-white text-ink hover:bg-brand-50">Message the workshop <ArrowRight className="size-4" /></a></div></div></div></section>
+    <section className="section border-t border-line bg-canvas"><div className="container-page"><div className="max-w-2xl"><p className="eyebrow">Questions from local customers</p><h2 className="display-2 mt-1">Electronic repair FAQs</h2></div><div className="mt-5 max-w-3xl"><FAQAccordion faqs={faqs} /></div></div></section>
+  </div>;
+}

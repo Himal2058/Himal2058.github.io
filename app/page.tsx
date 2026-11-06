@@ -142,9 +142,9 @@ export default function Home() {
               </p>
 
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/electronics-repair" className="btn-primary">
+                <Link href="/electronic-device-repair-itahari" className="btn-primary">
                   <Wrench className="size-4" aria-hidden="true" />
-                  <span>Explore repair services</span>
+                  <span>Repair electronics in Itahari</span>
                 </Link>
                 <Link href="/products" className="btn-outline">
                   <span>Shop products</span>

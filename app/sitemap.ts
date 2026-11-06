@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/mobile-repair',
     '/electronics-repair',
+    '/electronic-device-repair-itahari',
     '/mobile-phones',
     '/gadgets-accessories',
     '/smart-home',
