@@ -14,6 +14,7 @@ const shopLinks = [
 ];
 
 const repairLinks = [
+  { href: '/electronic-device-repair-itahari', label: 'Electronics repair in Itahari' },
   { href: '/electronics-repair', label: 'Electronics repair' },
   { href: '/mobile-repair', label: 'All repairs' },
   { href: '/mobile-repair/screen-replacement', label: 'Screen replacement' },
