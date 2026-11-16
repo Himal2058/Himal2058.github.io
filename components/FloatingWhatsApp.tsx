@@ -22,24 +22,12 @@ export function FloatingWhatsApp() {
         ? 'Guide question'
         : 'Website question';
 
-  const buildMessage = () => `Hello Himal Product & Services, I need help from your website.\nAbout: ${context}\n\n${message.trim()}`;
+  const buildMessage = () => `Hello Himal Product & Services, I need help from your website.\nAbout: ${context}\n\n${message.trim()}${photo ? `\n\nPhoto to attach: ${photo.name}` : ''}`;
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = buildMessage();
-    if (photo && typeof navigator.share === 'function' && typeof navigator.canShare === 'function' && navigator.canShare({ files: [photo] })) {
-      try {
-        await navigator.share({ title: 'Message Himal Product & Services', text, files: [photo] });
-        setNotice('Choose WhatsApp from the share menu to send your message and photo to the shop.');
-      } catch (error) {
-        if (error instanceof Error && error.name === 'AbortError') return;
-        setNotice('Your photo stays on this device. WhatsApp will open with your message; attach the photo in the chat.');
-        window.open(getWhatsAppLink(text), '_blank', 'noopener,noreferrer');
-      }
-      return;
-    }
-
-    setNotice(photo ? 'WhatsApp will open with your message. Attach the selected photo in the chat before sending.' : 'WhatsApp will open with your message ready to send.');
+    setNotice(photo ? 'WhatsApp is opening with your message. In the chat, attach the selected photo before you send.' : 'WhatsApp is opening with your message ready to send.');
     window.open(getWhatsAppLink(text), '_blank', 'noopener,noreferrer');
   }
 
