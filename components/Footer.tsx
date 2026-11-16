@@ -161,6 +161,14 @@ export function Footer() {
             >
               Facebook
             </a>
+            <a
+              href={siteConfig.social.hamrobazaar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink hover:underline hover:underline-offset-2"
+            >
+              Hamrobazaar
+            </a>
           </div>
         </div>
 

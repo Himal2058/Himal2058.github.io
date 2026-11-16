@@ -30,6 +30,7 @@ export interface SiteConfig {
   };
   social: {
     facebook: string;
+    hamrobazaar: string;
   };
   policies: {
     productWarranty: string;
@@ -73,7 +74,8 @@ export const siteConfig: SiteConfig = {
     ]
   },
   social: {
-    facebook: "https://www.facebook.com/profile.php?id=61559803791585"
+    facebook: "https://www.facebook.com/profile.php?id=61559803791585",
+    hamrobazaar: "https://hamrobazaar.com/user/himal-products-and-service/77E0E07E-1BB2-4D56-B781-13DF38977DB5"
   },
   policies: {
     productWarranty: "According to product category, varying from 6 months up to 2 years official warranty.",

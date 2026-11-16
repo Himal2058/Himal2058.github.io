@@ -297,6 +297,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container-page">
+          <div className="max-w-2xl">
+            <p className="eyebrow">A real local workshop</p>
+            <h2 className="display-2 mt-1">See the kind of electronics work we do</h2>
+            <p className="mt-2 text-sm leading-6 text-muted">These workshop and device photos help you understand the diagnosis and repair environment before you visit. Exact repair options depend on inspection and parts availability.</p>
+          </div>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <figure className="card overflow-hidden"><div className="relative aspect-[4/3]"><Image src={siteAsset('/images/repair 2.jfif')} alt="Technician checking an electronics circuit board" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" /></div><figcaption className="p-3 text-sm text-muted">Circuit board diagnosis</figcaption></figure>
+            <figure className="card overflow-hidden"><div className="relative aspect-[4/3]"><Image src={siteAsset('/images/repair 3.jfif')} alt="Electronics board testing with diagnostic equipment" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" /></div><figcaption className="p-3 text-sm text-muted">Bench testing</figcaption></figure>
+            <figure className="card overflow-hidden"><div className="relative aspect-[4/3]"><Image src={siteAsset('/images/repair.jfif')} alt="Small electronic devices and components prepared for repair" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-cover" /></div><figcaption className="p-3 text-sm text-muted">Small device repair</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
       {/* Products */}
       <section className="section">
         <div className="container-page">
@@ -387,6 +402,9 @@ export default function Home() {
                 <MapPin className="size-4" aria-hidden="true" />
                 <span>Get directions</span>
               </a>
+              <a href={siteConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">Google Business Profile</a>
+              <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" className="btn-outline">Facebook page</a>
+              <a href={siteConfig.social.hamrobazaar} target="_blank" rel="noopener noreferrer" className="btn-outline">Shop on Hamrobazaar</a>
               <Link href="/store-location" className="btn-outline">More visit details</Link>
             </div>
           </div>
@@ -446,6 +464,12 @@ export default function Home() {
         </div>
       </section>
 
+      <CtaBand
+        title="Not sure if it can be fixed?"
+        description="Send the phone model and a photo of the problem. We will tell you what it needs and what it costs."
+        whatsappMessage="Hello Himal Product & Services, I have a phone I would like checked: "
+      />
+
       {/* FAQ */}
       <section className="section">
         <div className="container-page">
@@ -471,11 +495,6 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBand
-        title="Not sure if it can be fixed?"
-        description="Send the phone model and a photo of the problem. We will tell you what it needs and what it costs."
-        whatsappMessage="Hello Himal Product & Services, I have a phone I would like checked: "
-      />
     </div>
   );
 }
