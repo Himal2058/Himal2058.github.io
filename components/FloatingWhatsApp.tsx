@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, ImagePlus, MessageCircle, Send, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { getWhatsAppLink } from '@/data/siteConfig';
+import { getWhatsAppLink, siteConfig } from '@/data/siteConfig';
 
 export function FloatingWhatsApp() {
   const pathname = usePathname();
@@ -79,10 +79,20 @@ export function FloatingWhatsApp() {
           </form>
         </section>
       )}
-      <button type="button" onClick={() => { setOpen(value => !value); setNotice(''); }} aria-expanded={open} aria-label={open ? 'Close customer help' : 'Open customer help'} className="ml-auto flex min-h-12 items-center gap-2 rounded-full bg-whatsapp px-4 text-sm font-semibold text-white shadow-[var(--shadow-pop)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-offset-4">
-        {open ? <X className="size-5" aria-hidden="true" /> : <MessageCircle className="size-5" aria-hidden="true" />}
-        <span>{open ? 'Close' : 'Customer help'}</span>
-      </button>
+      <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
+        <button type="button" onClick={() => { setOpen(value => !value); setNotice(''); }} aria-expanded={open} aria-label={open ? 'Close message and photo form' : 'Open message and photo form'} className="flex min-h-12 items-center gap-2 rounded-full border border-line bg-white px-3 text-sm font-semibold text-ink shadow-[var(--shadow-pop)] transition hover:-translate-y-0.5 hover:bg-canvas focus-visible:outline-offset-4">
+          {open ? <X className="size-5" aria-hidden="true" /> : <ImagePlus className="size-5 text-brand-700" aria-hidden="true" />}
+          <span>{open ? 'Close form' : 'Send photo'}</span>
+        </button>
+        <a href={getWhatsAppLink('Hello Himal Product & Services, I need customer help.')} target="_blank" rel="noopener noreferrer" aria-label={`Chat directly on WhatsApp at ${siteConfig.phone}`} className="flex min-h-12 items-center gap-2 rounded-full bg-whatsapp px-4 text-sm font-semibold text-white shadow-[var(--shadow-pop)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-offset-4">
+          <MessageCircle className="size-5" aria-hidden="true" />
+          <span>WhatsApp</span>
+        </a>
+        <a href="https://m.me/61559803791585" target="_blank" rel="noopener noreferrer" aria-label="Message Himal Products and Services on Facebook" className="flex min-h-12 items-center gap-2 rounded-full bg-[#0866ff] px-4 text-sm font-semibold text-white shadow-[var(--shadow-pop)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-offset-4">
+          <MessageCircle className="size-5" aria-hidden="true" />
+          <span>Facebook</span>
+        </a>
+      </div>
     </div>
   );
 }
