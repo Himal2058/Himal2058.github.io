@@ -138,7 +138,7 @@ export function Header() {
             </span>
             <span className="hidden items-center gap-1.5 sm:inline-flex">
               <Clock className="size-3.5" aria-hidden="true" />
-              <span>Sun to Fri 9:00 to 20:00</span>
+              <span>{siteConfig.openingHours.days} · {siteConfig.openingHours.hours}</span>
             </span>
           </div>
           <div className="flex items-center gap-4">

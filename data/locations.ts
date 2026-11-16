@@ -79,9 +79,9 @@ export const serviceLocations: ServiceLocation[] = [
       "Free delivery within Sundarharaincha-4 and the neighbouring wards. Orders over रू 2,000 are free.",
     localFaqs: [
       {
-        question: "Are you open on Saturday?",
+        question: "What are your Saturday opening hours?",
         answer:
-          "Yes, 10:00 to 18:00. Sunday to Friday we open at 9:00 and close at 20:00."
+          "The workshop is open Saturday from 8:00 AM to 7:00 PM NPT. Call ahead if you need to confirm parts availability before travelling."
       }
     ]
   },
