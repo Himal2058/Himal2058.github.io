@@ -14,8 +14,7 @@ import {
   ShieldCheck,
   Droplets,
   Cpu,
-  Volume2,
-  MessageSquare
+  Volume2
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
@@ -24,6 +23,7 @@ import { ProductCard } from '@/components/ProductCard';
 import { RepairEstimator } from '@/components/RepairEstimator';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { CtaBand } from '@/components/CtaBand';
+import { RepairQuickStart } from '@/components/RepairQuickStart';
 
 export const metadata = {
   title: 'Electronic Device Repair Service in Itahari | Himal Electronics',
@@ -91,27 +91,27 @@ const homeFaqs = [
   {
     question: 'Where is the shop?',
     answer:
-      'Sundarharaincha-4, Morang, on the main highway. About 10 minutes from Itahari Chowk. Parking is in front of the store.'
+      `The workshop is at ${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.district}. Use the Google Maps link for the exact pin and directions.`
   },
   {
-    question: 'How long does a screen or battery replacement take?',
+    question: 'Can you confirm repair time and price before I visit?',
     answer:
-      'Usually 45 to 90 minutes for common Samsung, Redmi and iPhone models. We keep parts for regular models in stock.'
+      'Send the device brand, model and fault by WhatsApp. We can check likely parts and give an initial estimate; final price and timing are confirmed after inspection.'
   },
   {
     question: 'Are the phones MDMS registered?',
     answer:
-      'Yes. Every handset is new, sold with a VAT bill, registered with the Nepal Telecommunications Authority, and carries the manufacturer warranty.'
+      'Product listings identify the phone models and warranty details. Message us to confirm current stock, MDMS status and VAT bill details for the exact model before ordering.'
   },
   {
     question: 'Do you deliver outside Itahari?',
     answer:
-      'Same-day delivery in Itahari, Dharan, Biratnagar and Sundarharaincha. Courier to other districts takes 2 to 4 days.'
+      siteConfig.policies.delivery
   },
   {
     question: 'Will you look at my photos or messages?',
     answer:
-      'No. Screen and battery work does not need the phone unlocked. We do not open galleries, chats or banking apps.'
+      'Most hardware repairs do not require your passcode. Back up important data first, and do not share passwords or banking details with a repair shop.'
   }
 ];
 
@@ -142,19 +142,14 @@ export default function Home() {
                 Our workshop is in Sundarharaincha, Morang. We check the device, explain the options, and confirm the price before work starts.
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/electronic-device-repair-itahari" className="btn-primary">
-                  <Wrench className="size-4" aria-hidden="true" />
-                  <span>Repair electronics in Itahari</span>
-                </Link>
+              <RepairQuickStart />
+
+              <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
                 <Link href="/products" className="btn-outline">
-                  <span>Shop products</span>
+                  <span>Browse products</span>
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
-                <a href={getWhatsAppLink('Hello Himal Product & Services, I need help with an electronics repair.')} target="_blank" rel="noopener noreferrer" className="btn-outline">
-                  <MessageSquare className="size-4 text-whatsapp" aria-hidden="true" />
-                  <span>WhatsApp {siteConfig.phone}</span>
-                </a>
+                <Link href="/electronic-device-repair-itahari" className="text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">See Itahari repair services</Link>
               </div>
 
               <div className="hero-proof-row mt-8">
@@ -162,11 +157,13 @@ export default function Home() {
                 <span className="hero-proof-separator" aria-hidden="true" />
                 <div className="hero-proof-item"><Clock className="size-4" aria-hidden="true" /><span>Time confirmed after diagnosis</span></div>
               </div>
-              <div className="mt-7 flex items-center gap-2 text-sm text-muted">
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted">
                 <MapPin className="size-4 text-brand-700" aria-hidden="true" />
                 <span>{siteConfig.address.street}, {siteConfig.address.city}</span>
                 <span className="text-line-strong" aria-hidden="true">·</span>
                 <a href={siteConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 underline-offset-4 hover:underline">Get directions</a>
+                <span className="text-line-strong" aria-hidden="true">·</span>
+                <a href={`tel:${siteConfig.phoneRaw}`} className="min-h-11 inline-flex items-center font-semibold text-ink underline-offset-4 hover:underline">Call {siteConfig.phone}</a>
               </div>
             </div>
 
@@ -180,8 +177,10 @@ export default function Home() {
                 className="hero-photo object-cover"
               />
               <div className="hero-image-caption">
-                <span className="hero-image-caption-mark"><Wrench className="size-4" aria-hidden="true" /></span>
-                <span><strong>Careful work. Clear answers.</strong><small>Phone repair in Sundarharaincha, Morang</small></span>
+                <span className="hero-image-caption-mark overflow-hidden bg-white p-0.5">
+                  <Image src={siteAsset('/logo.jpg')} alt="Himal Product & Services logo" width={40} height={40} className="size-full rounded-lg object-cover" />
+                </span>
+                <span><strong>Himal Product & Services</strong><small>Repair workshop · Sundarharaincha, Morang</small></span>
               </div>
               <span className="hero-image-tag"><span className="hero-image-tag-dot" /> REPAIR STUDIO</span>
             </div>
@@ -192,8 +191,8 @@ export default function Home() {
       <section className="border-y border-line bg-ink text-white">
         <div className="container-page grid gap-4 py-5 sm:grid-cols-4">
           <div><p className="text-2xl font-semibold">Before repair</p><p className="mt-1 text-xs text-white/60">Estimate explained first</p></div>
-          <div><p className="text-2xl font-semibold">8 AM–7 PM</p><p className="mt-1 text-xs text-white/60">Open every day</p></div>
-          <div><p className="text-2xl font-semibold">Itahari area</p><p className="mt-1 text-xs text-white/60">Local workshop support</p></div>
+          <div><p className="text-xl font-semibold">{siteConfig.openingHours.hours}</p><p className="mt-1 text-xs text-white/60">{siteConfig.openingHours.days}</p></div>
+          <div><p className="text-2xl font-semibold">Sundarharaincha</p><p className="mt-1 text-xs text-white/60">Workshop in Morang · serving Itahari area</p></div>
           <div><p className="text-2xl font-semibold">WhatsApp ready</p><p className="mt-1 text-xs text-white/60">Send a photo and model</p></div>
         </div>
       </section>
@@ -278,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* Repair estimate */}
-      <section className="section border-y border-line bg-surface">
+      <section id="repair-process" className="section border-y border-line bg-surface">
         <div className="container-page">
           <div className="max-w-2xl">
             <h2 className="display-2">What will the repair cost?</h2>

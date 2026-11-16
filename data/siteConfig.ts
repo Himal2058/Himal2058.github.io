@@ -66,11 +66,10 @@ export const siteConfig: SiteConfig = {
   },
   googleMapsUrl: "https://www.google.com/maps/place/Himal+product+and+service/data=!4m7!3m6!1s0x39ef6d33be82599b:0xb67ac2eefb668b5f!8m2!3d26.6585252!4d87.2875835!16s%2Fg%2F11nvxkchr9!19sChIJm1mCvjNt7zkRX4tm--7CerY?authuser=0&hl=en&g_ep=EgoyMDI2MTAyOC4wIJJjKgBIAVAD&rclk=1",
   openingHours: {
-    days: "Sunday to Friday (Saturday open for emergency repairs & inquiries)",
-    hours: "9:00 AM – 8:00 PM NPT",
+    days: "Sunday to Saturday",
+    hours: "8:00 AM – 7:00 PM NPT",
     schema: [
-      "Su-Fr 09:00-20:00",
-      "Sa 10:00-18:00"
+      "Su-Sa 08:00-19:00"
     ]
   },
   social: {
