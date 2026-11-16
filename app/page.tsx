@@ -14,7 +14,8 @@ import {
   ShieldCheck,
   Droplets,
   Cpu,
-  Volume2
+  Volume2,
+  MessageSquare
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
@@ -150,6 +151,10 @@ export default function Home() {
                   <span>Shop products</span>
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+                <a href={getWhatsAppLink('Hello Himal Product & Services, I need help with an electronics repair.')} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                  <MessageSquare className="size-4 text-whatsapp" aria-hidden="true" />
+                  <span>WhatsApp {siteConfig.phone}</span>
+                </a>
               </div>
 
               <div className="hero-proof-row mt-8">

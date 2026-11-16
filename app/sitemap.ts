@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/electronics-repair',
     '/electronic-device-repair-itahari',
     '/mobile-phones',
+    '/products',
     '/gadgets-accessories',
     '/smart-home',
     '/power-banks',
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/service-areas',
     '/about-us',
     '/contact',
+    '/customer-service',
     '/feedback',
     '/store-location',
     '/warranty',
@@ -35,7 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms-and-conditions'
   ].map(route => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1.0 : route === '/electronic-device-repair-itahari' || route === '/electronics-repair' || route.startsWith('/mobile-') || route.startsWith('/gadgets') || route.startsWith('/smart-home') || route.startsWith('/power-banks') ? 0.9 : 0.7
   }));
@@ -43,7 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 2. Repair Service Sub-Pages
   const repairRoutes = repairServices.map(service => ({
     url: `${baseUrl}/mobile-repair/${service.slug}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8
   }));
@@ -61,7 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/smart-home/smart-security'
   ].map(route => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8
   }));
@@ -69,7 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 4. Dynamic Products
   const productRoutes = products.map(product => ({
     url: `${baseUrl}/products/${product.slug}`,
-    lastModified: new Date(),
     changeFrequency: 'daily' as const,
     priority: 0.85
   }));
@@ -85,7 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 6. Local Service Areas
   const locationRoutes = serviceLocations.map(loc => ({
     url: `${baseUrl}/service-areas/${loc.slug}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.75
   }));

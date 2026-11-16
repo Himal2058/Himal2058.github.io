@@ -20,6 +20,7 @@ export function ContactForm() {
   });
 
   const [sent, setSent] = useState(false);
+  const [photoName, setPhotoName] = useState('');
 
   const whatsappText = `Hello Himal Product & Services.
 Name: ${formData.name}
@@ -27,20 +28,21 @@ Phone: ${formData.phone}
 About: ${formData.inquiryType}
 Device: ${formData.deviceModel || 'not given'}
 My town/district: ${formData.location || 'not given'}
-Message: ${formData.message}`;
+Message: ${formData.message}${photoName ? `\nPhoto to attach: ${photoName}` : ''}`;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch('/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+    void fetch('/api/enquiries', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
       name: formData.name, phone: formData.phone, subject: formData.inquiryType,
       message: `${formData.deviceModel ? `Device: ${formData.deviceModel}\n` : ''}${formData.location ? `Location: ${formData.location}\n` : ''}${formData.message}`
     }) }).catch(() => undefined);
-    setSent(true);
     window.open(getWhatsAppLink(whatsappText), '_blank', 'noopener,noreferrer');
+    setSent(true);
   };
 
   const reset = () => {
     setSent(false);
+    setPhotoName('');
     setFormData({
       name: '',
       phone: '',
@@ -56,8 +58,7 @@ Message: ${formData.message}`;
       <div className="rounded-card border border-line bg-surface p-5">
         <h2 className="text-base font-semibold text-ink">Your message is ready</h2>
         <p className="mt-1.5 text-sm leading-6 text-muted">
-          WhatsApp should have opened in a new tab with your details filled in. Press send there and we
-          will reply during shop hours. If nothing opened, use the link below.
+          WhatsApp should have opened with your request. Press send there so the shop receives it. If you selected a photo, attach it in WhatsApp before sending. You can also contact our Facebook page and attach your photo in Messenger.
         </p>
 
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
@@ -69,6 +70,10 @@ Message: ${formData.message}`;
           >
             <MessageSquare className="size-4" aria-hidden="true" />
             <span>Open WhatsApp</span>
+          </a>
+          <a href="https://m.me/61559803791585" target="_blank" rel="noopener noreferrer" className="btn-outline">
+            <MessageSquare className="size-4" aria-hidden="true" />
+            <span>Message us on Facebook</span>
           </a>
           <button type="button" onClick={reset} className="btn-outline">
             Write another message
@@ -191,15 +196,20 @@ Message: ${formData.message}`;
             className="w-full rounded border border-line bg-canvas px-3 py-2 text-sm leading-6 text-ink placeholder:text-muted focus:border-line-strong focus:bg-white focus:outline-none"
           />
         </div>
+        <div>
+          <label htmlFor="contact-photo" className={labelClass}>Add a photo <span className="text-muted">(optional)</span></label>
+          <input id="contact-photo" type="file" accept="image/*" onChange={e => setPhotoName(e.target.files?.[0]?.name || '')} className="block min-h-11 w-full rounded border border-line bg-white px-3 py-2 text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-brand-50 file:px-3 file:py-1 file:text-sm file:font-semibold file:text-brand-700" />
+          <p className="mt-1 text-xs leading-5 text-muted">Choose a photo here, then attach it in WhatsApp or Facebook Messenger before sending. The website does not upload the photo.</p>
+        </div>
       </div>
 
       <button type="submit" className="btn-primary mt-4 w-full">
         <Send className="size-4" aria-hidden="true" />
-        <span>Continue in WhatsApp</span>
+        <span>Continue to WhatsApp</span>
       </button>
 
       <p className="mt-2 text-xs leading-5 text-muted">
-        Your enquiry is stored securely for the shop team and is never shown publicly.
+        WhatsApp opens with your message ready. Your enquiry is also saved for the shop team when online storage is connected.
       </p>
     </form>
   );

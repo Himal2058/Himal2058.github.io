@@ -3,10 +3,10 @@ export interface BlogPost {
   title: string;
   h1: string;
   slug: string;
-  cluster: 'mobile-repair' | 'mobile-phones' | 'gadgets-accessories' | 'smart-home' | 'power-banks';
+  cluster: string;
   primaryQuery: string;
   secondaryQueries: string[];
-  intent: 'Informational' | 'Commercial Investigation' | 'Problem-Solving';
+  intent: string;
   targetAudience: string;
   problemSolved: string;
   parentClusterUrl: string;
@@ -15,8 +15,8 @@ export interface BlogPost {
   isPillar: boolean;
   readTime: string;
   publishedDate: string;
-  excerpt: string;
   image: string;
+  excerpt: string;
   content?: string;
   faqs?: { question: string; answer: string }[];
 }
@@ -45,7 +45,7 @@ export const blogTopics: BlogPost[] = [
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-15",
-    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair.jfif",
     excerpt: "Before assuming the battery or the board is gone, test the cable, the adapter and the port. Most charging faults turn out to be one of those.",
     content: `
 A phone that will not charge is one of the most common things we see at the counter. In most cases it is not the board. It is the cable, the lint in the port, or the adapter. Here is the order we check things in, and you can do the first two steps at home.
@@ -74,12 +74,12 @@ We test the phone on a USB power meter to see the actual voltage and current. A 
     `,
     faqs: [
       {
-        question: "Can using a fast charger damage a phone that doesn't support it?",
-        answer: "No. Modern smartphones negotiate voltage and current via standard Power Delivery (PD) or Quick Charge protocols. The phone only draws the maximum wattage its internal power management IC allows."
+        question: "Can using a fast charger damage a phone that does not support it?",
+        answer: "A standards-compliant charger negotiates with the phone and supplies only the power the phone accepts. Use a reputable charger and cable, and stop using either if it becomes unusually hot or damaged."
       },
       {
-        question: "Why does my phone only charge when tilted at an angle?",
-        answer: "This almost always indicates compressed pocket lint preventing complete insertion, or fractured solder joints connecting the port to the sub-board."
+        question: "Why does my phone only charge when the cable is held at an angle?",
+        answer: "Pocket lint or wear in the charging port can prevent a firm connection. Avoid forcing or bending the cable; have the port checked if a known-good cable still feels loose."
       }
     ]
   },
@@ -106,7 +106,7 @@ We test the phone on a USB power meter to see the actual voltage and current. A 
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-12",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair 2.jfif",
     excerpt: "A cracked screen is not always a full replacement. Here is how to tell whether it is the glass or the panel, and what each repair costs in Itahari.",
     content: `
 A cracked screen is the most common repair we do. What matters for the price is not how big the crack looks, but which layer broke.
@@ -179,7 +179,7 @@ A screen for most common models takes 45 to 90 minutes if the part is in stock.
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-10",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair 3.jfif",
     excerpt: "If your smartphone drains 30% while idle overnight or dies before 4:00 PM, learn how to audit your software and when it is time to install a fresh cell.",
     content: `
 A battery that dies by evening is usually doing one of two things: running apps you forgot about, or wearing out chemically. Here is how to tell the difference.
@@ -200,6 +200,12 @@ On iPhone, go to Settings > Battery > Battery Health. On Android, the path varie
 
 A new battery costs रू 1,200 to 4,500 depending on the model. It is worth it if the rest of the phone is in good shape.
     `,
+    faqs: [
+      {
+        question: "Does more RAM improve battery life?",
+        answer: "Adequate RAM prevents the operating system from constantly killing and restarting apps from scratch, which actually saves battery power compared to an under-equipped 4GB device."
+      }
+    ]
   },
   {
     id: "repair-topic-4",
@@ -224,7 +230,7 @@ A new battery costs रू 1,200 to 4,500 depending on the model. It is worth it
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-08",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair 4.jfif",
     excerpt: "Excessive heat damages battery health and processor performance. Discover how to identify whether your phone heat is software-related or a hardware fault.",
     content: `
 Some warmth is normal when charging or gaming. Real overheating — the phone becomes too hot to hold, or shuts down to protect itself — is a problem. Here is how to tell them apart and what to do.
@@ -249,6 +255,12 @@ Silicone and leather cases act like thermal blankets. If your phone runs hot, tr
 
 A localized hotspot — one corner of the phone that is always hotter than the rest — often points to a shorted component or a failing battery. This is a safety risk. Stop using the phone and bring it to the bench.
     `,
+    faqs: [
+      {
+        question: "Can a phone explode from overheating?",
+        answer: "It is rare, but a damaged battery can swell or catch fire. If your phone gets abnormally hot, stop using it and bring it in."
+      }
+    ]
   },
   {
     id: "repair-topic-5",
@@ -273,7 +285,7 @@ A localized hotspot — one corner of the phone that is always hotter than the r
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-03-05",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair 5.jfif",
     excerpt: "Follow this 5-point checklist before handing your phone to any repair workshop to safeguard your private data, photos, and physical accessories.",
     content: `
 Before you hand your phone over for repair, take five minutes to protect your data and avoid surprises.
@@ -298,6 +310,12 @@ Dial *#06# to get your 15-digit IMEI number. Write it down or screenshot it. If 
 
 Take a quick photo of any scratches, dents, or cracks before you leave the phone. This prevents disputes about pre-existing cosmetic damage later.
     `,
+    faqs: [
+      {
+        question: "Do I need to give my passcode for a screen replacement?",
+        answer: "No. Screen replacement is hardware work and does not need your passcode. We test from the emergency dialler or with Maintenance Mode."
+      }
+    ]
   },
   {
     id: "repair-topic-6",
@@ -321,7 +339,7 @@ Take a quick photo of any scratches, dents, or cracks before you leave the phone
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-03-02",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/repair 6.jfif",
     excerpt: "Learn how to use Android Maintenance Mode and password isolation so your personal media and banking apps remain 100% inaccessible to technicians.",
     content: `
 You do not need to hand over an unlocked phone for most repairs. Screen, battery, and charging port work can all be done without the technician seeing your photos, messages, or banking apps.
@@ -342,6 +360,12 @@ At Himal Product and Services, the bench rule is simple: we do not open your gal
 
 For screen, battery, and port replacements, your passcode is not needed. If a workshop insists on it for a screen replacement, ask why.
     `,
+    faqs: [
+      {
+        question: "Will replacing my screen delete my photos and data?",
+        answer: "No. Screen replacement is strictly a hardware repair that does not modify your internal storage or operating system. However, we always advise creating a cloud backup as general best practice."
+      }
+    ]
   },
   {
     id: "repair-topic-7",
@@ -365,7 +389,7 @@ For screen, battery, and port replacements, your passcode is not needed. If a wo
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-28",
-    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
+    image: "/images/electronics-board-diagnostics.jpg",
     excerpt: "Understand the true cost drivers behind smartphone repairs in Nepal, from display panel engineering to certified warranty coverage.",
     content: `
 Repair prices vary because the parts and the labour vary. Here is what drives the cost.
@@ -377,6 +401,7 @@ A flat LCD panel is the cheapest to replace. A curved AMOLED panel with an in-sc
 ### Original vs aftermarket parts
 
 You usually have two choices:
+
 - An original service-centre panel: matches factory colour, brightness, and fingerprint response. Costs more.
 - A good aftermarket OLED or LCD: looks fine and works well, but may not match the original exactly. Costs less.
 
@@ -390,6 +415,12 @@ A straightforward screen swap takes 45 to 90 minutes. Micro-soldering a charging
 
 A cheap repair with no warranty often costs more long-term when the part fails and you pay again. Our repairs carry a written warranty, and that is built into the quote.
     `,
+    faqs: [
+      {
+        question: "Why does an AMOLED screen cost more than an LCD?",
+        answer: "AMOLED panels are thinner, brighter and carry the in-screen fingerprint sensor, so the part costs more. An LCD is cheaper but usually not an option if your phone came with AMOLED."
+      }
+    ]
   },
   {
     id: "repair-topic-8",
@@ -414,7 +445,7 @@ A cheap repair with no warranty often costs more long-term when the part fails a
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-25",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/oscilloscope-board-testing.jpg",
     excerpt: "Don't let a faulty charging port ruin your motherboard. Learn the 5 unmistakable signs that your charging flex needs bench inspection.",
     content: `
 A damaged charging port does not always stop charging completely. Catching it early can prevent a short circuit that kills the motherboard. Here are the warning signs.
@@ -439,6 +470,12 @@ The lower microphone is on the charging board. If callers cannot hear you but th
 
 If your phone used to fast charge and now only trickle-charges, the port or its charging IC may be damaged. A USB power meter test at the bench confirms it.
     `,
+    faqs: [
+      {
+        question: "Can dirt in my charging port cause it to stop charging?",
+        answer: "Very often. Pocket lint packs at the base of the port and stops the cable clicking in. We can clean it safely in about ten minutes."
+      }
+    ]
   },
   {
     id: "repair-topic-9",
@@ -462,7 +499,7 @@ If your phone used to fast charge and now only trickle-charges, the port or its 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-20",
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+    image: "/images/electronics-board-diagnostics.jpg",
     excerpt: "Can barely hear callers on your smartphone? Discover why earpieces get clogged and how professional sonic cleaning restores full volume.",
     content: `
 If people sound muffled on calls, or your speaker crackles, the issue is usually dirt or a blown component — both fixable.
@@ -483,6 +520,12 @@ If both the earpiece and loudspeaker are dead, the problem may be the audio ampl
 
 Plug in earphones. If callers sound clear through earphones but not through the phone's speaker, the fault is in the speaker hardware, not the audio chip.
     `,
+    faqs: [
+      {
+        question: "Can I clean my speaker myself?",
+        answer: "You can gently brush the earpiece mesh with a dry soft brush. Do not poke anything sharp into the grill — you can puncture the speaker diaphragm."
+      }
+    ]
   },
   {
     id: "repair-topic-10",
@@ -506,7 +549,7 @@ Plug in earphones. If callers sound clear through earphones but not through the 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-15",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/products.jfif",
     excerpt: "Is fixing your phone a smart investment or throwing good money after bad? Here is how to make the right financial decision in Nepal.",
     content: `
 Repairing is usually cheaper than replacing — but not always. Here is how to decide.
@@ -531,6 +574,12 @@ Check whether the phone still gets security updates. If it does not, a repair on
 
 Screen or battery repair on a phone under three years old: repair it. Motherboard or water damage, or a phone over four years old: replace it.
     `,
+    faqs: [
+      {
+        question: "Is fixing your phone a smart investment or throwing good money after bad?",
+        answer: "For a screen or battery on a phone under three years old, yes. For motherboard damage or a phone over four years old, replacement is usually better."
+      }
+    ]
   },
 
   // CLUSTER 2: Mobile Phones and Smartphones (10 Topics)
@@ -557,7 +606,7 @@ Screen or battery repair on a phone under three years old: repair it. Motherboar
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-14",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Phones are sold on memory numbers, but most of the confusion is between RAM and storage. Here is how much of each you actually need.",
     content: `
 Phones are advertised with big numbers for memory, and most of the confusion is between two different things. RAM and storage do different jobs, and only one of them is worth paying extra for.
@@ -621,7 +670,7 @@ The type of storage matters too. UFS 3.1 is noticeably faster than UFS 2.2, and 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-09",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Discover the 4 core hardware features that truly define a great daily smartphone in Nepal, rather than falling for marketing gimmicks.",
     content: `
 For everyday use — calls, messages, social media, photos — you do not need a flagship. Here is what actually matters.
@@ -642,6 +691,12 @@ Buy a brand that still gives security updates for your model. A phone that stops
 
 A phone with a metal or sturdy plastic frame survives drops better than a thin glass-backed one. If you are rough with your phone, prioritize build over looks.
     `,
+    faqs: [
+      {
+        question: "What screen type should I look for?",
+        answer: "AMOLED is better than LCD for contrast and outdoor visibility. It matters more than the camera megapixel count."
+      }
+    ]
   },
   {
     id: "phone-topic-3",
@@ -665,7 +720,7 @@ A phone with a metal or sturdy plastic frame survives drops better than a thin g
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-06",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Buying a budget phone doesn't mean settling for bad performance. Learn what specs to demand and what compromises to avoid.",
     content: `
 Under रू 25,000, every phone makes compromises. Here is which ones to accept and which to avoid.
@@ -686,6 +741,12 @@ Avoid processors that are two or three generations old. They struggle with newer
 
 Wireless charging, IP water resistance, and ultra-wide cameras are nice-to-haves. Skip them to get a better processor, more RAM, or a bigger battery instead.
     `,
+    faqs: [
+      {
+        question: "What is the best phone under रू 25,000?",
+        answer: "Look for a phone with at least 6GB RAM, 128GB UFS storage, a 5000mAh battery, and a 90Hz screen. Skip wireless charging and ultra-wide cameras to save money."
+      }
+    ]
   },
   {
     id: "phone-topic-4",
@@ -709,7 +770,7 @@ Wireless charging, IP water resistance, and ultra-wide cameras are nice-to-haves
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-03",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "A tailored guide for students balancing online lectures, PDF reading, light gaming, and budget limitations.",
     content: `
 Students need a phone that lasts all day, handles PDFs and study apps, and does not cost too much. Here is what to prioritize.
@@ -730,6 +791,12 @@ You will photograph blackboards, notes, and printed handouts. A decent main came
 
 Under रू 20,000 you get a reliable student phone. Over रू 30,000 you are paying for features — gaming performance, premium cameras — you probably do not need.
     `,
+    faqs: [
+      {
+        question: "How much RAM does a student need?",
+        answer: "6GB is the minimum; 8GB is better if you keep PDFs, notes, and a browser open at the same time."
+      }
+    ]
   },
   {
     id: "phone-topic-5",
@@ -753,7 +820,7 @@ Under रू 20,000 you get a reliable student phone. Over रू 30,000 you are
     isPillar: false,
     readTime: "6 min read",
     publishedDate: "2026-02-27",
-    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Learn how to read past marketing jargon and spot the real hardware differences between competing smartphone models.",
     content: `
 Spec sheets are designed to confuse. Here is what the numbers actually mean.
@@ -774,6 +841,12 @@ NFC matters if you use tap-to-pay. A gyroscope matters for gaming and AR apps. M
 
 Stereo speakers are nice for videos and calls on speakerphone. A single bottom-firing speaker is fine for most people but gets muffled if you hold the phone the wrong way.
     `,
+    faqs: [
+      {
+        question: "What processor should I look for?",
+        answer: "A Snapdragon 6-series or MediaTek Dimensity 6000/7000 series is plenty for everyday use. You do not need a flagship chip unless you game heavily."
+      }
+    ]
   },
   {
     id: "phone-topic-6",
@@ -797,7 +870,7 @@ Stereo speakers are nice for videos and calls on speakerphone. A single bottom-f
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-24",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Crucial checks for anyone buying a pre-owned smartphone in Nepal, including MDMS verification and hidden hardware diagnostics.",
     content: `
 A used phone can save money, but only if you check it properly first. Here is the checklist.
@@ -818,6 +891,12 @@ Ask the seller for battery health percentage. On iPhone, check Settings > Batter
 
 Make a call, connect to Wi-Fi, test the camera, charge the phone, and check the fingerprint sensor before handing over cash. A twenty-minute inspection saves you from a bad purchase.
     `,
+    faqs: [
+      {
+        question: "How do I check MDMS registration?",
+        answer: "Dial *#06# for the IMEI, then enter it on the NTA MDMS verification portal."
+      }
+    ]
   },
   {
     id: "phone-topic-7",
@@ -841,7 +920,7 @@ Make a call, connect to Wi-Fi, test the camera, charge the phone, and check the 
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-18",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Why does a 5000mAh phone sometimes run out of juice by evening? Discover the real factors that control smartphone endurance.",
     content: `
 Battery size (mAh) is only half the story. How long a phone actually lasts depends on efficiency.
@@ -865,6 +944,12 @@ Fast charging generates heat, and heat wears out batteries over time. If you cha
 
 A modern 5000mAh phone should get most people through a day of normal use. If it does not, the battery may be worn out or an app is running in the background.
     `,
+    faqs: [
+      {
+        question: "Does a bigger mAh always mean longer battery life?",
+        answer: "No. Processor efficiency and screen type matter just as much as the mAh number."
+      }
+    ]
   },
   {
     id: "phone-topic-8",
@@ -888,7 +973,7 @@ A modern 5000mAh phone should get most people through a day of normal use. If it
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-14",
-    image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Why does a 48MP camera often beat a 108MP camera? Understand sensor size, OIS, and low-light optics before you buy.",
     content: `
 Megapixels are the most misunderstood camera spec. Here is what actually affects photo quality.
@@ -909,6 +994,12 @@ A lower f-number (like f/1.8) lets in more light than f/2.2. This matters for ni
 
 More megapixels let you crop into a photo without losing detail. For everyday social media photos, 48MP is already plenty.
     `,
+    faqs: [
+      {
+        question: "Is 108MP better than 48MP?",
+        answer: "Not necessarily. A large 48MP sensor usually takes better photos than a small 108MP sensor because it captures more light."
+      }
+    ]
   },
   {
     id: "phone-topic-9",
@@ -932,7 +1023,7 @@ More megapixels let you crop into a photo without losing detail. For everyday so
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-10",
-    image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "A handy 10-point questionnaire to take into any mobile shop in Nepal to guarantee you get a legitimate, warranted phone.",
     content: `
 Ask these questions before you pay at any mobile shop in Nepal.
@@ -977,6 +1068,12 @@ Check that the charger and cable match the phone brand. Third-party accessories 
 
 A VAT bill is proof of purchase and required for warranty claims.
     `,
+    faqs: [
+      {
+        question: "Do I need a VAT bill for warranty?",
+        answer: "Yes. A VAT bill is proof of purchase and required for warranty claims at brand service centres."
+      }
+    ]
   },
   {
     id: "phone-topic-10",
@@ -1000,7 +1097,7 @@ A VAT bill is proof of purchase and required for warranty claims.
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-05",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/phone-lineup.jpg",
     excerpt: "Avoid having your mobile network signal blocked. Learn how to verify any phone's IMEI on the official Nepal MDMS portal in under 2 minutes.",
     content: `
 MDMS registration is what keeps your phone connected to Nepali mobile networks. Here is how to check it.
@@ -1027,6 +1124,12 @@ For Samsung, Apple, and Xiaomi, you can also check warranty status on the brand'
 
 The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill is your proof of purchase.
     `,
+    faqs: [
+      {
+        question: "Can an unregistered phone be blocked?",
+        answer: "Yes. An unregistered phone can lose mobile network access in Nepal at any time."
+      }
+    ]
   },
 
   // CLUSTER 3: Electronic Gadgets and Accessories (10 Topics)
@@ -1052,7 +1155,7 @@ The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill 
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-11",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images (1).jfif",
     excerpt: "Every USB-C cable looks the same, but a 60W cable will not charge a laptop properly and a generic cable slows down a Xiaomi or Oppo phone. Here is what to check.",
     content: `
 Every USB-C plug looks the same, so people assume every USB-C cable does the same job. It does not. The wire inside decides whether your phone charges in half an hour or takes most of the afternoon.
@@ -1119,7 +1222,7 @@ A higher-rated cable will not damage a phone that charges slowly. The phone asks
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-07",
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+    image: "/images/neckband-product.webp",
     excerpt: "Tired of callers saying they can't hear your voice over traffic? Learn what specs matter most in budget and mid-range wireless earbuds.",
     content: `
 Wireless earbuds are everywhere now. Here is what to look for if you buy them for daily use.
@@ -1144,6 +1247,12 @@ IPX4 handles sweat and light rain. IPX5 handles stronger splashes. If you exerci
 
 Budget earbuds often sound fine for music but terrible for calls. Read reviews specifically about call microphone quality.
     `,
+    faqs: [
+      {
+        question: "What is the difference between ANC and ENC?",
+        answer: "ANC blocks outside noise for your ears. ENC cleans up your voice for the person you are calling."
+      }
+    ]
   },
   {
     id: "gadget-topic-3",
@@ -1167,7 +1276,7 @@ Budget earbuds often sound fine for music but terrible for calls. Read reviews s
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-04",
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+    image: "/images/headphones-product.webp",
     excerpt: "Should you stay wireless or carry a wired backup? We compare latency, audio depth, and battery life to help you decide.",
     content: `
 Wired and wireless earphones each have a place. Here is how to choose.
@@ -1192,6 +1301,12 @@ Wired earphones have no battery to degrade. A good cable can last years. Wireles
 
 Buy wired earphones for home and gaming. Buy wireless earbuds for travel and exercise. Many people keep both.
     `,
+    faqs: [
+      {
+        question: "Are wired earphones better for gaming?",
+        answer: "Yes. Wired has zero audio lag, which matters for competitive gaming and watching videos."
+      }
+    ]
   },
   {
     id: "gadget-topic-4",
@@ -1215,7 +1330,7 @@ Buy wired earphones for home and gaming. Buy wireless earbuds for travel and exe
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-26",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images (2).jfif",
     excerpt: "Don't fall for fake wattage claims. Here is how to evaluate real acoustic wattage, bass radiators, and battery capacity in Bluetooth speakers.",
     content: `
 Bluetooth speaker specs are often exaggerated. Here is what actually matters.
@@ -1240,6 +1355,12 @@ Look for 10+ hours of actual playback. A speaker that claims 20 hours may only m
 
 Some speakers let you pair two units for left-right stereo. This is worth it if you want better sound for parties.
     `,
+    faqs: [
+      {
+        question: "What is the difference between RMS and PMPO wattage?",
+        answer: "RMS is the real continuous power. PMPO is a marketing number that is often 5 to 10 times higher than the actual power."
+      }
+    ]
   },
   {
     id: "gadget-topic-5",
@@ -1263,7 +1384,7 @@ Some speakers let you pair two units for left-right stereo. This is worth it if 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-22",
-    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     excerpt: "Phone shipped without a charger? Learn how to choose a certified GaN adapter that charges your phone at maximum speed safely.",
     content: `
 Many phones no longer ship with a charger in the box. Here is how to pick the right one.
@@ -1288,6 +1409,12 @@ If you charge two devices at once, get a multi-port charger. But check the total
 
 Buy from a known brand with over-voltage and short-circuit protection. Avoid unbranded chargers from street stalls — they can damage your phone or be a fire risk.
     `,
+    faqs: [
+      {
+        question: "Can I use a 65W charger for my phone that only takes 20W?",
+        answer: "Yes. The phone only draws what it needs, so a higher-wattage charger will not damage it."
+      }
+    ]
   },
   {
     id: "gadget-topic-6",
@@ -1311,7 +1438,7 @@ Buy from a known brand with over-voltage and short-circuit protection. Avoid unb
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-17",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     excerpt: "Not all phone covers protect against drops. Learn the 3 physical engineering features that shield screens from concrete impacts.",
     content: `
 A phone case is cheap insurance against a cracked screen. Here is what actually protects your phone.
@@ -1332,6 +1459,12 @@ A raised ring around the camera keeps lenses off table surfaces when you lay the
 
 Thick, rugged cases trap heat. If you game or fast-charge while using the phone, a thinner case lets heat escape better.
     `,
+    faqs: [
+      {
+        question: "Which case material is best for drop protection?",
+        answer: "TPU absorbs shock well and does not yellow quickly. Look for raised corners around the screen and camera."
+      }
+    ]
   },
   {
     id: "gadget-topic-7",
@@ -1355,7 +1488,7 @@ Thick, rugged cases trap heat. If you game or fast-charge while using the phone,
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-12",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format&fit=crop&q=80",
+    image: "/images/products.jfif",
     excerpt: "Tired of rebuying cables and chargers every season? Learn the daily habits that destroy accessories and how to preserve them.",
     content: `
 Accessories break because of how we use them, not just because they are cheap. Here is what kills them and how to make them last.
@@ -1380,6 +1513,12 @@ A cable plugged into a charger but not a phone still draws a small current and c
 
 A रू 800 certified cable lasts two years. A रू 200 street cable lasts two months. Buy certified and replace less often.
     `,
+    faqs: [
+      {
+        question: "Why do charging cables fail near the plug?",
+        answer: "People pull the cord to unplug them instead of gripping the plug housing. The strain relief near the plug is the weakest point."
+      }
+    ]
   },
   {
     id: "gadget-topic-8",
@@ -1403,7 +1542,7 @@ A रू 800 certified cable lasts two years. A रू 200 street cable lasts tw
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-08",
-    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80",
+    image: "/images/products.jfif",
     excerpt: "Avoid compatibility surprises. Here is how to verify OS requirements, charging protocols, and Bluetooth audio codecs before clicking order.",
     content: `
 Accessories do not always work with every phone. Check before you buy.
@@ -1428,6 +1567,12 @@ Qi wireless charging is standard, but alignment matters. Some phones need the co
 
 The product listing usually says which models it works with. If your phone model is not listed, ask before buying.
     `,
+    faqs: [
+      {
+        question: "Do all Bluetooth earbuds work with all phones?",
+        answer: "Most do for basic audio, but advanced features like codec support and companion apps may vary by phone model and OS version."
+      }
+    ]
   },
   {
     id: "gadget-topic-9",
@@ -1451,7 +1596,7 @@ The product listing usually says which models it works with. If your phone model
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-04",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     excerpt: "Should you get 9H tempered glass, flexible hydrogel, or matte anti-glare? We compare protection, clarity, and fingerprint scanner compatibility.",
     content: `
 Three main types of screen protectors. Here is how to choose.
@@ -1476,6 +1621,12 @@ Reduces reflections but makes the screen look grainy and reduces clarity. Only g
 
 For most phones, a good 9H tempered glass from a known brand is the best balance of protection and clarity.
     `,
+    faqs: [
+      {
+        question: "Are UV glue screen protectors safe?",
+        answer: "No. The liquid glue can leak into the earpiece, buttons, and charging port, causing permanent damage. Avoid them."
+      }
+    ]
   },
   {
     id: "gadget-topic-10",
@@ -1501,7 +1652,7 @@ For most phones, a good 9H tempered glass from a known brand is the best balance
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-01",
-    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=800&auto=format&fit=crop&q=80",
+    image: "/images/images.jfif",
     excerpt: "From certified GaN chargers to high-capacity power banks, here are the 10 daily accessories that maximize your smartphone experience.",
     content: `
 You do not need dozens of accessories. Here are the ones that genuinely help day to day.
@@ -1546,6 +1697,12 @@ Lets you plug a flash drive into your phone to move files without a computer.
 
 Protects your charger and phone from voltage spikes common on local grids.
     `,
+    faqs: [
+      {
+        question: "What is the most essential smartphone accessory?",
+        answer: "A good case and screen protector. They prevent the most common damage — drops and scratches."
+      }
+    ]
   },
 
   // CLUSTER 4: Smart-Home Devices and Automation (10 Topics)
@@ -1574,7 +1731,7 @@ Protects your charger and phone from voltage spikes common on local grids.
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-13",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "You don't need expensive wall rewiring or imported control hubs to automate your house in Nepal. Learn how to get started affordably under रू 10,000.",
     content: `
 Smart home automation is simpler than it sounds. You do not need rewiring or expensive hubs — just 2.4GHz Wi-Fi and a smartphone app.
@@ -1599,6 +1756,12 @@ Buy devices that work with the same app (Tuya / Smart Life is common in Nepal). 
 
 Nepal's grid has voltage spikes. Use a surge protector for your smart devices, especially the ones connected to high-wattage appliances.
     `,
+    faqs: [
+      {
+        question: "Do I need an electrician to install smart home devices?",
+        answer: "No. Smart bulbs screw into existing holders and smart plugs plug into wall sockets. No rewiring needed."
+      }
+    ]
   },
   {
     id: "smart-topic-2",
@@ -1622,7 +1785,7 @@ Nepal's grid has voltage spikes. Use a surge protector for your smart devices, e
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-08",
-    image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Should you spend रू 1,150 on a smart Wi-Fi bulb or stick to a standard रू 150 LED? We break down energy efficiency and real lifestyle value.",
     content: `
 A smart bulb costs about 7 to 8 times more than a regular LED. Here is whether it is worth it.
@@ -1646,6 +1809,12 @@ Smart bulbs are worth it for hard-to-reach lights, security simulation when you 
 
 A smart bulb saves money only if it prevents lights being left on all day. Otherwise, you are paying for convenience, not energy savings.
     `,
+    faqs: [
+      {
+        question: "Do smart bulbs use electricity when turned off?",
+        answer: "A tiny amount of standby power — a few rupees per month — to stay connected to Wi-Fi."
+      }
+    ]
   },
   {
     id: "smart-topic-3",
@@ -1669,7 +1838,7 @@ A smart bulb saves money only if it prevents lights being left on all day. Other
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-04",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Planning to automate your water geyser or room heater? Don't make the mistake of using a 10A plug. Learn why 16A capacity is mandatory.",
     content: `
 A 10A smart plug is fine for a lamp or a fan. It is not safe for a water geyser, room heater, or water pump. Here is why.
@@ -1694,6 +1863,12 @@ After load-shedding or a power cut, some plugs forget their state. Choose a plug
 
 Never put a geyser or heater on a 10A plug. The extra रू 300–500 for a 16A plug is cheaper than a fire.
     `,
+    faqs: [
+      {
+        question: "Can I use a 10A smart plug for my geyser?",
+        answer: "No. A geyser draws 2000 to 3000 watts, which can overheat a 10A plug. Use a 16A fire-retardant plug instead."
+      }
+    ]
   },
   {
     id: "smart-topic-4",
@@ -1717,7 +1892,7 @@ Never put a geyser or heater on a 10A plug. The extra रू 300–500 for a 16A
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-28",
-    image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Can't get your smart bulb or security camera to pair with your Wi-Fi router? Here is the exact 2.4GHz router tweak that solves it.",
     content: `
 Most smart bulbs, cameras, and plugs only work on 2.4GHz Wi-Fi. If your router uses a single network name for both 2.4GHz and 5GHz, pairing often fails. Here is the fix.
@@ -1738,6 +1913,12 @@ During setup, keep the smart device in the same room as the router. Thick concre
 
 Use the Tuya Smart or Smart Life app for most budget devices. Make sure your phone is on the 2.4GHz network while you pair.
     `,
+    faqs: [
+      {
+        question: "Why won't my smart bulb connect to Wi-Fi?",
+        answer: "Most smart bulbs only work on 2.4GHz Wi-Fi. If your router uses one network name for both bands, split them into separate names."
+      }
+    ]
   },
   {
     id: "smart-topic-5",
@@ -1761,7 +1942,7 @@ Use the Tuya Smart or Smart Life app for most budget devices. Make sure your pho
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-23",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Understand how Google Assistant and Amazon Alexa integrate with smart devices, and why Tuya-compatible gadgets are easiest to maintain in Nepal.",
     content: `
 You do not need to pick one ecosystem and stick with it. Here is how the main options compare in Nepal.
@@ -1782,6 +1963,12 @@ Most budget smart bulbs, plugs, and cameras in Nepal use Tuya or Smart Life. The
 
 Do not buy devices from five different brands with five different apps. Start with Tuya-compatible devices, add voice control if you want it, and expand gradually.
     `,
+    faqs: [
+      {
+        question: "Do I need a smart speaker for Google Home or Alexa?",
+        answer: "No. Your phone runs the assistant. You can control devices from the app without buying a smart speaker."
+      }
+    ]
   },
   {
     id: "smart-topic-6",
@@ -1805,7 +1992,7 @@ Do not buy devices from five different brands with five different apps. Start wi
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-19",
-    image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Confused between smart wall switches and smart bulbs? We compare installation complexity, tenant-friendliness, and everyday family habits.",
     content: `
 Smart bulbs and smart switches both control your lights, but they solve different problems.
@@ -1827,6 +2014,12 @@ Homeowners: smart switches for main rooms if you have neutral wiring. Smart bulb
 
 A smart bulb costs रू 1,000–1,500. A smart switch costs रू 2,000–3,500 plus electrician labour.
     `,
+    faqs: [
+      {
+        question: "Can I install a smart switch myself?",
+        answer: "Only if you have electrical knowledge and your wall has a neutral wire. Otherwise, hire an electrician."
+      }
+    ]
   },
   {
     id: "smart-topic-7",
@@ -1850,7 +2043,7 @@ A smart bulb costs रू 1,000–1,500. A smart switch costs रू 2,000–3,5
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-13",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80",
+    image: "/images/arduino-learning-board.webp",
     excerpt: "A practical 3-step blueprint to modernizing your home lighting, appliance scheduling, and security for under रू 15,000.",
     content: `
 A complete smart-home setup does not have to cost a fortune. Here is a three-phase plan under रू 15,000.
@@ -1875,6 +2068,12 @@ Extra bulbs for other rooms, or a second smart plug for the room heater.
 
 Timing your geyser to run only when needed can save रू 500–1,200 per month in winter. The setup pays for itself within a year.
     `,
+    faqs: [
+      {
+        question: "How much does a basic smart home setup cost?",
+        answer: "You can start with about रू 3,000 for one smart bulb, and expand from there."
+      }
+    ]
   },
   {
     id: "smart-topic-8",
@@ -1899,7 +2098,7 @@ Timing your geyser to run only when needed can save रू 500–1,200 per month
     isPillar: false,
     readTime: "6 min read",
     publishedDate: "2026-02-09",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80",
+    image: "/images/electronics-board-diagnostics.jpg",
     excerpt: "Keep an eye on your home or storefront in Itahari. Learn how to compare 2K resolution, human motion alerts, and offline memory card recording.",
     content: `
 Security cameras range from simple to complex. Here is what to compare before buying.
@@ -1928,6 +2127,12 @@ Lets you speak to someone at the door through the camera. Useful for delivery pe
 
 Point cameras away from bedrooms and bathrooms. Use a physical shutter or turn the camera off when you are home if you are concerned about being watched.
     `,
+    faqs: [
+      {
+        question: "Do security cameras need a monthly subscription?",
+        answer: "No if you record to a microSD card. Cloud storage costs a monthly fee but keeps footage safe offsite."
+      }
+    ]
   },
   {
     id: "smart-topic-9",
@@ -1951,7 +2156,7 @@ Point cameras away from bedrooms and bathrooms. Use a physical shutter or turn t
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-06",
-    image: "https://images.unsplash.com/photo-1550985616-10810253b84d?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Device showing 'Device Offline' in Smart Life or Tuya? Follow this quick troubleshooting checklist to restore instant connection.",
     content: `
 Smart devices go offline for a few common reasons. Here is how to fix them.
@@ -1976,6 +2181,12 @@ Most bulbs and plugs have a soft reset (turn off and on three times) and a hard 
 
 Make sure your phone is on the same 2.4GHz Wi-Fi network as the device during pairing. Smart devices do not work on 5GHz.
     `,
+    faqs: [
+      {
+        question: "Why does my smart bulb keep going offline?",
+        answer: "Usually a weak Wi-Fi signal through thick concrete walls. Move the router closer or use a Wi-Fi extender."
+      }
+    ]
   },
   {
     id: "smart-topic-10",
@@ -1999,7 +2210,7 @@ Make sure your phone is on the same 2.4GHz Wi-Fi network as the device during pa
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-02",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&auto=format&fit=crop&q=80",
+    image: "/images/smart-wifi-switch.jpg",
     excerpt: "Leaving water geysers and heaters running wastes thousands of rupees every winter. Discover how automated 16A smart plugs pay for themselves.",
     content: `
 Water geysers and room heaters are the biggest electricity users in Nepali homes. Here is how a smart plug cuts the bill.
@@ -2024,6 +2235,12 @@ A 16A smart plug with energy monitoring (रू 1,750) shows you exactly how muc
 
 Never put a geyser on a 10A plug. Use a 16A fire-retardant plug for heavy thermal loads.
     `,
+    faqs: [
+      {
+        question: "How much can I save with a smart plug on my geyser?",
+        answer: "Cutting geyser runtime from four hours to one hour per day can save रू 3,000–4,500 monthly in winter."
+      }
+    ]
   },
 
   // CLUSTER 5: Power Banks and Charging Solutions (10 Topics)
@@ -2049,7 +2266,7 @@ Never put a geyser on a 10A plug. Use a 16A fire-retardant plug for heavy therma
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-10",
-    image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "A 10,000mAh power bank does not give you 10,000mAh. Here is how much you really get, which wattage to look for, and what to avoid.",
     content: `
 A power bank is one of those things people buy in a hurry, usually at a bus park or from a street stall, and then find out it does not do what the box said. The label is not a lie exactly, but it does need explaining.
@@ -2109,7 +2326,7 @@ Nepal domestic airlines and international carriers allow power banks under 100Wh
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-05",
-    image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Understand the physics behind power bank energy transfer and learn how to calculate true usable battery capacity.",
     content: `
 Power bank labels use mAh, but that is not what your phone actually receives. Here is the math.
@@ -2130,6 +2347,12 @@ Gives about 12,500 to 13,200mAh at 5V. That is two and a half to three full char
 
 If a box says 50,000mAh for रू 1,000, the number is made up. The bank will be heavy and charge slowly. Stick to known brands and realistic capacity claims.
     `,
+    faqs: [
+      {
+        question: "Does a 50,000mAh power bank for रू 1,000 exist?",
+        answer: "No. That claim is invented. Stick to known brands with realistic capacity ratings."
+      }
+    ]
   },
   {
     id: "power-topic-3",
@@ -2153,7 +2376,7 @@ If a box says 50,000mAh for रू 1,000, the number is made up. The bank will b
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-01",
-    image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Make sure your next power bank has two-way USB-C Power Delivery. Learn why input recharging speed is just as important as output speed.",
     content: `
 Not all USB-C ports on a power bank work the same way. Here is what to check.
@@ -2174,6 +2397,12 @@ Some banks let you charge the bank and your phone at the same time. This is conv
 
 A power bank with a digital percentage display is much more useful than one with four blinking LED dots. You know exactly how much charge is left.
     `,
+    faqs: [
+      {
+        question: "Can I charge my phone and the power bank at the same time?",
+        answer: "Some banks support pass-through charging, but it generates extra heat. Use it only when necessary."
+      }
+    ]
   },
   {
     id: "power-topic-4",
@@ -2197,7 +2426,7 @@ A power bank with a digital percentage display is much more useful than one with
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-25",
-    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Will your phone trigger fast charging with a new power bank? Here is how to cross-reference protocols before purchasing.",
     content: `
 Fast charging only works when both the power bank and the phone speak the same language. Here is how to match them.
@@ -2222,6 +2451,12 @@ If your household has different brands, get a power bank with a multi-protocol c
 
 Check your phone's fast-charging standard before buying. A 65W PD bank will not fast-charge a phone that only supports Quick Charge.
     `,
+    faqs: [
+      {
+        question: "Will a PD power bank fast-charge my Xiaomi phone?",
+        answer: "Only if your Xiaomi supports PD. Otherwise it will charge at slow standard speed."
+      }
+    ]
   },
   {
     id: "power-topic-5",
@@ -2245,7 +2480,7 @@ Check your phone's fast-charging standard before buying. A 65W PD bank will not 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-21",
-    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Learn how to read the tiny electrical specifications printed on power banks to calculate true charging speed.",
     content: `
 The spec label on a power bank uses volts, amps, and watts. Here is how to read them.
@@ -2270,6 +2505,12 @@ When you plug two phones into a 22.5W power bank, the wattage splits. Each port 
 
 Match the power bank's output to what your device needs. Buying 65W for a phone that takes 20W is wasted money.
     `,
+    faqs: [
+      {
+        question: "Can I charge two phones at once from one power bank?",
+        answer: "Yes, but the wattage splits between ports. Each phone may charge more slowly."
+      }
+    ]
   },
   {
     id: "power-topic-6",
@@ -2293,7 +2534,7 @@ Match the power bank's output to what your device needs. Buying 65W for a phone 
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-16",
-    image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Will a fast power bank fry your earbuds? Learn how intelligent current handshake works and how to activate trickle-charging mode.",
     content: `
 A powerful power bank will not damage small devices — they only draw what they need. Here is how it works.
@@ -2314,6 +2555,12 @@ Many modern power banks have a low-current or trickle-charge mode. Press the pow
 
 Use the right cable — Lightning for iPhone, Type-C for most Android phones, Micro-USB for older devices and earbud cases. A mismatched cable will not charge at all.
     `,
+    faqs: [
+      {
+        question: "Can a 65W power bank damage my earbuds?",
+        answer: "No. The earbuds and power bank negotiate the current. The earbuds only draw what they need."
+      }
+    ]
   },
   {
     id: "power-topic-7",
@@ -2337,7 +2584,7 @@ Use the right cable — Lightning for iPhone, Type-C for most Android phones, Mi
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-11",
-    image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Does charging your phone from a power bank damage its battery health? We examine the electrical facts and safe charging practices.",
     content: `
 A good power bank is safe for daily use. The real enemy of your battery is heat, not the power bank itself.
@@ -2358,6 +2605,12 @@ Use a wall charger at home overnight or when you have time. Use a power bank whe
 
 Cheap power banks with no temperature control can overheat. Stick to known brands with proper protection circuits.
     `,
+    faqs: [
+      {
+        question: "Is it safe to charge my phone with a power bank every day?",
+        answer: "Yes, if you use a quality power bank. Just avoid using the phone heavily while charging, as heat damages the battery."
+      }
+    ]
   },
   {
     id: "power-topic-8",
@@ -2381,7 +2634,7 @@ Cheap power banks with no temperature control can overheat. Stick to known brand
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-07",
-    image: "https://images.unsplash.com/photo-1609592424364-772ebad01579?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Lithium batteries store significant chemical energy. Follow these crucial safety rules to prevent overheating, swelling, and fire hazards.",
     content: `
 Power banks contain lithium cells that store a lot of energy. Handle them safely.
@@ -2406,6 +2659,12 @@ If a power bank gets wet, do not charge it. Dry it thoroughly and test it carefu
 
 Do not throw a depleted power bank in the trash. Take it to an electronics waste collection point.
     `,
+    faqs: [
+      {
+        question: "What should I do if my power bank starts swelling?",
+        answer: "Move it away from flammable materials, do not charge it, and take it to an electronics recycling point. Do not puncture or crush it."
+      }
+    ]
   },
   {
     id: "power-topic-9",
@@ -2429,7 +2688,7 @@ Do not throw a depleted power bank in the trash. Take it to an electronics waste
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-03",
-    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Thinking of buying a massive 20,000mAh or 30,000mAh power bank? Make sure you check recharging times and physical weight first.",
     content: `
 High-capacity power banks sound useful, but they come with trade-offs. Here is what to check.
@@ -2454,6 +2713,12 @@ Batteries over 27,000mAh (100Wh) are restricted on flights. A 20,000mAh bank is 
 
 If you only charge one phone once a day, a 10,000mAh slim bank is enough. Get 20,000mAh or more only for multi-day travel or if you charge multiple devices.
     `,
+    faqs: [
+      {
+        question: "Can I take a 30,000mAh power bank on a flight?",
+        answer: "No. Batteries over 27,000mAh (100Wh) are restricted. A 20,000mAh bank (about 74Wh) is allowed in cabin baggage."
+      }
+    ]
   },
   {
     id: "power-topic-10",
@@ -2477,7 +2742,7 @@ If you only charge one phone once a day, a 10,000mAh slim bank is enough. Get 20
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-01-30",
-    image: "https://images.unsplash.com/photo-1622445262464-84b14e5722b6?w=800&auto=format&fit=crop&q=80",
+    image: "/images/my-power-20000mah.jpg",
     excerpt: "Left your power bank in a drawer for six months and now it won't turn on? Learn how to store lithium cells properly to ensure years of service.",
     content: `
 A power bank left unused will die if you do not store it correctly. Here is how to make it last years.
@@ -2502,6 +2767,12 @@ Store in a cool, dry place away from direct sunlight and dampness. Heat ages lit
 
 A power bank used and recharged every few months stays healthier than one left in a drawer for a year.
     `,
+    faqs: [
+      {
+        question: "How should I store a power bank long term?",
+        answer: "Charge it to 50 to 60 percent, store in a cool dry place, and check it every three months."
+      }
+    ]
   }
 ];
 

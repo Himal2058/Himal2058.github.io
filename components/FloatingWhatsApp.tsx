@@ -15,19 +15,28 @@ export function FloatingWhatsApp() {
   const photoInput = useRef<HTMLInputElement>(null);
 
   const context = pathname.startsWith('/mobile-repair')
-    ? 'Phone repair'
-    : pathname.startsWith('/products') || pathname.startsWith('/mobile-phones') || pathname.startsWith('/gadgets-accessories') || pathname.startsWith('/smart-home') || pathname.startsWith('/power-banks')
-      ? 'Product question'
-      : pathname.startsWith('/blog')
-        ? 'Guide question'
-        : 'Website question';
+    ? 'Mobile phone repair'
+    : pathname.startsWith('/electronic-device-repair-itahari') || pathname.startsWith('/electronics-repair')
+      ? 'Electronics repair in Itahari'
+      : pathname.startsWith('/customer-service')
+        ? 'Customer support request'
+        : pathname.startsWith('/contact')
+          ? 'Contact the shop'
+          : pathname.startsWith('/products') || pathname.startsWith('/mobile-phones') || pathname.startsWith('/gadgets-accessories') || pathname.startsWith('/smart-home') || pathname.startsWith('/power-banks')
+            ? 'Product question'
+            : pathname.startsWith('/blog')
+              ? 'Question about a repair guide'
+              : pathname === '/'
+                ? 'Electronics repair or product enquiry'
+                : 'Customer help request';
+  const [topic, setTopic] = useState(context);
 
-  const buildMessage = () => `Hello Himal Product & Services, I need help from your website.\nAbout: ${context}\n\n${message.trim()}${photo ? `\n\nPhoto to attach: ${photo.name}` : ''}`;
+  const buildMessage = () => `Hello Himal Product & Services, I need help from your website.\nAbout: ${topic}\n\n${message.trim()}`;
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = buildMessage();
-    setNotice(photo ? 'WhatsApp is opening with your message. In the chat, attach the selected photo before you send.' : 'WhatsApp is opening with your message ready to send.');
+    setNotice(photo ? 'WhatsApp is opening directly to the shop. Attach the selected photo in the chat before sending; websites cannot attach local photos automatically to a WhatsApp chat link.' : 'WhatsApp is opening directly to the shop with your message ready to send.');
     window.open(getWhatsAppLink(text), '_blank', 'noopener,noreferrer');
   }
 
@@ -48,6 +57,12 @@ export function FloatingWhatsApp() {
           </Link>
 
           <form onSubmit={handleSubmit} className="space-y-3 p-4">
+            <div>
+              <label htmlFor="support-topic" className="mb-1 block text-sm font-medium text-ink">What is this about?</label>
+              <select id="support-topic" value={topic} onChange={e => setTopic(e.target.value)} className="min-h-11 w-full rounded-xl border border-line bg-canvas px-3 text-sm text-ink focus:border-brand-500 focus:bg-white focus:outline-none">
+                {[...new Set([context, 'Electronics repair', 'Mobile phone repair', 'Product question', 'Order or delivery', 'Existing repair update', 'Warranty or return', 'Other question'])].map(option => <option key={option}>{option}</option>)}
+              </select>
+            </div>
             <label htmlFor="support-message" className="block text-sm font-medium text-ink">Tell us what you need</label>
             <textarea id="support-message" required minLength={5} maxLength={1200} rows={4} value={message} onChange={e => setMessage(e.target.value)} placeholder="Describe the fault, product, or question…" className="w-full resize-y rounded-xl border border-line bg-canvas px-3 py-2.5 text-sm leading-6 text-ink placeholder:text-muted focus:border-brand-500 focus:bg-white focus:outline-none" />
 
@@ -62,7 +77,7 @@ export function FloatingWhatsApp() {
             </div>
 
             {notice && <p role="status" className="rounded-lg bg-brand-50 p-2.5 text-xs leading-5 text-brand-900">{notice}</p>}
-            <button type="submit" className="btn-primary w-full"><Send className="size-4" aria-hidden="true" /><span>Continue to WhatsApp</span><ArrowUpRight className="ml-auto size-4" aria-hidden="true" /></button>
+            <button type="submit" className="btn-primary w-full"><Send className="size-4" aria-hidden="true" /><span>Open WhatsApp chat</span><ArrowUpRight className="ml-auto size-4" aria-hidden="true" /></button>
             <p className="text-center text-xs leading-5 text-muted">Your message goes to the shop on WhatsApp. This website does not store it.</p>
           </form>
         </section>
