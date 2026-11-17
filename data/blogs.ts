@@ -2794,7 +2794,7 @@ A power bank used and recharged every few months stays healthier than one left i
       "Confirm the workshop, parts, estimate and timing",
       "Agree on the repair before work begins"
     ],
-    isPillar: false,
+    isPillar: true,
     readTime: "4 min read",
     publishedDate: "2026-11-17",
     image: "/images/electronics-board-diagnostics.jpg",

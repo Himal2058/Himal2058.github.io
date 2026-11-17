@@ -60,6 +60,7 @@ export function getOrganizationSchema() {
     "sameAs": [
       siteConfig.social.facebook,
       siteConfig.social.hamrobazaar,
+      siteConfig.social.youtube,
       siteConfig.googleMapsUrl
     ],
     "currenciesAccepted": "NPR"

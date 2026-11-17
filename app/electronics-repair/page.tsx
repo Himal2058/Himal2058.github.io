@@ -72,6 +72,13 @@ export default function ElectronicsRepairPage() {
               </div>
             </article>)}
           </div>
+          <aside className="mt-5 rounded-card border border-line bg-surface p-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
+            <div>
+              <h3 className="font-semibold text-ink">Planning a workshop visit?</h3>
+              <p className="mt-1 text-sm leading-6 text-muted">Use this short checklist to prepare your model details, photos and questions before contacting the shop.</p>
+            </div>
+            <Link href="/blog/electronic-device-repair-itahari-visit-guide" className="link-arrow mt-2 shrink-0 sm:mt-0">Read the repair visit guide <ArrowRight className="size-4" aria-hidden="true" /></Link>
+          </aside>
         </div>
       </section>
 

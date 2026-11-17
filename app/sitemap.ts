@@ -28,7 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about-us',
     '/contact',
     '/customer-service',
-    '/feedback',
     '/store-location',
     '/warranty',
     '/repair-policy',
@@ -72,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85
   }));
 
-  // 5. 50 Blog Articles
+  // 5. Published blog articles
   const blogRoutes = blogTopics.map(blog => ({
     url: `${baseUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.publishedDate),

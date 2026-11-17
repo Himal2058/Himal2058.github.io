@@ -179,6 +179,14 @@ export function Footer() {
             >
               Hamrobazaar
             </a>
+            <a
+              href={siteConfig.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink hover:underline hover:underline-offset-2"
+            >
+              YouTube
+            </a>
           </div>
         </div>
 

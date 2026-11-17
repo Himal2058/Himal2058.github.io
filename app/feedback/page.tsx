@@ -6,7 +6,8 @@ import { siteConfig } from '@/data/siteConfig';
 
 export const metadata = {
   title: 'Customer Feedback and Service Reviews | Himal Product and Services',
-  description: 'Rate your repair, purchase, delivery or support experience with Himal Product and Services in Morang, Nepal.'
+  description: 'Rate your repair, purchase, delivery or support experience with Himal Product and Services in Morang, Nepal.',
+  robots: { index: false, follow: true }
 };
 
 export default function FeedbackPage() {

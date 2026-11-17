@@ -9,6 +9,13 @@ export interface ContextualInternalLink {
 // Curated article-to-service links. Unmapped articles intentionally skip this
 // section when the source topic does not have a strong, useful next step.
 export const contextualInternalLinks: Record<string, ContextualInternalLink> = {
+  "electronic-device-repair-itahari-visit-guide": {
+    heading: "Check local repair options before your visit",
+    before: "If you are comparing repair options near Itahari, start with the workshop’s service details, device categories and contact steps. Visit the ",
+    anchor: "electronics repair service page for Itahari and eastern Nepal",
+    after: " to confirm the shop location and ask whether your model can be assessed.",
+    href: "/electronic-device-repair-itahari",
+  },
   "phone-stops-charging-reasons-fixes": {
     heading: "When phone charging checks point to the port",
     before: "If a known-good cable and adapter still fail, or the connector only works at an angle, avoid forcing it further. A bench inspection can help distinguish a worn port from a cable or battery issue. See ",
