@@ -31,7 +31,7 @@ export const products: Product[] = [
     originalPrice: 28999,
     inStock: true,
     warranty: "1 Year Official Brand Warranty (MDMS Registered)",
-    image: "/images/redmi-note-13.jfif",
+    image: "/images/redmi-note-13.jpg",
     specs: {
       "Display": "6.67\" FHD+ AMOLED, 120Hz Refresh Rate",
       "Processor": "MediaTek Dimensity 6080 / Snapdragon 685",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     originalPrice: 29999,
     inStock: true,
     warranty: "1 Year Official Samsung Nepal Warranty + 1 Time Screen Care Option",
-    image: "/images/samsung-galaxy-a15.jfif",
+    image: "/images/samsung-galaxy-a15.jpg",
     specs: {
       "Display": "6.5\" Super AMOLED, 90Hz",
       "Processor": "MediaTek Dimensity 6100+",
@@ -92,7 +92,7 @@ export const products: Product[] = [
     originalPrice: 147000,
     inStock: true,
     warranty: "1 Year Apple International & Nepal Authorized Warranty",
-    image: "/images/iphone-15.jfif",
+    image: "/images/iphone-15.jpg",
     specs: {
       "Display": "6.1\" Super Retina XDR with Dynamic Island",
       "Chipset": "A16 Bionic with 5-core GPU",
@@ -154,7 +154,7 @@ export const products: Product[] = [
     originalPrice: 3500,
     inStock: true,
     warranty: "1 Year Replacement Warranty",
-    image: "/images/images.jfif",
+    image: "/images/images.jpg",
     specs: {
       "Technology": "Gallium Nitride (GaN)",
       "Total Output": "65W Max (PD 3.0, QC 4.0+, PPS)",
@@ -184,7 +184,7 @@ export const products: Product[] = [
     originalPrice: 1200,
     inStock: true,
     warranty: "6 Months Replacement Warranty",
-    image: "/images/images (1).jfif",
+    image: "/images/images (1).jpg",
     specs: {
       "Wattage": "100W Power Delivery (20V / 5A) E-Marker Smart Chip",
       "Length": "2.0 Meters",
@@ -245,7 +245,7 @@ export const products: Product[] = [
     originalPrice: 4800,
     inStock: true,
     warranty: "1 Year Official Warranty",
-    image: "/images/images (2).jfif",
+    image: "/images/images (2).jpg",
     specs: {
       "Audio Output": "16W Dual Drivers with BassBoost",
       "Battery Life": "Up to 20 Hours Continuous Playback",

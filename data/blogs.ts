@@ -45,7 +45,7 @@ export const blogTopics: BlogPost[] = [
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-15",
-    image: "/images/repair.jfif",
+    image: "/images/repair.jpg",
     excerpt: "Before assuming the battery or the board is gone, test the cable, the adapter and the port. Most charging faults turn out to be one of those.",
     content: `
 A phone that will not charge is one of the most common things we see at the counter. In most cases it is not the board. It is the cable, the lint in the port, or the adapter. Here is the order we check things in, and you can do the first two steps at home.
@@ -106,7 +106,7 @@ We test the phone on a USB power meter to see the actual voltage and current. A 
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-12",
-    image: "/images/repair 2.jfif",
+    image: "/images/repair 2.jpg",
     excerpt: "A cracked screen is not always a full replacement. Here is how to tell whether it is the glass or the panel, and what each repair costs in Itahari.",
     content: `
 A cracked screen is the most common repair we do. What matters for the price is not how big the crack looks, but which layer broke.
@@ -179,7 +179,7 @@ A screen for most common models takes 45 to 90 minutes if the part is in stock.
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-10",
-    image: "/images/repair 3.jfif",
+    image: "/images/repair 3.jpg",
     excerpt: "If your smartphone drains 30% while idle overnight or dies before 4:00 PM, learn how to audit your software and when it is time to install a fresh cell.",
     content: `
 A battery that dies by evening is usually doing one of two things: running apps you forgot about, or wearing out chemically. Here is how to tell the difference.
@@ -230,7 +230,7 @@ A new battery costs रू 1,200 to 4,500 depending on the model. It is worth it
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-03-08",
-    image: "/images/repair 4.jfif",
+    image: "/images/repair 4.jpg",
     excerpt: "Excessive heat damages battery health and processor performance. Discover how to identify whether your phone heat is software-related or a hardware fault.",
     content: `
 Some warmth is normal when charging or gaming. Real overheating — the phone becomes too hot to hold, or shuts down to protect itself — is a problem. Here is how to tell them apart and what to do.
@@ -285,7 +285,7 @@ A localized hotspot — one corner of the phone that is always hotter than the r
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-03-05",
-    image: "/images/repair 5.jfif",
+    image: "/images/repair 5.jpg",
     excerpt: "Follow this 5-point checklist before handing your phone to any repair workshop to safeguard your private data, photos, and physical accessories.",
     content: `
 Before you hand your phone over for repair, take five minutes to protect your data and avoid surprises.
@@ -339,7 +339,7 @@ Take a quick photo of any scratches, dents, or cracks before you leave the phone
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-03-02",
-    image: "/images/repair 6.jfif",
+    image: "/images/repair 6.jpg",
     excerpt: "Learn how to use Android Maintenance Mode and password isolation so your personal media and banking apps remain 100% inaccessible to technicians.",
     content: `
 You do not need to hand over an unlocked phone for most repairs. Screen, battery, and charging port work can all be done without the technician seeing your photos, messages, or banking apps.
@@ -549,7 +549,7 @@ Plug in earphones. If callers sound clear through earphones but not through the 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-15",
-    image: "/images/products.jfif",
+    image: "/images/products.jpg",
     excerpt: "Is fixing your phone a smart investment or throwing good money after bad? Here is how to make the right financial decision in Nepal.",
     content: `
 Repairing is usually cheaper than replacing — but not always. Here is how to decide.
@@ -1155,7 +1155,7 @@ The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill 
     isPillar: true,
     readTime: "6 min read",
     publishedDate: "2026-03-11",
-    image: "/images/images (1).jfif",
+    image: "/images/images (1).jpg",
     excerpt: "Every USB-C cable looks the same, but a 60W cable will not charge a laptop properly and a generic cable slows down a Xiaomi or Oppo phone. Here is what to check.",
     content: `
 Every USB-C plug looks the same, so people assume every USB-C cable does the same job. It does not. The wire inside decides whether your phone charges in half an hour or takes most of the afternoon.
@@ -1330,7 +1330,7 @@ Buy wired earphones for home and gaming. Buy wireless earbuds for travel and exe
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-26",
-    image: "/images/images (2).jfif",
+    image: "/images/images (2).jpg",
     excerpt: "Don't fall for fake wattage claims. Here is how to evaluate real acoustic wattage, bass radiators, and battery capacity in Bluetooth speakers.",
     content: `
 Bluetooth speaker specs are often exaggerated. Here is what actually matters.
@@ -1384,7 +1384,7 @@ Some speakers let you pair two units for left-right stereo. This is worth it if 
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-22",
-    image: "/images/images.jfif",
+    image: "/images/images.jpg",
     excerpt: "Phone shipped without a charger? Learn how to choose a certified GaN adapter that charges your phone at maximum speed safely.",
     content: `
 Many phones no longer ship with a charger in the box. Here is how to pick the right one.
@@ -1438,7 +1438,7 @@ Buy from a known brand with over-voltage and short-circuit protection. Avoid unb
     isPillar: false,
     readTime: "4 min read",
     publishedDate: "2026-02-17",
-    image: "/images/images.jfif",
+    image: "/images/images.jpg",
     excerpt: "Not all phone covers protect against drops. Learn the 3 physical engineering features that shield screens from concrete impacts.",
     content: `
 A phone case is cheap insurance against a cracked screen. Here is what actually protects your phone.
@@ -1488,7 +1488,7 @@ Thick, rugged cases trap heat. If you game or fast-charge while using the phone,
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-12",
-    image: "/images/products.jfif",
+    image: "/images/products.jpg",
     excerpt: "Tired of rebuying cables and chargers every season? Learn the daily habits that destroy accessories and how to preserve them.",
     content: `
 Accessories break because of how we use them, not just because they are cheap. Here is what kills them and how to make them last.
@@ -1542,7 +1542,7 @@ A रू 800 certified cable lasts two years. A रू 200 street cable lasts tw
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-08",
-    image: "/images/products.jfif",
+    image: "/images/products.jpg",
     excerpt: "Avoid compatibility surprises. Here is how to verify OS requirements, charging protocols, and Bluetooth audio codecs before clicking order.",
     content: `
 Accessories do not always work with every phone. Check before you buy.
@@ -1596,7 +1596,7 @@ The product listing usually says which models it works with. If your phone model
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-04",
-    image: "/images/images.jfif",
+    image: "/images/images.jpg",
     excerpt: "Should you get 9H tempered glass, flexible hydrogel, or matte anti-glare? We compare protection, clarity, and fingerprint scanner compatibility.",
     content: `
 Three main types of screen protectors. Here is how to choose.
@@ -1652,7 +1652,7 @@ For most phones, a good 9H tempered glass from a known brand is the best balance
     isPillar: false,
     readTime: "5 min read",
     publishedDate: "2026-02-01",
-    image: "/images/images.jfif",
+    image: "/images/images.jpg",
     excerpt: "From certified GaN chargers to high-capacity power banks, here are the 10 daily accessories that maximize your smartphone experience.",
     content: `
 You do not need dozens of accessories. Here are the ones that genuinely help day to day.
