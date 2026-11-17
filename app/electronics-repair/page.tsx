@@ -32,7 +32,8 @@ export default function ElectronicsRepairPage() {
       <div className="container-page pt-6"><Breadcrumbs items={[{ name: 'Electronics repair', url: '/electronics-repair' }]} /></div>
 
       <section className="premium-hero border-b border-line">
-        <div className="container-page py-10 md:py-14">
+        <div className="container-page grid items-center gap-8 py-10 md:py-14 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
           <p className="hero-kicker"><span className="hero-kicker-dot" /> REPAIR SUPPORT FROM KOSHI PROVINCE</p>
           <h1 className="display-1 mt-4 max-w-4xl">From a tiny toy to the TV in your living room.</h1>
           <p className="lede mt-4 max-w-3xl">Himal Product and Services helps customers in Sundarharaincha, Itahari, Dharan, Biratnagar and nearby eastern Nepal with everyday electronics repair enquiries. If you are elsewhere in Nepal, contact us before sending a device so we can confirm safe courier and repair options.</p>
@@ -43,6 +44,14 @@ export default function ElectronicsRepairPage() {
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
             <span className="inline-flex items-center gap-1.5"><MapPin className="size-4 text-brand-700" aria-hidden="true" />Workshop: {siteConfig.address.street}, Morang</span>
             <span className="inline-flex items-center gap-1.5"><PackageCheck className="size-4 text-brand-700" aria-hidden="true" />Courier-in only after we confirm arrangements</span>
+          </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/80 bg-canvas shadow-[var(--shadow-soft)]">
+            <Image src="/images/oscilloscope-board-testing.jpg" alt="Electronic circuit diagnostics with a bench oscilloscope at a repair workspace" fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent p-5 pt-16 text-white">
+              <p className="text-sm font-semibold">Diagnosis before repair</p>
+              <p className="mt-1 text-xs text-white/85">We confirm the fault, parts and estimate with you first.</p>
+            </div>
           </div>
         </div>
       </section>

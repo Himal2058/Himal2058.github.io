@@ -123,7 +123,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="btn-outline"
             >
-              Directions
+              Google Business Profile & directions
             </a>
             <a
               href={getWhatsAppLink('Hello Himal Product & Services, I found you on your website and have a question.')}
@@ -134,6 +134,16 @@ export function Footer() {
               WhatsApp
             </a>
           </div>
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-line pt-4 text-sm">
+          <a href={siteConfig.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 underline-offset-4 hover:underline">
+            Find Himal Product and Services on Google
+          </a>
+          <span className="text-muted">Customers can view the Google listing and leave an honest review there.</span>
+          <a href={`https://wa.me/${siteConfig.whatsappRaw}`} target="_blank" rel="noopener noreferrer" className="font-semibold text-whatsapp underline-offset-4 hover:underline">
+            WhatsApp {siteConfig.phone}
+          </a>
         </div>
 
         <div className="mt-6 flex flex-col gap-2 border-t border-line pt-5 text-xs text-muted md:flex-row md:items-center md:justify-between">

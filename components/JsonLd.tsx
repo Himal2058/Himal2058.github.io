@@ -30,6 +30,7 @@ export function getOrganizationSchema() {
       "@type": "ContactPoint",
       "telephone": siteConfig.phone,
       "contactType": "customer service",
+      "url": `https://wa.me/${siteConfig.whatsappRaw}`,
       "availableLanguage": ["en", "ne"],
       "areaServed": "NP"
     }],
@@ -57,11 +58,11 @@ export function getOrganizationSchema() {
       }
     ],
     "sameAs": [
-      siteConfig.social.facebook
+      siteConfig.social.facebook,
+      siteConfig.social.hamrobazaar,
+      siteConfig.googleMapsUrl
     ],
-    "priceRange": "NPR रू 200 - रू 150000",
-    "currenciesAccepted": "NPR",
-    "paymentAccepted": "Cash, Fonepay, eSewa, Khalti, Mobile Banking"
+    "currenciesAccepted": "NPR"
   };
 }
 

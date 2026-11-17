@@ -42,6 +42,7 @@ export function RepairQuickStart() {
           <label htmlFor="repair-quick-device" className="mb-1 block text-sm font-medium text-ink">What needs repair?</label>
           <select
             id="repair-quick-device"
+            name="device"
             value={device}
             onChange={event => setDevice(event.target.value)}
             className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100"
@@ -53,6 +54,7 @@ export function RepairQuickStart() {
           <label htmlFor="repair-quick-fault" className="mb-1 block text-sm font-medium text-ink">What is the problem?</label>
           <input
             id="repair-quick-fault"
+            name="fault"
             value={fault}
             onChange={event => setFault(event.target.value)}
             maxLength={180}
@@ -62,15 +64,15 @@ export function RepairQuickStart() {
         </div>
         <div>
           <label htmlFor="repair-quick-name" className="mb-1 block text-sm font-medium text-ink">Name <span className="font-normal text-muted">(optional)</span></label>
-          <input id="repair-quick-name" autoComplete="name" value={name} onChange={event => setName(event.target.value)} maxLength={80} placeholder="Your name" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
+          <input id="repair-quick-name" name="name" autoComplete="name" value={name} onChange={event => setName(event.target.value)} maxLength={80} placeholder="Your name" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
         </div>
         <div>
           <label htmlFor="repair-quick-phone" className="mb-1 block text-sm font-medium text-ink">Phone <span className="font-normal text-muted">(optional)</span></label>
-          <input id="repair-quick-phone" type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} maxLength={30} placeholder="98XXXXXXXX" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
+          <input id="repair-quick-phone" name="phone" type="tel" autoComplete="tel" value={phone} onChange={event => setPhone(event.target.value)} maxLength={30} placeholder="98XXXXXXXX" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="repair-quick-email" className="mb-1 block text-sm font-medium text-ink">Email <span className="font-normal text-muted">(optional)</span></label>
-          <input id="repair-quick-email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} maxLength={120} placeholder="you@example.com" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
+          <input id="repair-quick-email" name="email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} maxLength={120} placeholder="you@example.com" className="min-h-11 w-full rounded-lg border border-line bg-canvas px-3 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-100" />
         </div>
       </div>
 

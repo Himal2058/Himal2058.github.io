@@ -2773,6 +2773,71 @@ A power bank used and recharged every few months stays healthier than one left i
         answer: "Charge it to 50 to 60 percent, store in a cool dry place, and check it every three months."
       }
     ]
+  },
+  {
+    id: "local-repair-guide-itahari-2026",
+    title: "Before You Bring an Electronic Device for Repair in Itahari",
+    h1: "Before you bring an electronic device for repair in Itahari",
+    slug: "electronic-device-repair-itahari-visit-guide",
+    cluster: "mobile-repair",
+    primaryQuery: "electronic device repair service in Itahari",
+    secondaryQueries: ["electronics repair Itahari", "phone and gadget repair Morang", "what to bring for electronics repair"],
+    intent: "Local service information",
+    targetAudience: "People in Itahari, Sundarharaincha, Morang and Sunsari who need help with a phone or everyday electronic device.",
+    problemSolved: "Explains what information to prepare, how an initial assessment works, and how to confirm the shop location and service availability before travelling.",
+    parentClusterUrl: "/electronics-repair",
+    relatedClusterSlugs: ["phone-stops-charging-reasons-fixes", "phone-battery-drains-quickly-causes-fixes"],
+    outline: [
+      "Send the device type, brand, model and symptoms",
+      "Take a clear photo of the device label or visible damage",
+      "Back up important data and protect your accounts",
+      "Confirm the workshop, parts, estimate and timing",
+      "Agree on the repair before work begins"
+    ],
+    isPillar: false,
+    readTime: "4 min read",
+    publishedDate: "2026-11-17",
+    image: "/images/electronics-board-diagnostics.jpg",
+    excerpt: "A short checklist for contacting Himal Product and Services about phone, speaker, toy, gadget and household electronics repair near Itahari.",
+    content: `
+If a phone, speaker, toy or household electronic has stopped working, a few details can help the shop tell you what to do next. Himal Product and Services has its workshop in Sundarharaincha-4, Morang. Contact the shop before travelling with a large device or sending an item by courier.
+
+### Share the device details
+
+Tell the shop the device type, brand and exact model if you can find it. Describe what changed and when it started: for example, whether it stopped charging after a cable was pulled, whether a speaker powers on but has no sound, or whether a toy stopped after a battery change. Mention any drop, liquid exposure or recent repair. Avoid guessing at the failed part; symptoms are more useful than a diagnosis.
+
+### Add a useful photo
+
+A clear picture of the model label, charging port, visible damage or screen message may help identify the device. Do not send passwords, banking information, private messages or photos from inside the device. A WhatsApp link can prepare your message, but you attach the image in the WhatsApp chat before sending it.
+
+### Protect your data and safety
+
+Back up important files where possible. Do not share your phone passcode unless a specific test genuinely requires it; ask why it is needed. If a battery is swollen, hot, leaking or damaged, stop charging the device and tell the shop before bringing it in. For liquid exposure, power the device off and do not plug it in to test.
+
+### Confirm the visit before travelling
+
+The workshop is at Sundarharaincha-4, Morang, serving repair enquiries from the Itahari area and nearby eastern Nepal. Use the Google Maps business listing for directions, and message first with the model and fault to check whether that device can be assessed and whether a part or specialist service is needed. Large TVs and appliances may need transport planning.
+
+### Review the estimate before work starts
+
+The shop should explain the inspection result, likely repair, price and expected timing before paid work begins. The final price and time can depend on the model, condition and parts availability. You can decide whether to proceed after hearing the estimate.
+
+To ask about a repair, send the device type, brand/model, symptoms and your town through the electronics repair page or contact the shop directly.
+    `,
+    faqs: [
+      {
+        question: "Where is the Himal repair workshop?",
+        answer: "The workshop is in Sundarharaincha-4, Morang. Check the Google Maps listing for the exact pin and contact the shop before travelling with a large device."
+      },
+      {
+        question: "What information should I send for a repair estimate?",
+        answer: "Send the device type, brand, model, symptoms, your town and a clear photo of the label or visible fault if useful. The shop confirms the assessment and final estimate after inspection."
+      },
+      {
+        question: "Can WhatsApp attach my photo automatically from the website?",
+        answer: "No. The website can open a WhatsApp chat with your message ready, but you need to attach the selected photo inside WhatsApp before sending."
+      }
+    ]
   }
 ];
 
