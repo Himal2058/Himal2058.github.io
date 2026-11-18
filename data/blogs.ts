@@ -2776,62 +2776,70 @@ A power bank used and recharged every few months stays healthier than one left i
   },
   {
     id: "local-repair-guide-itahari-2026",
-    title: "Before You Bring an Electronic Device for Repair in Itahari",
-    h1: "Before you bring an electronic device for repair in Itahari",
+    title: "Electronic Device Repair in Itahari: Prepare for Your Visit",
+    h1: "How do you prepare for electronic device repair in Itahari?",
     slug: "electronic-device-repair-itahari-visit-guide",
     cluster: "mobile-repair",
     primaryQuery: "electronic device repair service in Itahari",
     secondaryQueries: ["electronics repair Itahari", "phone and gadget repair Morang", "what to bring for electronics repair"],
     intent: "Local service information",
     targetAudience: "People in Itahari, Sundarharaincha, Morang and Sunsari who need help with a phone or everyday electronic device.",
-    problemSolved: "Explains what information to prepare, how an initial assessment works, and how to confirm the shop location and service availability before travelling.",
+    problemSolved: "Explains what information to send, how to prepare a device, and how to confirm Himal's workshop and repair availability before travelling.",
     parentClusterUrl: "/electronics-repair",
     relatedClusterSlugs: ["phone-stops-charging-reasons-fixes", "phone-battery-drains-quickly-causes-fixes"],
     outline: [
-      "Send the device type, brand, model and symptoms",
-      "Take a clear photo of the device label or visible damage",
-      "Back up important data and protect your accounts",
-      "Confirm the workshop, parts, estimate and timing",
-      "Agree on the repair before work begins"
+      "Which devices can Himal assess near Itahari?",
+      "What details should I send about the device fault?",
+      "Can I send a photo with my repair enquiry?",
+      "How should I prepare my device before repair?",
+      "How do I confirm the visit and repair estimate?"
     ],
     isPillar: true,
     readTime: "4 min read",
     publishedDate: "2026-11-17",
     image: "/images/electronics-board-diagnostics.jpg",
-    excerpt: "A short checklist for contacting Himal Product and Services about phone, speaker, toy, gadget and household electronics repair near Itahari.",
+    excerpt: "Prepare a phone, speaker, toy or other electronics repair enquiry for Himal's workshop near Itahari. Share the model and fault, then confirm availability before travelling.",
     content: `
-If a phone, speaker, toy or household electronic has stopped working, a few details can help the shop tell you what to do next. Himal Product and Services has its workshop in Sundarharaincha-4, Morang. Contact the shop before travelling with a large device or sending an item by courier.
+Electronic device repair in Itahari starts with identifying the device and describing its fault to Himal Product and Services. The workshop is in Sundarharaincha-4, Morang; contact the shop before travelling to confirm service availability and next steps.
 
-### Share the device details
+## Which devices can Himal assess near Itahari?
 
-Tell the shop the device type, brand and exact model if you can find it. Describe what changed and when it started: for example, whether it stopped charging after a cable was pulled, whether a speaker powers on but has no sound, or whether a toy stopped after a battery change. Mention any drop, liquid exposure or recent repair. Avoid guessing at the failed part; symptoms are more useful than a diagnosis.
+Himal assesses repair enquiries for phones, speakers, toys, gadgets and other electronics. The available repair depends on the device model, fault and parts; send those details before bringing the item to the workshop.
 
-### Add a useful photo
+## What details should I send about the device fault?
 
-A clear picture of the model label, charging port, visible damage or screen message may help identify the device. Do not send passwords, banking information, private messages or photos from inside the device. A WhatsApp link can prepare your message, but you attach the image in the WhatsApp chat before sending it.
+Send the device type, brand, model, symptoms and your town. Describe what the device does and when the problem began, then mention any drop, liquid exposure or previous repair.
 
-### Protect your data and safety
+For example, say that a phone does not charge, a speaker powers on without sound, or a toy stopped working after a battery change. Report the symptoms instead of guessing which component failed. These details help the shop understand the enquiry before inspection.
 
-Back up important files where possible. Do not share your phone passcode unless a specific test genuinely requires it; ask why it is needed. If a battery is swollen, hot, leaking or damaged, stop charging the device and tell the shop before bringing it in. For liquid exposure, power the device off and do not plug it in to test.
+## Can I send a photo with my repair enquiry?
 
-### Confirm the visit before travelling
+Yes, a photo of the model label, visible damage, charging port or error message can add context to your enquiry. The website can open WhatsApp with message text ready, but you must attach the image in the WhatsApp chat before sending it.
 
-The workshop is at Sundarharaincha-4, Morang, serving repair enquiries from the Itahari area and nearby eastern Nepal. Use the Google Maps business listing for directions, and message first with the model and fault to check whether that device can be assessed and whether a part or specialist service is needed. Large TVs and appliances may need transport planning.
+Avoid sharing passcodes, banking details or private content in photos. If the enquiry is about a phone, describe the fault without including personal information from its screen.
 
-### Review the estimate before work starts
+## How should I prepare my device before repair?
 
-The shop should explain the inspection result, likely repair, price and expected timing before paid work begins. The final price and time can depend on the model, condition and parts availability. You can decide whether to proceed after hearing the estimate.
+Back up important files when possible, and keep account passwords private. Ask the technician why a passcode is needed before sharing one for a specific test.
 
-To ask about a repair, send the device type, brand/model, symptoms and your town through the electronics repair page or contact the shop directly.
+If the device has liquid exposure, tell the shop before testing or charging it. Mention a swollen, hot, leaking or visibly damaged battery before bringing the device in, so the shop can advise you about handling it.
+
+## How do I confirm the visit and repair estimate?
+
+Contact Himal with the device model and fault to confirm whether the workshop can assess it and when to visit. The workshop is at Sundarharaincha-4, Morang; use the [Himal Product and Services Google Maps listing](https://www.google.com/maps/place/Himal+product+and+service/data=!4m7!3m6!1s0x39ef6d33be82599b:0xb67ac2eefb668b5f!8m2!3d26.6585252!4d87.2875835!16s%2Fg%2F11nvxkchr9) for directions.
+
+The repair estimate and timing depend on the inspection, device condition and parts availability. Review the confirmed options and price before authorizing paid repair work. For large devices or courier arrangements, confirm transport details with the shop first.
+
+To start an enquiry, use the [electronics repair service in Itahari](/electronics-repair) page and include your town, device model and symptoms.
     `,
     faqs: [
       {
         question: "Where is the Himal repair workshop?",
-        answer: "The workshop is in Sundarharaincha-4, Morang. Check the Google Maps listing for the exact pin and contact the shop before travelling with a large device."
+        answer: "The Himal Product and Services workshop is in Sundarharaincha-4, Morang. Use its Google Maps listing for directions and contact the shop before travelling with a large device."
       },
       {
         question: "What information should I send for a repair estimate?",
-        answer: "Send the device type, brand, model, symptoms, your town and a clear photo of the label or visible fault if useful. The shop confirms the assessment and final estimate after inspection."
+        answer: "Send the device type, brand, model, symptoms and your town. You can attach a photo of the label or visible fault in WhatsApp; the shop confirms repair options and the estimate after inspection."
       },
       {
         question: "Can WhatsApp attach my photo automatically from the website?",
