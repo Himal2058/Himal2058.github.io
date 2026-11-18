@@ -4,9 +4,9 @@ import { BlogHub } from '@/components/BlogHub';
 import { CtaBand } from '@/components/CtaBand';
 
 export const metadata = {
-  title: 'Repair and Buying Guides',
+  title: 'Electronics Repair and Buying Guides | Himal Electronics',
   description:
-    'Notes from the bench: repair costs, battery care, accessory buying advice and smart home setup in Itahari.'
+    'Find practical answers about phone and electronics repair, product care, accessories and smart-home setup from Himal Product and Services in Morang, Nepal.'
 };
 
 export default function BlogHubPage() {

@@ -81,9 +81,9 @@ export default function MobileRepairPage() {
         <div className="container-page py-8 md:py-10">
           <h1 className="display-1">Mobile phone repair in Itahari</h1>
           <p className="lede mt-3 max-w-2xl">
-            Cracked screen, dying battery, loose charging port, or a phone that got wet. Bring it to the
-            counter in Sundarharaincha, Morang, or send us the model and symptoms first. For customers
-            outside eastern Nepal, ask before couriering the phone so we can confirm intake and return arrangements.
+            Himal Product and Services assesses phone faults at its workshop in Sundarharaincha, Morang. Share
+            the model and symptoms before visiting; customers outside eastern Nepal should confirm courier
+            intake and return arrangements with the shop first.
           </p>
 
           <div className="mt-5 flex flex-col gap-2 sm:flex-row">
@@ -124,7 +124,8 @@ export default function MobileRepairPage() {
 
       {/* How it works */}
       <section className="container-page pt-8">
-        <h2 className="heading-3">How a repair works</h2>
+        <h2 className="heading-3">What happens during a mobile phone repair?</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">The technician checks the reported fault, explains the estimate and repair terms, and starts paid work only after you approve.</p>
         <ol className="mt-3 max-w-2xl space-y-2">
           {process.map((step, index) => (
             <li key={step} className="flex gap-3 text-sm leading-6 text-ink-soft">
@@ -140,8 +141,8 @@ export default function MobileRepairPage() {
         <div className="grid gap-6 rounded-2xl border border-line bg-surface p-4 sm:p-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <p className="eyebrow">Diagnosis before parts</p>
-            <h2 className="display-2 mt-1">Find the cause before choosing a repair</h2>
-            <p className="mt-3 text-sm leading-6 text-muted">Charging, power, and board faults can look alike from the outside. A careful inspection and electrical checks help narrow down the cause before we quote a part.</p>
+            <h2 className="display-2 mt-1">How does the workshop diagnose a phone fault?</h2>
+            <p className="mt-3 text-sm leading-6 text-muted">The workshop checks the reported symptoms and relevant electrical functions to distinguish charging, power and board faults before recommending a part.</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <figure className="overflow-hidden rounded-xl border border-line bg-canvas">
@@ -159,7 +160,7 @@ export default function MobileRepairPage() {
       {/* Services */}
       <section className="container-page pt-10">
         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
-          <h2 className="heading-3">Repairs we do</h2>
+          <h2 className="heading-3">Which mobile phone repairs can Himal assess?</h2>
           <Link href="/repair-price" className="text-sm text-brand-700 hover:underline hover:underline-offset-2">
             Full price list
           </Link>
@@ -193,7 +194,7 @@ export default function MobileRepairPage() {
 
       {/* Estimator */}
       <section className="container-page pt-10">
-        <h2 className="heading-3">Estimate a repair</h2>
+        <h2 className="heading-3">How can I estimate a mobile phone repair cost?</h2>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-muted">
           Choose a brand and the fault to see a range. The final price depends on the model and the part
           you choose.
@@ -206,7 +207,7 @@ export default function MobileRepairPage() {
       {/* Data safety */}
       <section className="container-page pt-10">
         <div className="card p-5 sm:p-6">
-          <h2 className="text-base font-semibold text-ink">Your data during a repair</h2>
+          <h2 className="text-base font-semibold text-ink">Does a phone repair require access to my data?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
             Screen and battery work does not need your passcode, and we do not open photos, messages or
             banking apps. If you prefer, switch on Android Maintenance Mode or keep the phone locked while
@@ -227,7 +228,7 @@ export default function MobileRepairPage() {
       {/* Guides */}
       <section className="container-page pt-10">
         <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-2">
-          <h2 className="heading-3">Repair guides</h2>
+          <h2 className="heading-3">Which phone repair guides can help?</h2>
           <Link href="/blog" className="text-sm text-brand-700 hover:underline hover:underline-offset-2">
             All guides
           </Link>
@@ -241,7 +242,7 @@ export default function MobileRepairPage() {
 
       {/* FAQ */}
       <section className="container-page pt-10">
-        <h2 className="heading-3">Questions we get at the counter</h2>
+        <h2 className="heading-3">What do customers ask about mobile phone repair?</h2>
         <div className="mt-3 max-w-3xl">
           <FAQAccordion faqs={clusterFaqs} />
         </div>

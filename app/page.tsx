@@ -81,10 +81,10 @@ const productCategories = [
 ];
 
 const steps = [
-  'Bring the phone to the counter or send a photo on WhatsApp.',
-  'We check it and tell you the price and how long it takes.',
-  'You decide. Nothing is opened before you agree.',
-  'We repair it, test it, and give you the warranty slip.'
+  'Bring the device to the workshop or send its model and symptoms on WhatsApp.',
+  'We assess the fault and explain the available repair, price and timing.',
+  'You approve or decline the estimate before paid work begins.',
+  'We complete the agreed repair, test the affected function and explain any applicable warranty.'
 ];
 
 const homeFaqs = [
@@ -135,7 +135,19 @@ export default function Home() {
         <div className="container-page py-12 md:py-20">
           <div className="grid items-center gap-9 lg:grid-cols-[1fr_1fr] lg:gap-14">
             <div className="hero-content">
-              <p className="hero-kicker"><span className="hero-kicker-dot" /> HIMAL PRODUCT & SERVICES <span className="hero-kicker-divider">/</span> SUNDARHARAINCHA</p>
+              <div className="mb-4 flex items-center gap-3">
+                <Image
+                  src={siteAsset('/logo.jpg')}
+                  alt=""
+                  width={52}
+                  height={52}
+                  className="size-12 rounded-xl border border-line bg-white object-cover p-0.5 shadow-sm"
+                />
+                <div>
+                  <p className="text-sm font-bold tracking-wide text-ink">Himal Product &amp; Services</p>
+                  <p className="mt-0.5 text-xs font-medium text-muted">Local electronics repair · Sundarharaincha, Morang</p>
+                </div>
+              </div>
               <h1 className="display-1 mt-4 max-w-2xl">Electronic device repair service in Itahari.</h1>
               <p className="lede mt-5 max-w-xl">
                 From a phone or Bluetooth speaker to a toy, gadget or household electronic, tell us what stopped working.
@@ -201,8 +213,8 @@ export default function Home() {
         <div className="container-page">
           <div className="max-w-2xl">
             <p className="eyebrow">More than mobile repair</p>
-            <h2 className="display-2 mt-1">One place to ask about your electronics</h2>
-            <p className="lede mt-2">We assess a wide range of everyday electronics. For larger devices or less common models, message us first with a photo, brand, model and fault so we can confirm whether it is practical to bring or send in.</p>
+            <h2 className="display-2 mt-1">Can Himal assess phones, speakers, toys and other electronics?</h2>
+            <p className="lede mt-2">Yes. Himal Product and Services accepts repair enquiries for everyday electronics. For larger devices or less common models, send a photo, brand, model and fault first so the shop can confirm whether assessment is available.</p>
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {repairCategories.map(({ title, detail, icon: Icon }) => (
@@ -223,8 +235,8 @@ export default function Home() {
         <div className="container-page">
           <div className="max-w-2xl">
             <p className="eyebrow">Start with the symptom</p>
-            <h2 className="display-2 mt-1">Common faults, explained simply</h2>
-            <p className="lede mt-2">Not sure what to book? Choose the description that sounds closest. The first check tells us whether it is a part, a connection, software, or moisture.</p>
+            <h2 className="display-2 mt-1">What common phone faults can the workshop assess?</h2>
+            <p className="lede mt-2">The workshop assesses screen, battery, charging, audio, water exposure and software symptoms. Choose the closest description and share the model so the team can advise the next step.</p>
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {commonFaults.map(fault => (
@@ -245,7 +257,8 @@ export default function Home() {
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
               <p className="eyebrow">One local shop, help for everyday tech</p>
-              <h2 className="display-2 mt-1">Repair, shop, and set up with confidence</h2>
+              <h2 className="display-2 mt-1">What can you repair, buy or set up at Himal?</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">Himal offers electronics repair, smartphones, accessories, power banks and smart-home devices. Ask the shop to confirm current product stock and repair availability.</p>
             </div>
             <Link href="/contact" className="link-arrow">
               <span>Talk to our team</span>
@@ -280,7 +293,7 @@ export default function Home() {
       <section id="repair-process" className="section border-y border-line bg-surface">
         <div className="container-page">
           <div className="max-w-2xl">
-            <h2 className="display-2">What will the repair cost?</h2>
+            <h2 className="display-2">How much might a phone repair cost?</h2>
             <p className="lede mt-2">
               Pick your brand and the fault. The range covers the part and the labour. The exact price is
               confirmed after we look at the phone.
@@ -305,7 +318,7 @@ export default function Home() {
         <div className="container-page">
           <div className="max-w-2xl">
             <p className="eyebrow">A real local workshop</p>
-            <h2 className="display-2 mt-1">See the kind of electronics work we do</h2>
+            <h2 className="display-2 mt-1">What does electronics diagnosis look like?</h2>
             <p className="mt-2 text-sm leading-6 text-muted">These workshop and device photos help you understand the diagnosis and repair environment before you visit. Exact repair options depend on inspection and parts availability.</p>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -321,7 +334,8 @@ export default function Home() {
         <div className="container-page">
           <div className="mb-8">
             <p className="eyebrow">Shop by what you need</p>
-            <h2 className="display-2 mt-1">Useful tech for work, study and home</h2>
+            <h2 className="display-2 mt-1">What electronics and accessories can you shop for?</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">Browse phones, audio accessories, smart-home devices and power banks. Contact the shop to confirm availability before ordering.</p>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {productCategories.map(category => (
                 <Link key={category.title} href={category.href} className="group overflow-hidden rounded-card border border-line bg-white transition-shadow hover:shadow-[var(--shadow-soft)]">
@@ -337,7 +351,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="display-2">In stock now</h2>
+            <h2 className="display-2">Which products can you order from the shop?</h2>
             <Link href="/products" className="link-arrow">
               <span>All products</span>
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -356,7 +370,7 @@ export default function Home() {
       <section className="section border-y border-line bg-surface">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <h2 className="display-2">How a repair works</h2>
+            <h2 className="display-2">What happens after you request a repair?</h2>
             <ol className="mt-4 space-y-3">
               {steps.map((step, index) => (
                 <li key={step} className="flex gap-3 text-sm leading-6 text-ink-soft">
@@ -367,14 +381,13 @@ export default function Home() {
             </ol>
 
             <p className="mt-4 text-sm leading-6 text-muted">
-              Most screen and battery jobs are finished while you wait. If a part has to be ordered, we
-              tell you the day it will arrive before you leave the phone.
+              Repair time depends on the device, fault and parts availability. We explain the expected timing after diagnosis and before you approve the work.
             </p>
           </div>
 
           <div className="rounded-card border border-brand-200 bg-white p-5 shadow-[var(--shadow-soft)] sm:p-6">
             <p className="eyebrow">Clear, careful, and on your terms</p>
-            <h2 className="display-2 mt-1">You stay in control of the repair</h2>
+            <h2 className="display-2 mt-1">How do you stay in control of a repair?</h2>
             <p className="mt-3 text-sm leading-6 text-muted">
               We explain what we find, the likely cost, and the time needed before work starts. You can ask questions, take the estimate home, or say no.
             </p>
@@ -396,9 +409,9 @@ export default function Home() {
         <div className="container-page grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <p className="eyebrow">Visit us in person</p>
-            <h2 className="display-2 mt-1">Find our workshop</h2>
+            <h2 className="display-2 mt-1">Where is the Himal repair workshop?</h2>
             <p className="mt-3 text-sm leading-6 text-muted">
-              {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province}. {siteConfig.address.landmark}
+              The Himal workshop is at {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province}. {siteConfig.address.landmark}
             </p>
             <p className="mt-2 text-sm text-muted">{siteConfig.openingHours.days} · {siteConfig.openingHours.hours}</p>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -433,7 +446,7 @@ export default function Home() {
           <div className="flex flex-col gap-5 rounded-card border border-brand-200 bg-brand-50 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-7">
             <div className="max-w-2xl">
               <p className="eyebrow">Customer feedback</p>
-              <h2 className="display-2 mt-1">Had a repair or bought from us?</h2>
+              <h2 className="display-2 mt-1">How can I share feedback about a repair or purchase?</h2>
               <p className="mt-2 text-sm leading-6 text-ink-soft">Post a service review or send private feedback to the shop through WhatsApp. Tell us what went well and what we could improve.</p>
             </div>
             <Link href="/feedback" className="btn-primary shrink-0">Leave feedback <ArrowRight className="size-4" aria-hidden="true" /></Link>
@@ -445,7 +458,7 @@ export default function Home() {
       <section className="section border-y border-line bg-surface">
         <div className="container-page">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="display-2">Guides from the bench</h2>
+            <h2 className="display-2">Which repair and product guides can help?</h2>
             <Link href="/blog" className="link-arrow">
               <span>All guides</span>
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -478,7 +491,7 @@ export default function Home() {
       <section className="section">
         <div className="container-page">
           <div className="max-w-3xl">
-            <h2 className="display-2">Common questions</h2>
+            <h2 className="display-2">What do customers ask Himal Product and Services?</h2>
             <div className="mt-4">
               <FAQAccordion faqs={homeFaqs} />
             </div>

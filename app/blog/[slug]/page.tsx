@@ -164,54 +164,30 @@ export default async function BlogPostPage({ params }: Props) {
             ) : (
               <div className="space-y-6">
                 <div className="rounded-card border border-line bg-surface p-4">
-                  <p className="text-sm font-semibold text-ink">The short answer</p>
+                  <p className="text-sm font-semibold text-ink">Quick answer</p>
                   <p className="mt-1 text-sm leading-6 text-ink-soft">{post.problemSolved}</p>
                 </div>
 
                 <div className="prose-page">
-                  <h2>What to know before you decide</h2>
-                  <p>
-                    The notes below are the same questions we use at the counter. Start with the simple
-                    checks, write down the device model, and avoid forcing a connector or opening a sealed
-                    battery if the problem is getting worse.
-                  </p>
+                  <h2>What topics does this guide cover?</h2>
+                  <p>{post.title} covers the following points:</p>
                 </div>
 
                 <ol className="space-y-3">
                   {post.outline.map((item, index) => (
                     <li key={item} className="flex gap-3 border-b border-line pb-3">
                       <span className="text-sm font-semibold tabular-nums text-muted">{index + 1}.</span>
-                      <div>
-                        <p className="text-sm font-semibold text-ink">{item}</p>
-                        <p className="mt-1 text-sm leading-6 text-muted">
-                          We check this early because it separates a quick adjustment from a part that needs
-                          testing. Bring the model number or a clear photo if you are unsure what you are seeing.
-                        </p>
-                      </div>
+                      <p className="text-sm font-semibold text-ink">{item}</p>
                     </li>
                   ))}
                 </ol>
-
-                <div className="prose-page">
-                  <h2>How we handle it in the workshop</h2>
-                  <p>
-                    We begin with a visual check and a short diagnostic. You get the likely cause, the repair
-                    option, and an estimate before any paid work starts. If a part has to be ordered, we tell
-                    you the expected arrival time instead of keeping the phone without an update.
-                  </p>
-                  <p>
-                    After the repair, we test the original symptom and the nearby functions that could be
-                    affected, such as touch, charging, microphone, camera, or wireless connection. The exact
-                    warranty depends on the part and service, and it is written on your receipt.
-                  </p>
-                </div>
               </div>
             )}
 
             {/* FAQs */}
             {post.faqs && post.faqs.length > 0 && (
               <section className="mt-10">
-                <h2 className="heading-3">Common questions</h2>
+                <h2 className="heading-3">What do readers ask about {post.title}?</h2>
                 <div className="mt-3">
                   <FAQAccordion faqs={post.faqs} />
                 </div>

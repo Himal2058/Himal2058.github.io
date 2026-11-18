@@ -35,8 +35,8 @@ export default function ElectronicsRepairPage() {
         <div className="container-page grid items-center gap-8 py-10 md:py-14 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
           <p className="hero-kicker"><span className="hero-kicker-dot" /> REPAIR SUPPORT FROM KOSHI PROVINCE</p>
-          <h1 className="display-1 mt-4 max-w-4xl">From a tiny toy to the TV in your living room.</h1>
-          <p className="lede mt-4 max-w-3xl">Himal Product and Services helps customers in Sundarharaincha, Itahari, Dharan, Biratnagar and nearby eastern Nepal with everyday electronics repair enquiries. If you are elsewhere in Nepal, contact us before sending a device so we can confirm safe courier and repair options.</p>
+          <h1 className="display-1 mt-4 max-w-4xl">Which electronics can you ask Himal to repair in eastern Nepal?</h1>
+          <p className="lede mt-4 max-w-3xl">Himal Product and Services accepts repair enquiries for phones, speakers, toys, gadgets, TVs and household electronics. The workshop is in Sundarharaincha, Morang; customers elsewhere in Nepal should contact the shop to confirm service and courier options.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={getWhatsAppLink('Namaste Himal Product and Services. I need a repair assessment. Device type: __. Brand/model: __. Problem: __. My town/district: __. I can send a photo: yes/no. Please confirm availability and whether I should bring or courier it.')} target="_blank" rel="noopener noreferrer" className="btn-primary"><MessageSquare className="size-4" aria-hidden="true" />Ask about a repair</a>
             <Link href="/mobile-repair" className="btn-outline">Phone repair and estimate <ArrowRight className="size-4" aria-hidden="true" /></Link>
@@ -58,7 +58,7 @@ export default function ElectronicsRepairPage() {
 
       <section className="section">
         <div className="container-page">
-          <div className="max-w-2xl"><p className="eyebrow">What can we check?</p><h2 className="display-2 mt-1">Tell us what stopped working</h2><p className="lede mt-2">We start with a diagnosis. A listed device is an invitation to ask, not a promise that every fault or model can be repaired. Parts, safety, age and damage affect availability.</p></div>
+          <div className="max-w-2xl"><p className="eyebrow">Device types and symptoms</p><h2 className="display-2 mt-1">What electronics repair enquiries can the workshop assess?</h2><p className="lede mt-2">The workshop assesses the device model and reported fault before confirming availability. A listed category is an invitation to ask; parts, safety, age and damage affect whether a repair is practical.</p></div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {groups.map(({ title, icon: Icon, image, alt, examples, note }) => <article key={title} className="card premium-card overflow-hidden">
               <div className="relative aspect-[16/9] overflow-hidden bg-canvas">
@@ -74,8 +74,8 @@ export default function ElectronicsRepairPage() {
           </div>
           <aside className="mt-5 rounded-card border border-line bg-surface p-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
             <div>
-              <h3 className="font-semibold text-ink">Planning a workshop visit?</h3>
-              <p className="mt-1 text-sm leading-6 text-muted">Use this short checklist to prepare your model details, photos and questions before contacting the shop.</p>
+              <h3 className="font-semibold text-ink">What should I send before visiting the workshop?</h3>
+              <p className="mt-1 text-sm leading-6 text-muted">Send the device model, symptoms, your town and a clear photo if useful. The repair visit guide explains what to prepare and how to confirm availability.</p>
             </div>
             <Link href="/blog/electronic-device-repair-itahari-visit-guide" className="link-arrow mt-2 shrink-0 sm:mt-0">Read the repair visit guide <ArrowRight className="size-4" aria-hidden="true" /></Link>
           </aside>
@@ -84,15 +84,15 @@ export default function ElectronicsRepairPage() {
 
       <section className="section border-y border-line bg-surface">
         <div className="container-page grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div><p className="eyebrow">No guesswork</p><h2 className="display-2 mt-1">A clear repair journey</h2><p className="mt-3 text-sm leading-6 text-muted">You stay in control at every step. If a repair is not practical or the quote is not right for you, you can decline after hearing the assessment.</p></div>
+          <div><p className="eyebrow">Assessment and approval</p><h2 className="display-2 mt-1">What happens after I request an electronics repair?</h2><p className="mt-3 text-sm leading-6 text-muted">The shop checks the device, explains the repair options and estimate, and waits for your approval before paid work starts.</p></div>
           <ol className="grid gap-3 sm:grid-cols-2">{steps.map(([title, copy], i) => <li key={title} className="rounded-card border border-line bg-white p-4"><span className="text-xs font-semibold text-brand-700">STEP {i + 1}</span><h3 className="mt-1 font-semibold text-ink">{title}</h3><p className="mt-1 text-sm leading-6 text-muted">{copy}</p></li>)}</ol>
         </div>
       </section>
 
       <section className="section">
         <div className="container-page grid gap-6 md:grid-cols-2">
-          <article className="rounded-card border border-line bg-surface p-5"><h2 className="text-lg font-semibold text-ink">Nearby in eastern Nepal</h2><p className="mt-2 text-sm leading-6 text-muted">Our workshop is in Sundarharaincha-4, Morang, serving repair enquiries from the Itahari–Biratnagar corridor, Dharan and surrounding Sunsari and Morang communities. Call before travelling with a large or heavy device.</p><Link href="/service-areas" className="link-arrow mt-3">View service area details <ArrowRight className="size-4" aria-hidden="true" /></Link></article>
-          <article className="rounded-card border border-line bg-surface p-5"><h2 className="text-lg font-semibold text-ink">From other parts of Nepal?</h2><p className="mt-2 text-sm leading-6 text-muted">We can discuss courier-in repairs for suitable devices. Message first: we will confirm whether the device is serviceable, how to pack it, who pays transport, and the return arrangement before you send it.</p><a href={getWhatsAppLink('Namaste, I am in __ district and want to ask about sending my __ (brand/model) for repair. The fault is __. Please confirm if courier-in service is available and explain packing, transport cost and return delivery before I send it.')} target="_blank" rel="noopener noreferrer" className="link-arrow mt-3">Ask about courier-in service <ArrowRight className="size-4" aria-hidden="true" /></a></article>
+          <article className="rounded-card border border-line bg-surface p-5"><h2 className="text-lg font-semibold text-ink">Where is the electronics repair workshop?</h2><p className="mt-2 text-sm leading-6 text-muted">The workshop is in Sundarharaincha-4, Morang. Contact the shop before travelling with a large or heavy device.</p><Link href="/service-areas" className="link-arrow mt-3">See eastern Nepal service areas <ArrowRight className="size-4" aria-hidden="true" /></Link></article>
+          <article className="rounded-card border border-line bg-surface p-5"><h2 className="text-lg font-semibold text-ink">Can I send a device from another part of Nepal?</h2><p className="mt-2 text-sm leading-6 text-muted">Contact the shop first to confirm whether your device is suitable for courier-in repair and agree on packing, transport cost and return delivery before sending it.</p><a href={getWhatsAppLink('Namaste, I am in __ district and want to ask about sending my __ (brand/model) for repair. The fault is __. Please confirm if courier-in service is available and explain packing, transport cost and return delivery before I send it.')} target="_blank" rel="noopener noreferrer" className="link-arrow mt-3">Ask about courier-in service <ArrowRight className="size-4" aria-hidden="true" /></a></article>
         </div>
       </section>
 

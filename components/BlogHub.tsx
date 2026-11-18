@@ -39,10 +39,10 @@ export function BlogHub() {
       {/* Intro */}
       <section className="border-b border-line bg-surface">
         <div className="container-page py-8 md:py-10">
-          <h1 className="display-1">Guides and repair notes</h1>
+          <h1 className="display-1">What can you learn about electronics repair and products?</h1>
           <p className="lede mt-3 max-w-2xl">
-            Notes written at the bench: what fails, what it costs, and what you can check at home before
-            bringing a device in. {blogTopics.length} articles so far.
+            These guides explain common device faults, repair preparation, product features and smart-home
+            setup. Use the topic filters or search by a device or symptom to find a relevant answer.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ export function BlogHub() {
 
       {/* Guides */}
       <section className="container-page pt-6">
-        <h2 className="sr-only">All guides</h2>
+        <h2 className="sr-only">Which repair and product guides are available?</h2>
         <p className="text-sm text-muted" aria-live="polite">
           {filtered.length} {filtered.length === 1 ? 'guide' : 'guides'}
         </p>
@@ -97,8 +97,7 @@ export function BlogHub() {
         {filtered.length === 0 ? (
           <div className="mt-4 rounded-card border border-line bg-surface p-5">
             <p className="text-sm text-muted">
-              Nothing matches that search. Try a different word, or send us a message and we will answer
-              directly.
+              No guide matches that search. Try a device name or fault, or contact the shop with your question.
             </p>
             <Link href="/contact" className="btn-outline mt-3">
               Ask a question
