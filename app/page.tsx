@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
-import { blogTopics } from '@/data/blogs';
 import { ProductCard } from '@/components/ProductCard';
 import { RepairEstimator } from '@/components/RepairEstimator';
 import { FAQAccordion } from '@/components/FAQAccordion';
@@ -126,7 +125,6 @@ const commonFaults = [
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
-  const guides = blogTopics.filter(post => post.isPillar).slice(0, 3);
 
   return (
     <div>
@@ -454,37 +452,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Guides */}
-      <section className="section border-y border-line bg-surface">
-        <div className="container-page">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="display-2">Which repair and product guides can help?</h2>
-            <Link href="/blog" className="link-arrow">
-              <span>All guides</span>
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </div>
-
-          <ul className="mt-4 divide-y divide-line border-y border-line">
-            {guides.map(guide => (
-              <li key={guide.id}>
-                <Link
-                  href={`/blog/${guide.slug}`}
-                  className="flex flex-col gap-1 py-3 hover:bg-canvas sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                >
-                  <span className="text-sm font-medium text-ink">{guide.title}</span>
-                  <span className="shrink-0 text-xs text-muted">{guide.readTime}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <CtaBand
-        title="Not sure if it can be fixed?"
-        description="Send the phone model and a photo of the problem. We will tell you what it needs and what it costs."
-        whatsappMessage="Hello Himal Product & Services, I have a phone I would like checked: "
+        title="Need help with an electronics fault?"
+        description="Send the device type, model and symptoms. We will confirm assessment availability, the estimate and timing before paid work starts."
+        whatsappMessage="Hello Himal Product & Services, I need help with an electronics repair. Device type: __. Brand/model: __. Fault: __. My town: __."
       />
 
       {/* FAQ */}
@@ -511,6 +482,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="container-page pb-8 text-center text-sm text-muted">
+        Need practical advice?{' '}
+        <Link href="/blog" className="font-medium text-brand-700 underline-offset-2 hover:underline">
+          Browse repair and product guides
+        </Link>
+        .
+      </div>
 
     </div>
   );

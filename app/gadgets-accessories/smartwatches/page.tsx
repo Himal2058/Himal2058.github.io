@@ -11,26 +11,28 @@ export default function SmartwatchesPage() {
   const items = products.filter(p => p.category === 'gadgets-accessories' && p.subcategory === 'smartwatches');
 
   return (
-    <SubcategoryView
-      title="Calling Smartwatches"
-      h1="Bluetooth Calling Smartwatches in Itahari, Nepal"
-      description="Stay connected without pulling out your phone. Features crisp AMOLED Always-On displays, direct wrist Bluetooth calling, heart rate/SpO2 monitors, and IP68 water resistance."
-      parentName="Gadgets & Accessories"
-      parentUrl="/gadgets-accessories"
-      currentUrl="/gadgets-accessories/smartwatches"
-      products={items}
-      highlights={[
-        "Sharp 1.43\" AMOLED Always-On Display",
-        "Clear Bluetooth Calling with Built-in Mic & Speaker",
-        "1-Year Brand Warranty",
-        "Compatible with Android & iPhone"
-      ]}
-      faqs={[
-        {
+    <>
+      <h1>Smartwatches</h1>
+
+      <SubcategoryView
+        title="Calling Smartwatches"
+        h1="Bluetooth Calling Smartwatches in Itahari, Nepal"
+        description="Stay connected without pulling out your phone. Features crisp AMOLED Always-On displays, direct wrist Bluetooth calling, heart rate/SpO2 monitors, and IP68 water resistance."
+        parentName="Gadgets & Accessories"
+        parentUrl="/gadgets-accessories"
+        currentUrl="/gadgets-accessories/smartwatches"
+        products={items}
+        highlights={[
+          "Sharp 1.43\" AMOLED Always-On Display",
+          "Clear Bluetooth Calling with Built-in Mic & Speaker",
+          "1-Year Brand Warranty",
+          "Compatible with Android & iPhone"
+        ]}
+        faqs={[{
           question: "Can I receive phone calls on the smartwatch when my phone is in my bag?",
           answer: "Yes! Single-chip Bluetooth calling lets you answer, reject, or dial calls directly from your wrist within standard Bluetooth range."
-        }
-      ]}
-    />
+        }]}
+      />
+    </>
   );
 }

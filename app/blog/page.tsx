@@ -11,20 +11,24 @@ export const metadata = {
 
 export default function BlogHubPage() {
   return (
-    <div className="pb-12 md:pb-16">
-      <div className="container-page pt-6">
-        <Breadcrumbs items={[{ name: 'Guides', url: '/blog' }]} />
-      </div>
+    <>
+      <h1>Blog</h1>
 
-      <BlogHub />
+      <div className="pb-12 md:pb-16">
+        <div className="container-page pt-6">
+          <Breadcrumbs items={[{ name: 'Guides', url: '/blog' }]} />
+        </div>
 
-      <div className="mt-8">
-        <CtaBand
-          title="Question the guides do not answer?"
-          description="Send the device model and the symptom. You will get an answer from someone at the bench."
-          whatsappMessage="Hello Himal Product & Services, I read a guide on your website and have a question: "
-        />
+        <BlogHub />
+
+        <div className="mt-8">
+          <CtaBand
+            title="Question the guides do not answer?"
+            description="Send the device model and the symptom. You will get an answer from someone at the bench."
+            whatsappMessage="Hello Himal Product & Services, I read a guide on your website and have a question: "
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

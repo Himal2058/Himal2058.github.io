@@ -106,7 +106,7 @@ We test the phone on a USB power meter to see the actual voltage and current. A 
     isPillar: true,
     readTime: "7 min read",
     publishedDate: "2026-03-12",
-    image: "/images/repair 2.jpg",
+    image: "/images/screen-replacement.jfif",
     excerpt: "A cracked screen is not always a full replacement. Here is how to tell whether it is the glass or the panel, and what each repair costs in Itahari.",
     content: `
 A cracked screen is the most common repair we do. What matters for the price is not how big the crack looks, but which layer broke.

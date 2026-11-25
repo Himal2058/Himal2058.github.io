@@ -11,6 +11,9 @@ export default function ChargersCablesPage() {
   const items = products.filter(p => p.category === 'gadgets-accessories' && p.subcategory === 'chargers-cables');
 
   return (
+    <>
+        <h1>Chargers cables</h1>
+
     <SubcategoryView
       title="Fast Chargers & Cables"
       h1="Fast Wall Chargers & High-Power Cables in Itahari"
@@ -32,5 +35,6 @@ export default function ChargersCablesPage() {
         }
       ]}
     />
+    </>
   );
 }

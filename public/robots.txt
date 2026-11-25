@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /wa.me/
+Disallow: /maps/
+Disallow: /google.com/
+Sitemap: https://himalelectronics.vercel.app/sitemap.xml

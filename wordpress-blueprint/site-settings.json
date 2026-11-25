@@ -1,0 +1,78 @@
+{
+  "business": {
+    "name": "Himal Product and Services",
+    "display_name": "Himal Electronics",
+    "tagline": "Everyday electronics repair and products in Eastern Nepal",
+    "established_year": 2022,
+    "description": "A repair workshop and electronics shop in Sundarharaincha, Morang, serving Itahari, Sunsari, Morang and the wider Koshi region. Contact the shop to confirm repair availability, current product stock and delivery arrangements.",
+    "phone_display": "+977 9807391472",
+    "phone_e164": "+9779807391472",
+    "whatsapp_e164_digits": "9779807391472",
+    "email": "himalhb2058@gmail.com",
+    "hours": {
+      "days": "Sunday to Saturday",
+      "opens": "08:00",
+      "closes": "19:00",
+      "timezone": "Asia/Kathmandu",
+      "display": "8:00 AM – 7:00 PM NPT"
+    },
+    "address": {
+      "street": "Sundarharaincha-4",
+      "locality": "Sundarharaincha",
+      "district": "Morang",
+      "province": "Koshi Province",
+      "country": "Nepal",
+      "postal_code": "56600",
+      "latitude": 26.6585252,
+      "longitude": 87.2875835,
+      "map_url": "https://www.google.com/maps/place/Himal+product+and+service/data=!4m7!3m6!1s0x39ef6d33be82599b:0xb67ac2eefb668b5f!8m2!3d26.6585252!4d87.2875835!16s%2Fg%2F11nvxkchr9!19sChIJm1mCvjNt7zkRX4tm--7CerY?authuser=0&hl=en&g_ep=EgoyMDI2MTAyOC4wIJJjKgBIAVAD&rclk=1",
+      "location_note": "The workshop is in Sundarharaincha, Morang, on the Itahari–Biratnagar corridor. Confirm directions and service availability before travelling."
+    },
+    "social_profiles": {
+      "facebook_page": "https://www.facebook.com/profile.php?id=61559803791585",
+      "facebook_messenger": "https://m.me/61559803791585",
+      "hamrobazaar": "https://hamrobazaar.com/user/himal-products-and-service/77E0E07E-1BB2-4D56-B781-13DF38977DB5",
+      "youtube_channel": "https://www.youtube.com/@himalbhattarai-2058",
+      "google_business_profile": "https://www.google.com/maps/place/Himal+product+and+service/data=!4m7!3m6!1s0x39ef6d33be82599b:0xb67ac2eefb668b5f!8m2!3d26.6585252!4d87.2875835!16s%2Fg%2F11nvxkchr9!19sChIJm1mCvjNt7zkRX4tm--7CerY?authuser=0&hl=en&g_ep=EgoyMDI2MTAyOC4wIJJjKgBIAVAD&rclk=1"
+    },
+    "site": {
+      "production_url": "https://himalelectronics.vercel.app",
+      "wordpress_local_site_slug": "himal-electronics",
+      "primary_language": "English",
+      "currency": "NPR",
+      "currency_symbol": "रू",
+      "market": "Nepal"
+    }
+  },
+  "design": {
+    "direction": "Premium, clear local electronics retailer and repair workshop; practical and human, not a generic technology startup",
+    "colors": {
+      "brand_blue": "#1D4ED8",
+      "brand_deep_blue": "#172554",
+      "accent_coral": "#D05F2F",
+      "ink": "#101828",
+      "body_text": "#344054",
+      "muted_text": "#526176",
+      "page_background": "#F5F8FC",
+      "surface": "#FFFFFF",
+      "border": "#E0E7F0",
+      "whatsapp_green": "#1F6B52"
+    },
+    "typography": "System sans-serif stack; clear headings with a 1.2–1.3 line-height, body text at least 16px with about 1.5 line-height.",
+    "layout": "Mobile first; centered content width around 1180px; white cards on cool light blue-grey backgrounds; 16px card radius; generous spacing; no horizontal overflow.",
+    "interaction": "Touch targets at least 44px, visible keyboard focus, clear form labels and inline errors, subtle hover elevation, brief purposeful motion, honor reduced-motion preference.",
+    "imagery": "Use the actual shop/workbench, brand logo, and relevant product photos. Avoid repeating unrelated stock images. Use optimized WebP/AVIF where supported, meaningful alt text and reserved image aspect ratios."
+  },
+  "commerce": {
+    "current_order_flow": "The current site provides a product enquiry/COD request, then opens WhatsApp with order details for the shop to confirm stock, delivery cost and final total.",
+    "payment_methods": ["Cash on delivery", "Store pickup; payment confirmed by the shop"],
+    "online_payment": "No live eSewa or card gateway is confirmed in the current website. Add a Nepal-supported gateway only after the merchant account and keys are configured and tested.",
+    "delivery_policy": "Confirm destination, item, stock, delivery charge and estimated arrival with the shop before promising delivery. Product courier and repair courier-in arrangements depend on destination and item."
+  },
+  "media": {
+    "source_logo": "public/logo.jpg",
+    "source_hero": "public/repair-studio.webp",
+    "source_product_and_repair_photos": "public/images/",
+    "import_note": "Upload these files to WordPress Media Library; reselect them in each product, repair and article record rather than retaining Next.js /images paths."
+  }
+}

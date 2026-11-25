@@ -15,10 +15,10 @@ import {
   Headphones,
   Lightbulb,
   BatteryCharging,
+  ShoppingBag,
   MapPin,
   Clock,
   ShieldCheck,
-  BookOpen,
   ArrowRight,
   Info,
   LifeBuoy
@@ -30,12 +30,11 @@ import { blogTopics } from '@/data/blogs';
 
 const primaryNav = [
   { href: '/electronics-repair', label: 'Electronics repair', icon: Wrench },
+  { href: '/products', label: 'Products', icon: ShoppingBag },
   { href: '/mobile-phones', label: 'Smartphones', icon: Smartphone },
   { href: '/gadgets-accessories', label: 'Accessories', icon: Headphones },
   { href: '/smart-home', label: 'Smart home', icon: Lightbulb },
   { href: '/power-banks', label: 'Power banks', icon: BatteryCharging },
-  { href: '/blog', label: 'Guides', icon: BookOpen },
-  { href: '/service-areas', label: 'Service areas', icon: MapPin },
   { href: '/customer-service', label: 'Help Center', icon: LifeBuoy }
 ];
 
@@ -341,7 +340,7 @@ export function Header() {
                   }`}
                 >
                   <Wrench className="size-4 text-muted" aria-hidden="true" />
-                  <span>Repair services</span>
+                  <span>Phone repair</span>
                   <ChevronDown
                     className={`size-3.5 transition-transform ${repairsOpen ? 'rotate-180' : ''}`}
                     aria-hidden="true"
@@ -355,7 +354,7 @@ export function Header() {
                   >
                     <div className="grid grid-cols-[1.35fr_1fr]">
                       <div className="p-4">
-                        <p className="px-2 pb-2 text-xs text-muted">Repairs in Itahari</p>
+                        <p className="px-2 pb-2 text-xs text-muted">Phone repairs in Itahari</p>
                         <ul>
                           {repairServices.map(service => (
                             <li key={service.id}>
@@ -396,7 +395,7 @@ export function Header() {
                             onClick={() => setRepairsOpen(false)}
                             className="block text-sm text-brand-700 hover:underline hover:underline-offset-2"
                           >
-                            All repair services
+                            All phone repair details
                           </Link>
                         </div>
                       </div>
