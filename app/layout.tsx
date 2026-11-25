@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { JsonLd, getOrganizationSchema } from '@/components/JsonLd';
 import { siteConfig, siteAsset } from '@/data/siteConfig';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -88,6 +89,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <Analytics />
       </body>
     </html>
   );
