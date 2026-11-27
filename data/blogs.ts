@@ -2855,9 +2855,219 @@ To start an enquiry, use the [electronics repair service in Itahari](/electronic
         answer: "No. The website can open a WhatsApp chat with your message ready, but you need to attach the selected photo inside WhatsApp before sending."
       }
     ]
+  },
+  {
+    id: "imei-check-nepal-verify-phone",
+    title: "IMEI Check Nepal: How to Verify Phone IMEI Number",
+    h1: "IMEI Check Nepal: Verify Phone IMEI Number Before Buying",
+    slug: "imei-check-nepal-verify-phone",
+    cluster: "mobile-phones",
+    primaryQuery: "verify phone IMEI Nepal NTA",
+    secondaryQueries: ["check IMEI Nepal", "IMEI number check Nepal", "NTA IMEI verification Nepal"],
+    intent: "Problem-Solving",
+    targetAudience: "Anyone buying or selling a used smartphone in Nepal.",
+    problemSolved: "Step-by-step instructions to verify phone IMEI on the official NTA MDMS portal before purchasing.",
+    parentClusterUrl: "/mobile-phones",
+    relatedClusterSlugs: ["check-phone-warranty-mdms-authenticity-nepal", "mobile-repair"],
+    outline: [
+      "What is IMEI and why it matters when buying a phone",
+      "How to get your phone's 15-digit IMEI number (*#06#)",
+      "How to verify IMEI on the Nepal Telecommunications Authority portal",
+      "What the IMEI check results mean for buyers and sellers",
+      "How to protect yourself from buying blacklisted devices"
+    ],
+    isPillar: false,
+    readTime: "4 min read",
+    publishedDate: "2026-11-25",
+    image: "/images/phone-lineup.jpg",
+    excerpt: "Verify your phone's IMEI number in Nepal before buying. Learn how to check IMEI on the NTA MDMS portal and avoid blacklisted devices.",
+    content: `
+An IMEI check is one of the most important steps before buying a used phone in Nepal. It tells you whether the device is registered on the Nepal Telecommunications Authority (NTA) network and whether it has been reported lost or stolen.
+
+### What is IMEI?
+
+IMEI stands for International Mobile Equipment Identity. It is a unique 15-digit number assigned to every mobile device. Think of it as a fingerprint for your phone — no two devices have the same IMEI.
+
+### Step 1: Get the IMEI Number
+
+Dial *#06# on the phone. The screen will display a 15-digit IMEI number. Write it down or take a screenshot. You will need this number to check the device on the NTA portal.
+
+### Step 2: Check IMEI on the NTA MDMS Portal
+
+Visit the official Nepal Telecommunications Authority MDMS verification portal and enter the IMEI number. The check will return one of three results:
+
+- **Registered:** The device is approved for use on Nepali networks (NTC, Ncell, Smart Cell). Safe to proceed with the purchase.
+- **Blocked:** The device has been reported lost, stolen, or non-compliant. It may lose signal. Do not buy.
+- **Not found:** The IMEI is not in the database. The device is not registered in Nepal. Do not buy.
+
+### Why an IMEI Check Matters
+
+Buying a phone without checking its IMEI is risky. If the device is blocked or not registered, it may suddenly lose network access, making it useless as a phone. An IMEI check takes under two minutes and protects you from fraud.
+
+### Keep the Proof
+
+If you buy the phone, keep the VAT bill and note the IMEI. The bill links the device to you and helps if there is ever an MDMS dispute.
+
+### Protect Yourself
+
+Always check the IMEI before handing over cash. A registered device with a valid VAT bill is the safest purchase.
+    `,
+    faqs: [
+      {
+        question: "Can I check IMEI without the phone in hand?",
+        answer: "You need the 15-digit IMEI number. Ask the seller to provide it from *#06# or from the phone's box label before you agree to buy."
+      },
+      {
+        question: "Does IMEI check cost money in Nepal?",
+        answer: "No. Checking IMEI on the official NTA MDMS portal is free."
+      }
+    ]
+  },
+  {
+    id: "samsung-warranty-check-nepal",
+    title: "Samsung Warranty Check Nepal: Verify Your Phone Warranty",
+    h1: "Samsung Warranty Check Nepal: Verify Genuine Samsung Warranty",
+    slug: "samsung-warranty-check-nepal",
+    cluster: "mobile-phones",
+    primaryQuery: "check Samsung warranty Nepal",
+    secondaryQueries: ["Samsung warranty status Nepal", "Samsung warranty verification Nepal", "check Samsung phone warranty Nepal"],
+    intent: "Commercial Investigation",
+    targetAudience: "Anyone buying or owning a Samsung phone in Nepal who wants to verify warranty status.",
+    problemSolved: "Step-by-step instructions to check Samsung warranty status online using serial number or IMEI.",
+    parentClusterUrl: "/mobile-phones",
+    relatedClusterSlugs: ["check-phone-warranty-mdms-authenticity-nepal", "mobile-phones"],
+    outline: [
+      "Why Samsung warranty verification matters in Nepal",
+      "How to find your Samsung phone's serial number and IMEI",
+      "How to check Samsung warranty status online",
+      "What the warranty check results mean",
+      "What to do if warranty status shows as expired or invalid"
+    ],
+    isPillar: false,
+    readTime: "4 min read",
+    publishedDate: "2026-11-26",
+    image: "/images/samsung-galaxy-a15.jpg",
+    excerpt: "Verify Samsung warranty status in Nepal. Check if your Samsung phone is still under warranty using serial number or IMEI on Samsung's official website.",
+    content: `
+Samsung phones sold in Nepal come with a warranty that covers manufacturing defects for a specific period. Before buying a used Samsung phone or claiming service, you should verify the warranty status to know what is covered.
+
+### Find Your Samsung Phone's Serial Number
+
+Dial *#06# to get the IMEI number. You can also find the serial number in Settings > About phone > Status, or on the original box label.
+
+### Check Samsung Warranty Status Online
+
+Visit Samsung's official website warranty check page and enter your phone's serial number or IMEI. Samsung's warranty checker will show:
+
+- Whether the device is under warranty
+- The warranty start and end dates
+- What is covered under the warranty
+- The country or region where the warranty is valid
+
+### What the Warranty Check Results Mean
+
+- **Active warranty:** The phone is covered for manufacturing defects. You can get free repair or replacement at an authorized Samsung service center.
+- **Expired warranty:** The coverage period has ended. You will pay for any repairs.
+- **Invalid or not found:** The serial number or IMEI may be incorrect, or the device may not be registered for warranty in Nepal.
+
+### What Samsung Warranty Covers
+
+Samsung's warranty typically covers manufacturing defects in materials and workmanship. It does not cover:
+- Accidental damage (drops, liquid exposure)
+- Unauthorized repairs or modifications
+- Normal wear and tear
+- Accessories like chargers and cables
+
+### Buy with Confidence
+
+Before purchasing a used Samsung phone in Nepal, always verify the warranty status. A device with active warranty is worth more and gives you protection if something goes wrong.
+    `,
+    faqs: [
+      {
+        question: "Can I check Samsung warranty without buying from Samsung?",
+        answer: "Yes. Any Samsung phone's warranty can be checked online using its serial number or IMEI, regardless of where it was purchased."
+      },
+      {
+        question: "Does Samsung warranty cover cracked screens in Nepal?",
+        answer: "No. Accidental damage like cracked screens is not covered under standard warranty. You will pay for screen repair out of pocket."
+      }
+    ]
+  },
+  {
+    id: "iphone-warranty-check-nepal",
+    title: "iPhone Warranty Check Nepal: Verify Genuine iPhone Warranty",
+    h1: "iPhone Warranty Check Nepal: Verify Genuine iPhone Warranty Status",
+    slug: "iphone-warranty-check-nepal",
+    cluster: "mobile-phones",
+    primaryQuery: "check iPhone genuine warranty Nepal",
+    secondaryQueries: ["iPhone warranty status Nepal", "check iPhone warranty online Nepal", "verify iPhone warranty Nepal"],
+    intent: "Commercial Investigation",
+    targetAudience: "Anyone buying or owning an iPhone in Nepal who wants to verify warranty status.",
+    problemSolved: "Step-by-step instructions to check iPhone warranty status using serial number on Apple's official website.",
+    parentClusterUrl: "/mobile-phones",
+    relatedClusterSlugs: ["check-phone-warranty-mdms-authenticity-nepal", "mobile-phones/iphone"],
+    outline: [
+      "Why iPhone warranty verification matters in Nepal",
+      "How to find your iPhone's serial number",
+      "How to check iPhone warranty status on Apple's website",
+      "What the warranty check results mean",
+      "What Apple warranty covers and does not cover in Nepal"
+    ],
+    isPillar: false,
+    readTime: "4 min read",
+    publishedDate: "2026-11-26",
+    image: "/images/apple-iphone-15.jpg",
+    excerpt: "Verify iPhone warranty status in Nepal. Check if your iPhone is still under warranty using serial number on Apple's official website.",
+    content: `
+Apple iPhones sold in Nepal come with a limited warranty that covers manufacturing defects for one year from the purchase date. Before buying a used iPhone or claiming service, you should verify the warranty status online.
+
+### Find Your iPhone's Serial Number
+
+Go to Settings > General > About on your iPhone. Look for the Serial Number. You can also find it on the original box or in Settings > General > About > IMEI.
+
+### Check iPhone Warranty Status Online
+
+Visit Apple's official Check Coverage page and enter your iPhone's serial number. Apple's warranty checker will show:
+
+- Whether your iPhone is covered by AppleCare+ or limited warranty
+- The estimated purchase date
+- The warranty expiration date
+- Whether the device is eligible for extended coverage
+
+### What the Warranty Check Results Mean
+
+- **Active warranty:** Your iPhone is covered for manufacturing defects. You can get free repair or replacement at an Apple Authorized Service Provider.
+- **Expired warranty:** The coverage period has ended. You will pay for any repairs.
+- **Not eligible:** The serial number may be invalid, or the device may not be registered for warranty in Nepal.
+
+### What Apple Warranty Covers
+
+Apple's limited warranty covers manufacturing defects for one year from the purchase date. It does not cover:
+- Accidental damage (drops, cracked screens, liquid exposure)
+- Unauthorized repairs or modifications
+- Normal wear and tear (battery degradation, scratches)
+- Lost or stolen devices
+
+### Buy with Confidence
+
+Before purchasing a used iPhone in Nepal, always verify the warranty status. An iPhone with active warranty is worth more and protects you from unexpected repair costs.
+
+### AppleCare+
+
+AppleCare+ extends coverage beyond the standard one-year warranty and includes accidental damage coverage (with a service fee). Check if the previous owner purchased AppleCare+ — it transfers with the device.
+    `,
+    faqs: [
+      {
+        question: "Can I check iPhone warranty without the original box?",
+        answer: "Yes. Find the serial number in Settings > General > About on the iPhone itself, then check it on Apple's website."
+      },
+      {
+        question: "Does Apple warranty cover cracked screens in Nepal?",
+        answer: "No. Accidental damage like cracked screens is not covered under standard warranty. AppleCare+ covers accidental damage with a service fee."
+      }
+    ]
   }
 ];
-
 export function getBlogBySlug(slug: string): BlogPost | undefined {
   return blogTopics.find(b => b.slug === slug);
 }
