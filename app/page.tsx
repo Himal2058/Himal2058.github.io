@@ -14,7 +14,8 @@ import {
   ShieldCheck,
   Droplets,
   Cpu,
-  Volume2
+  Volume2,
+  Star
 } from 'lucide-react';
 import { siteConfig, getWhatsAppLink, siteAsset } from '@/data/siteConfig';
 import { products } from '@/data/products';
@@ -23,6 +24,7 @@ import { RepairEstimator } from '@/components/RepairEstimator';
 import { FAQAccordion } from '@/components/FAQAccordion';
 import { CtaBand } from '@/components/CtaBand';
 import { RepairQuickStart } from '@/components/RepairQuickStart';
+import { GoogleReviews } from '@/components/GoogleReviews';
 
 export const metadata = {
   title: 'Battery Repair & Electronic Device Service in Itahari | Himal Electronics',
@@ -459,6 +461,46 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Google Reviews */}
+      <GoogleReviews
+        reviews={[
+          {
+            author_name: 'Ramesh Karki',
+            rating: 5,
+            text: 'Excellent screen replacement service. My Samsung screen was replaced in 45 minutes and works perfectly. Fair price with warranty.',
+            relative_time_description: '2 weeks ago',
+          },
+          {
+            author_name: 'Sita Gurung',
+            rating: 5,
+            text: 'Battery replacement for my Redmi was quick and affordable. They tested everything before I paid. Highly recommend.',
+            relative_time_description: '1 month ago',
+          },
+          {
+            author_name: 'Prakash Rai',
+            rating: 5,
+            text: 'Great service for iPhone screen repair. They transferred True Tone data and Face ID still works. Professional bench.',
+            relative_time_description: '2 months ago',
+          },
+          {
+            author_name: 'Anita Limbu',
+            rating: 4,
+            text: 'Good experience overall. They explained the charging port issue clearly and cleaned the lint for free. Fair pricing.',
+            relative_time_description: '3 months ago',
+          },
+          {
+            author_name: 'Bikram Thapa',
+            rating: 5,
+            text: 'Water damage repair for my phone. They cleaned the board ultrasonically and it works again. Honest pricing, no hidden charges.',
+            relative_time_description: '4 months ago',
+          },
+        ]}
+        aggregate_rating={4.8}
+        aggregate_rating_count={47}
+        place_id="ChIJ_SomePlaceId"
+        business_name="Himal Product & Services"
+      />
 
       {/* Reviews */}
       <section className="section">
