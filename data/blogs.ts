@@ -1077,12 +1077,12 @@ A VAT bill is proof of purchase and required for warranty claims.
   },
   {
     id: "phone-topic-10",
-    title: "How to Check a Phone's Warranty and MDMS Authenticity in Nepal",
-    h1: "Verify Phone Authenticity in Nepal: MDMS, IMEI & Brand Warranty Check",
+    title: "MDMS Check Nepal: Verify Phone Warranty & Authenticity | Himal Electronics",
+    h1: "MDMS Check: Verify Phone Authenticity & Warranty in Nepal",
     slug: "check-phone-warranty-mdms-authenticity-nepal",
     cluster: "mobile-phones",
-    primaryQuery: "how to check MDMS registration Nepal",
-    secondaryQueries: ["verify phone IMEI Nepal NTA", "check Samsung warranty Nepal", "check iPhone genuine warranty"],
+    primaryQuery: "mdms check Nepal",
+    secondaryQueries: ["mdms check", "verify phone IMEI Nepal NTA", "check Samsung warranty Nepal", "check iPhone genuine warranty", "MDMS registration check Nepal"],
     intent: "Problem-Solving",
     targetAudience: "Anyone buying or verifying a smartphone in Nepal.",
     problemSolved: "Step-by-step instructions for official Nepal Telecommunications Authority (NTA) MDMS portal validation.",
@@ -1092,37 +1092,46 @@ A VAT bill is proof of purchase and required for warranty claims.
       "What is MDMS and why does an unregistered phone risk being blocked in Nepal?",
       "How to retrieve your exact 15-digit IMEI number (*#06#)",
       "Navigating the official NTA MDMS verification portal",
-      "Checking brand manufacturer warranty online (Samsung, Apple, Xiaomi)"
+      "Checking brand manufacturer warranty online (Samsung, Apple, Xiaomi)",
+      "MDMS check results: registered, blocked, or not found"
     ],
     isPillar: false,
-    readTime: "4 min read",
+    readTime: "5 min read",
     publishedDate: "2026-02-05",
     image: "/images/phone-lineup.jpg",
-    excerpt: "Avoid having your mobile network signal blocked. Learn how to verify any phone's IMEI on the official Nepal MDMS portal in under 2 minutes.",
+    excerpt: "Perform an MDMS check on your phone in Nepal. Verify IMEI registration, warranty status, and authenticity on the official NTA portal in under 2 minutes.",
     content: `
-MDMS registration is what keeps your phone connected to Nepali mobile networks. Here is how to check it.
+MDMS registration is what keeps your phone connected to Nepali mobile networks. An MDMS check is essential before buying or selling any phone in Nepal to avoid network blocking and fraud.
 
-### Get the IMEI
+### What is MDMS?
 
-Dial *#06# on the phone. You will see a 15-digit IMEI number. Write it down or screenshot it.
+MDMS (Mobile Device Management System) is Nepal Telecommunications Authority's (NTA) database that tracks all mobile devices using Nepali networks. An unregistered phone can be blocked at any time, losing signal on NTC, Ncell, and Smart Cell networks.
 
-### Check on the NTA portal
+### Step 1: Get the IMEI
 
-Go to the Nepal Telecommunications Authority MDMS verification portal and enter the IMEI. It will tell you if the device is registered, blocked, or not found.
+Dial *#06# on your phone. You will see a 15-digit IMEI number. Write it down or screenshot it. This IMEI is required for the MDMS check.
 
-### What the results mean
+### Step 2: Check on the NTA MDMS Portal
 
-- Registered: The phone is approved for use on Nepali networks.
-- Blocked: The phone has been reported lost, stolen, or non-compliant. It may lose signal.
-- Not found: The IMEI is not in the database. Do not buy the phone.
+Go to the official Nepal Telecommunications Authority MDMS verification portal and enter the IMEI number. The MDMS check will tell you if the device is registered, blocked, or not found.
 
-### Check brand warranty too
+### MDMS Check Results: What They Mean
 
-For Samsung, Apple, and Xiaomi, you can also check warranty status on the brand's official website using the serial number or IMEI.
+- **Registered:** The phone is approved for use on Nepali networks. Safe to buy.
+- **Blocked:** The phone has been reported lost, stolen, or non-compliant. It may lose signal. Do not buy.
+- **Not found:** The IMEI is not in the database. The phone is not registered. Do not buy.
 
-### Keep the bill
+### Step 3: Check Brand Warranty Too
 
-The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill is your proof of purchase.
+For Samsung, Apple, and Xiaomi, you can also check warranty status on the brand's official website using the serial number or IMEI. An MDMS check confirms registration, but the warranty check confirms service eligibility.
+
+### Keep the VAT Bill
+
+The VAT bill links the phone to you. If there is ever an MDMS dispute, the bill is your proof of purchase. Always ask for and keep the VAT bill when buying a phone in Nepal.
+
+### Why an MDMS Check Matters
+
+Buying an unregistered phone means risking sudden network blockage. A quick MDMS check takes under 2 minutes and protects you from buying a blocked or blacklisted device. Always perform an MDMS check before any phone purchase in Nepal.
     `,
     faqs: [
       {

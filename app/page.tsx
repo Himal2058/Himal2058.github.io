@@ -25,9 +25,9 @@ import { CtaBand } from '@/components/CtaBand';
 import { RepairQuickStart } from '@/components/RepairQuickStart';
 
 export const metadata = {
-  title: 'Electronic Device Repair Service in Itahari | Himal Electronics',
+  title: 'Battery Repair & Electronic Device Service in Itahari | Himal Electronics',
   description:
-    'Phone and electronics repair in Sundarharaincha, Morang. Ask about speakers, toys, gadgets, TVs and home electronics, with product delivery and repair enquiries from across Nepal.'
+    'Battery repair and electronic device service in Sundarharaincha, Morang. Fast battery replacement, phone repair, gadget service with MDMS registered devices and warranty.'
 };
 
 const repairCategories = [
@@ -146,7 +146,7 @@ export default function Home() {
                   <p className="mt-0.5 text-xs font-medium text-muted">Local electronics repair · Sundarharaincha, Morang</p>
                 </div>
               </div>
-              <h1 className="display-1 mt-4 max-w-2xl">Electronic device repair service in Itahari.</h1>
+              <h1 className="display-1 mt-4 max-w-2xl">Electronic device and battery repair service in Itahari.</h1>
               <p className="lede mt-5 max-w-xl">
                 From a phone or Bluetooth speaker to a toy, gadget or household electronic, tell us what stopped working.
                 Our workshop is in Sundarharaincha, Morang. We check the device, explain the options, and confirm the price before work starts.
@@ -194,6 +194,28 @@ export default function Home() {
               </div>
               <span className="hero-image-tag"><span className="hero-image-tag-dot" /> REPAIR STUDIO</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section border-b border-line bg-surface">
+        <div className="container-page py-12">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Battery repair &amp; sustainable electronics</p>
+            <h2 className="display-2 mt-2">Why battery repair and recycling matter</h2>
+            <p className="lede mt-4">
+              A failing battery is one of the most common reasons phones slow down or shut off unexpectedly.
+              Our workshop replaces swollen, degraded, and damaged batteries with tested cells that restore
+              full-day endurance. We also accept old batteries for responsible recycling, helping reduce
+              electronic waste in Sunsari and Morang.
+            </p>
+            <p className="mt-4">
+              Extending the life of your device through repair is a form of practical renewable energy
+              thinking — keeping working hardware in use longer means fewer new devices manufactured,
+              fewer raw materials extracted, and less e-waste in landfills. Whether you need a battery
+              replacement, screen repair, or board-level diagnosis, our bench helps your electronics last
+              longer while protecting the environment.
+            </p>
           </div>
         </div>
       </section>
